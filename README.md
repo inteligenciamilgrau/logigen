@@ -30,7 +30,7 @@ As escolhas (nível, quantidade, semente e "Gabarito e esqueleto") ficam salvas 
 - **Sem dicas.** A pergunta é só uma lacuna ("Ludela é ___?"), sem opções, e o prompt não avisa que as palavras são inventadas.
 - **A resposta tem que vir flexionada.** A frase da pergunta obriga a concordar ou conjugar: feminino, plural, gerúndio, 3ª pessoa do plural. A resposta sempre sai do texto, na lógica e na gramática.
 - **Copiar não basta.** A forma pedida nunca é a que já aparece escrita: na concordância com um personagem, ele tem o gênero oposto ao da forma da regra ("Toda ronhilha é vesurdenta" → "O Crodel é vesurdento"). O artigo antes do nome deixa o gênero do personagem explícito.
-- **Lógica e morfologia são medidas separadas.** São habilidades diferentes: nos testes com o Haiku 5.5 low, ele acertou 100% da lógica e só 42% das flexões (ver `testes/`).
+- **Lógica e morfologia são medidas separadas.** São habilidades diferentes: nos testes com o Haiku 5.5, ele acertou 100% da lógica tanto no esforço low quanto no max, mas só 20% (low) e 50% (max) das flexões (ver `testes/`).
 - **Correção automática e exata.** Toda palavra inventada é única no lote. Certo = a forma exata pedida; flexão errada = palavra certa na forma errada (acertou a lógica, errou a gramática); errado = outra palavra.
 
 ## 📶 Níveis e esqueletos
