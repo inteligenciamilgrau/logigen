@@ -125,6 +125,7 @@ function acharArmadilhas(modelo, sujeitos, candidatos, resposta) {
 
 // --- TEXTO ---
 // Cada tipo de linha vira sempre a mesma frase, sem sinônimos (ver niveis.js).
+// O esqueleto é o mesmo nos dois idiomas; só a frase muda (FRASES.pt e FRASES.en, abaixo).
 const todo = (g) => g.genero === 'm' ? 'Todo' : 'Toda';
 const artigo = (g) => g.genero === 'm' ? 'um' : 'uma';
 // Artigo antes do nome deixa o gênero do personagem escrito no texto ("o Crodel", "a Flunice");
@@ -141,22 +142,6 @@ function predicar(p, genero, plural) {
     return plural ? p.plural : p.presente;
 }
 
-function fraseRegra({ se, entao }) {
-    if (se.classe === 'substantivo') return `${todo(se)} ${se.palavra} ${predicar(entao, se.genero, false)}.`;
-    return `Quem ${predicar(se, 'm', false)} ${predicar(entao, 'm', false)}.`;
-}
-
-function fraseFato({ sujeitos, predicado }) {
-    return maiuscula(`${nomes(sujeitos)} ${predicar(predicado, generoDe(sujeitos), sujeitos.length > 1)}.`);
-}
-
-// Forma de dicionário (masculino singular, infinitivo): como as palavras aparecem na legenda
-function formaDicionario(p) {
-    if (p.classe === 'adjetivo') return p.m;
-    if (p.classe === 'verbo') return p.infinitivo;
-    return p.palavra;
-}
-
 // O que vem antes da lacuna, conforme o verbo da pergunta e a classe da resposta
 const MOLDES = {
     'é': { adjetivo: 'é ', verbo: '' },
@@ -165,21 +150,69 @@ const MOLDES = {
     'estão': { verbo: 'estão ' }
 };
 
-// "A Xemela é ___?", "A Xemela e o Zuvrel ___?", "A Xemela está ___?" — sem opções, sem dica
-function frasePergunta(sujeitos, verbo, classe) {
-    return maiuscula(`${nomes(sujeitos)} ${MOLDES[verbo][classe]}___?`);
+// Inglês: nome sem artigo (não há gênero para marcar), "a"/"an" antes do substantivo,
+// adjetivo sem flexão. "Every blick is drovish." / "Whoever florps is drovish." / "Zorin is a blick."
+const nomesEn = (sujeitos) => sujeitos.map(x => x.palavra).join(' and ');
+const artigoEn = (palavra) => /^[aeiou]/.test(palavra) ? 'an' : 'a';
+function predicarEn(p, plural) {
+    if (p.classe === 'substantivo') return plural ? `are ${p.plural}` : `is ${artigoEn(p.palavra)} ${p.palavra}`;
+    if (p.classe === 'adjetivo') return `${plural ? 'are' : 'is'} ${p.m}`;
+    return plural ? p.plural : p.presente;
 }
 
-// A forma que a frase da pergunta exige, e o nome dessa flexão
-function flexionar(p, verbo, sujeitos) {
-    const plural = sujeitos.length > 1;
-    if (p.classe === 'adjetivo') {
-        const g = generoDe(sujeitos);
-        return { forma: p[g + (plural ? 'p' : '')], flexao: `${g === 'm' ? 'masculino' : 'feminino'} ${plural ? 'plural' : 'singular'}` };
+const FRASES = {
+    pt: {
+        regra: ({ se, entao }) => se.classe === 'substantivo'
+            ? `${todo(se)} ${se.palavra} ${predicar(entao, se.genero, false)}.`
+            : `Quem ${predicar(se, 'm', false)} ${predicar(entao, 'm', false)}.`,
+        fato: ({ sujeitos, predicado }) => maiuscula(`${nomes(sujeitos)} ${predicar(predicado, generoDe(sujeitos), sujeitos.length > 1)}.`),
+        // "A Xemela é ___?", "A Xemela e o Zuvrel ___?", "A Xemela está ___?" — sem opções, sem dica
+        pergunta: (sujeitos, verbo, classe) => maiuscula(`${nomes(sujeitos)} ${MOLDES[verbo][classe]}___?`),
+        // A forma que a frase da pergunta exige, e o nome dessa flexão
+        flexionar: (p, verbo, sujeitos) => {
+            const plural = sujeitos.length > 1;
+            if (p.classe === 'adjetivo') {
+                const g = generoDe(sujeitos);
+                return { forma: p[g + (plural ? 'p' : '')], flexao: `${g === 'm' ? 'masculino' : 'feminino'} ${plural ? 'plural' : 'singular'}` };
+            }
+            if (verbo.startsWith('est')) return { forma: p.gerundio, flexao: 'gerúndio' };
+            return plural ? { forma: p.plural, flexao: 'presente, eles' } : { forma: p.presente, flexao: 'presente, ele' };
+        }
+    },
+    en: {
+        regra: ({ se, entao }) => se.classe === 'substantivo'
+            ? `Every ${se.palavra} ${predicarEn(entao, false)}.`
+            : `Whoever ${predicarEn(se, false)} ${predicarEn(entao, false)}.`,
+        fato: ({ sujeitos, predicado }) => maiuscula(`${nomesEn(sujeitos)} ${predicarEn(predicado, sujeitos.length > 1)}.`),
+        // O "está" do português vira "What is X doing?": sem isso, "Zorin is ___?" aceitaria
+        // também um adjetivo, e a lacuna não diria que a resposta é um verbo no gerúndio
+        pergunta: (sujeitos, verbo, classe) => {
+            const n = nomesEn(sujeitos), plural = sujeitos.length > 1;
+            if (verbo.startsWith('est')) return plural ? `What are ${n} doing? They are ___?` : `What is ${n} doing? ${n} is ___?`;
+            if (classe === 'adjetivo') return `${n} ${plural ? 'are' : 'is'} ___?`;
+            return `${n} ___?`;
+        },
+        flexionar: (p, verbo, sujeitos) => {
+            const plural = sujeitos.length > 1;
+            if (p.classe === 'adjetivo') return { forma: p.m, flexao: 'adjective (no inflection)' };
+            if (verbo.startsWith('est')) return { forma: p.gerundio, flexao: 'gerund (-ing)' };
+            return plural ? { forma: p.plural, flexao: 'present, they' } : { forma: p.presente, flexao: 'present, he/she' };
+        }
     }
-    if (verbo.startsWith('est')) return { forma: p.gerundio, flexao: 'gerúndio' };
-    return plural ? { forma: p.plural, flexao: 'presente, eles' } : { forma: p.presente, flexao: 'presente, ele' };
+};
+
+function fraseRegra(r, idioma = 'pt') { return FRASES[idioma].regra(r); }
+function fraseFato(f, idioma = 'pt') { return FRASES[idioma].fato(f); }
+
+// Forma de dicionário (masculino singular, infinitivo): como as palavras aparecem na legenda
+function formaDicionario(p) {
+    if (p.classe === 'adjetivo') return p.m;
+    if (p.classe === 'verbo') return p.infinitivo;
+    return p.palavra;
 }
+
+function frasePergunta(sujeitos, verbo, classe, idioma = 'pt') { return FRASES[idioma].pergunta(sujeitos, verbo, classe); }
+function flexionar(p, verbo, sujeitos, idioma = 'pt') { return FRASES[idioma].flexionar(p, verbo, sujeitos); }
 
 // Personagens, depois grupos, adjetivos e verbos, cada um em ordem: X1 X2 · G1 G2 · A1 A2
 function ordenarLetras(variaveis) {
@@ -189,7 +222,7 @@ function ordenarLetras(variaveis) {
 }
 
 // --- MONTAGEM ---
-function montarDesafio(nivel, s, lexico, numero) {
+function montarDesafio(nivel, s, lexico, numero, idioma = 'pt') {
     const variante = s.item(Object.keys(NIVEIS[nivel].variantes));
     const esq = esqueletoDe(nivel, variante);
     const { verbo } = esq.pergunta;
@@ -197,15 +230,16 @@ function montarDesafio(nivel, s, lexico, numero) {
     const palavra = {};
     for (const v of esq.variaveis) {
         const tipo = tipoDaVariavel(v);
-        // Gerúndio: só verbos em -ar, para a forma pedida sair do texto (ver niveis.js)
+        // Gerúndio: só verbos em -ar, para a forma pedida sair do texto (ver niveis.js).
+        // Em inglês todo verbo já serve (o radical termina em duas consoantes: "+ing")
         palavra[v] = tipo === 'verbo' && gerundio ? lexico.verbo(PRIMEIRA) : lexico[tipo]();
     }
 
     // Concordância com um personagem só ("X1 é ___?" com resposta adjetivo): o personagem
     // recebe o gênero oposto ao da forma que aparece na regra. Senão, copiar a regra já
-    // acertaria e o teste não mediria a concordância.
+    // acertaria e o teste não mediria a concordância. Em inglês o adjetivo não tem gênero.
     const [letraUnica, ...outros] = esq.pergunta.sujeitos;
-    if (verbo === 'é' && !outros.length && tipoDaVariavel(esq.resposta) === 'adjetivo') {
+    if (idioma === 'pt' && verbo === 'é' && !outros.length && tipoDaVariavel(esq.resposta) === 'adjetivo') {
         const generosVisiveis = new Set(esq.regras.filter(r => r.entao === esq.resposta)
             .map(r => tipoDaVariavel(r.se) === 'substantivo' ? palavra[r.se].genero : 'm'));
         const atual = palavra[letraUnica].genero;
@@ -240,11 +274,11 @@ function montarDesafio(nivel, s, lexico, numero) {
         const quais = armadilhas.map(a => `"${a.regra.esqueleto}"`).join(', ');
         throw erro(`achei ${armadilhas.length} armadilha${armadilhas.length === 1 ? '' : 's'}${quais ? ` (${quais})` : ''}, mas o nível pede ${armadilhasDoNivel}.`);
     }
-    const { forma, flexao } = flexionar(resposta, verbo, sujeitos);
+    const { forma, flexao } = flexionar(resposta, verbo, sujeitos, idioma);
 
     const regrasArmadilha = new Set(armadilhas.map(a => a.regra));
-    const regras = s.embaralhar(modelo.regras).map(r => ({ texto: fraseRegra(r), esqueleto: r.esqueleto, armadilha: regrasArmadilha.has(r) }));
-    const fatos = modelo.fatos.map(f => ({ texto: fraseFato(f), esqueleto: f.esqueleto }));
+    const regras = s.embaralhar(modelo.regras).map(r => ({ texto: fraseRegra(r, idioma), esqueleto: r.esqueleto, armadilha: regrasArmadilha.has(r) }));
+    const fatos = modelo.fatos.map(f => ({ texto: fraseFato(f, idioma), esqueleto: f.esqueleto }));
     const letrasSujeito = esq.pergunta.sujeitos.join(' e ');
     const verboDaConclusao = sujeitos.length > 1 ? 'são' : 'é';
     const letras = ordenarLetras(esq.variaveis);
@@ -253,8 +287,9 @@ function montarDesafio(nivel, s, lexico, numero) {
         numero,
         nivel,
         variante,
+        idioma,
         linhas: [...regras, ...fatos],
-        pergunta: { texto: frasePergunta(sujeitos, verbo, resposta.classe), esqueleto: esq.pergunta.texto },
+        pergunta: { texto: frasePergunta(sujeitos, verbo, resposta.classe, idioma), esqueleto: esq.pergunta.texto },
         resposta: forma,
         flexao,
         chave: resposta.chave,
@@ -269,7 +304,7 @@ function montarDesafio(nivel, s, lexico, numero) {
         armadilhas: armadilhas.map(a => ({
             regra: a.regra.esqueleto,
             conclusao: `${letrasSujeito} ${verboDaConclusao} ${a.leva.map(p => letraDe.get(p)).join(', ')}`,
-            palavras: a.leva.map(p => flexionar(p, verbo, sujeitos).forma)
+            palavras: a.leva.map(p => flexionar(p, verbo, sujeitos, idioma).forma)
         })),
         chavesArmadilha: armadilhas.flatMap(a => a.leva.map(p => p.chave)),
         legenda: letras.map(v => ({ letra: v, palavra: formaDicionario(palavra[v]), classe: palavra[v].classe })),
@@ -278,10 +313,10 @@ function montarDesafio(nivel, s, lexico, numero) {
     };
 }
 
-function gerarLote(nivel, quantidade, semente) {
+function gerarLote(nivel, quantidade, semente, idioma = 'pt') {
     const s = criarSorteio(semente);
-    const lexico = criarLexico(s);
-    return Array.from({ length: quantidade }, (_, i) => montarDesafio(nivel, s, lexico, i + 1));
+    const lexico = criarLexico(s, idioma);
+    return Array.from({ length: quantidade }, (_, i) => montarDesafio(nivel, s, lexico, i + 1, idioma));
 }
 
 // --- PROMPT ---
@@ -289,14 +324,19 @@ function gerarLote(nivel, quantidade, semente) {
 // precisa flexionar. O lote só pede o formato "1: resposta", para a correção ler.
 const corpoDoDesafio = (d) => `${d.linhas.map(l => l.texto).join('\n')}\n${d.pergunta.texto}`;
 
+const PEDIDOS = {
+    pt: { lote: 'Responda esses desafios, uma resposta por linha no formato "1: resposta":', desafio: 'Desafio', unico: 'Responda esse desafio:' },
+    en: { lote: 'Answer these challenges, one answer per line in the format "1: answer":', desafio: 'Challenge', unico: 'Answer this challenge:' }
+};
+
 function montarPrompt(desafios) {
-    return 'Responda esses desafios, uma resposta por linha no formato "1: resposta":\n\n' +
-        desafios.map(d => `Desafio ${d.numero}\n${corpoDoDesafio(d)}`).join('\n\n');
+    const p = PEDIDOS[desafios[0]?.idioma ?? 'pt'];
+    return `${p.lote}\n\n` + desafios.map(d => `${p.desafio} ${d.numero}\n${corpoDoDesafio(d)}`).join('\n\n');
 }
 
 // Um desafio só, para mandar manualmente
 function montarPromptUnico(d) {
-    return `Responda esse desafio:\n\n${corpoDoDesafio(d)}`;
+    return `${PEDIDOS[d.idioma ?? 'pt'].unico}\n\n${corpoDoDesafio(d)}`;
 }
 
 // --- CORREÇÃO ---
@@ -304,13 +344,13 @@ function normalizar(texto) {
     return texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 
-// Lê linhas no formato "3: resposta" (aceita "3.", "3)", "Desafio 3:", negrito...).
+// Lê linhas no formato "3: resposta" (aceita "3.", "3)", "Desafio 3:", "Challenge 3:", negrito...).
 // Se o número aparecer mais de uma vez, vale a última (a lista final da IA).
 function lerRespostas(texto) {
     const respostas = new Map();
     for (const bruta of texto.split(/\r?\n/)) {
         const linha = bruta.replace(/[*_`#>]/g, '').trim();
-        const m = linha.match(/^(?:desafio|quest[aã]o|pergunta|resposta)?\s*(\d{1,3})\s*[:.)\-–—]\s*(.+)$/i);
+        const m = linha.match(/^(?:desafio|quest[aã]o|pergunta|resposta|challenge|question|answer)?\s*(\d{1,3})\s*[:.)\-–—]\s*(.+)$/i);
         if (m) respostas.set(parseInt(m[1], 10), m[2].trim());
     }
     return respostas;

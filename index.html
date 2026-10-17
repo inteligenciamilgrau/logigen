@@ -27,7 +27,7 @@
 
     <!-- HEADER -->
     <header class="bg-slate-900 border-b border-slate-800 p-6 sticky top-0 z-50 shadow-xl">
-        <div class="max-w-6xl mx-auto flex items-center gap-3">
+        <div class="max-w-6xl mx-auto flex flex-wrap items-center gap-3">
             <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-2.5 rounded-xl shadow-lg shadow-purple-900/40">
                 <i data-lucide="brain-circuit" class="text-white"></i>
             </div>
@@ -35,37 +35,56 @@
                 <h1 class="text-2xl font-black text-white tracking-tight">
                     LogiGen <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Pro Max</span>
                 </h1>
-                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-0.5">Lógica em português com palavras que nenhuma IA viu</p>
+                <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-0.5" data-i18n="slogan">Lógica em português com palavras que nenhuma IA viu</p>
+            </div>
+            <div class="ml-auto flex flex-wrap items-center gap-3">
+                <nav class="flex items-center gap-1 bg-slate-950 border border-slate-800 rounded-xl p-1 text-xs font-black uppercase tracking-widest">
+                    <button data-aba="gerador" onclick="mostrarAba('gerador')" class="aba flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span data-i18n="aba_gerador">Gerador</span>
+                    </button>
+                    <button data-aba="pesquisa" onclick="mostrarAba('pesquisa')" class="aba flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all">
+                        <i data-lucide="chart-line" class="w-3.5 h-3.5"></i> <span data-i18n="aba_pesquisa">Pesquisa</span>
+                    </button>
+                    <span class="flex items-center gap-1.5 px-3 py-2 text-slate-600 cursor-not-allowed" data-i18n-title="benchmarks_title" title="Benchmarks: em breve, quando as bases dos níveis estiverem prontas">
+                        <i data-lucide="trophy" class="w-3.5 h-3.5"></i> <span class="hidden sm:inline">Benchmarks <span class="normal-case font-bold tracking-normal text-[9px]" data-i18n="em_breve">em breve</span></span>
+                    </span>
+                </nav>
+                <!-- Idioma do site e dos desafios: as bandeiras vêm de idiomas.js -->
+                <div id="bandeiras" class="flex items-center gap-1.5"></div>
             </div>
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto p-6 pb-20 grid lg:grid-cols-12 gap-8 items-start">
+    <!-- ABA PESQUISA: gráficos das baterias de teste (pesquisa.js) -->
+    <main id="aba-pesquisa" class="hidden max-w-6xl mx-auto p-6 pb-20 space-y-6"></main>
+
+    <!-- ABA GERADOR -->
+    <main id="aba-gerador" class="max-w-6xl mx-auto p-6 pb-20 grid lg:grid-cols-12 gap-8 items-start">
 
         <!-- COLUNA ESQUERDA: gerar e testar -->
         <!-- Fixa na tela, mas com rolagem própria: se ficar mais alta que a janela, rola por dentro -->
         <div id="coluna-esquerda" class="lg:col-span-4 space-y-6 lg:sticky lg:top-32 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto lg:pr-2 custom-scrollbar">
             <section class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
                 <h2 class="font-bold text-white uppercase text-sm tracking-widest flex items-center gap-2 mb-5">
-                    <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i> 1. Gerar
+                    <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i> <span data-i18n="gerar_titulo">1. Gerar</span>
                 </h2>
 
-                <label for="nivel" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Nível</label>
+                <label for="nivel" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" data-i18n="nivel">Nível</label>
                 <select id="nivel" onchange="mostrarNivel()" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm text-white outline-none"></select>
                 <p id="nivel-descricao" class="text-[11px] text-slate-500 leading-relaxed mt-2 mb-3"></p>
-                <div class="text-[9px] font-black text-yellow-500/80 uppercase tracking-widest mb-1">Esqueleto <span class="normal-case font-normal text-slate-600">(niveis.js)</span></div>
+                <div class="text-[9px] font-black text-yellow-500/80 uppercase tracking-widest mb-1"><span data-i18n="esqueleto">Esqueleto</span> <span class="normal-case font-normal text-slate-600">(niveis.js)</span></div>
                 <pre id="nivel-esqueleto" class="text-[11px] font-mono text-yellow-200/80 bg-slate-950 border border-yellow-900/30 rounded-lg p-3 mb-5 max-h-56 overflow-auto custom-scrollbar"></pre>
 
                 <div class="grid grid-cols-2 gap-3 mb-5">
                     <div>
-                        <label for="quantidade" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Desafios</label>
+                        <label for="quantidade" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" data-i18n="desafios_rotulo">Desafios</label>
                         <input id="quantidade" type="number" min="1" max="50" value="10" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm text-white outline-none focus:border-blue-500">
                     </div>
                     <div>
-                        <label for="semente" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Semente</label>
+                        <label for="semente" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" data-i18n="semente">Semente</label>
                         <div class="flex gap-1">
                             <input id="semente" type="number" class="w-full min-w-0 bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm text-white font-mono outline-none focus:border-blue-500">
-                            <button onclick="novaSemente()" class="shrink-0 px-3 bg-slate-950 border border-slate-700 hover:border-slate-500 rounded-lg text-slate-300" title="Sortear outra semente">
+                            <button onclick="novaSemente()" class="shrink-0 px-3 bg-slate-950 border border-slate-700 hover:border-slate-500 rounded-lg text-slate-300" data-i18n-title="nova_semente" title="Sortear outra semente">
                                 <i data-lucide="shuffle" class="w-4 h-4"></i>
                             </button>
                         </div>
@@ -73,25 +92,25 @@
                 </div>
 
                 <button onclick="gerar()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-black py-4 rounded-xl flex justify-center items-center gap-2 transition-all shadow-lg shadow-purple-900/30 active:scale-[0.97]">
-                    <i data-lucide="play" class="w-4 h-4"></i> Gerar desafios
+                    <i data-lucide="play" class="w-4 h-4"></i> <span data-i18n="botao_gerar">Gerar desafios</span>
                 </button>
-                <p class="text-[10px] text-slate-600 mt-3 leading-relaxed">A mesma semente gera sempre os mesmos desafios. Use-a para testar várias IAs com a mesma prova.</p>
+                <p class="text-[10px] text-slate-600 mt-3 leading-relaxed" data-i18n="nota_semente">A mesma semente gera sempre os mesmos desafios. Use-a para testar várias IAs com a mesma prova.</p>
             </section>
 
             <section class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
                 <h2 class="font-bold text-white uppercase text-sm tracking-widest flex items-center gap-2 mb-5">
-                    <i data-lucide="flask-conical" class="w-4 h-4 text-emerald-400"></i> 2. Testar
+                    <i data-lucide="flask-conical" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="testar_titulo">2. Testar</span>
                 </h2>
 
                 <button onclick="copiarPrompt(this)" class="w-full flex justify-center items-center gap-2 text-xs font-black uppercase text-blue-300 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 py-3 rounded-xl transition-all mb-4">
-                    <i data-lucide="copy" class="w-4 h-4"></i> <span>Copiar prompt para a IA</span>
+                    <i data-lucide="copy" class="w-4 h-4"></i> <span data-i18n="copiar_prompt">Copiar prompt para a IA</span>
                 </button>
 
-                <label for="resposta-ia" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Resposta da IA</label>
-                <textarea id="resposta-ia" rows="6" placeholder="Cole aqui a resposta completa da IA..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white font-mono outline-none focus:border-emerald-500 custom-scrollbar"></textarea>
+                <label for="resposta-ia" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2" data-i18n="resposta_ia">Resposta da IA</label>
+                <textarea id="resposta-ia" rows="6" data-i18n-placeholder="resposta_placeholder" placeholder="Cole aqui a resposta completa da IA..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white font-mono outline-none focus:border-emerald-500 custom-scrollbar"></textarea>
 
                 <button onclick="corrigirRespostas()" class="w-full mt-3 bg-emerald-600 hover:bg-emerald-500 text-white font-black uppercase tracking-wider py-3 rounded-xl transition-all shadow-lg active:scale-[0.98]">
-                    Corrigir
+                    <span data-i18n="corrigir">Corrigir</span>
                 </button>
 
                 <div id="placar" class="hidden mt-5 p-4 rounded-xl border text-center"></div>
@@ -101,11 +120,11 @@
         <!-- COLUNA DIREITA: desafios -->
         <section class="lg:col-span-8">
             <div class="flex flex-wrap items-center gap-3 mb-4">
-                <h2 class="text-xl font-black text-white uppercase tracking-tight">Desafios</h2>
+                <h2 class="text-xl font-black text-white uppercase tracking-tight" data-i18n="desafios_titulo">Desafios</h2>
                 <span id="lote-info" class="text-[10px] text-slate-500 font-mono"></span>
                 <label class="ml-auto flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest cursor-pointer select-none">
                     <input id="mostrar-gabarito" type="checkbox" checked onchange="alternarGabarito()" class="accent-emerald-500">
-                    Gabarito e esqueleto
+                    <span data-i18n="gabarito_toggle">Gabarito e esqueleto</span>
                 </label>
             </div>
             <div id="cores-legenda" class="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-widest mb-4"></div>
@@ -119,6 +138,10 @@
     <script src="palavras.js"></script>
     <script src="niveis.js"></script>
     <script src="logica.js"></script>
+    <!-- dicionario-en.js não entra aqui: o app.js carrega só quando o inglês é escolhido -->
+    <script src="idiomas.js"></script>
+    <script src="pesquisa-dados.js"></script>
+    <script src="pesquisa.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
