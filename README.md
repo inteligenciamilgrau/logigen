@@ -19,6 +19,8 @@ Abra o `index.html` no navegador (só precisa de internet para o Tailwind, os í
 
 A **semente** garante que o mesmo lote se repita: use a mesma semente para comparar IAs diferentes na mesma prova.
 
+As escolhas (nível, quantidade, semente e "Gabarito e esqueleto") ficam salvas no navegador: ao voltar ao site, tudo reabre como estava, com o mesmo lote de desafios.
+
 ## 🧠 Princípios
 
 - **O gabarito nunca é escrito à mão.** Cada desafio nasce de um esqueleto lógico; um solucionador deduz a resposta e confere que ela é a única possível antes de o desafio virar texto.

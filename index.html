@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track,
+        .custom-scrollbar::-webkit-scrollbar-corner { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
         .animate-fade-in { animation: fadeIn 0.3s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -38,7 +39,8 @@
     <main class="max-w-6xl mx-auto p-6 pb-20 grid lg:grid-cols-12 gap-8 items-start">
 
         <!-- COLUNA ESQUERDA: gerar e testar -->
-        <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-32">
+        <!-- Fixa na tela, mas com rolagem própria: se ficar mais alta que a janela, rola por dentro -->
+        <div id="coluna-esquerda" class="lg:col-span-4 space-y-6 lg:sticky lg:top-32 lg:max-h-[calc(100vh-9rem)] lg:overflow-y-auto lg:pr-2 custom-scrollbar">
             <section class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
                 <h2 class="font-bold text-white uppercase text-sm tracking-widest flex items-center gap-2 mb-5">
                     <i data-lucide="sparkles" class="w-4 h-4 text-purple-400"></i> 1. Gerar
@@ -48,7 +50,7 @@
                 <select id="nivel" onchange="mostrarNivel()" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm text-white outline-none"></select>
                 <p id="nivel-descricao" class="text-[11px] text-slate-500 leading-relaxed mt-2 mb-3"></p>
                 <div class="text-[9px] font-black text-yellow-500/80 uppercase tracking-widest mb-1">Esqueleto <span class="normal-case font-normal text-slate-600">(niveis.js)</span></div>
-                <pre id="nivel-esqueleto" class="text-[11px] font-mono text-yellow-200/80 bg-slate-950 border border-yellow-900/30 rounded-lg p-3 mb-5 overflow-x-auto custom-scrollbar"></pre>
+                <pre id="nivel-esqueleto" class="text-[11px] font-mono text-yellow-200/80 bg-slate-950 border border-yellow-900/30 rounded-lg p-3 mb-5 max-h-56 overflow-auto custom-scrollbar"></pre>
 
                 <div class="grid grid-cols-2 gap-3 mb-5">
                     <div>

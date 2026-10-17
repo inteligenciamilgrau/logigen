@@ -75,6 +75,36 @@ function mostrarNivel() {
 
 function novaSemente() {
     $('semente').value = Math.floor(Math.random() * 900000) + 100000;
+    salvarEscolhas();
+}
+
+// --- ESCOLHAS SALVAS ---
+// Nível, quantidade, semente e gabarito ficam no navegador para a próxima visita.
+// Com a mesma semente, o lote gerado ao voltar é o mesmo de antes.
+const ESCOLHAS_KEY = 'logigen_escolhas';
+
+function salvarEscolhas() {
+    try {
+        localStorage.setItem(ESCOLHAS_KEY, JSON.stringify({
+            nivel: $('nivel').value,
+            quantidade: $('quantidade').value,
+            semente: $('semente').value,
+            gabarito: $('mostrar-gabarito').checked
+        }));
+    } catch (e) {}
+}
+
+// Devolve true se havia escolhas salvas. Ignora valores que não servem mais
+// (ex.: um nível que deixou de existir).
+function carregarEscolhas() {
+    let salvas = null;
+    try { salvas = JSON.parse(localStorage.getItem(ESCOLHAS_KEY)); } catch (e) {}
+    if (!salvas) return false;
+    if (NIVEIS[salvas.nivel]) $('nivel').value = salvas.nivel;
+    if (parseInt(salvas.quantidade, 10) > 0) $('quantidade').value = salvas.quantidade;
+    if (parseInt(salvas.semente, 10) > 0) $('semente').value = salvas.semente;
+    if (typeof salvas.gabarito === 'boolean') $('mostrar-gabarito').checked = salvas.gabarito;
+    return true;
 }
 
 function gerar() {
@@ -83,6 +113,7 @@ function gerar() {
     if (!$('semente').value) novaSemente();
     const semente = parseInt($('semente').value, 10);
     $('quantidade').value = quantidade;
+    salvarEscolhas();
 
     try {
         desafios = gerarLote(nivel, quantidade, semente);
@@ -210,8 +241,12 @@ function init() {
     $('nivel').innerHTML = Object.entries(NIVEIS).map(([n, info]) => `<option value="${n}">Nível ${n} — ${escapeHtml(info.nome)}</option>`).join('');
     $('cores-legenda').innerHTML = ['nome', 'substantivo', 'adjetivo', 'verbo']
         .map(c => `<span class="${CORES[c]}">● ${c}</span>`).join('');
+    if (!carregarEscolhas()) novaSemente();
+    // Salva assim que a pessoa mexe, mesmo sem clicar em "Gerar"
+    ['nivel', 'quantidade', 'semente', 'mostrar-gabarito'].forEach(id => $(id).addEventListener('change', salvarEscolhas));
+    ['quantidade', 'semente'].forEach(id => $(id).addEventListener('input', salvarEscolhas));
     mostrarNivel();
-    novaSemente();
+    alternarGabarito();
     gerar();
     refreshIcons();
 }
