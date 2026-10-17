@@ -91,7 +91,26 @@ const TEXTOS = {
         p_nao_rodou: 'não rodou',
         status_certo: 'certo', status_hesitou: 'certo, mas hesitou', status_ambigua: 'flexão ambígua', status_flexao: 'flexão errada',
         status_confusao: 'confusão com sósia', status_cortada: 'cadeia cortada',
-        flexao_gerundio: 'Gerúndio', 'flexao_verbo-plural': 'Verbo plural', flexao_genero: 'Gênero', 'flexao_adj-plural': 'Adjetivo plural'
+        flexao_gerundio: 'Gerúndio', 'flexao_verbo-plural': 'Verbo plural', flexao_genero: 'Gênero', 'flexao_adj-plural': 'Adjetivo plural',
+
+        aba_versus: 'Humano × IA',
+        v_titulo: 'Humano × IA',
+        v_intro: 'Resolva os mesmos desafios que a IA, na sua língua. A IA recebe exatamente a mesma lógica no idioma dela. As duas respostas passam pelo mesmo corretor, e o placar mostra quem ganhou.',
+        v_seu_idioma: 'Seu idioma', v_idioma_ia: 'Idioma da IA', v_comecar: 'Começar', v_novo: 'Novo jogo',
+        v_justo: 'As palavras são inventadas para você também: ninguém leva vantagem de memória. Os desafios aparecem sem cores e sem esqueleto, do jeito que a IA vê.',
+        v_antes: 'Escolha as opções e clique em Começar. O relógio dispara na hora.',
+        v_seus_desafios: 'Seus desafios', v_sua_resposta: 'Sua resposta', v_terminar: 'Terminar e corrigir', v_tempo: 'Tempo',
+        v_em_branco: '(em branco)', v_gabarito_ia: 'na versão da IA',
+        v_ia_titulo: 'A IA', v_ia_passos: 'Copie o prompt, cole na IA que quiser testar e traga a resposta dela de volta.',
+        v_copiar_ia: 'Copiar prompt para a IA ({idioma})', v_resposta_ia: 'Resposta da IA', v_corrigir_ia: 'Corrigir a IA',
+        v_ia_sem_jogo: 'Comece um jogo para gerar o prompt da IA.',
+        v_ia_corrigida: 'IA corrigida. O resultado aparece no placar quando você terminar.',
+        v_placar: 'Placar', v_voce: 'Você', v_ia: 'IA',
+        v_falta_voce: 'Termine seus desafios para ver o placar.', v_falta_ia: 'Corrija a resposta da IA para ver quem ganhou.',
+        v_venceu_voce: '🏆 Você venceu!', v_venceu_ia: '🤖 A IA venceu!', v_empate: '🤝 Empate!',
+        v_criterio: 'Vence quem acerta mais a lógica (a palavra certa). No empate, a morfologia (a forma certa) desempata.',
+        v_idiomas_diferentes: 'Os idiomas são diferentes: a lógica é idêntica, mas a morfologia não (em inglês o adjetivo não flexiona).',
+        v_certos: 'totalmente certos', v_desafio: 'Desafio', v_gabarito: 'Gabarito'
     },
     en: {
         titulo_pagina: 'LogiGen | Logic Generator',
@@ -154,7 +173,26 @@ const TEXTOS = {
         p_nao_rodou: 'not run',
         status_certo: 'correct', status_hesitou: 'correct, but hesitated', status_ambigua: 'ambiguous form', status_flexao: 'wrong form',
         status_confusao: 'look-alike confusion', status_cortada: 'chain cut short',
-        flexao_gerundio: 'Gerund', 'flexao_verbo-plural': 'Verb plural', flexao_genero: 'Gender', 'flexao_adj-plural': 'Adjective plural'
+        flexao_gerundio: 'Gerund', 'flexao_verbo-plural': 'Verb plural', flexao_genero: 'Gender', 'flexao_adj-plural': 'Adjective plural',
+
+        aba_versus: 'Human × AI',
+        v_titulo: 'Human × AI',
+        v_intro: 'Solve the same challenges as the AI, in your own language. The AI gets exactly the same logic in its language. Both answers go through the same grader, and the scoreboard shows who won.',
+        v_seu_idioma: 'Your language', v_idioma_ia: "AI's language", v_comecar: 'Start', v_novo: 'New game',
+        v_justo: 'The words are invented for you too: nobody gets a memory advantage. Challenges appear without colors or skeleton, just as the AI sees them.',
+        v_antes: 'Pick the options and click Start. The clock starts right away.',
+        v_seus_desafios: 'Your challenges', v_sua_resposta: 'Your answer', v_terminar: 'Finish and grade', v_tempo: 'Time',
+        v_em_branco: '(blank)', v_gabarito_ia: "in the AI's version",
+        v_ia_titulo: 'The AI', v_ia_passos: 'Copy the prompt, paste it into the AI you want to test and bring its answer back.',
+        v_copiar_ia: 'Copy prompt for the AI ({idioma})', v_resposta_ia: "AI's answer", v_corrigir_ia: 'Grade the AI',
+        v_ia_sem_jogo: "Start a game to generate the AI's prompt.",
+        v_ia_corrigida: 'AI graded. The result shows up on the scoreboard when you finish.',
+        v_placar: 'Scoreboard', v_voce: 'You', v_ia: 'AI',
+        v_falta_voce: 'Finish your challenges to see the scoreboard.', v_falta_ia: "Grade the AI's answer to see who won.",
+        v_venceu_voce: '🏆 You won!', v_venceu_ia: '🤖 The AI won!', v_empate: '🤝 It\'s a tie!',
+        v_criterio: 'Whoever gets more logic right (the right word) wins. On a tie, morphology (the right form) breaks it.',
+        v_idiomas_diferentes: 'The languages differ: the logic is identical, but the morphology is not (English adjectives do not inflect).',
+        v_certos: 'fully correct', v_desafio: 'Challenge', v_gabarito: 'Answer'
     }
 };
 

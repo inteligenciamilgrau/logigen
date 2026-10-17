@@ -222,8 +222,10 @@ function ordenarLetras(variaveis) {
 }
 
 // --- MONTAGEM ---
-function montarDesafio(nivel, s, lexico, numero, idioma = 'pt') {
-    const variante = s.item(Object.keys(NIVEIS[nivel].variantes));
+// "fixo" permite impor a variante e a ordem das regras (lote pareado, abaixo);
+// sem ele, as duas são sorteadas como sempre
+function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
+    const variante = fixo.variante ?? s.item(Object.keys(NIVEIS[nivel].variantes));
     const esq = esqueletoDe(nivel, variante);
     const { verbo } = esq.pergunta;
     const gerundio = verbo.startsWith('est');
@@ -277,7 +279,8 @@ function montarDesafio(nivel, s, lexico, numero, idioma = 'pt') {
     const { forma, flexao } = flexionar(resposta, verbo, sujeitos, idioma);
 
     const regrasArmadilha = new Set(armadilhas.map(a => a.regra));
-    const regras = s.embaralhar(modelo.regras).map(r => ({ texto: fraseRegra(r, idioma), esqueleto: r.esqueleto, armadilha: regrasArmadilha.has(r) }));
+    const embaralhadas = fixo.ordem ? fixo.ordem.map(i => modelo.regras[i]) : s.embaralhar(modelo.regras);
+    const regras = embaralhadas.map(r => ({ texto: fraseRegra(r, idioma), esqueleto: r.esqueleto, armadilha: regrasArmadilha.has(r) }));
     const fatos = modelo.fatos.map(f => ({ texto: fraseFato(f, idioma), esqueleto: f.esqueleto }));
     const letrasSujeito = esq.pergunta.sujeitos.join(' e ');
     const verboDaConclusao = sujeitos.length > 1 ? 'são' : 'é';
@@ -317,6 +320,21 @@ function gerarLote(nivel, quantidade, semente, idioma = 'pt') {
     const s = criarSorteio(semente);
     const lexico = criarLexico(s, idioma);
     return Array.from({ length: quantidade }, (_, i) => montarDesafio(nivel, s, lexico, i + 1, idioma));
+}
+
+// O mesmo lote em dois idiomas: em cada desafio, a mesma variante e a mesma ordem das
+// regras; só as palavras inventadas são de cada idioma. Serve para comparar uma pessoa e
+// uma IA no mesmo desafio, cada uma na sua língua (aba Humano × IA).
+function gerarLotePareado(nivel, quantidade, semente, idiomas) {
+    const s = criarSorteio(semente);
+    const lexicos = idiomas.map((idioma, k) => criarLexico(criarSorteio(semente * 31 + k + 1), idioma));
+    const lotes = idiomas.map(() => []);
+    for (let numero = 1; numero <= quantidade; numero++) {
+        const variante = s.item(Object.keys(NIVEIS[nivel].variantes));
+        const ordem = s.embaralhar([...esqueletoDe(nivel, variante).regras.keys()]);
+        idiomas.forEach((idioma, k) => lotes[k].push(montarDesafio(nivel, s, lexicos[k], numero, idioma, { variante, ordem })));
+    }
+    return lotes;
 }
 
 // --- PROMPT ---

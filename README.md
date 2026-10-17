@@ -28,6 +28,14 @@ As escolhas (nível, quantidade, semente, "Gabarito e esqueleto" e idioma) ficam
 
 As **bandeirinhas** no topo trocam o idioma do site **e dos desafios**: a mesma semente gera um lote em português ou em inglês. `index.html?lang=en` abre direto em inglês. Na primeira visita, o site usa o idioma do navegador.
 
+A aba **Humano × IA** (`index.html#versus`) põe uma pessoa e uma IA no mesmo desafio, cada uma na sua língua:
+1. Você escolhe o nível, a quantidade, a semente, o seu idioma e o da IA, e clica em **Começar**. O relógio dispara.
+2. Os desafios aparecem **sem cores e sem esqueleto**, do jeito que a IA vê, com um campo de resposta em cada um.
+3. Ao mesmo tempo, você copia o prompt para a IA, cola a resposta dela e corrige.
+4. As duas respostas passam pelo mesmo corretor, e o placar diz quem ganhou. Vence quem acerta mais a **lógica**; no empate, a **morfologia** desempata.
+
+Com idiomas diferentes, o gerador cria um **lote pareado**: em cada desafio, a mesma variante e a mesma ordem das regras nas duas línguas, só com as palavras inventadas de cada uma. "A Nepeia está ___?" (*xudrandando*) e "What is Fesis doing? Fesis is ___?" (*zendelking*) são o mesmo desafio. Com o mesmo idioma, os dois recebem o texto idêntico. Os gabaritos e o resultado da IA só aparecem depois que você termina.
+
 A aba **Pesquisa** (`index.html#pesquisa`) mostra os gráficos comparativos das baterias de teste com IAs:
 - a escada da morfologia;
 - os acertos por tipo de flexão;
@@ -148,6 +156,7 @@ O esqueleto é o mesmo nos dois idiomas: a lógica dos níveis não muda, só a 
 | `idiomas.js` | Textos do site em português e inglês, bandeiras e a notação do esqueleto na tela |
 | `pesquisa-dados.js` | Resultado de cada desafio em cada IA testada (é aqui que entra uma bateria nova) |
 | `pesquisa.js` | Aba Pesquisa: gráficos comparativos e intervalos de confiança |
+| `versus.js` | Aba Humano × IA: a pessoa resolve na sua língua, a IA na dela, e o placar compara |
 | `favicon.svg` | Ícone da aba |
 | `vendor/tailwind-3.4.17.js` | Tailwind (CSS) guardado no repositório, sem depender de CDN |
 | `testes/` | Diários das baterias de teste com IAs (método, respostas e conclusões) |

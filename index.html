@@ -38,9 +38,12 @@
                 <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-0.5" data-i18n="slogan">Lógica em português com palavras que nenhuma IA viu</p>
             </div>
             <div class="ml-auto flex flex-wrap items-center gap-3">
-                <nav class="flex items-center gap-1 bg-slate-950 border border-slate-800 rounded-xl p-1 text-xs font-black uppercase tracking-widest">
+                <nav class="flex flex-wrap items-center gap-1 bg-slate-950 border border-slate-800 rounded-xl p-1 text-xs font-black uppercase tracking-widest">
                     <button data-aba="gerador" onclick="mostrarAba('gerador')" class="aba flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all">
                         <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span data-i18n="aba_gerador">Gerador</span>
+                    </button>
+                    <button data-aba="versus" onclick="mostrarAba('versus')" class="aba flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all">
+                        <i data-lucide="swords" class="w-3.5 h-3.5"></i> <span data-i18n="aba_versus">Humano × IA</span>
                     </button>
                     <button data-aba="pesquisa" onclick="mostrarAba('pesquisa')" class="aba flex items-center gap-1.5 px-3 py-2 rounded-lg transition-all">
                         <i data-lucide="chart-line" class="w-3.5 h-3.5"></i> <span data-i18n="aba_pesquisa">Pesquisa</span>
@@ -54,6 +57,9 @@
             </div>
         </div>
     </header>
+
+    <!-- ABA HUMANO × IA: uma pessoa e uma IA no mesmo desafio, cada uma na sua língua (versus.js) -->
+    <main id="aba-versus" class="hidden max-w-6xl mx-auto p-6 pb-20 space-y-6"></main>
 
     <!-- ABA PESQUISA: gráficos das baterias de teste (pesquisa.js) -->
     <main id="aba-pesquisa" class="hidden max-w-6xl mx-auto p-6 pb-20 space-y-6"></main>
@@ -142,6 +148,7 @@
     <script src="idiomas.js"></script>
     <script src="pesquisa-dados.js"></script>
     <script src="pesquisa.js"></script>
+    <script src="versus.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

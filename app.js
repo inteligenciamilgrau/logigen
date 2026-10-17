@@ -103,6 +103,8 @@ async function mudarIdioma(idioma) {
         pesquisaDesenhada = false;
         if (!$('aba-pesquisa').classList.contains('hidden')) mostrarAba('pesquisa');
     }
+    // O jogo em andamento continua (os desafios ficam no idioma escolhido nele); só os textos mudam
+    if (versusDesenhado) renderVersus();
     await carregarDicionario(IDIOMA);
     gerar();
 }
@@ -310,14 +312,15 @@ function corrigirRespostas() {
 }
 
 // --- ABAS ---
-// A aba aberta fica no endereço (#pesquisa), para dar para compartilhar o link
+// A aba aberta fica no endereço (#pesquisa, #versus), para dar para compartilhar o link
 // e para o botão "voltar" do navegador funcionar
+const ABAS = ['gerador', 'versus', 'pesquisa'];
 let pesquisaDesenhada = false;
+let versusDesenhado = false;
 
 function mostrarAba(nome) {
-    if (nome !== 'pesquisa') nome = 'gerador';
-    $('aba-gerador').classList.toggle('hidden', nome !== 'gerador');
-    $('aba-pesquisa').classList.toggle('hidden', nome !== 'pesquisa');
+    if (!ABAS.includes(nome)) nome = 'gerador';
+    ABAS.forEach(aba => $('aba-' + aba).classList.toggle('hidden', aba !== nome));
     document.querySelectorAll('.aba').forEach(b => {
         const ativa = b.dataset.aba === nome;
         b.classList.toggle('bg-gradient-to-r', ativa);
@@ -330,6 +333,10 @@ function mostrarAba(nome) {
     if (nome === 'pesquisa' && !pesquisaDesenhada) {
         renderPesquisa();
         pesquisaDesenhada = true;
+    }
+    if (nome === 'versus' && !versusDesenhado) {
+        renderVersus();
+        versusDesenhado = true;
     }
     if (location.hash.slice(1) !== nome) location.hash = nome;
 }
