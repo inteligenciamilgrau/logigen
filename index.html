@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogiGen Pro | Gerador de Lógica</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Cores por nível (1-20): cada .lvl-N define a cor, .lvl pinta o selo e .lvl-glow o brilho */
+        .lvl { color: var(--lvl); background-color: color-mix(in srgb, var(--lvl) 14%, transparent); border-color: color-mix(in srgb, var(--lvl) 40%, transparent); }
+        .lvl-glow { background-color: var(--lvl); }
+        .lvl-1 { --lvl: #34d399; }  .lvl-2 { --lvl: #22d3ee; }  .lvl-3 { --lvl: #60a5fa; }  .lvl-4 { --lvl: #818cf8; }
+        .lvl-5 { --lvl: #a78bfa; }  .lvl-6 { --lvl: #e879f9; }  .lvl-7 { --lvl: #f472b6; }  .lvl-8 { --lvl: #fb7185; }
+        .lvl-9 { --lvl: #ef4444; }  .lvl-10 { --lvl: #eab308; } .lvl-11 { --lvl: #f59e0b; } .lvl-12 { --lvl: #f97316; }
+        .lvl-13 { --lvl: #ea580c; } .lvl-14 { --lvl: #dc2626; } .lvl-15 { --lvl: #fca5a5; } .lvl-16 { --lvl: #f0abfc; }
+        .lvl-17 { --lvl: #c4b5fd; } .lvl-18 { --lvl: #a5f3fc; } .lvl-19 { --lvl: #fde68a; } .lvl-20 { --lvl: #ffffff; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen selection:bg-purple-500/30">
+
+    <!-- HEADER -->
+    <header class="bg-slate-900 border-b border-slate-800 p-6 sticky top-0 z-50 shadow-xl">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="bg-gradient-to-br from-blue-600 to-purple-600 p-2.5 rounded-xl shadow-lg shadow-purple-900/40">
+                    <i data-lucide="brain-circuit" class="text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-black text-white tracking-tight flex items-center gap-2">
+                        LogiGen <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Pro Max</span>
+                    </h1>
+                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest mt-0.5">Calculadora Cognitiva Dinâmica v3</p>
+                </div>
+            </div>
+
+            <nav class="flex flex-wrap justify-center bg-slate-800/80 p-1.5 rounded-2xl border border-slate-700/50 backdrop-blur">
+                <button onclick="switchTab('editor')" id="btn-editor" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold transition-all text-slate-400 hover:text-white">
+                    <span class="flex items-center gap-2"><i data-lucide="pen-tool" class="w-4 h-4"></i> Construtor Lógico</span>
+                </button>
+                <button onclick="switchTab('generator')" id="btn-generator" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold transition-all text-slate-400 hover:text-white">
+                    <span class="flex items-center gap-2"><i data-lucide="play" class="w-4 h-4"></i> Gerador Manual</span>
+                </button>
+                <button onclick="switchTab('dictionary')" id="btn-dictionary" class="tab-btn px-4 py-2 rounded-xl text-sm font-bold transition-all text-slate-400 hover:text-white">
+                    <span class="flex items-center gap-2"><i data-lucide="database" class="w-4 h-4"></i> Dados</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6 pb-20">
+
+        <!-- TAB: CONSTRUTOR LÓGICO -->
+        <div id="tab-editor" class="tab-content animate-fade-in">
+            <div class="grid lg:grid-cols-12 gap-8">
+                <!-- Lista de Templates -->
+                <div class="lg:col-span-4 flex flex-col gap-4">
+                    <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 h-full max-h-[850px] overflow-hidden flex flex-col">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="font-bold text-white uppercase text-sm tracking-widest flex items-center gap-2">
+                                <i data-lucide="layers" class="w-4 h-4"></i> Seus Batalhões
+                                <span id="templates-count" class="text-[10px] text-slate-600 font-mono normal-case tracking-normal"></span>
+                            </h2>
+                            <button onclick="createNewTemplate()" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors shadow-lg">
+                                + Novo
+                            </button>
+                        </div>
+                        <div id="templates-list" class="flex-1 overflow-y-auto custom-scrollbar pr-2 space-y-2 pb-10"></div>
+                    </div>
+                </div>
+
+                <!-- Editor e Calculadora -->
+                <div class="lg:col-span-8 flex flex-col gap-4">
+                    <!-- Calculadora -->
+                    <div class="bg-slate-900 overflow-hidden rounded-3xl border border-slate-800 relative shadow-2xl">
+                        <div id="calc-glow" class="lvl-glow lvl-1 absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-20"></div>
+                        <div class="relative p-6 md:p-8 grid md:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <h3 class="text-xs font-black text-slate-500 uppercase tracking-widest mb-1">Carga Cognitiva (SD)</h3>
+                                <div class="flex items-end gap-3 mt-2">
+                                    <span id="calc-score" class="text-5xl font-black text-white tabular-nums tracking-tighter">0.0</span>
+                                    <span class="text-base text-slate-400 font-medium mb-1">pts</span>
+                                </div>
+                                <div id="calc-level-badge" class="mt-4 flex gap-2"></div>
+                                <div class="mt-3 flex items-center gap-2 text-[9px] font-black text-slate-500 uppercase tracking-widest">
+                                    Ajuste manual
+                                    <button onclick="adjustLevel(-1)" class="w-6 h-6 flex items-center justify-center rounded-md bg-slate-950 border border-slate-700 hover:border-slate-500 text-slate-300" title="Diminuir nível real">
+                                        <i data-lucide="minus" class="w-3 h-3"></i>
+                                    </button>
+                                    <span id="calc-adjust" class="font-mono text-slate-300 text-xs w-6 text-center">0</span>
+                                    <button onclick="adjustLevel(1)" class="w-6 h-6 flex items-center justify-center rounded-md bg-slate-950 border border-slate-700 hover:border-slate-500 text-slate-300" title="Aumentar nível real">
+                                        <i data-lucide="plus" class="w-3 h-3"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="bg-slate-950 border border-slate-800 p-2 lg:p-3 rounded-xl flex flex-col justify-center items-center">
+                                    <span class="text-[10px] text-slate-500 uppercase font-black tracking-widest mb-1 text-center leading-tight">Qtd. Regras</span>
+                                    <span id="calc-p" class="text-xl font-bold text-slate-200">0</span>
+                                </div>
+                                <div class="bg-slate-950 border border-slate-800 p-2 lg:p-3 rounded-xl flex flex-col justify-center items-center">
+                                    <span class="text-[10px] text-slate-500 uppercase font-black tracking-widest mb-1 text-center leading-tight">Var. Únicas</span>
+                                    <span id="calc-v" class="text-xl font-bold text-slate-200">0</span>
+                                </div>
+                                <div class="bg-blue-900/10 border border-blue-500/20 p-2 lg:p-3 rounded-xl flex flex-col justify-center items-center">
+                                    <span class="text-[10px] text-blue-400/80 uppercase font-black tracking-widest mb-1 text-center leading-tight">Pontes/Elos</span>
+                                    <span id="calc-e" class="text-xl font-bold text-blue-400">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="bg-slate-900 p-6 md:p-8 rounded-3xl border border-slate-800 shadow-xl">
+                        <div class="mb-6">
+                            <label for="tpl-name" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Nome do Puzzle</label>
+                            <input id="tpl-name" type="text" oninput="onEditorInput()" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-white focus:border-blue-500 outline-none">
+                        </div>
+
+                        <div class="mb-6">
+                            <div class="text-xs font-black text-slate-500 uppercase tracking-widest mb-2 flex justify-between">
+                                <span>Regras (Premissas)</span>
+                                <button onclick="addPremiseInput()" class="text-blue-400 hover:text-blue-300 font-bold bg-blue-500/10 px-2 py-0.5 rounded">+ REGRAS</button>
+                            </div>
+                            <div id="tpl-premises-container" class="space-y-3"></div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <label for="tpl-question" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Pergunta Final</label>
+                                <input id="tpl-question" type="text" oninput="onEditorInput()" class="w-full bg-slate-950 border-l-4 border-l-purple-500 border border-slate-700 rounded-xl p-3 text-white outline-none">
+                            </div>
+                            <div>
+                                <label for="tpl-answer" class="block text-xs font-black text-emerald-500/80 uppercase tracking-widest mb-2">GABARITO (Resp. Exata)</label>
+                                <input id="tpl-answer" type="text" oninput="onEditorInput()" placeholder="Ex: {A1} ou grande {N2}" class="w-full bg-slate-950 border-l-4 border-l-emerald-500 border border-slate-700 rounded-xl p-3 text-white font-mono outline-none">
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <button onclick="saveActiveTemplate()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-wider py-4 rounded-xl transition-all shadow-lg active:scale-[0.98]">
+                                Atualizar Matrix <span id="dirty-flag" class="hidden text-blue-200 normal-case font-bold tracking-normal">• não salvo</span>
+                            </button>
+                            <button onclick="openInManualGenerator(activeEditId)" class="bg-purple-950/40 hover:bg-purple-900 border border-purple-500/30 text-purple-300 font-bold px-5 rounded-xl transition-all" title="Rolar este template no Gerador Manual">
+                                <i data-lucide="play" class="w-5 h-5"></i>
+                            </button>
+                            <button onclick="deleteActiveTemplate()" class="bg-rose-950/40 hover:bg-rose-900 border border-rose-500/30 text-rose-400 font-bold px-5 rounded-xl transition-all" title="Excluir template">
+                                <i data-lucide="trash-2" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+
+                        <!-- PAINEL DE AUDITORIA LÓGICA -->
+                        <div class="mt-8 bg-slate-950 border border-slate-800 rounded-3xl p-6 md:p-8 overflow-hidden shadow-inner">
+                            <div class="flex items-center gap-2 mb-6 text-blue-400">
+                                <i data-lucide="microscope" class="w-4 h-4"></i>
+                                <h3 class="text-[10px] font-black uppercase tracking-widest">Dossiê de Auditoria Lógica</h3>
+                            </div>
+                            <div id="logic-audit-content" class="space-y-6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: GERADOR MANUAL -->
+        <div id="tab-generator" class="tab-content animate-fade-in">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="md:col-span-1 space-y-6">
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
+                        <label for="gen-select" class="block text-xs font-black text-slate-500 uppercase tracking-widest mb-2">Template Selecionado</label>
+                        <select id="gen-select" class="w-full mb-6 bg-slate-950 border border-slate-700 rounded-lg p-3 text-sm text-white outline-none custom-scrollbar"></select>
+                        <button onclick="generateManualLogic()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-black py-4 rounded-xl flex justify-center items-center gap-2 transition-all shadow-lg shadow-purple-900/30 active:scale-[0.97]">
+                            <i data-lucide="play" class="w-4 h-4"></i> Rolar Puzzle
+                        </button>
+                        <p class="text-[10px] text-slate-600 mt-4 leading-relaxed">
+                            Cada rolagem sorteia novas palavras do dicionário. Copie o prompt, cole na IA que quiser testar e compare com a resposta mestra.
+                        </p>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <div id="manual-output" class="hidden space-y-6">
+
+                        <div id="man-warnings" class="hidden p-4 bg-amber-950/30 border border-amber-500/30 rounded-2xl text-xs text-amber-300 space-y-1"></div>
+
+                        <!-- IDENTIDADE DO MODELO -->
+                        <div id="man-identidade-container"></div>
+
+                        <!-- CAMADA 1: PUZZLE GERADO (Fictício) -->
+                        <div class="bg-slate-900 rounded-3xl border border-slate-800 p-8 shadow-2xl relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600"></div>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span class="bg-blue-500/20 text-blue-400 text-[9px] font-black uppercase px-3 py-1 rounded-full border border-blue-500/30">Camada 1</span>
+                                <h3 class="text-blue-400 text-xs font-black uppercase tracking-widest">Puzzle Gerado (Fictício)</h3>
+                                <button onclick="copyPrompt('ficticio', this)" class="ml-auto flex items-center gap-1.5 text-[10px] font-black uppercase text-blue-300 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 px-3 py-1.5 rounded-lg transition-all">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar prompt</span>
+                                </button>
+                            </div>
+                            <div id="man-prems" class="space-y-3 bg-slate-950 p-6 border border-slate-800/50 rounded-2xl mb-6"></div>
+                            <h4 class="text-purple-400 text-[10px] font-black uppercase tracking-widest mb-3">Desafio</h4>
+                            <p id="man-q" class="text-lg font-bold bg-slate-800/30 p-5 border-l-4 border-purple-500 rounded-xl text-white mb-6"></p>
+                            <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-2">Resposta Mestra</h4>
+                            <p id="man-a" class="text-xl font-black font-mono text-emerald-400 bg-emerald-950/20 p-3 rounded-lg inline-block border border-emerald-500/20"></p>
+                        </div>
+
+                        <!-- CAMADA 2: ESQUELETO LÓGICO -->
+                        <div class="bg-slate-950 rounded-3xl border border-slate-800 p-8 shadow-xl relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-600 to-orange-600"></div>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span class="bg-yellow-500/20 text-yellow-400 text-[9px] font-black uppercase px-3 py-1 rounded-full border border-yellow-500/30">Camada 2</span>
+                                <h3 class="text-yellow-400 text-xs font-black uppercase tracking-widest">Esqueleto Lógico (Template Cru)</h3>
+                            </div>
+                            <div id="man-skeleton" class="space-y-2 font-mono text-[11px] text-yellow-200/70 bg-slate-900/50 p-6 rounded-2xl border border-yellow-900/20"></div>
+                        </div>
+
+                        <!-- CAMADA 3: AMOSTRA COM DADOS REAIS -->
+                        <div class="bg-slate-900 rounded-3xl border border-emerald-900/30 p-8 shadow-xl relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-600 to-teal-600"></div>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span class="bg-emerald-500/20 text-emerald-400 text-[9px] font-black uppercase px-3 py-1 rounded-full border border-emerald-500/30">Camada 3</span>
+                                <h3 class="text-emerald-400 text-xs font-black uppercase tracking-widest">Amostra Auditável (Dados Reais)</h3>
+                                <button onclick="copyPrompt('real', this)" class="ml-auto flex items-center gap-1.5 text-[10px] font-black uppercase text-emerald-300 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 px-3 py-1.5 rounded-lg transition-all">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5"></i> <span>Copiar prompt</span>
+                                </button>
+                            </div>
+                            <div id="man-real-prems" class="space-y-3 bg-slate-950 p-6 border border-emerald-900/20 rounded-2xl mb-6"></div>
+                            <h4 class="text-teal-400 text-[10px] font-black uppercase tracking-widest mb-3">Desafio (Palavras Reais)</h4>
+                            <p id="man-real-q" class="text-lg font-bold bg-slate-800/30 p-5 border-l-4 border-emerald-500 rounded-xl text-white mb-6"></p>
+                            <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-2">Resposta Esperada</h4>
+                            <p id="man-real-a" class="text-xl font-black font-mono text-emerald-400 bg-emerald-950/20 p-3 rounded-lg inline-block border border-emerald-500/20"></p>
+                        </div>
+
+                    </div>
+                    <div id="man-empty" class="h-full flex flex-col items-center justify-center text-slate-600 bg-slate-900/30 rounded-3xl border-2 border-slate-800 border-dashed min-h-[450px]">
+                        <i data-lucide="brain" class="w-16 h-16 mb-4 opacity-20"></i>
+                        <p class="text-sm font-bold uppercase tracking-widest">Aguardando Comando Científico</p>
+                        <p class="text-[10px] text-slate-700 mt-2 uppercase">Selecione um template e clique em Rolar Puzzle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: DADOS (Dicionário) -->
+        <div id="tab-dictionary" class="tab-content animate-fade-in">
+            <div class="flex flex-wrap items-center gap-4 mb-3">
+                <h2 class="text-xl font-black text-white uppercase tracking-tight">Banco de Dados</h2>
+                <div class="flex bg-slate-800/80 p-1 rounded-xl border border-slate-700/50">
+                    <button onclick="switchDictMode('ficticio')" id="btn-dict-ficticio" class="dict-mode-btn px-4 py-2 rounded-lg text-xs font-black transition-all">
+                        👽 Fictício
+                    </button>
+                    <button onclick="switchDictMode('real')" id="btn-dict-real" class="dict-mode-btn px-4 py-2 rounded-lg text-xs font-black transition-all">
+                        🌍 Real
+                    </button>
+                </div>
+                <span id="dict-mode-label" class="text-[9px] text-slate-600 font-bold uppercase tracking-widest"></span>
+
+                <div class="flex gap-2 md:ml-auto">
+                    <button onclick="exportData()" class="flex items-center gap-1.5 text-[10px] font-black uppercase text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg transition-all">
+                        <i data-lucide="download" class="w-3.5 h-3.5"></i> Exportar dados
+                    </button>
+                    <button onclick="document.getElementById('import-file').click()" class="flex items-center gap-1.5 text-[10px] font-black uppercase text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-700 px-3 py-2 rounded-lg transition-all">
+                        <i data-lucide="upload" class="w-3.5 h-3.5"></i> Importar
+                    </button>
+                    <button onclick="resetData()" class="flex items-center gap-1.5 text-[10px] font-black uppercase text-rose-300 bg-rose-950/30 hover:bg-rose-900/50 border border-rose-500/30 px-3 py-2 rounded-lg transition-all">
+                        <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Restaurar padrão
+                    </button>
+                    <input id="import-file" type="file" accept=".js,.json" class="hidden" onchange="importData(this)">
+                </div>
+            </div>
+            <p class="text-[10px] text-slate-600 mb-8">
+                Templates e palavras ficam salvos neste navegador. Para guardar de vez (ou levar para outra máquina), use <b class="text-slate-400">Exportar dados</b> e substitua o arquivo <span class="font-mono text-slate-400">dados.js</span> do projeto.
+            </p>
+            <div id="dictionary-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12"></div>
+        </div>
+    </main>
+
+    <div id="toast" class="hidden fixed bottom-6 right-6 z-[100] px-4 py-3 rounded-xl text-sm font-bold shadow-2xl border"></div>
+
+    <script src="dados.js"></script>
+    <script src="motor.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

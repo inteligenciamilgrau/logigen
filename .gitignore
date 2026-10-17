@@ -1,0 +1,11 @@
+# Segurança
+.env
+
+# Rascunhos
+scratch/
+
+# Editores e sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
