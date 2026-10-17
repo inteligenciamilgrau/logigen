@@ -38,12 +38,17 @@
 // Cada nível pode ter variantes; cada desafio sorteia uma delas.
 // "passos" é quantas regras a resposta exige; o solucionador confere em todas
 // as variantes, para nenhum esqueleto ter atalho.
+// "armadilhas" é quantas regras enganam quem as lê ao contrário (a recíproca:
+// "todo G3 é G1" não quer dizer "todo G1 é G3"). O solucionador testa cada regra
+// lida também ao contrário: se outra palavra passar a caber na lacuna, a regra é
+// uma armadilha. O número achado tem que ser exatamente o declarado.
 
 const NIVEIS = {
     1: {
         nome: 'Dedução direta',
         descricao: 'Duas regras e um fato. O fato liga o personagem a uma das regras, que dá a resposta em um passo; a outra regra é distração. A lacuna não tem opções e a resposta precisa vir flexionada.',
         passos: 1,
+        armadilhas: 0,
         variantes: {
             'adjetivo · gênero': `
                 todo G1 é A1      # leva à resposta
@@ -79,6 +84,7 @@ const NIVEIS = {
         nome: 'Cadeia de dois passos',
         descricao: 'Duas regras em cadeia levam à resposta; outra cadeia igual serve de distração. O elo do meio muda conforme a variante: um grupo, um verbo ou um adjetivo.',
         passos: 2,
+        armadilhas: 0,
         variantes: {
             'adjetivo · gênero': `
                 todo G1 é G2      # passo 1 (elo: grupo)
@@ -112,6 +118,50 @@ const NIVEIS = {
                 todo G2 é V1      # passo 2
                 todo G3 é G4      # distração
                 todo G4 é V2      # distração
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: V1
+            `
+        }
+    },
+    3: {
+        nome: 'Armadilha da recíproca',
+        descricao: 'Cadeia de dois passos com uma regra que engana quem a lê ao contrário: "todo trovelo é um jaflecho" não quer dizer que todo jaflecho seja trovelo. A armadilha muda de lugar conforme a variante.',
+        passos: 2,
+        armadilhas: 1,
+        variantes: {
+            'adjetivo · gênero': `
+                todo G1 é G2      # passo 1
+                todo G2 é A1      # passo 2
+                todo G3 é G1      # armadilha: ao contrário, X1 viraria G3
+                todo G3 é A2      # o que a armadilha daria
+                X1 é G1
+                pergunta: X1 é ___?
+                resposta: A1
+            `,
+            'adjetivo · plural': `
+                todo G1 é V1      # passo 1
+                todo V1 é A1      # passo 2
+                todo G2 é V1      # armadilha: eles fazem V1, mas isso não os torna G2
+                todo G2 é A2      # o que a armadilha daria
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: A1
+            `,
+            'verbo · gerúndio': `
+                todo G1 é A1      # passo 1
+                todo A1 é V1      # passo 2
+                todo G2 é A1      # armadilha: X1 é A1, mas isso não o torna G2
+                todo G2 é V2      # o que a armadilha daria
+                X1 é G1
+                pergunta: X1 está ___?
+                resposta: V1
+            `,
+            'verbo · plural': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G2      # armadilha: ao contrário, eles virariam G3
+                todo G3 é V2      # o que a armadilha daria
                 X1 e X2 são G1
                 pergunta: X1 e X2 são ___?
                 resposta: V1

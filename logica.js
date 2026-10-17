@@ -108,6 +108,21 @@ function cadeiaDaProva(conclusoes, chave) {
     return cadeia;
 }
 
+// Armadilha da recíproca: lê cada regra também ao contrário ("todo G3 é G1" como
+// se fosse "todo G1 é G3") e vê se outra palavra passa a caber na lacuna para
+// todos os personagens perguntados. Se passar, quem inverte essa regra erra.
+function acharArmadilhas(modelo, sujeitos, candidatos, resposta) {
+    const armadilhas = [];
+    for (const regra of modelo.regras) {
+        const invertida = { se: regra.entao, entao: regra.se };
+        const comErro = { fatos: modelo.fatos, regras: [...modelo.regras, invertida] };
+        const conclusoes = sujeitos.map(x => deduzir(comErro, x));
+        const leva = candidatos.filter(c => c !== resposta && conclusoes.every(cc => cc.has(c.chave)));
+        if (leva.length) armadilhas.push({ regra, leva });
+    }
+    return armadilhas;
+}
+
 // --- TEXTO ---
 // Cada tipo de linha vira sempre a mesma frase, sem sinônimos (ver niveis.js).
 const todo = (g) => g.genero === 'm' ? 'Todo' : 'Toda';
@@ -210,11 +225,22 @@ function montarDesafio(nivel, s, lexico, numero) {
     const passos = Math.max(...conclusoes.map(c => c.get(resposta.chave).passos));
     const passosDoNivel = NIVEIS[nivel].passos;
     if (passosDoNivel && passos !== passosDoNivel) throw erro(`a resposta sai em ${passos} ${passos === 1 ? 'passo' : 'passos'}, mas o nível pede ${passosDoNivel}.`);
+
+    // Armadilhas: o nível declara quantas existem e o solucionador confere
+    const letraDe = new Map(esq.variaveis.map(v => [palavra[v], v]));
+    const armadilhas = acharArmadilhas(modelo, sujeitos, candidatos.map(v => palavra[v]), resposta);
+    const armadilhasDoNivel = NIVEIS[nivel].armadilhas;
+    if (armadilhasDoNivel !== undefined && armadilhas.length !== armadilhasDoNivel) {
+        const quais = armadilhas.map(a => `"${a.regra.esqueleto}"`).join(', ');
+        throw erro(`achei ${armadilhas.length} armadilha${armadilhas.length === 1 ? '' : 's'}${quais ? ` (${quais})` : ''}, mas o nível pede ${armadilhasDoNivel}.`);
+    }
     const { forma, flexao } = flexionar(resposta, verbo, sujeitos);
 
-    const regras = s.embaralhar(modelo.regras).map(r => ({ texto: fraseRegra(r), esqueleto: r.esqueleto }));
+    const regrasArmadilha = new Set(armadilhas.map(a => a.regra));
+    const regras = s.embaralhar(modelo.regras).map(r => ({ texto: fraseRegra(r), esqueleto: r.esqueleto, armadilha: regrasArmadilha.has(r) }));
     const fatos = modelo.fatos.map(f => ({ texto: fraseFato(f), esqueleto: f.esqueleto }));
     const letrasSujeito = esq.pergunta.sujeitos.join(' e ');
+    const verboDaConclusao = sujeitos.length > 1 ? 'são' : 'é';
     const letras = ordenarLetras(esq.variaveis);
 
     return {
@@ -231,8 +257,15 @@ function montarDesafio(nivel, s, lexico, numero) {
         passos,
         prova: [
             ...new Set(conclusoes.flatMap(c => cadeiaDaProva(c, resposta.chave))),
-            `${letrasSujeito} ${sujeitos.length > 1 ? 'são' : 'é'} ${esq.resposta}`
+            `${letrasSujeito} ${verboDaConclusao} ${esq.resposta}`
         ],
+        // Cada armadilha: a regra que engana e a conclusão errada que ela produz
+        armadilhas: armadilhas.map(a => ({
+            regra: a.regra.esqueleto,
+            conclusao: `${letrasSujeito} ${verboDaConclusao} ${a.leva.map(p => letraDe.get(p)).join(', ')}`,
+            palavras: a.leva.map(p => flexionar(p, verbo, sujeitos).forma)
+        })),
+        chavesArmadilha: armadilhas.flatMap(a => a.leva.map(p => p.chave)),
         legenda: letras.map(v => ({ letra: v, palavra: formaDicionario(palavra[v]), classe: palavra[v].classe })),
         // forma escrita -> classe, para a interface colorir o texto
         formas: Object.fromEntries(letras.flatMap(v => formasEscritas(palavra[v]).map(f => [f, palavra[v].classe])))
@@ -277,19 +310,21 @@ function lerRespostas(texto) {
     return respostas;
 }
 
-// certo   = escreveu exatamente a forma pedida (ex.: "glovundando")
-// flexao  = escolheu a palavra certa, mas na forma errada (ex.: "glovundar")
-// errado  = escolheu outra palavra, ou citou mais de uma
+// certo      = escreveu exatamente a forma pedida (ex.: "glovundando")
+// flexao     = escolheu a palavra certa, mas na forma errada (ex.: "glovundar")
+// armadilha  = citou a palavra que só sai lendo uma regra ao contrário
+//              (mesmo junto com a certa: é o que conclui quem inverte a regra)
+// errado     = escolheu outra palavra, ou citou mais de uma
 function corrigir(desafios, texto) {
     const respostas = lerRespostas(texto);
     return desafios.map(d => {
         const dada = respostas.get(d.numero);
         if (dada === undefined) return { numero: d.numero, dada: null, status: 'sem-resposta' };
         const palavras = normalizar(dada).split(/[^a-z]+/).filter(Boolean);
-        const outra = palavras.some(w => d.distratores.some(c => w.startsWith(c)));
+        const cita = (chaves) => palavras.some(w => chaves.some(c => w.startsWith(c)));
         const exata = palavras.includes(d.resposta);
         const raiz = palavras.some(w => w.startsWith(d.chave));
-        const status = outra ? 'errado' : exata ? 'certo' : raiz ? 'flexao' : 'errado';
+        const status = cita(d.chavesArmadilha) ? 'armadilha' : cita(d.distratores) ? 'errado' : exata ? 'certo' : raiz ? 'flexao' : 'errado';
         return { numero: d.numero, dada, status };
     });
 }

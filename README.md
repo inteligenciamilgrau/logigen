@@ -15,7 +15,7 @@ Abra o `index.html` no navegador. Funciona sem internet; com internet aparecem t
 
 1. **Gerar** — escolha o nível, quantos desafios e uma semente.
 2. **Copiar prompt** — cole na IA que quiser testar. Para mandar um desafio só, use o botão **Copiar** do próprio desafio.
-3. **Corrigir** — cole a resposta completa da IA. Cada desafio recebe ✔ certo, ⚠ flexão errada ou ✘ errado, e sai o placar.
+3. **Corrigir** — cole a resposta completa da IA. Cada desafio recebe ✔ certo, ⚠ flexão errada, 🪤 caiu na armadilha ou ✘ errado, e sai o placar.
 
 A **semente** garante que o mesmo lote se repita: use a mesma semente para comparar IAs diferentes na mesma prova.
 
@@ -53,17 +53,32 @@ resposta: V1
 
 - `resposta:` é o que você espera. O solucionador confere: a resposta precisa ser o **único** adjetivo (ou verbo) dedutível para os personagens perguntados; senão, o esqueleto é recusado com a explicação do erro.
 - Cada nível declara quantos `passos` (regras encadeadas) a resposta exige, e o solucionador confere em todas as variantes — nenhum esqueleto pode ter atalho.
+- Cada nível declara também quantas `armadilhas` tem. Uma armadilha é uma regra que engana quem a lê ao contrário ("todo G3 é G1" não quer dizer "todo G1 é G3"). O solucionador testa cada regra lida também ao contrário: se outra palavra passar a caber na lacuna, é armadilha. O número achado tem que ser exatamente o declarado — inclusive zero nos níveis sem armadilha.
 - Nos desafios de gerúndio todos os verbos são em -ar: pelo presente "pavobe" não daria para saber se o gerúndio é "pavobendo" ou "pavobindo".
 - As regras aparecem embaralhadas e os fatos vêm depois delas.
 
 Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do esqueleto ao lado de cada frase, a prova (`X1 é G1 → todo G1 é V1 ⇒ X1 é V1`), qual palavra é cada letra e a flexão pedida. As cores separam as classes: **nome**, **substantivo**, **adjetivo** e **verbo**.
 
-| Nível | Nome | Passos | Estrutura |
-|---|---|---|---|
-| 1 | Dedução direta | 1 | 2 regras + 1 fato; uma regra leva à resposta, a outra é distração |
-| 2 | Cadeia de dois passos | 2 | 2 cadeias de 2 regras; uma leva à resposta, a outra é distração. O elo do meio é um grupo, um verbo ou um adjetivo |
+| Nível | Nome | Passos | Armadilhas | Estrutura |
+|---|---|---|---|---|
+| 1 | Dedução direta | 1 | 0 | 2 regras + 1 fato; uma regra leva à resposta, a outra é distração |
+| 2 | Cadeia de dois passos | 2 | 0 | 2 cadeias de 2 regras; uma leva à resposta, a outra é distração. O elo do meio é um grupo, um verbo ou um adjetivo |
+| 3 | Armadilha da recíproca | 2 | 1 | cadeia de 2 regras + uma regra que, lida ao contrário, leva a outra resposta. A armadilha muda de lugar conforme a variante |
 
-Os dois níveis têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
+Todos os níveis têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
+
+Exemplo do nível 3:
+
+```
+Todo pregrevo zalhela.          ⚠ armadilha
+Toda plalhoma zalhela.
+Todo pregrevo é clapascento.
+Quem zalhela é frachebino.
+Mubrice e Gravrur são plalhomas.
+Mubrice e Gravrur são ___?      → frachebinos
+```
+
+Quem pensa "eles zalhelam, então são pregrevos" responde *clapascentos* — e a correção marca **🪤 caiu na armadilha**, separado de um erro qualquer.
 
 Para criar um nível novo, basta escrever outro esqueleto em `niveis.js`.
 

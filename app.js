@@ -61,7 +61,7 @@ async function copiar(texto) {
 // --- GERAR ---
 function mostrarNivel() {
     const n = NIVEIS[$('nivel').value];
-    $('nivel-descricao').textContent = `${n.descricao} Passos até a resposta: ${n.passos}.`;
+    $('nivel-descricao').textContent = `${n.descricao} Passos até a resposta: ${n.passos}.` + (n.armadilhas ? ` Armadilhas: ${n.armadilhas}.` : '');
     // Mostra cada variante como está escrita em niveis.js, sem a indentação do código
     $('nivel-esqueleto').innerHTML = Object.entries(n.variantes).map(([nome, esqueleto]) => {
         const linhas = esqueleto.split('\n').map(l => l.trim()).filter(Boolean).map(l => {
@@ -133,7 +133,7 @@ function renderDesafios() {
     const porNumero = new Map((resultado || []).map(r => [r.numero, r]));
     $('desafios').innerHTML = desafios.map(d => {
         const r = porNumero.get(d.numero);
-        const borda = !r ? 'border-slate-800' : r.status === 'certo' ? 'border-emerald-500/50' : r.status === 'flexao' ? 'border-amber-500/50' : 'border-rose-500/50';
+        const borda = r ? `border-${SELOS[r.status][0]}-500/50` : 'border-slate-800';
         return `
         <article class="bg-slate-900 rounded-2xl border ${borda} p-6 shadow-xl animate-fade-in">
             <div class="flex flex-wrap items-center gap-2 mb-4">
@@ -145,11 +145,12 @@ function renderDesafios() {
                 </button>
             </div>
             <div class="space-y-1.5 bg-slate-950 p-4 border border-slate-800/50 rounded-xl mb-4 text-slate-300 leading-relaxed">
-                ${d.linhas.map(l => linhaComEsqueleto(d, l.texto, l.esqueleto)).join('')}
+                ${d.linhas.map(l => linhaComEsqueleto(d, l.texto, l.esqueleto, '', l.armadilha)).join('')}
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-1">${linhaComEsqueleto(d, d.pergunta.texto, d.pergunta.esqueleto, 'font-bold text-white')}</div>
             <div class="gabarito mt-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5 font-mono text-[11px]">
                 <div><span class="text-[9px] font-black uppercase tracking-widest text-slate-500 mr-2">Prova</span>${provaHtml(d)}</div>
+                ${d.armadilhas.map(a => `<div><span class="text-[9px] font-black uppercase tracking-widest text-fuchsia-400 mr-2">⚠ Armadilha</span><span class="text-slate-400">${colorirLetras(a.regra)} <span class="text-slate-600">lida ao contrário</span> <span class="text-white">⇒</span> ${colorirLetras(a.conclusao)}</span> <span class="text-fuchsia-300">(${a.palavras.map(escapeHtml).join(', ')})</span></div>`).join('')}
                 <div class="text-slate-500">${d.legenda.map(l => `<span class="${CORES[l.classe]}"><b>${l.letra}</b> = ${escapeHtml(l.palavra)}</span>`).join(' · ')}</div>
             </div>
             <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
@@ -162,11 +163,12 @@ function renderDesafios() {
 }
 
 // Frase do desafio (palavras coloridas) com a linha do esqueleto ao lado.
-// O esqueleto some junto com o gabarito.
-function linhaComEsqueleto(d, texto, esqueleto, classes = '') {
+// O esqueleto some junto com o gabarito; a regra-armadilha ganha um ⚠.
+function linhaComEsqueleto(d, texto, esqueleto, classes = '', armadilha = false) {
+    const marca = armadilha ? '<span class="text-fuchsia-400 font-bold" title="Armadilha da recíproca">⚠ </span>' : '';
     return `<div class="flex flex-wrap items-baseline justify-between gap-x-4">
         <span class="${classes}">${colorirTexto(texto, d.formas)}</span>
-        <span class="gabarito font-mono text-[10px] text-slate-500">${colorirLetras(esqueleto)}</span>
+        <span class="gabarito font-mono text-[10px] text-slate-500">${marca}${colorirLetras(esqueleto)}</span>
     </div>`;
 }
 
@@ -177,10 +179,11 @@ function provaHtml(d) {
         ` <span class="text-slate-600">(${d.passos} ${d.passos === 1 ? 'passo' : 'passos'})</span>`;
 }
 
-const COR_DO_STATUS = { certo: 'text-emerald-300', flexao: 'text-amber-300', errado: 'text-rose-300', 'sem-resposta': 'text-slate-500' };
+const COR_DO_STATUS = { certo: 'text-emerald-300', flexao: 'text-amber-300', armadilha: 'text-fuchsia-300', errado: 'text-rose-300', 'sem-resposta': 'text-slate-500' };
 const SELOS = {
     certo: ['emerald', '✔ Acertou'],
     flexao: ['amber', '⚠ Flexão errada'],
+    armadilha: ['fuchsia', '🪤 Caiu na armadilha'],
     errado: ['rose', '✘ Errou'],
     'sem-resposta': ['slate', 'Sem resposta']
 };
@@ -225,6 +228,7 @@ function corrigirRespostas() {
     const cor = pct >= 80 ? 'emerald' : pct >= 50 ? 'amber' : 'rose';
     const detalhes = [
         [conta('flexao'), 'text-amber-300', 'flexão errada (lógica certa)'],
+        [conta('armadilha'), 'text-fuchsia-300', 'caíram na armadilha da recíproca'],
         [conta('errado'), 'text-rose-300', 'errados'],
         [conta('sem-resposta'), 'text-slate-400', 'sem resposta reconhecida (use "1: resposta")']
     ].filter(([n]) => n > 0);
