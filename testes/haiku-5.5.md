@@ -1,7 +1,10 @@
-# Bateria de testes — Claude Haiku 5.5, esforço low
+# Baterias de testes — Claude Haiku 5.5 (esforço low e max)
 
-Objetivo: achar os pontos fracos do modelo mais fraco (Haiku) no esforço mais baixo (low),
-para orientar a criação dos níveis mais difíceis e de uma escala de avaliação.
+Objetivo: achar os pontos fracos do Haiku, o modelo mais fraco, para orientar a criação dos
+níveis mais difíceis e de uma escala de avaliação.
+
+- **Bateria 1:** só esforço low, níveis 1–3 e experimentos (logo abaixo).
+- **Bateria 2:** testes corrigidos, os mesmos 10 desafios em low e em max (no fim do arquivo).
 
 ## Método
 
@@ -251,3 +254,81 @@ M: 42% (gerúndio 0%, gênero 0%, plural do adjetivo 56%, plural do verbo 50%).*
   resposta tinha erro de flexão (o que não aconteceria se tivessem lido o gabarito).
 - A frase de instrução sobre ferramentas influenciou o comportamento (E7-3 não entregou; a
   1ª M1 recusou responder).
+
+---
+
+# Bateria 2 — testes corrigidos: Haiku 5.5 low × Haiku 5.5 max
+
+17/10/2026, ~03:57. Mesmo protocolo (um desafio por janela, sem acesso a gabarito), agora com
+o gerador corrigido a partir da bateria 1:
+
+- **Artigo antes do nome** ("O Glanol", "A Glanhira"): o gênero do personagem está escrito.
+- **Forma pedida nunca aparece escrita**: na concordância com um personagem, ele tem o gênero
+  oposto ao da forma da regra ("Toda nudracha é doglepenta" → "O Glanol é doglepento").
+- **Status novo "≈ flexão ambígua"**: quando a lacuna recebe duas formas.
+- Instrução extra trocada para "não leia arquivos nem use ferramentas para resolver" (sem o
+  "apenas com base no texto", que na sonda M1 bloqueou o uso de gramática).
+- Critério de correção: conta a palavra posta **na lacuna**. Citar outra forma na justificativa
+  ("ele globrepa, por isso está globrepando") não é hesitação; oferecer outra forma **para a
+  lacuna** ("zetescino (zetescina no feminino)") é ambígua.
+
+Os **mesmos 10 prompts** (sementes 1101, 1202, 1303) foram para 10 Haiku low e 10 Haiku max.
+Correção feita com o corretor oficial do projeto (`corrigir` + `placarDosEixos`).
+
+| # | Nível · variante | Gabarito | Haiku **low** | Haiku **max** |
+|---|---|---|---|---|
+| B1 | 1 · adjetivo · gênero | doglepento | doglepenta ⚠ | doglepenta ⚠ |
+| B2 | 1 · verbo · gerúndio | globrepando | globrepa ⚠ | **globrepando ✔** |
+| B3 | 1 · verbo · plural | fozimbem | fozimbe ⚠ | **fozimbem ✔** |
+| B4 | 2 · adjetivo · gênero | zetescina | **zetescina ✔** | zetescino (zetescina no feminino) ≈ |
+| B5 | 2 · verbo · gerúndio | gladobrando | gladobra ⚠ | gladobra ⚠ |
+| B6 | 2 · adjetivo · plural | plugromentos | **plugromentos ✔** | **plugromentos ✔** |
+| B7 | 3 · adjetivo · gênero | grovradrenta | grovradrento ⚠ | grovradrento (… seria grovradrenta) ≈ |
+| B8 | 3 · verbo · gerúndio | gredrombando | gredromba ⚠ | **gredrombando ✔** |
+| B9 | 3 · adjetivo · plural | vraflaventos | vraflavento ⚠ | vraflavento ⚠ |
+| B10 | 3 · verbo · plural | brenobem | brenobe ⚠ | **brenobem ✔** |
+
+## Placar nos dois eixos
+
+| | Haiku low | Haiku max |
+|---|---|---|
+| **Lógica** | **10/10 (100%)** | **10/10 (100%)** |
+| Armadilhas da recíproca (B7–B10) | 0 quedas em 4 | 0 quedas em 4 |
+| **Morfologia** (forma certa) | **2/10 (20%)** | **5/10 (50%)** + 2 ambíguas |
+| — gerúndio | 0/3 | 2/3 |
+| — verbo no plural | 0/2 | 2/2 |
+| — gênero do personagem | 1/3 | 0/3 (2 ambíguas) |
+| — adjetivo no plural | 1/2 | 1/2 |
+| Tempo por resposta | 6–13 s | 26–55 s |
+| Tokens por resposta | ~33–37 mil | ~38–44 mil |
+
+## Conclusões da bateria 2
+
+1. **O esforço não muda a lógica, mas muda a morfologia.** Os dois acertaram 100% da lógica e
+   desviaram de todas as armadilhas. Na forma, o max foi de 20% para 50% (70% contando as
+   ambíguas, em que ele mostra que conhece a forma certa).
+2. **O max raciocina sobre a forma, o low não.** O max escreveu coisas como "o espaço vem depois
+   de 'está', então a forma é o gerúndio; a terminação -a indica verbo em -ar" e "com sujeito
+   composto plural, o verbo fica no plural". O low nunca comentou a forma.
+3. **Gênero é a flexão mais difícil, mesmo para o max.** Ele sabe a regra (nas ambíguas cita a
+   forma feminina), mas trata a forma da regra como a "oficial": "'grovradrento' é a forma
+   usada no enunciado". O low acertou um caso de gênero (B4) em que o max hesitou.
+4. **O plural vindo de uma regra "Quem..." derrubou os dois** (B9: "Quem fledola é vraflavento"
+   → ambos responderam no singular). A forma no masculino singular da regra "Quem" parece
+   ainda mais "pronta para copiar".
+5. **As correções do teste funcionaram.** A morfologia do low caiu de 42% (bateria 1) para 20%:
+   a bateria 1 tinha acertos por cópia que coincidia com a forma pedida; agora isso não
+   acontece mais. O teste ficou mais rigoroso, como era a intenção.
+6. **Escala (v0) aplicada:**
+   - Haiku 5.5 low → **L 100% · M 20%**
+   - Haiku 5.5 max → **L 100% · M 50%** (+20% ambígua)
+
+   A morfologia separou os dois esforços; a lógica (níveis 1–3) não separou.
+
+## Próximos passos sugeridos
+
+- Repetir com Sonnet e Opus para ver onde a morfologia satura.
+- Como gênero é o ponto mais difícil, vale uma variante só de concordância com o personagem em
+  cadeias mais longas, e outra com plural vindo de regra "Quem...".
+- Para a lógica voltar a discriminar, os operadores novos (negação, "ou", "alguns", "exceto")
+  precisam entrar no gerador.
