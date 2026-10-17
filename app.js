@@ -179,9 +179,10 @@ function provaHtml(d) {
         ` <span class="text-slate-600">(${d.passos} ${d.passos === 1 ? 'passo' : 'passos'})</span>`;
 }
 
-const COR_DO_STATUS = { certo: 'text-emerald-300', flexao: 'text-amber-300', armadilha: 'text-fuchsia-300', errado: 'text-rose-300', 'sem-resposta': 'text-slate-500' };
+const COR_DO_STATUS = { certo: 'text-emerald-300', ambigua: 'text-orange-300', flexao: 'text-amber-300', armadilha: 'text-fuchsia-300', errado: 'text-rose-300', 'sem-resposta': 'text-slate-500' };
 const SELOS = {
     certo: ['emerald', '✔ Acertou'],
+    ambigua: ['orange', '≈ Flexão ambígua'],
     flexao: ['amber', '⚠ Flexão errada'],
     armadilha: ['fuchsia', '🪤 Caiu na armadilha'],
     errado: ['rose', '✘ Errou'],
@@ -223,10 +224,13 @@ function corrigirRespostas() {
 
     resultado = corrigir(desafios, texto);
     const conta = (status) => resultado.filter(r => r.status === status).length;
+    const { total, logica, morfologia } = placarDosEixos(resultado);
     const certos = conta('certo');
-    const pct = Math.round((certos / desafios.length) * 100);
+    const pct = Math.round((certos / total) * 100);
     const cor = pct >= 80 ? 'emerald' : pct >= 50 ? 'amber' : 'rose';
+    const porcento = (n, de) => de ? `${Math.round((n / de) * 100)}%` : '—';
     const detalhes = [
+        [conta('ambigua'), 'text-orange-300', 'flexão ambígua (deu mais de uma forma)'],
         [conta('flexao'), 'text-amber-300', 'flexão errada (lógica certa)'],
         [conta('armadilha'), 'text-fuchsia-300', 'caíram na armadilha da recíproca'],
         [conta('errado'), 'text-rose-300', 'errados'],
@@ -235,8 +239,20 @@ function corrigirRespostas() {
 
     $('placar').className = `mt-5 p-4 rounded-xl border text-center bg-${cor}-950/30 border-${cor}-500/30`;
     $('placar').innerHTML = `
-        <div class="text-3xl font-black text-${cor}-300 tabular-nums">${certos}/${desafios.length}</div>
-        <div class="text-[10px] font-black uppercase tracking-widest text-${cor}-400/80 mt-1">${pct}% de acerto</div>
+        <div class="text-3xl font-black text-${cor}-300 tabular-nums">${certos}/${total}</div>
+        <div class="text-[10px] font-black uppercase tracking-widest text-${cor}-400/80 mt-1">${pct}% totalmente certos</div>
+        <div class="grid grid-cols-2 gap-2 mt-3 text-left">
+            <div class="bg-slate-950/60 rounded-lg p-2 border border-slate-800">
+                <div class="text-[9px] font-black uppercase tracking-widest text-slate-500">Lógica</div>
+                <div class="text-lg font-black text-white tabular-nums">${porcento(logica, total)}</div>
+                <div class="text-[9px] text-slate-500">${logica}/${total} palavra certa</div>
+            </div>
+            <div class="bg-slate-950/60 rounded-lg p-2 border border-slate-800">
+                <div class="text-[9px] font-black uppercase tracking-widest text-slate-500">Morfologia</div>
+                <div class="text-lg font-black text-white tabular-nums">${porcento(morfologia, logica)}</div>
+                <div class="text-[9px] text-slate-500">${morfologia}/${logica} forma certa</div>
+            </div>
+        </div>
         ${detalhes.map(([n, classe, rotulo]) => `<div class="text-[10px] ${classe} mt-1">${n} ${rotulo}</div>`).join('')}`;
     renderDesafios();
 }

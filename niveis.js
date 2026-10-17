@@ -13,10 +13,10 @@
 //   todo G1 é V1             "Todo G1 V1."            (presente: "glovunda")
 //   todo G1 é G2             "Todo G1 é um G2."
 //   todo A1 é V1             "Quem é A1 V1."          (vale para A/V em qualquer combinação)
-//   X1 é G1                  "X1 é um G1."
-//   X1 e X2 são G1           "X1 e X2 são G1s."       (substantivo no plural)
-//   X1 é A1 / X1 é V1        "X1 é A1." / "X1 V1."
-//   X1 e X2 são A1 / V1      "X1 e X2 são A1s." / "X1 e X2 V1m."
+//   X1 é G1                  "O X1 é um G1."          (artigo o/a: o gênero do personagem fica escrito)
+//   X1 e X2 são G1           "O X1 e a X2 são G1s."   (substantivo no plural)
+//   X1 é A1 / X1 é V1        "O X1 é A1." / "O X1 V1."
+//   X1 e X2 são A1 / V1      "O X1 e a X2 são A1s." / "O X1 e a X2 V1m."
 //
 // Perguntas: uma lacuna, sem opções. A classe da lacuna vem da linha "resposta:"
 // (A = adjetivo, V = verbo) e a frase obriga a flexionar a resposta.
@@ -33,6 +33,11 @@
 // A resposta precisa sair do texto, na lógica e na gramática. Pelo presente
 // "pavobe" não dá para saber se o verbo é pavober ou pavobir, então nos desafios
 // de gerúndio todos os verbos são da 1ª conjugação ("glovunda" -> "glovundando").
+//
+// A forma pedida nunca é a que já aparece no texto: na concordância com um personagem
+// só ("X1 é ___?" com adjetivo), ele recebe o gênero oposto ao da forma escrita na
+// regra ("Toda ronhilha é vesurdenta" -> "O Crodel é vesurdento"). Nas outras perguntas
+// (plural, gerúndio) a forma pedida já é sempre diferente.
 //
 // No desafio, as regras aparecem embaralhadas e os fatos vêm depois delas.
 // Cada nível pode ter variantes; cada desafio sorteia uma delas.

@@ -127,7 +127,10 @@ function acharArmadilhas(modelo, sujeitos, candidatos, resposta) {
 // Cada tipo de linha vira sempre a mesma frase, sem sinônimos (ver niveis.js).
 const todo = (g) => g.genero === 'm' ? 'Todo' : 'Toda';
 const artigo = (g) => g.genero === 'm' ? 'um' : 'uma';
-const nomes = (sujeitos) => sujeitos.map(x => x.palavra).join(' e ');
+// Artigo antes do nome deixa o gênero do personagem escrito no texto ("o Crodel", "a Flunice");
+// só pela terminação do nome seria ambíguo ("-el" pode ser Gabriel ou Raquel)
+const nomes = (sujeitos) => sujeitos.map(x => `${x.genero === 'm' ? 'o' : 'a'} ${x.palavra}`).join(' e ');
+const maiuscula = (frase) => frase[0].toUpperCase() + frase.slice(1);
 // Grupo com algum masculino concorda no masculino
 const generoDe = (sujeitos) => sujeitos.some(x => x.genero === 'm') ? 'm' : 'f';
 
@@ -144,7 +147,7 @@ function fraseRegra({ se, entao }) {
 }
 
 function fraseFato({ sujeitos, predicado }) {
-    return `${nomes(sujeitos)} ${predicar(predicado, generoDe(sujeitos), sujeitos.length > 1)}.`;
+    return maiuscula(`${nomes(sujeitos)} ${predicar(predicado, generoDe(sujeitos), sujeitos.length > 1)}.`);
 }
 
 // Forma de dicionário (masculino singular, infinitivo): como as palavras aparecem na legenda
@@ -162,9 +165,9 @@ const MOLDES = {
     'estão': { verbo: 'estão ' }
 };
 
-// "Xemela é ___?", "Xemela e Zuvrel ___?", "Xemela está ___?" — sem opções, sem dica
+// "A Xemela é ___?", "A Xemela e o Zuvrel ___?", "A Xemela está ___?" — sem opções, sem dica
 function frasePergunta(sujeitos, verbo, classe) {
-    return `${nomes(sujeitos)} ${MOLDES[verbo][classe]}___?`;
+    return maiuscula(`${nomes(sujeitos)} ${MOLDES[verbo][classe]}___?`);
 }
 
 // A forma que a frase da pergunta exige, e o nome dessa flexão
@@ -204,6 +207,17 @@ function montarDesafio(nivel, s, lexico, numero) {
         const tipo = tipoDaVariavel(v);
         // Gerúndio: só verbos em -ar, para a forma pedida sair do texto (ver niveis.js)
         palavra[v] = tipo === 'verbo' && gerundio ? lexico.verbo(PRIMEIRA) : lexico[tipo]();
+    }
+
+    // Concordância com um personagem só ("X1 é ___?" com resposta adjetivo): o personagem
+    // recebe o gênero oposto ao da forma que aparece na regra. Senão, copiar a regra já
+    // acertaria e o teste não mediria a concordância.
+    const [letraUnica, ...outros] = esq.pergunta.sujeitos;
+    if (verbo === 'é' && !outros.length && tipoDaVariavel(esq.resposta) === 'adjetivo') {
+        const generosVisiveis = new Set(esq.regras.filter(r => r.entao === esq.resposta)
+            .map(r => tipoDaVariavel(r.se) === 'substantivo' ? palavra[r.se].genero : 'm'));
+        const atual = palavra[letraUnica].genero;
+        if (generosVisiveis.size === 1 && generosVisiveis.has(atual)) palavra[letraUnica] = lexico.nome(atual === 'm' ? 'f' : 'm');
     }
 
     const modelo = {
@@ -311,10 +325,14 @@ function lerRespostas(texto) {
 }
 
 // certo      = escreveu exatamente a forma pedida (ex.: "glovundando")
+// ambigua    = escreveu a forma pedida E outra forma da mesma palavra ("treflofosas (ou treflofosos)")
 // flexao     = escolheu a palavra certa, mas na forma errada (ex.: "glovundar")
 // armadilha  = citou a palavra que só sai lendo uma regra ao contrário
 //              (mesmo junto com a certa: é o que conclui quem inverte a regra)
 // errado     = escolheu outra palavra, ou citou mais de uma
+//
+// Dois eixos: LÓGICA = escolheu a palavra certa (certo, ambigua ou flexao);
+// MORFOLOGIA = entre esses, escreveu só a forma pedida (certo).
 function corrigir(desafios, texto) {
     const respostas = lerRespostas(texto);
     return desafios.map(d => {
@@ -322,9 +340,20 @@ function corrigir(desafios, texto) {
         if (dada === undefined) return { numero: d.numero, dada: null, status: 'sem-resposta' };
         const palavras = normalizar(dada).split(/[^a-z]+/).filter(Boolean);
         const cita = (chaves) => palavras.some(w => chaves.some(c => w.startsWith(c)));
-        const exata = palavras.includes(d.resposta);
-        const raiz = palavras.some(w => w.startsWith(d.chave));
-        const status = cita(d.chavesArmadilha) ? 'armadilha' : cita(d.distratores) ? 'errado' : exata ? 'certo' : raiz ? 'flexao' : 'errado';
+        const formasDaResposta = new Set(palavras.filter(w => w.startsWith(d.chave)));
+        const exata = formasDaResposta.has(d.resposta);
+        let status;
+        if (cita(d.chavesArmadilha)) status = 'armadilha';
+        else if (cita(d.distratores)) status = 'errado';
+        else if (exata) status = formasDaResposta.size > 1 ? 'ambigua' : 'certo';
+        else status = formasDaResposta.size ? 'flexao' : 'errado';
         return { numero: d.numero, dada, status };
     });
+}
+
+// Placar nos dois eixos, a partir do resultado de corrigir()
+function placarDosEixos(resultado) {
+    const conta = (...status) => resultado.filter(r => status.includes(r.status)).length;
+    const logica = conta('certo', 'ambigua', 'flexao');
+    return { total: resultado.length, logica, morfologia: conta('certo') };
 }

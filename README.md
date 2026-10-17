@@ -5,8 +5,8 @@ Gerador automático de desafios de lógica em português do Brasil, usando palav
 ```
 Toda plalhoma é zedantosa.
 Toda flagleba é pregreventa.
-Ludela e Chevrur são plalhomas.
-Ludela e Chevrur são ___?          → zedantosos
+A Ludela e o Chevrur são plalhomas.
+A Ludela e o Chevrur são ___?      → zedantosos
 ```
 
 ## 🚀 Como usar
@@ -15,7 +15,9 @@ Abra o `index.html` no navegador. Funciona sem internet; com internet aparecem t
 
 1. **Gerar** — escolha o nível, quantos desafios e uma semente.
 2. **Copiar prompt** — cole na IA que quiser testar. Para mandar um desafio só, use o botão **Copiar** do próprio desafio.
-3. **Corrigir** — cole a resposta completa da IA. Cada desafio recebe ✔ certo, ⚠ flexão errada, 🪤 caiu na armadilha ou ✘ errado, e sai o placar.
+3. **Corrigir** — cole a resposta completa da IA. Cada desafio recebe ✔ certo, ≈ flexão ambígua, ⚠ flexão errada, 🪤 caiu na armadilha ou ✘ errado, e sai o placar em dois eixos:
+   - **Lógica** — escolheu a palavra certa (certo, ambígua ou flexão errada)
+   - **Morfologia** — entre essas, escreveu só a forma pedida
 
 A **semente** garante que o mesmo lote se repita: use a mesma semente para comparar IAs diferentes na mesma prova.
 
@@ -27,6 +29,8 @@ As escolhas (nível, quantidade, semente e "Gabarito e esqueleto") ficam salvas 
 - **Nível é receita, não pontuação.** Cada nível é um esqueleto escrito em `niveis.js`, numa notação reta, sem margem de interpretação.
 - **Sem dicas.** A pergunta é só uma lacuna ("Ludela é ___?"), sem opções, e o prompt não avisa que as palavras são inventadas.
 - **A resposta tem que vir flexionada.** A frase da pergunta obriga a concordar ou conjugar: feminino, plural, gerúndio, 3ª pessoa do plural. A resposta sempre sai do texto, na lógica e na gramática.
+- **Copiar não basta.** A forma pedida nunca é a que já aparece escrita: na concordância com um personagem, ele tem o gênero oposto ao da forma da regra ("Toda ronhilha é vesurdenta" → "O Crodel é vesurdento"). O artigo antes do nome deixa o gênero do personagem explícito.
+- **Lógica e morfologia são medidas separadas.** São habilidades diferentes: nos testes com o Haiku 5.5 low, ele acertou 100% da lógica e só 42% das flexões (ver `testes/`).
 - **Correção automática e exata.** Toda palavra inventada é única no lote. Certo = a forma exata pedida; flexão errada = palavra certa na forma errada (acertou a lógica, errou a gramática); errado = outra palavra.
 
 ## 📶 Níveis e esqueletos
@@ -102,6 +106,7 @@ Montadas com sílabas e sufixos do português, sem acentos, com todas as flexõe
 | `palavras.js` | Gerador de palavras inventadas e sorteio com semente |
 | `favicon.svg` | Ícone da aba |
 | `vendor/tailwind-3.4.17.js` | Tailwind (CSS) guardado no repositório, sem depender de CDN |
+| `testes/` | Diários das baterias de teste com IAs (método, respostas e conclusões) |
 
 ## 🔒 Segurança
 

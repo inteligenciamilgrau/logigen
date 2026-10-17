@@ -111,8 +111,9 @@ function criarLexico(s) {
                 infinitivo: r + c.infinitivo, presente: r + c.presente, plural: r + c.plural, gerundio: r + c.gerundio
             };
         }),
-        nome: () => reservar(() => {
-            const g = genero(s);
+        // Aceita fixar o gênero (ex.: para o personagem não ter o gênero da forma da regra)
+        nome: (generoFixo) => reservar(() => {
+            const g = generoFixo || genero(s);
             const inicio = inicioDePalavra(s);
             const base = inicio + s.item(VOGAIS) + meioDePalavra(s, inicio) + s.item(FINAIS_NOME[g]);
             return { classe: 'nome', chave: base, genero: g, palavra: base[0].toUpperCase() + base.slice(1) };
