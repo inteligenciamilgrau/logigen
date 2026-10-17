@@ -69,16 +69,44 @@ function radical(s) {
 
 function genero(s) { return s.chance(0.5) ? 'm' : 'f'; }
 
+// Todas as formas de uma palavra que podem aparecer escritas no desafio
+function formasEscritas(p) {
+    if (p.classe === 'substantivo') return [p.palavra, p.plural];
+    if (p.classe === 'adjetivo') return [p.m, p.f, p.mp, p.fp];
+    if (p.classe === 'verbo') return [p.infinitivo, p.presente, p.plural, p.gerundio];
+    return [p.palavra];
+}
+
+// Uma forma a 1 letra (ou menos) de uma palavra do português (dicionario.js): tirando,
+// pondo ou trocando uma letra, vira palavra real. A IA poderia ler "grofesca" como
+// "grotesca" ou o nome "Bramar" como o verbo "bramar". Sem o dicionário, não filtra.
+const ALFABETO = 'abcdefghijklmnopqrstuvwxyz';
+function pertoDoPortugues(forma) {
+    if (typeof DICIONARIO === 'undefined') return false;
+    const w = forma.toLowerCase();
+    if (DICIONARIO.has(w)) return true;
+    for (let i = 0; i <= w.length; i++) {
+        const antes = w.slice(0, i), depois = w.slice(i), resto = depois.slice(1);
+        if (i < w.length && DICIONARIO.has(antes + resto)) return true;
+        for (const c of ALFABETO) {
+            if (DICIONARIO.has(antes + c + depois)) return true;
+            if (i < w.length && c !== w[i] && DICIONARIO.has(antes + c + resto)) return true;
+        }
+    }
+    return false;
+}
+
 // Um léxico garante que nenhuma palavra se repete num lote de desafios.
 // Cada palavra tem uma "chave" (o radical sem flexão) usada na correção;
 // nenhuma chave pode conter outra, senão a correção ficaria ambígua.
+// Nenhuma forma escrita pode ficar perto do português (ver pertoDoPortugues).
 function criarLexico(s) {
     const chaves = [];
     const livre = (chave) => !chaves.some(c => c.includes(chave) || chave.includes(c));
     const reservar = (gerar) => {
         for (let tentativa = 0; tentativa < 500; tentativa++) {
             const palavra = gerar();
-            if (livre(palavra.chave)) {
+            if (livre(palavra.chave) && !formasEscritas(palavra).some(pertoDoPortugues)) {
                 chaves.push(palavra.chave);
                 return palavra;
             }

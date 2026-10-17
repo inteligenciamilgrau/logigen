@@ -30,7 +30,7 @@ As escolhas (nível, quantidade, semente e "Gabarito e esqueleto") ficam salvas 
 - **Sem dicas.** A pergunta é só uma lacuna ("Ludela é ___?"), sem opções, e o prompt não avisa que as palavras são inventadas.
 - **A resposta tem que vir flexionada.** A frase da pergunta obriga a concordar ou conjugar: feminino, plural, gerúndio, 3ª pessoa do plural. A resposta sempre sai do texto, na lógica e na gramática.
 - **Copiar não basta.** A forma pedida nunca é a que já aparece escrita: na concordância com um personagem, ele tem o gênero oposto ao da forma da regra ("Toda ronhilha é vesurdenta" → "O Crodel é vesurdento"). O artigo antes do nome deixa o gênero do personagem explícito.
-- **Lógica e morfologia são medidas separadas.** São habilidades diferentes: nos testes, Haiku, Sonnet e Opus 5.5 e Fable 5.1 acertaram 100% da lógica nos esforços low e max, mas a morfologia fez uma escada de 20% (Haiku low) a 100% (Opus max), passando por Fable low (80%) e Fable max (90%) — e a concordância de gênero com o personagem foi o item mais difícil: só o Opus max acertou os três (ver `testes/`).
+- **Lógica e morfologia são medidas separadas.** São habilidades diferentes: nos testes, Haiku, Sonnet e Opus 5.5 e Fable 5.1 acertaram 100% da lógica nos esforços low e max, mas a morfologia fez uma escada de 20% (Haiku low) a 100% (Opus max), passando por Fable low (80%) e Fable max (90%) — e a concordância de gênero com o personagem foi o item mais difícil: só o Opus max acertou os três (ver `testes/`). A lógica do Haiku low só quebrou quando o texto cresceu (com 100+ regras ele corta a cadeia no meio) e com palavras sósias ("Bromar" × "Bramar"), que ele lê uma pela outra.
 - **Correção automática e exata.** Toda palavra inventada é única no lote. Certo = a forma exata pedida; flexão errada = palavra certa na forma errada (acertou a lógica, errou a gramática); errado = outra palavra.
 
 ## 📶 Níveis e esqueletos
@@ -95,6 +95,12 @@ Montadas com sílabas e sufixos do português, sem acentos, com todas as flexõe
 - **Verbos** de 1ª, 2ª e 3ª conjugação: *pavobir → pavobe, pavobem, pavobindo*
 - **Nomes próprios**: *Ludela*, *Chevrur*
 
+**Nenhuma palavra fica perto do português.** Toda forma escrita de cada palavra (plural, feminino, conjugações) é conferida num dicionário de 243 mil formas do português. Se tirando, pondo ou trocando **uma letra** ela vira uma palavra real, é descartada e sorteada de novo. Sem isso, cerca de 9% das palavras inventadas ficavam a uma letra do português (23% dos nomes): "grofesca" lembrava "grotesca", e o nome "Bramar" era o verbo "bramar". Nos testes, a IA confundiu palavras sósias um pouco mais quando uma delas ficava perto do português. A confusão também acontece entre palavras limpas, porque a IA trata a diferença de uma vogal como "erro de digitação" (ver `testes/`). O filtro tira o português da equação.
+
+O dicionário (`dicionario.js`) vem da [Lista de todas as palavras do português brasileiro](https://www.ime.usp.br/~pf/dicios/), de Paulo Feofiloff (IME-USP), preparada a partir do Dicionário br.ispell, de Ricardo Ueda Karpischek, sob licença [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.pt-br).
+
+Com o filtro, as mesmas sementes passaram a gerar lotes diferentes dos usados nas baterias de teste 1 a 6.
+
 ## 📂 Arquivos
 
 | Arquivo | O que faz |
@@ -104,6 +110,7 @@ Montadas com sílabas e sufixos do português, sem acentos, com todas as flexõe
 | `niveis.js` | Esqueletos lógicos de cada nível (é aqui que se cria nível novo) |
 | `logica.js` | Lê o esqueleto, solucionador, texto dos desafios, flexões e correção |
 | `palavras.js` | Gerador de palavras inventadas e sorteio com semente |
+| `dicionario.js` | Palavras do português, para nenhuma inventada ficar a uma letra de uma real |
 | `favicon.svg` | Ícone da aba |
 | `vendor/tailwind-3.4.17.js` | Tailwind (CSS) guardado no repositório, sem depender de CDN |
 | `testes/` | Diários das baterias de teste com IAs (método, respostas e conclusões) |

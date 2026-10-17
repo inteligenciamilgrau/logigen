@@ -181,14 +181,6 @@ function flexionar(p, verbo, sujeitos) {
     return plural ? { forma: p.plural, flexao: 'presente, eles' } : { forma: p.presente, flexao: 'presente, ele' };
 }
 
-// Todas as formas escritas de uma palavra, para a interface colorir por classe
-function formasEscritas(p) {
-    if (p.classe === 'substantivo') return [p.palavra, p.plural];
-    if (p.classe === 'adjetivo') return [p.m, p.f, p.mp, p.fp];
-    if (p.classe === 'verbo') return [p.infinitivo, p.presente, p.plural, p.gerundio];
-    return [p.palavra];
-}
-
 // Personagens, depois grupos, adjetivos e verbos, cada um em ordem: X1 X2 · G1 G2 · A1 A2
 function ordenarLetras(variaveis) {
     const ordem = 'XGAV';
