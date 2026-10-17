@@ -61,7 +61,7 @@ async function copiar(texto) {
 // --- GERAR ---
 function mostrarNivel() {
     const n = NIVEIS[$('nivel').value];
-    $('nivel-descricao').textContent = n.descricao;
+    $('nivel-descricao').textContent = `${n.descricao} Passos até a resposta: ${n.passos}.`;
     // Mostra cada variante como está escrita em niveis.js, sem a indentação do código
     $('nivel-esqueleto').innerHTML = Object.entries(n.variantes).map(([nome, esqueleto]) => {
         const linhas = esqueleto.split('\n').map(l => l.trim()).filter(Boolean).map(l => {

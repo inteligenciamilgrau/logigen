@@ -50,14 +50,18 @@ resposta: V1
 | `X1 está ___?` | — | X1 está ___? | gerúndio |
 
 - `resposta:` é o que você espera. O solucionador confere: a resposta precisa ser o **único** adjetivo (ou verbo) dedutível para os personagens perguntados; senão, o esqueleto é recusado com a explicação do erro.
+- Cada nível declara quantos `passos` (regras encadeadas) a resposta exige, e o solucionador confere em todas as variantes — nenhum esqueleto pode ter atalho.
 - Nos desafios de gerúndio todos os verbos são em -ar: pelo presente "pavobe" não daria para saber se o gerúndio é "pavobendo" ou "pavobindo".
 - As regras aparecem embaralhadas e os fatos vêm depois delas.
 
 Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do esqueleto ao lado de cada frase, a prova (`X1 é G1 → todo G1 é V1 ⇒ X1 é V1`), qual palavra é cada letra e a flexão pedida. As cores separam as classes: **nome**, **substantivo**, **adjetivo** e **verbo**.
 
-| Nível | Nome | Variantes |
-|---|---|---|
-| 1 | Dedução direta | adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural |
+| Nível | Nome | Passos | Estrutura |
+|---|---|---|---|
+| 1 | Dedução direta | 1 | 2 regras + 1 fato; uma regra leva à resposta, a outra é distração |
+| 2 | Cadeia de dois passos | 2 | 2 cadeias de 2 regras; uma leva à resposta, a outra é distração. O elo do meio é um grupo, um verbo ou um adjetivo |
+
+Os dois níveis têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
 
 Para criar um nível novo, basta escrever outro esqueleto em `niveis.js`.
 

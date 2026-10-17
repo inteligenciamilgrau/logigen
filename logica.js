@@ -207,6 +207,9 @@ function montarDesafio(nivel, s, lexico, numero) {
     if (achadas.length !== 1) throw erro(`dá para deduzir ${achadas.length} respostas para a lacuna (${achadas.join(', ') || 'nenhuma'}), precisa ser exatamente 1.`);
     if (achadas[0] !== esq.resposta) throw erro(`o solucionador chegou em ${achadas[0]}, mas o esqueleto diz "resposta: ${esq.resposta}".`);
     const resposta = palavra[esq.resposta];
+    const passos = Math.max(...conclusoes.map(c => c.get(resposta.chave).passos));
+    const passosDoNivel = NIVEIS[nivel].passos;
+    if (passosDoNivel && passos !== passosDoNivel) throw erro(`a resposta sai em ${passos} ${passos === 1 ? 'passo' : 'passos'}, mas o nível pede ${passosDoNivel}.`);
     const { forma, flexao } = flexionar(resposta, verbo, sujeitos);
 
     const regras = s.embaralhar(modelo.regras).map(r => ({ texto: fraseRegra(r), esqueleto: r.esqueleto }));
@@ -225,7 +228,7 @@ function montarDesafio(nivel, s, lexico, numero) {
         chave: resposta.chave,
         // Qualquer outro adjetivo/verbo do desafio na resposta da IA conta como erro
         distratores: esq.variaveis.filter(v => /^[AV]/.test(v) && v !== esq.resposta).map(v => palavra[v].chave),
-        passos: Math.max(...conclusoes.map(c => c.get(resposta.chave).passos)),
+        passos,
         prova: [
             ...new Set(conclusoes.flatMap(c => cadeiaDaProva(c, resposta.chave))),
             `${letrasSujeito} ${sujeitos.length > 1 ? 'são' : 'é'} ${esq.resposta}`

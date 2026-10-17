@@ -36,11 +36,14 @@
 //
 // No desafio, as regras aparecem embaralhadas e os fatos vêm depois delas.
 // Cada nível pode ter variantes; cada desafio sorteia uma delas.
+// "passos" é quantas regras a resposta exige; o solucionador confere em todas
+// as variantes, para nenhum esqueleto ter atalho.
 
 const NIVEIS = {
     1: {
         nome: 'Dedução direta',
         descricao: 'Duas regras e um fato. O fato liga o personagem a uma das regras, que dá a resposta em um passo; a outra regra é distração. A lacuna não tem opções e a resposta precisa vir flexionada.',
+        passos: 1,
         variantes: {
             'adjetivo · gênero': `
                 todo G1 é A1      # leva à resposta
@@ -66,6 +69,49 @@ const NIVEIS = {
             'verbo · plural': `
                 todo G1 é V1      # leva à resposta
                 todo G2 é V2      # distração
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: V1
+            `
+        }
+    },
+    2: {
+        nome: 'Cadeia de dois passos',
+        descricao: 'Duas regras em cadeia levam à resposta; outra cadeia igual serve de distração. O elo do meio muda conforme a variante: um grupo, um verbo ou um adjetivo.',
+        passos: 2,
+        variantes: {
+            'adjetivo · gênero': `
+                todo G1 é G2      # passo 1 (elo: grupo)
+                todo G2 é A1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é A2      # distração
+                X1 é G1
+                pergunta: X1 é ___?
+                resposta: A1
+            `,
+            'adjetivo · plural': `
+                todo G1 é V1      # passo 1 (elo: verbo)
+                todo V1 é A1      # passo 2
+                todo G2 é V2      # distração
+                todo V2 é A2      # distração
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: A1
+            `,
+            'verbo · gerúndio': `
+                todo G1 é A1      # passo 1 (elo: adjetivo)
+                todo A1 é V1      # passo 2
+                todo G2 é A2      # distração
+                todo A2 é V2      # distração
+                X1 é G1
+                pergunta: X1 está ___?
+                resposta: V1
+            `,
+            'verbo · plural': `
+                todo G1 é G2      # passo 1 (elo: grupo)
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
                 X1 e X2 são G1
                 pergunta: X1 e X2 são ___?
                 resposta: V1
