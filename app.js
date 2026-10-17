@@ -95,12 +95,13 @@ function salvarEscolhas() {
 }
 
 // Devolve true se havia escolhas salvas. Ignora valores que não servem mais
-// (ex.: um nível que deixou de existir).
+// (ex.: um nível que deixou de existir). Object.hasOwn e não NIVEIS[x]: senão
+// "__proto__" ou "constructor" passariam como nível válido e travariam a página.
 function carregarEscolhas() {
     let salvas = null;
     try { salvas = JSON.parse(localStorage.getItem(ESCOLHAS_KEY)); } catch (e) {}
-    if (!salvas) return false;
-    if (NIVEIS[salvas.nivel]) $('nivel').value = salvas.nivel;
+    if (!salvas || typeof salvas !== 'object') return false;
+    if (Object.hasOwn(NIVEIS, salvas.nivel)) $('nivel').value = salvas.nivel;
     if (parseInt(salvas.quantidade, 10) > 0) $('quantidade').value = salvas.quantidade;
     if (parseInt(salvas.semente, 10) > 0) $('semente').value = salvas.semente;
     if (typeof salvas.gabarito === 'boolean') $('mostrar-gabarito').checked = salvas.gabarito;

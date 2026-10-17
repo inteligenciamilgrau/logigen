@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogiGen | Gerador de Lógica</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+    <!-- Tailwind fica no repositório: o servidor da CDN não libera CORS, então não daria para conferir o hash -->
+    <script src="vendor/tailwind-3.4.17.js"></script>
+    <!-- Ícones da CDN com hash de integridade: se o arquivo for alterado lá, o navegador recusa -->
+    <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"
+            integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge"
+            crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }

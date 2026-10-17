@@ -11,7 +11,7 @@ Ludela e Chevrur são ___?          → zedantosos
 
 ## 🚀 Como usar
 
-Abra o `index.html` no navegador (só precisa de internet para o Tailwind, os ícones e a fonte).
+Abra o `index.html` no navegador. Funciona sem internet; com internet aparecem também os ícones e a fonte Inter.
 
 1. **Gerar** — escolha o nível, quantos desafios e uma semente.
 2. **Copiar prompt** — cole na IA que quiser testar. Para mandar um desafio só, use o botão **Copiar** do próprio desafio.
@@ -86,6 +86,15 @@ Montadas com sílabas e sufixos do português, sem acentos, com todas as flexõe
 | `logica.js` | Lê o esqueleto, solucionador, texto dos desafios, flexões e correção |
 | `palavras.js` | Gerador de palavras inventadas e sorteio com semente |
 | `favicon.svg` | Ícone da aba |
+| `vendor/tailwind-3.4.17.js` | Tailwind (CSS) guardado no repositório, sem depender de CDN |
+
+## 🔒 Segurança
+
+- Página estática: sem servidor, sem chamadas de rede próprias, sem `eval`.
+- Todo texto vindo de fora (a resposta colada da IA) é escapado antes de ir para a tela.
+- Os ícones vêm da CDN com hash de integridade (SRI): se o arquivo for alterado lá, o navegador recusa e a página segue funcionando sem ícones.
+- O Tailwind fica no repositório porque a CDN dele não libera CORS, o que impede a verificação por hash.
+- No navegador ficam salvas só as configurações (nível, quantidade, semente); valores inválidos são ignorados.
 
 ---
 *Desenvolvido no Laboratório Inteligência Mil Grau.*
