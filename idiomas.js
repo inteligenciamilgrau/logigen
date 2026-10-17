@@ -93,6 +93,13 @@ const TEXTOS = {
         status_confusao: 'confusão com sósia', status_cortada: 'cadeia cortada',
         flexao_gerundio: 'Gerúndio', 'flexao_verbo-plural': 'Verbo plural', flexao_genero: 'Gênero', 'flexao_adj-plural': 'Adjetivo plural',
 
+        reais_toggle: 'Palavras reais',
+        reais_title: 'Mostra o mesmo desafio com palavras de verdade, só para conferir se faz sentido. O prompt copiado continua com as palavras inventadas.',
+        reais_aviso: '<b>Palavras reais</b>, só para conferir: cada palavra inventada virou uma de verdade, da mesma classe e na mesma forma. As frases podem ficar absurdas ("Toda baleia voa."), mas a lógica vale do mesmo jeito. O prompt copiado continua com as palavras inventadas.',
+        v_reais: 'Jogar com palavras reais',
+        v_reais_dica: 'Você vê palavras de verdade; a IA continua com as inventadas. O sentido pode ajudar, ou atrapalhar quando a frase é absurda.',
+        v_reais_nota: 'Você jogou com palavras reais; a IA, com as inventadas.',
+
         aba_versus: 'Humano × IA',
         v_titulo: 'Humano × IA',
         v_intro: 'Resolva os mesmos desafios que a IA, na sua língua. A IA recebe exatamente a mesma lógica no idioma dela. As duas respostas passam pelo mesmo corretor, e o placar mostra quem ganhou.',
@@ -174,6 +181,13 @@ const TEXTOS = {
         status_certo: 'correct', status_hesitou: 'correct, but hesitated', status_ambigua: 'ambiguous form', status_flexao: 'wrong form',
         status_confusao: 'look-alike confusion', status_cortada: 'chain cut short',
         flexao_gerundio: 'Gerund', 'flexao_verbo-plural': 'Verb plural', flexao_genero: 'Gender', 'flexao_adj-plural': 'Adjective plural',
+
+        reais_toggle: 'Real words',
+        reais_title: 'Shows the same challenge with real words, just to check that it makes sense. The copied prompt still uses the invented words.',
+        reais_aviso: '<b>Real words</b>, just for checking: each invented word became a real one, of the same class and in the same form. Sentences may sound absurd ("Every whale flies."), but the logic holds all the same. The copied prompt still uses the invented words.',
+        v_reais: 'Play with real words',
+        v_reais_dica: 'You see real words; the AI still gets the invented ones. Meaning may help, or get in the way when a sentence is absurd.',
+        v_reais_nota: 'You played with real words; the AI, with invented ones.',
 
         aba_versus: 'Human × AI',
         v_titulo: 'Human × AI',

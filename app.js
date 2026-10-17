@@ -148,6 +148,7 @@ function salvarEscolhas() {
             quantidade: $('quantidade').value,
             semente: $('semente').value,
             gabarito: $('mostrar-gabarito').checked,
+            reais: $('palavras-reais').checked,
             idioma: IDIOMA
         }));
     } catch (e) {}
@@ -164,6 +165,7 @@ function carregarEscolhas() {
     if (parseInt(salvas.quantidade, 10) > 0) $('quantidade').value = salvas.quantidade;
     if (parseInt(salvas.semente, 10) > 0) $('semente').value = salvas.semente;
     if (typeof salvas.gabarito === 'boolean') $('mostrar-gabarito').checked = salvas.gabarito;
+    if (typeof salvas.reais === 'boolean') $('palavras-reais').checked = salvas.reais;
     if (Object.hasOwn(IDIOMAS, salvas.idioma)) IDIOMA = salvas.idioma;
     return salvas;
 }
@@ -189,10 +191,17 @@ function gerar() {
     renderDesafios();
 }
 
+// Com "Palavras reais" ligado, a tela mostra o mesmo desafio com palavras de verdade
+// (palavras-reais.js); o prompt copiado continua com as inventadas
 function renderDesafios() {
     const porNumero = new Map((resultado || []).map(r => [r.numero, r]));
-    $('desafios').innerHTML = desafios.map(d => {
+    const reais = $('palavras-reais').checked;
+    const aviso = reais ? `<div class="text-[11px] text-amber-200/90 leading-relaxed bg-amber-500/10 border border-amber-500/30 rounded-xl px-4 py-3">${t('reais_aviso')}</div>` : '';
+    $('desafios').innerHTML = aviso + desafios.map(original => {
+        const d = reais ? versaoComPalavrasReais(original) : original;
         const r = porNumero.get(d.numero);
+        // A resposta da IA veio com as palavras inventadas: na tela, troca pelas reais também
+        const dada = r && r.dada !== null && reais ? trocarPalavras(r.dada, trocasDoDesafio(original).paraReal) : r?.dada;
         const borda = r ? `border-${SELOS[r.status]}-500/50` : 'border-slate-800';
         return `
         <article class="bg-slate-900 rounded-2xl border ${borda} p-6 shadow-xl animate-fade-in">
@@ -215,7 +224,7 @@ function renderDesafios() {
             </div>
             <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
                 <span class="gabarito"><span class="text-[10px] font-black uppercase tracking-widest text-emerald-500/80 mr-2">${t('gabarito')}</span><span class="font-mono font-black text-emerald-400">${escapeHtml(d.resposta)}</span> <span class="text-[10px] text-slate-500">· ${escapeHtml(d.flexao)}</span></span>
-                ${r ? `<span><span class="text-[10px] font-black uppercase tracking-widest text-slate-500 mr-2">${t('ia')}</span><span class="font-mono ${COR_DO_STATUS[r.status]}">${r.dada === null ? t('nao_respondeu') : escapeHtml(r.dada)}</span></span>` : ''}
+                ${r ? `<span><span class="text-[10px] font-black uppercase tracking-widest text-slate-500 mr-2">${t('ia')}</span><span class="font-mono ${COR_DO_STATUS[r.status]}">${r.dada === null ? t('nao_respondeu') : escapeHtml(dada)}</span></span>` : ''}
             </div>
         </article>`;
     }).join('');
@@ -250,6 +259,11 @@ function selo(status) {
 
 function alternarGabarito() {
     $('desafios').classList.toggle('sem-gabarito', !$('mostrar-gabarito').checked);
+}
+
+function alternarPalavrasReais() {
+    salvarEscolhas();
+    renderDesafios();
 }
 
 // --- TESTAR ---
@@ -354,7 +368,7 @@ async function init() {
     desenharBandeiras();
     preencherNiveis();
     // Salva assim que a pessoa mexe, mesmo sem clicar em "Gerar"
-    ['nivel', 'quantidade', 'semente', 'mostrar-gabarito'].forEach(id => $(id).addEventListener('change', salvarEscolhas));
+    ['nivel', 'quantidade', 'semente', 'mostrar-gabarito', 'palavras-reais'].forEach(id => $(id).addEventListener('change', salvarEscolhas));
     ['quantidade', 'semente'].forEach(id => $(id).addEventListener('input', salvarEscolhas));
     mostrarNivel();
     alternarGabarito();

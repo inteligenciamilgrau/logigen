@@ -28,6 +28,13 @@ As escolhas (nível, quantidade, semente, "Gabarito e esqueleto" e idioma) ficam
 
 As **bandeirinhas** no topo trocam o idioma do site **e dos desafios**: a mesma semente gera um lote em português ou em inglês. `index.html?lang=en` abre direto em inglês. Na primeira visita, o site usa o idioma do navegador.
 
+A chave **Palavras reais**, acima dos desafios, mostra o mesmo desafio com palavras de verdade, para conferir se a lógica faz sentido para uma pessoa:
+- **Troca palavra por palavra, mantendo a classe e a forma:** "Toda plalhoma é zedantosa" vira "Toda girafa é sonolenta".
+- **Em português o gênero é mantido**, então os artigos continuam certos e a concordância continua sendo testada: "O Bruno é ___?" pede *sonolento*.
+- **Vocabulário neutro de bichos:** gato, girafa, peludo, nada, voa, Pedro, Ana… (em inglês: cat, furry, swims, Peter…).
+- **As frases podem ficar absurdas** ("Toda baleia voa."), mas a lógica vale do mesmo jeito.
+- **O prompt copiado continua com as palavras inventadas**, porque são elas que medem o raciocínio da IA.
+
 A aba **Humano × IA** (`index.html#versus`) põe uma pessoa e uma IA no mesmo desafio, cada uma na sua língua:
 1. Você escolhe o nível, a quantidade, a semente, o seu idioma e o da IA, e clica em **Começar**. O relógio dispara.
 2. Os desafios aparecem **sem cores e sem esqueleto**, do jeito que a IA vê, com um campo de resposta em cada um.
@@ -35,6 +42,8 @@ A aba **Humano × IA** (`index.html#versus`) põe uma pessoa e uma IA no mesmo d
 4. As duas respostas passam pelo mesmo corretor, e o placar diz quem ganhou. Vence quem acerta mais a **lógica**; no empate, a **morfologia** desempata.
 
 Com idiomas diferentes, o gerador cria um **lote pareado**: em cada desafio, a mesma variante e a mesma ordem das regras nas duas línguas, só com as palavras inventadas de cada uma. "A Nepeia está ___?" (*xudrandando*) e "What is Fesis doing? Fesis is ___?" (*zendelking*) são o mesmo desafio. Com o mesmo idioma, os dois recebem o texto idêntico. Os gabaritos e o resultado da IA só aparecem depois que você termina.
+
+Você também pode **jogar com palavras reais** enquanto a IA continua com as inventadas. A sua resposta ("peludas") é traduzida de volta para a palavra inventada antes da correção. O sentido das palavras pode ajudar, ou atrapalhar quando a frase é absurda.
 
 A aba **Pesquisa** (`index.html#pesquisa`) mostra os gráficos comparativos das baterias de teste com IAs:
 - a escada da morfologia;
@@ -151,6 +160,7 @@ O esqueleto é o mesmo nos dois idiomas: a lógica dos níveis não muda, só a 
 | `niveis.js` | Esqueletos lógicos de cada nível (é aqui que se cria nível novo) |
 | `logica.js` | Lê o esqueleto, solucionador, texto dos desafios, flexões e correção |
 | `palavras.js` | Gerador de palavras inventadas e sorteio com semente |
+| `palavras-reais.js` | Vocabulário real (bichos, cores, ações) para ver o mesmo desafio com palavras de verdade |
 | `dicionario.js` | Palavras do português, para nenhuma inventada ficar a uma letra de uma real |
 | `dicionario-en.js` | O mesmo, em inglês (carregado só quando o inglês é escolhido) |
 | `idiomas.js` | Textos do site em português e inglês, bandeiras e a notação do esqueleto na tela |

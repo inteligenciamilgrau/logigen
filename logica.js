@@ -311,6 +311,8 @@ function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
         })),
         chavesArmadilha: armadilhas.flatMap(a => a.leva.map(p => p.chave)),
         legenda: letras.map(v => ({ letra: v, palavra: formaDicionario(palavra[v]), classe: palavra[v].classe })),
+        // letra -> palavra com todas as formas, para trocar por palavras reais (palavras-reais.js)
+        palavras: Object.fromEntries(letras.map(v => [v, palavra[v]])),
         // forma escrita -> classe, para a interface colorir o texto
         formas: Object.fromEntries(letras.flatMap(v => formasEscritas(palavra[v]).map(f => [f, palavra[v].classe])))
     };

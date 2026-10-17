@@ -128,7 +128,11 @@
             <div class="flex flex-wrap items-center gap-3 mb-4">
                 <h2 class="text-xl font-black text-white uppercase tracking-tight" data-i18n="desafios_titulo">Desafios</h2>
                 <span id="lote-info" class="text-[10px] text-slate-500 font-mono"></span>
-                <label class="ml-auto flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest cursor-pointer select-none">
+                <label class="ml-auto flex items-center gap-2 text-[10px] font-black text-amber-300/90 uppercase tracking-widest cursor-pointer select-none" data-i18n-title="reais_title" title="Mostra o mesmo desafio com palavras de verdade, só para conferir se faz sentido. O prompt copiado continua com as palavras inventadas.">
+                    <input id="palavras-reais" type="checkbox" onchange="alternarPalavrasReais()" class="accent-amber-400">
+                    <span data-i18n="reais_toggle">Palavras reais</span>
+                </label>
+                <label class="flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest cursor-pointer select-none">
                     <input id="mostrar-gabarito" type="checkbox" checked onchange="alternarGabarito()" class="accent-emerald-500">
                     <span data-i18n="gabarito_toggle">Gabarito e esqueleto</span>
                 </label>
@@ -144,6 +148,7 @@
     <script src="palavras.js"></script>
     <script src="niveis.js"></script>
     <script src="logica.js"></script>
+    <script src="palavras-reais.js"></script>
     <!-- dicionario-en.js não entra aqui: o app.js carrega só quando o inglês é escolhido -->
     <script src="idiomas.js"></script>
     <script src="pesquisa-dados.js"></script>

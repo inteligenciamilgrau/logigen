@@ -8,6 +8,7 @@ const VERSUS = {
     fase: 'config',              // config · jogando · terminado
     nivel: '1', quantidade: 5, semente: null,
     idiomaHumano: null, idiomaIA: null,
+    reais: false,                // a pessoa vê palavras reais; a IA continua com as inventadas
     loteHumano: [], loteIA: [],
     respostas: [], textoIA: '',
     inicio: 0, fim: 0,
@@ -32,7 +33,11 @@ function versusLerOpcoes() {
     if (Object.hasOwn(NIVEIS, $('versus-nivel').value)) VERSUS.nivel = $('versus-nivel').value;
     VERSUS.quantidade = Math.max(1, Math.min(20, parseInt($('versus-quantidade').value, 10) || 5));
     VERSUS.semente = parseInt($('versus-semente').value, 10) || VERSUS.semente;
+    VERSUS.reais = $('versus-reais').checked;
 }
+
+// O que a pessoa vê: o desafio com as palavras inventadas ou com as reais
+const versusDaPessoa = (d) => VERSUS.reais ? versaoComPalavrasReais(d) : d;
 
 function versusEscolherIdioma(lado, idioma) {
     if (VERSUS.fase !== 'config' || !Object.hasOwn(IDIOMAS, idioma)) return;
@@ -73,7 +78,9 @@ function versusTerminar() {
     if (VERSUS.fase !== 'jogando') return;
     clearInterval(versusRelogio);
     VERSUS.fim = Date.now();
-    VERSUS.resultadoHumano = corrigir(VERSUS.loteHumano, VERSUS.respostas.map((r, i) => `${i + 1}: ${r}`).join('\n'));
+    // Com palavras reais, a resposta volta para as inventadas antes do corretor ("peludas" -> "zedantosas")
+    const respostas = VERSUS.respostas.map((r, i) => VERSUS.reais ? respostaParaInventadas(r, VERSUS.loteHumano[i]) : r);
+    VERSUS.resultadoHumano = corrigir(VERSUS.loteHumano, respostas.map((r, i) => `${i + 1}: ${r}`).join('\n'));
     VERSUS.fase = 'terminado';
     renderVersus();
 }
@@ -155,6 +162,11 @@ function versusOpcoes() {
                 <div class="flex gap-1.5 py-2">${versusBandeiras('idiomaIA')}</div>
             </div>
         </div>
+        <label class="mt-5 flex items-start gap-2 cursor-pointer select-none ${VERSUS.fase !== 'config' ? 'opacity-60' : ''}">
+            <input id="versus-reais" type="checkbox" ${VERSUS.reais ? 'checked' : ''} ${travado} class="accent-amber-400 mt-0.5">
+            <span><span class="text-xs font-black uppercase tracking-widest text-amber-300/90">${t('v_reais')}</span>
+            <span class="block text-[11px] text-slate-500 leading-relaxed">${t('v_reais_dica')}</span></span>
+        </label>
         <div class="flex flex-wrap items-center gap-4 mt-5">
             ${VERSUS.fase === 'config'
                 ? `<button onclick="versusComecar()" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-black px-8 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-purple-900/30 active:scale-[0.97]"><i data-lucide="play" class="w-4 h-4"></i> ${t('v_comecar')}</button>`
@@ -171,7 +183,8 @@ function versusDesafiosHumano() {
     const terminado = VERSUS.fase === 'terminado';
     const decorrido = (terminado ? VERSUS.fim : Date.now()) - VERSUS.inicio;
     const porNumero = new Map((VERSUS.resultadoHumano || []).map(r => [r.numero, r]));
-    const cartoes = VERSUS.loteHumano.map((d, i) => {
+    const cartoes = VERSUS.loteHumano.map((original, i) => {
+        const d = versusDaPessoa(original);
         const r = porNumero.get(d.numero);
         const ia = VERSUS.loteIA[i];
         return `
@@ -188,7 +201,7 @@ function versusDesafiosHumano() {
                 ? `<div class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm">
                     <span><span class="text-[10px] font-black uppercase tracking-widest text-slate-500 mr-2">${t('v_voce')}</span><span class="font-mono ${COR_DO_STATUS[r.status]}">${VERSUS.respostas[i] ? escapeHtml(VERSUS.respostas[i]) : t('v_em_branco')}</span></span>
                     <span><span class="text-[10px] font-black uppercase tracking-widest text-emerald-500/80 mr-2">${t('v_gabarito')}</span><span class="font-mono font-black text-emerald-400">${escapeHtml(d.resposta)}</span>
-                    ${ia !== d ? `<span class="text-[10px] text-slate-500"> · ${t('v_gabarito_ia')}: <span class="font-mono text-slate-400">${escapeHtml(ia.resposta)}</span></span>` : ''}</span>
+                    ${ia.resposta !== d.resposta ? `<span class="text-[10px] text-slate-500"> · ${t('v_gabarito_ia')}: <span class="font-mono text-slate-400">${escapeHtml(ia.resposta)}</span></span>` : ''}</span>
                   </div>`
                 : `<input id="versus-resposta-${i}" type="text" autocomplete="off" spellcheck="false" value="${escapeHtml(VERSUS.respostas[i])}"
                     oninput="VERSUS.respostas[${i}] = this.value" onkeydown="versusEnter(event, ${i})" placeholder="${escapeHtml(t('v_sua_resposta'))}"
@@ -266,7 +279,7 @@ function versusPlacar() {
             <table class="w-full mt-4 text-xs"><thead><tr class="text-[9px] font-black uppercase tracking-widest text-slate-500">
                 <th class="text-left pb-1">#</th><th class="text-left pb-1">${t('v_voce')}</th><th class="text-left pb-1">${t('v_ia')}</th></tr></thead>
                 <tbody>${linhas}</tbody></table>
-            <p class="text-[10px] text-slate-500 leading-relaxed mt-4">${t('v_criterio')}${VERSUS.idiomaHumano !== VERSUS.idiomaIA ? ' ' + t('v_idiomas_diferentes') : ''}</p>`;
+            <p class="text-[10px] text-slate-500 leading-relaxed mt-4">${t('v_criterio')}${VERSUS.idiomaHumano !== VERSUS.idiomaIA ? ' ' + t('v_idiomas_diferentes') : ''}${VERSUS.reais ? ' ' + t('v_reais_nota') : ''}</p>`;
     }
     return `
     <section class="bg-slate-900 p-6 rounded-2xl border border-slate-800 shadow-xl">
