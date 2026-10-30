@@ -119,6 +119,13 @@
                     <i data-lucide="flask-conical" class="w-4 h-4 text-emerald-400"></i> <span data-i18n="testar_titulo">2. Testar</span>
                 </h2>
 
+                <div class="text-xs font-black text-slate-500 uppercase tracking-widest mb-2" data-i18n="modo">Modo</div>
+                <div class="grid grid-cols-2 gap-1 p-1 bg-slate-950 border border-slate-700 rounded-xl mb-2" role="group">
+                    <button id="modo-tipico" onclick="escolherModo('tipico')" aria-pressed="true"><span data-i18n="modo_tipico">Típico</span></button>
+                    <button id="modo-maximo" onclick="escolherModo('maximo')" aria-pressed="false"><span data-i18n="modo_maximo">Máximo</span></button>
+                </div>
+                <p id="modo-descricao" class="text-[10px] text-slate-500 leading-relaxed mb-4"></p>
+
                 <button onclick="copiarPrompt(this)" class="w-full flex justify-center items-center gap-2 text-xs font-black uppercase text-blue-300 bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30 py-3 rounded-xl transition-all mb-4">
                     <i data-lucide="copy" class="w-4 h-4"></i> <span data-i18n="copiar_prompt">Copiar prompt para a IA</span>
                 </button>

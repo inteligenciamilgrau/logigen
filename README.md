@@ -36,7 +36,13 @@ Abra o `index.html` no navegador. Funciona sem internet; só os ícones vêm de 
 
 A **semente** garante que o mesmo lote se repita: use a mesma semente para comparar IAs diferentes na mesma prova.
 
-As escolhas (nível, quantidade, semente, "Gabarito e esqueleto" e idioma) ficam salvas no navegador: ao voltar ao site, tudo reabre como estava, com o mesmo lote de desafios.
+O **modo** do prompt separa duas medidas, como na psicometria:
+- **Típico** (o padrão) — o prompt não avisa nada: nem que as palavras são inventadas, nem que a resposta precisa ser flexionada. Mede o que a IA faz por conta própria.
+- **Máximo** — o prompt avisa que as palavras são inventadas, pede a resposta já flexionada e traz um exemplo resolvido de cada tipo de resposta do lote, com outras palavras inventadas. Mede o que a IA sabe fazer quando sabe o que se espera. No [benchmark](benchmark/RELATORIO-G2.md) (H6 e H9), um exemplo só levou Haiku e Sonnet de 0/6 a 6/6 no gerúndio de verbos inventados.
+
+Corrija o mesmo lote nos dois modos (cada modo guarda a sua resposta colada) e o placar mostra o **índice de intuição**: os acertos sem dica divididos pelos acertos com dica. Perto de 1, a IA faz sozinha o que se espera; perto de 0, ela sabe fazer, mas precisa ser guiada.
+
+As escolhas (nível, quantidade, semente, modo, "Gabarito e esqueleto" e idioma) ficam salvas no navegador: ao voltar ao site, tudo reabre como estava, com o mesmo lote de desafios.
 
 As **bandeirinhas** no topo trocam o idioma do site **e dos desafios**: a mesma semente gera um lote em português ou em inglês. `index.html?lang=en` abre direto em inglês. Na primeira visita, o site usa o idioma do navegador.
 
@@ -70,7 +76,7 @@ Cada barra traz o intervalo de confiança de 95%, para deixar claro o que a amos
 
 - **O gabarito nunca é escrito à mão.** Cada desafio nasce de um esqueleto lógico; um solucionador deduz a resposta e confere que ela é a única possível antes de o desafio virar texto.
 - **Nível é receita, não pontuação.** Cada nível é um esqueleto escrito em `niveis.js`, numa notação reta, sem margem de interpretação.
-- **Sem dicas.** A pergunta é só uma lacuna ("Ludela é ___?"), sem opções, e o prompt não avisa que as palavras são inventadas.
+- **Sem dicas.** A pergunta é só uma lacuna ("Ludela é ___?"), sem opções, e o prompt não avisa que as palavras são inventadas. Só o modo máximo avisa, e de propósito: para comparar com o típico.
 - **A resposta tem que vir flexionada.** A frase da pergunta obriga a concordar ou conjugar: feminino, plural, gerúndio, 3ª pessoa do plural. A resposta sempre sai do texto, na lógica e na gramática.
 - **Copiar não basta.** A forma pedida nunca é a que já aparece escrita: na concordância com um personagem, ele tem o gênero oposto ao da forma da regra ("Toda ronhilha é vesurdenta" → "O Crodel é vesurdento"). O artigo antes do nome deixa o gênero do personagem explícito.
 - **Lógica e morfologia são medidas separadas.** São habilidades diferentes: nos testes, Haiku, Sonnet e Opus 5.5 e Fable 5.1 acertaram 100% da lógica nos esforços low e max, mas a morfologia fez uma escada de 20% (Haiku low) a 100% (Opus max), passando por Fable low (80%) e Fable max (90%) — e a concordância de gênero com o personagem foi o item mais difícil: só o Opus max acertou os três (ver `testes/`). A lógica do Haiku low só quebrou quando o texto cresceu (com 100+ regras ele corta a cadeia no meio) e com palavras sósias ("Bromar" × "Bramar"), que ele lê uma pela outra.
@@ -191,7 +197,7 @@ O esqueleto é o mesmo nos dois idiomas: a lógica dos níveis não muda, só a 
 
 - **O inglês quase não flexiona.** O adjetivo não tem gênero nem plural, então em inglês a morfologia fica nos verbos: o gerúndio (*florping*) e a forma do plural (a regra diz *florps*, a pergunta pede *florp*). As variantes de adjetivo medem a lógica — e se a IA inventa uma flexão que não existe (*gluskishes*).
 - **O "está" vira "What is X doing?".** Sem isso, "Bloskus is ___?" aceitaria também um adjetivo, e a lacuna não diria que a resposta é um verbo no gerúndio.
-- **Verbos sem ambiguidade.** Todo radical em inglês termina em duas consoantes (*florp*, *snurk*): o gerúndio é só "+ing", sem dúvida sobre dobrar a consoante (*blop → blopping*) ou tirar o "e" (*glame → glaming*). É o mesmo cuidado do português, onde os desafios de gerúndio só usam verbos em -ar.
+- **Verbos sem ambiguidade.** Todo radical em inglês termina em duas consoantes (*florp*, *snurk*): o gerúndio é só "+ing", sem dúvida sobre dobrar a consoante (*blop → blopping*) ou tirar o "e" (*glame → glaming*). É o mesmo cuidado do português, onde os desafios de gerúndio dos níveis 1 a 3 só usam verbos em -ar.
 - **Nomes sem artigo.** Em inglês não há gênero para marcar, então "o Glanol" vira só "Bloskus".
 - **Filtro de dicionário em inglês.** As palavras inventadas passam pelo mesmo filtro, com 362 mil palavras do inglês ([dwyl/english-words](https://github.com/dwyl/english-words), domínio público). O arquivo (`dicionario-en.js`, 3,7 MB) só é carregado quando o inglês é escolhido.
 - **As baterias de teste até agora foram todas em português.** A aba Pesquisa aparece traduzida, mas os resultados são dos testes em português.

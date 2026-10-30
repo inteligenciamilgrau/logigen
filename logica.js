@@ -502,6 +502,7 @@ function gerarLotePareado(nivel, quantidade, semente, idiomas) {
 // --- PROMPT ---
 // Sem dicas: a IA não é avisada de que as palavras são inventadas nem de que
 // precisa flexionar. O lote só pede o formato "1: resposta", para a correção ler.
+// (O modo máximo, abaixo, é a exceção de propósito.)
 const corpoDoDesafio = (d) => `${d.linhas.map(l => l.texto).join('\n')}\n${d.pergunta.texto}${d.glossario ? `\n${d.glossario}` : ''}`;
 
 const PEDIDOS = {
@@ -512,15 +513,83 @@ const PEDIDOS = {
 // Os níveis de sim ou não (4 e 5) dizem no prompt como responder ("instrucao" em niveis.js)
 const instrucaoDoNivel = (d) => NIVEIS[d.nivel]?.instrucao?.[d.idioma ?? 'pt'];
 
-function montarPrompt(desafios) {
+// --- DESEMPENHO TÍPICO E MÁXIMO ---
+// O prompt de sempre mede o desempenho típico: o que a IA faz sem saber o que se espera dela.
+// O modo máximo avisa que as palavras são inventadas, pede a resposta já flexionada e traz um
+// exemplo resolvido de cada tipo de resposta do lote, com outras palavras inventadas. No
+// benchmark (RELATORIO-G2.md, H6 e H9), um exemplo levou Haiku e Sonnet de 0/6 a 6/6 no
+// gerúndio: a regra estava lá, faltava saber que podiam flexionar uma palavra que não existe.
+const DICAS = {
+    pt: {
+        lacuna: 'As palavras são inventadas. Responda com uma palavra só, já na forma que completa a frase (gênero, número, pessoa ou gerúndio), mesmo que a palavra não exista.',
+        'sim-nao': 'As palavras são inventadas. "Não dá para saber" é a resposta certa quando as frases permitem os dois casos.',
+        titulo: 'Exemplos resolvidos (com outras palavras):',
+        // Um por flexão (o nome que flexionar() dá); "· glossário" vale para os desafios que têm um
+        exemplos: {
+            'presente, ele': 'Todo plimbo zarfa. O Tilo é um plimbo. O Tilo ___? → zarfa',
+            'presente, eles': 'Toda brona tiquele. A Nali e o Tilo são bronas. A Nali e o Tilo ___? → tiquelem',
+            'gerúndio': 'Todo plimbo zarfa. O Tilo é um plimbo. O Tilo está ___? → zarfando',
+            'gerúndio · glossário': 'Todo plimbo tiquele. O Tilo é um plimbo. O Tilo está ___? Glossário: tiquelir (verbo). → tiquelindo',
+            'masculino singular': 'Toda brona é grusenta. O Tilo é uma brona. O Tilo é ___? → grusento',
+            'feminino singular': 'Todo plimbo é grusento. A Nali é um plimbo. A Nali é ___? → grusenta',
+            'masculino plural': 'Toda brona é grusenta. A Nali e o Tilo são bronas. A Nali e o Tilo são ___? → grusentos',
+            'feminino plural': 'Todo plimbo é grusento. A Nali e a Mirla são plimbos. A Nali e a Mirla são ___? → grusentas',
+            [FLEXAO_SIM_NAO.pt]: [
+                'Todo plimbo é uma brona. O Tilo é um plimbo. O Tilo é uma brona? → sim',
+                'Nenhum plimbo é uma brona. O Tilo é um plimbo. O Tilo é uma brona? → não',
+                'Todo plimbo é uma brona. O Tilo é uma brona. O Tilo é um plimbo? → não dá para saber'
+            ]
+        }
+    },
+    en: {
+        lacuna: 'The words are made up. Answer with a single word, already in the form that completes the sentence (person, number or -ing), even if the word does not exist.',
+        'sim-nao': 'The words are made up. "Can\'t tell" is the right answer when the sentences allow both cases.',
+        titulo: 'Solved examples (with other words):',
+        exemplos: {
+            'present, he/she': 'Every plimb zarfs. Tilo is a plimb. Tilo ___? → zarfs',
+            'present, they': 'Every plimb zarfs. Tilo and Nali are plimbs. Tilo and Nali ___? → zarf',
+            'gerund (-ing)': 'Every plimb zarfs. Tilo is a plimb. What is Tilo doing? Tilo is ___? → zarfing',
+            'adjective (no inflection)': 'Every plimb is grusky. Tilo and Nali are plimbs. Tilo and Nali are ___? → grusky',
+            [FLEXAO_SIM_NAO.en]: [
+                'Every plimb is a bron. Tilo is a plimb. Is Tilo a bron? → yes',
+                'No plimb is a bron. Tilo is a plimb. Is Tilo a bron? → no',
+                "Every plimb is a bron. Tilo is a bron. Is Tilo a plimb? → can't tell"
+            ]
+        }
+    }
+};
+
+// A dica (logo depois do pedido) e os exemplos resolvidos (antes dos desafios)
+function dicaDoModoMaximo(desafios) {
+    const D = DICAS[desafios[0]?.idioma ?? 'pt'];
+    const tipos = new Set(desafios.map(d => d.tipoResposta === 'sim-nao' ? 'sim-nao' : 'lacuna'));
+    const chaves = new Set(desafios.map(d => d.glossario && D.exemplos[`${d.flexao} · glossário`] ? `${d.flexao} · glossário` : d.flexao));
+    const exemplos = Object.entries(D.exemplos).filter(([k]) => chaves.has(k)).flatMap(([, e]) => e);
+    return { texto: [...tipos].map(t => D[t]).join('\n'), exemplos: exemplos.length ? [D.titulo, ...exemplos].join('\n') : null };
+}
+
+// modo: 'tipico' (o prompt de sempre, sem dica) ou 'maximo'
+function montarPrompt(desafios, modo = 'tipico') {
     const p = PEDIDOS[desafios[0]?.idioma ?? 'pt'];
     const instrucoes = [...new Set(desafios.map(instrucaoDoNivel).filter(Boolean))];
-    return `${[p.lote, ...instrucoes].join('\n')}\n\n` + desafios.map(d => `${p.desafio} ${d.numero}\n${corpoDoDesafio(d)}`).join('\n\n');
+    const dica = modo === 'maximo' ? dicaDoModoMaximo(desafios) : null;
+    return [[p.lote, ...instrucoes, dica?.texto].filter(Boolean).join('\n'), dica?.exemplos,
+        ...desafios.map(d => `${p.desafio} ${d.numero}\n${corpoDoDesafio(d)}`)].filter(Boolean).join('\n\n');
 }
 
 // Um desafio só, para mandar manualmente
-function montarPromptUnico(d) {
-    return `${[PEDIDOS[d.idioma ?? 'pt'].unico, instrucaoDoNivel(d)].filter(Boolean).join('\n')}\n\n${corpoDoDesafio(d)}`;
+function montarPromptUnico(d, modo = 'tipico') {
+    const dica = modo === 'maximo' ? dicaDoModoMaximo([d]) : null;
+    return [[PEDIDOS[d.idioma ?? 'pt'].unico, instrucaoDoNivel(d), dica?.texto].filter(Boolean).join('\n'), dica?.exemplos, corpoDoDesafio(d)].filter(Boolean).join('\n\n');
+}
+
+// Índice de intuição (RELATORIO-G2.md): no mesmo lote, os acertos sem dica divididos pelos
+// acertos com dica e exemplo. Perto de 1, a IA faz sozinha o que se espera; perto de 0, ela
+// sabe fazer, mas precisa ser guiada. Sem acerto no modo máximo, não há o que dividir.
+function indiceDeIntuicao(tipico, maximo) {
+    const certos = (r) => r.filter(x => x.status === 'certo').length;
+    const a = certos(tipico), b = certos(maximo);
+    return { tipico: a, maximo: b, total: tipico.length, indice: b ? a / b : null };
 }
 
 // --- CORREÇÃO ---

@@ -4,6 +4,11 @@
 
 let desafios = [];
 let resultado = null;
+// Modo do prompt (logica.js): 'tipico', sem dica, ou 'maximo', com dica e exemplos. O mesmo lote
+// pode ser corrigido nos dois; com os dois resultados, o placar mostra o índice de intuição
+let modo = 'tipico';
+let resultados = {};
+let respostasColadas = {};
 
 // Uma cor por classe de palavra, usada no texto, no esqueleto e na legenda
 const CORES = {
@@ -68,6 +73,7 @@ function traduzirPagina() {
     document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { el.placeholder = t(el.dataset.i18nPlaceholder); });
     $('cores-legenda').innerHTML = Object.keys(CORES).map(c => `<span class="${CORES[c]}">● ${t('classe_' + c)}</span>`).join('');
+    desenharModo();
 }
 
 function desenharBandeiras() {
@@ -149,6 +155,7 @@ function salvarEscolhas() {
             semente: $('semente').value,
             gabarito: $('mostrar-gabarito').checked,
             reais: $('palavras-reais').checked,
+            modo,
             idioma: IDIOMA
         }));
     } catch (e) {}
@@ -166,6 +173,7 @@ function carregarEscolhas() {
     if (parseInt(salvas.semente, 10) > 0) $('semente').value = salvas.semente;
     if (typeof salvas.gabarito === 'boolean') $('mostrar-gabarito').checked = salvas.gabarito;
     if (typeof salvas.reais === 'boolean') $('palavras-reais').checked = salvas.reais;
+    if (salvas.modo === 'tipico' || salvas.modo === 'maximo') modo = salvas.modo;
     if (Object.hasOwn(IDIOMAS, salvas.idioma)) IDIOMA = salvas.idioma;
     return salvas;
 }
@@ -185,6 +193,8 @@ function gerar() {
         return;
     }
     resultado = null;
+    resultados = {};
+    respostasColadas = {};
     $('resposta-ia').value = '';
     $('placar').classList.add('hidden');
     $('lote-info').textContent = t('lote_info', { nivel, qtd: quantidade, semente });
@@ -278,27 +288,58 @@ function confirmarCopia(btn) {
 
 async function copiarPrompt(btn) {
     if (!desafios.length) return;
-    await copiar(montarPrompt(desafios));
+    await copiar(montarPrompt(desafios, modo));
     confirmarCopia(btn);
 }
 
 async function copiarDesafio(numero, btn) {
-    await copiar(montarPromptUnico(desafios[numero - 1]));
+    await copiar(montarPromptUnico(desafios[numero - 1], modo));
     confirmarCopia(btn);
+}
+
+// Cada modo guarda a sua resposta colada e o seu resultado: trocar de modo mostra os do outro
+function escolherModo(novo) {
+    if (novo === modo) return;
+    respostasColadas[modo] = $('resposta-ia').value;
+    modo = novo;
+    $('resposta-ia').value = respostasColadas[modo] ?? '';
+    resultado = resultados[modo] ?? null;
+    desenharModo();
+    salvarEscolhas();
+    mostrarPlacar();
+    renderDesafios();
+}
+
+function desenharModo() {
+    ['tipico', 'maximo'].forEach(m => {
+        const ativo = m === modo;
+        $('modo-' + m).setAttribute('aria-pressed', ativo);
+        $('modo-' + m).className = `py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all ${ativo ? 'bg-emerald-600 text-white' : 'text-slate-400 hover:text-white'}`;
+    });
+    $('modo-descricao').textContent = t('modo_' + modo + '_desc');
 }
 
 function corrigirRespostas() {
     const texto = $('resposta-ia').value;
     if (!texto.trim()) { toast(t('cole_primeiro'), 'erro'); return; }
+    resultado = resultados[modo] = corrigir(desafios, texto);
+    respostasColadas[modo] = texto;
+    mostrarPlacar();
+    renderDesafios();
+}
 
-    resultado = corrigir(desafios, texto);
+// "0,33" em português, "0.33" em inglês
+const comDuasCasas = (x) => x.toLocaleString(IDIOMA === 'pt' ? 'pt-BR' : 'en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+function mostrarPlacar() {
+    if (!resultado) { $('placar').classList.add('hidden'); return; }
     const conta = (status) => resultado.filter(r => r.status === status).length;
     const { total, logica, morfologia } = placarDosEixos(resultado);
     const certos = conta('certo');
     const pct = Math.round((certos / total) * 100);
     const cor = pct >= 80 ? 'emerald' : pct >= 50 ? 'amber' : 'rose';
     const porcento = (n, de) => de ? `${Math.round((n / de) * 100)}%` : '—';
-    // Flexões erradas, pelo diagnóstico: "2 copiou a forma escrita na regra, 1 leu o verbo como adjetivo"
+    // Flexões erradas, pelo diagnóstico: "2 copiou uma forma escrita no desafio, 1 leu o verbo como adjetivo"
     const diagnosticos = {};
     resultado.filter(r => r.diagnostico).forEach(r => { diagnosticos[r.diagnostico] = (diagnosticos[r.diagnostico] ?? 0) + 1; });
     const porDiagnostico = Object.entries(diagnosticos).map(([d, n]) => `${n} ${t('diag_' + d)}`).join(', ');
@@ -311,8 +352,25 @@ function corrigirRespostas() {
         [conta('sem-resposta'), 'text-slate-400', 'det_sem-resposta']
     ].filter(([n]) => n > 0);
 
+    // Índice de intuição: precisa do mesmo lote corrigido nos dois modos
+    const outro = modo === 'tipico' ? 'maximo' : 'tipico';
+    let intuicao = `<div class="text-[10px] text-slate-500 mt-3">${t('indice_falta', { outro: t('modo_' + outro).toLowerCase() })}</div>`;
+    if (resultados.tipico && resultados.maximo) {
+        const ind = indiceDeIntuicao(resultados.tipico, resultados.maximo);
+        intuicao = `
+        <div class="mt-3 p-2 rounded-lg bg-slate-950/60 border border-violet-500/30 text-left">
+            <div class="flex items-baseline justify-between gap-2">
+                <span class="text-[9px] font-black uppercase tracking-widest text-violet-300">${t('indice_intuicao')}</span>
+                <span class="text-lg font-black text-white tabular-nums">${ind.indice === null ? '—' : comDuasCasas(ind.indice)}</span>
+            </div>
+            <div class="text-[9px] text-slate-500 tabular-nums">${t('indice_conta', ind)}</div>
+            <div class="text-[9px] text-slate-500 mt-1 leading-relaxed">${t('indice_desc')}</div>
+        </div>`;
+    }
+
     $('placar').className = `mt-5 p-4 rounded-xl border text-center bg-${cor}-950/30 border-${cor}-500/30`;
     $('placar').innerHTML = `
+        <div class="text-[9px] font-black uppercase tracking-widest text-slate-500 mb-1">${t('modo')}: ${t('modo_' + modo)}</div>
         <div class="text-3xl font-black text-${cor}-300 tabular-nums">${certos}/${total}</div>
         <div class="text-[10px] font-black uppercase tracking-widest text-${cor}-400/80 mt-1">${t('totalmente_certos', { pct })}</div>
         <div class="grid grid-cols-2 gap-2 mt-3 text-left">
@@ -327,8 +385,8 @@ function corrigirRespostas() {
                 <div class="text-[9px] text-slate-500">${morfologia}/${logica} ${t('forma_certa')}</div>
             </div>
         </div>
-        ${detalhes.map(([n, classe, chave]) => `<div class="text-[10px] ${classe} mt-1">${n} ${t(chave)}${chave === 'det_flexao' && porDiagnostico ? `: ${porDiagnostico}` : ''}</div>`).join('')}`;
-    renderDesafios();
+        ${detalhes.map(([n, classe, chave]) => `<div class="text-[10px] ${classe} mt-1">${n} ${t(chave)}${chave === 'det_flexao' && porDiagnostico ? `: ${porDiagnostico}` : ''}</div>`).join('')}
+        ${intuicao}`;
 }
 
 // --- ABAS ---
