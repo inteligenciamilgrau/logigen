@@ -33,6 +33,16 @@
 //                            dedutível para os personagens perguntados
 //   # ...                    comentário (não vai para o desafio)
 //
+// Operadores (níveis 4 e 5), só com grupos (G) e personagens (X):
+//   nenhum G1 é G2           "Nenhum G1 é um G2."
+//   todo G1 é G2 ou G3       "Todo G1 é um G2 ou um G3."   (pelo menos um dos dois)
+//   X1 não é G1              "O X1 não é um G1."
+//   pergunta: X1 é G2?       "O X1 é um G2?"               pergunta de sim ou não, sem lacuna
+//   resposta: sim | não | não dá para saber
+//                            um verificador testa todas as combinações de verdade dos grupos
+//                            e recusa o esqueleto se as frases não garantirem a resposta dita
+//   instrucao                frase que vai no prompt dizendo como responder (pt e en)
+//
 // A resposta precisa sair do texto, na lógica e na gramática. Pelo presente
 // "pavobe" não dá para saber se o verbo é pavober ou pavobir, então nos desafios
 // de gerúndio todos os verbos são da 1ª conjugação ("glovunda" -> "glovundando").
@@ -173,6 +183,110 @@ const NIVEIS = {
                 X1 e X2 são G1
                 pergunta: X1 e X2 são ___?
                 resposta: V1
+            `
+        }
+    },
+    4: {
+        nome: 'Negação e falácias',
+        descricao: 'Regras com "nenhum" e fatos negativos ("O X1 não é um G1"). A pergunta é de sim ou não, e às vezes a resposta certa é "não dá para saber": é ali que moram as duas falácias clássicas, afirmar o consequente e negar o antecedente.',
+        instrucao: {
+            pt: 'Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.',
+            en: 'Answer only "yes", "no" or "can\'t tell", considering only what the sentences guarantee.'
+        },
+        variantes: {
+            'cadeia · sim': `
+                todo G1 é G2      # passo 1
+                todo G2 é G3      # passo 2
+                todo G4 é G5      # distração
+                X1 é G1
+                X2 é G4
+                pergunta: X1 é G3?
+                resposta: sim
+            `,
+            'negação · não': `
+                todo G1 é G2      # passo 1
+                nenhum G2 é G3    # passo 2: quem é G2 não é G3
+                todo G4 é G5      # distração
+                X1 é G1
+                X2 é G4
+                pergunta: X1 é G3?
+                resposta: não
+            `,
+            'contraposição · não': `
+                todo G1 é G2      # passo 1
+                todo G2 é G3      # passo 2
+                todo G4 é G5      # distração
+                X1 não é G3       # se fosse G1, seria G3
+                X2 é G4
+                pergunta: X1 é G1?
+                resposta: não
+            `,
+            'afirmar o consequente · não dá': `
+                todo G1 é G2      # a regra vale num sentido só
+                todo G3 é G2      # outro caminho até G2
+                todo G4 é G5      # distração
+                X1 é G2           # ser G2 não diz de onde veio
+                X2 é G4
+                pergunta: X1 é G1?
+                resposta: não dá para saber
+            `,
+            'negar o antecedente · não dá': `
+                todo G1 é G2      # a regra não diz nada de quem não é G1
+                todo G4 é G5      # distração
+                X1 não é G1
+                X2 é G4
+                pergunta: X1 é G2?
+                resposta: não dá para saber
+            `
+        }
+    },
+    5: {
+        nome: 'Prova por casos',
+        descricao: 'Regras com "ou": "Todo G1 é um G2 ou um G3". Para responder, é preciso examinar os dois casos, ou eliminar um deles com um fato negativo. Quando só um dos casos leva à conclusão, a resposta é "não dá para saber".',
+        instrucao: {
+            pt: 'Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem. Em "Todo A é um B ou um C", cada A é pelo menos um dos dois.',
+            en: 'Answer only "yes", "no" or "can\'t tell", considering only what the sentences guarantee. In "Every A is a B or a C", each A is at least one of the two.'
+        },
+        variantes: {
+            'casos · sim': `
+                todo G1 é G2 ou G3   # passo 1: dois casos
+                todo G2 é G4         # caso G2
+                todo G3 é G4         # caso G3
+                todo G5 é G6         # distração
+                X1 é G1
+                X2 é G5
+                pergunta: X1 é G4?
+                resposta: sim
+            `,
+            'silogismo disjuntivo · sim': `
+                todo G1 é G2 ou G3   # passo 1: dois casos
+                todo G3 é G4         # passo 2
+                todo G5 é G6         # distração
+                X1 é G1
+                X1 não é G2          # elimina um dos casos
+                X2 é G5
+                pergunta: X1 é G4?
+                resposta: sim
+            `,
+            'casos + nenhum · não': `
+                todo G1 é G2 ou G3   # passo 1: dois casos
+                todo G2 é G4         # caso G2
+                todo G3 é G4         # caso G3
+                nenhum G4 é G5       # quem é G4 não é G5
+                todo G6 é G7         # distração
+                X1 é G1
+                X2 é G6
+                pergunta: X1 é G5?
+                resposta: não
+            `,
+            'ramo aberto · não dá': `
+                todo G1 é G2 ou G3   # passo 1: dois casos
+                todo G2 é G4         # só o caso G2 leva a G4
+                todo G5 é G6         # distração
+                X1 é G1
+                X2 é G5
+                pergunta: X1 é G4?
+                resposta: não dá para saber
             `
         }
     }

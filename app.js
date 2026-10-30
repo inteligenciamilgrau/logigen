@@ -119,7 +119,7 @@ function preencherNiveis() {
 function mostrarNivel() {
     const nivel = $('nivel').value;
     const n = NIVEIS[nivel];
-    $('nivel-descricao').textContent = `${descricaoDoNivel(nivel)} ${t('passos_ate', { n: n.passos })}` + (n.armadilhas ? ` ${t('armadilhas_n', { n: n.armadilhas })}` : '');
+    $('nivel-descricao').textContent = descricaoDoNivel(nivel) + (n.passos ? ` ${t('passos_ate', { n: n.passos })}` : '') + (n.armadilhas ? ` ${t('armadilhas_n', { n: n.armadilhas })}` : '');
     // Mostra cada variante como está escrita em niveis.js, sem a indentação do código
     $('nivel-esqueleto').innerHTML = Object.entries(n.variantes).map(([nome, esqueleto]) => {
         const linhas = esqueleto.split('\n').map(l => l.trim()).filter(Boolean).map(l => {
@@ -304,7 +304,8 @@ function corrigirRespostas() {
     const detalhes = [
         [conta('ambigua'), 'text-orange-300', 'det_ambigua'],
         [conta('flexao'), 'text-amber-300', 'det_flexao'],
-        [conta('armadilha'), 'text-fuchsia-300', 'det_armadilha'],
+        // Nos níveis de sim ou não, a armadilha é a falácia: concluir o que as frases não garantem
+        [conta('armadilha'), 'text-fuchsia-300', desafios.some(d => d.tipoResposta === 'sim-nao') ? 'det_falacia' : 'det_armadilha'],
         [conta('errado'), 'text-rose-300', 'det_errado'],
         [conta('sem-resposta'), 'text-slate-400', 'det_sem-resposta']
     ].filter(([n]) => n > 0);

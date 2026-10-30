@@ -52,6 +52,7 @@ const TEXTOS = {
         palavra_certa: 'palavra certa', forma_certa: 'forma certa',
         det_ambigua: 'flexão ambígua (deu mais de uma forma)', det_flexao: 'flexão errada (lógica certa)',
         det_armadilha: 'caíram na armadilha da recíproca', det_errado: 'errados', 'det_sem-resposta': 'sem resposta reconhecida (use "1: resposta")',
+        det_falacia: 'concluíram o que as frases não garantem (falácia)',
         diag_copiou: 'copiou a forma escrita na regra', diag_classe: 'leu o verbo como adjetivo', diag_conjugacao: 'conjugação errada (-am × -em)',
         diag_atracao: 'concordou com o grupo, não com as pessoas', diag_genero: 'gênero errado', diag_numero: 'singular e plural trocados', diag_outra: 'forma que não existe',
         cole_primeiro: 'Cole a resposta da IA primeiro.',
@@ -173,6 +174,7 @@ const TEXTOS = {
         palavra_certa: 'right word', forma_certa: 'right form',
         det_ambigua: 'ambiguous form (gave more than one)', det_flexao: 'wrong form (right logic)',
         det_armadilha: 'fell for the converse trap', det_errado: 'wrong', 'det_sem-resposta': 'no answer recognized (use "1: answer")',
+        det_falacia: "concluded what the sentences don't guarantee (fallacy)",
         diag_copiou: 'copied the form written in the rule', diag_classe: 'read the verb as an adjective', diag_conjugacao: 'wrong conjugation (-am × -em)',
         diag_atracao: 'agreed with the group noun, not the people', diag_genero: 'wrong gender', diag_numero: 'singular and plural mixed up', diag_outra: 'a form that does not exist',
         cole_primeiro: "Paste the AI's answer first.",
@@ -284,14 +286,25 @@ function t(chave, vars) {
 const NIVEIS_EN = {
     1: { nome: 'Direct deduction', descricao: 'Two rules and one fact. The fact links the character to one of the rules, which gives the answer in one step; the other rule is a distractor. The blank has no options and the answer must take the right form.' },
     2: { nome: 'Two-step chain', descricao: 'Two chained rules lead to the answer; an identical chain is the distractor. The middle link changes with the variant: a group, a verb or an adjective.' },
-    3: { nome: 'Converse trap', descricao: 'A two-step chain with a rule that fools whoever reads it backwards: "every trovel is a jafleck" does not mean every jafleck is a trovel. The trap moves around depending on the variant.' }
+    3: { nome: 'Converse trap', descricao: 'A two-step chain with a rule that fools whoever reads it backwards: "every trovel is a jafleck" does not mean every jafleck is a trovel. The trap moves around depending on the variant.' },
+    4: { nome: 'Negation and fallacies', descricao: 'Rules with "no" and negative facts ("Zorin is not a blick"). The question is yes or no, and sometimes the right answer is "can\'t tell": that is where the two classic fallacies live, affirming the consequent and denying the antecedent.' },
+    5: { nome: 'Proof by cases', descricao: 'Rules with "or": "Every blick is a florp or a snurk". To answer, you have to check both cases, or rule one out with a negative fact. When only one case leads to the conclusion, the answer is "can\'t tell".' }
 };
 // Em inglês o adjetivo não tem gênero: a variante "gênero" vira o adjetivo no singular
 const VARIANTES_EN = {
     'adjetivo · gênero': 'adjective · singular',
     'adjetivo · plural': 'adjective · plural',
     'verbo · gerúndio': 'verb · gerund (-ing)',
-    'verbo · plural': 'verb · plural'
+    'verbo · plural': 'verb · plural',
+    'cadeia · sim': 'chain · yes',
+    'negação · não': 'negation · no',
+    'contraposição · não': 'contrapositive · no',
+    'afirmar o consequente · não dá': "affirming the consequent · can't tell",
+    'negar o antecedente · não dá': "denying the antecedent · can't tell",
+    'casos · sim': 'cases · yes',
+    'silogismo disjuntivo · sim': 'disjunctive syllogism · yes',
+    'casos + nenhum · não': 'cases + "no" · no',
+    'ramo aberto · não dá': "open branch · can't tell"
 };
 const COMENTARIOS_EN = {
     'leva à resposta': 'leads to the answer',
@@ -305,7 +318,22 @@ const COMENTARIOS_EN = {
     'armadilha: ao contrário, X1 viraria G3': 'trap: read backwards, X1 would become G3',
     'armadilha: eles fazem V1, mas isso não os torna G2': 'trap: they do V1, but that does not make them G2',
     'armadilha: X1 é A1, mas isso não o torna G2': 'trap: X1 is A1, but that does not make it G2',
-    'armadilha: ao contrário, eles virariam G3': 'trap: read backwards, they would become G3'
+    'armadilha: ao contrário, eles virariam G3': 'trap: read backwards, they would become G3',
+    'passo 1 (elo: grupo; com adjetivo, "está ___" teria duas respostas)': 'step 1 (link: group; with an adjective, the Portuguese "está ___" would have two answers)',
+    'passo 1 (elo: adjetivo; "X1 e X2 ___?" não aceita adjetivo)': 'step 1 (link: adjective; "X1 and X2 ___?" takes no adjective)',
+    'armadilha: eles são A1, mas isso não os torna G2': 'trap: they are A1, but that does not make them G2',
+    'passo 2: quem é G2 não é G3': 'step 2: whoever is G2 is not G3',
+    'se fosse G1, seria G3': 'if it were G1, it would be G3',
+    'a regra vale num sentido só': 'the rule only works one way',
+    'outro caminho até G2': 'another way to G2',
+    'ser G2 não diz de onde veio': 'being G2 does not say where it came from',
+    'a regra não diz nada de quem não é G1': 'the rule says nothing about whoever is not G1',
+    'passo 1: dois casos': 'step 1: two cases',
+    'caso G2': 'case G2',
+    'caso G3': 'case G3',
+    'elimina um dos casos': 'rules out one of the cases',
+    'quem é G4 não é G5': 'whoever is G4 is not G5',
+    'só o caso G2 leva a G4': 'only case G2 leads to G4'
 };
 
 const nomeDoNivel = (n) => IDIOMA === 'en' ? NIVEIS_EN[n]?.nome ?? NIVEIS[n].nome : NIVEIS[n].nome;
@@ -317,6 +345,10 @@ const comentarioNoIdioma = (c) => IDIOMA === 'en' ? COMENTARIOS_EN[c.trim()] ?? 
 function esqueletoNoIdioma(texto) {
     if (IDIOMA !== 'en') return texto;
     return texto
+        // Operadores (níveis 4 e 5)
+        .replace(/não dá para saber/g, "can't tell")
+        .replace(/(resposta:|\?) sim$/, '$1 yes').replace(/(resposta:|\?) não$/, '$1 no')
+        .replace(/^nenhum /, 'no ').replace(/ ou (?=G\d)/g, ' or ').replace(/ não é /g, ' is not ')
         .replace(/^pergunta:/, 'question:').replace(/^resposta:/, 'answer:')
         .replace(/\btodo\b/g, 'every')
         .replace(/ está ___/g, ' is ___ing').replace(/ estão ___/g, ' are ___ing')

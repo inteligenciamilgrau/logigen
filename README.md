@@ -113,8 +113,23 @@ Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do 
 | 1 | Dedução direta | 1 | 0 | 2 regras + 1 fato; uma regra leva à resposta, a outra é distração |
 | 2 | Cadeia de dois passos | 2 | 0 | 2 cadeias de 2 regras; uma leva à resposta, a outra é distração. O elo do meio é um grupo, um verbo ou um adjetivo |
 | 3 | Armadilha da recíproca | 2 | 1 | cadeia de 2 regras + uma regra que, lida ao contrário, leva a outra resposta. A armadilha muda de lugar conforme a variante |
+| 4 | Negação e falácias | — | — | "nenhum" e fatos negativos; resposta sim, não ou não dá para saber. Variantes: cadeia, negação, contraposição, afirmar o consequente, negar o antecedente |
+| 5 | Prova por casos | — | — | "todo G1 é G2 ou G3"; examinar os dois casos ou eliminar um. Variantes: casos, silogismo disjuntivo, casos + nenhum, ramo aberto |
 
-Todos os níveis têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
+Os níveis 1 a 3 têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
+
+**Níveis 4 e 5: operadores.** Vieram das baterias G2 e G3 do [benchmark](benchmark/RELATORIO-G2.md), em que os modelos acertaram negação, "ou" e as falácias até em cadeias longas. A pergunta não tem lacuna: é de sim ou não, e o prompt diz como responder. O esqueleto ganha quatro formas:
+
+```
+nenhum G2 é G3        # "Nenhum G2 é um G3."
+todo G1 é G2 ou G3    # "Todo G1 é um G2 ou um G3." (pelo menos um dos dois)
+X1 não é G1           # "O X1 não é um G1."
+pergunta: X1 é G3?    # "O X1 é um G3?"
+resposta: não dá para saber
+```
+
+- A resposta é conferida por um verificador (um resolvedor SAT) que testa todas as combinações de verdade dos grupos: se as frases mais "X1 é G3" e as frases mais "X1 não é G3" forem ambas possíveis, a resposta é "não dá para saber". O esqueleto é recusado se o verificador discordar da `resposta:`.
+- Concluir "sim" ou "não" quando as frases não garantem nada conta como **caiu na armadilha**: é a falácia (afirmar o consequente, negar o antecedente, ou escolher um dos casos do "ou").
 
 Exemplo do nível 3:
 
