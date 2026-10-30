@@ -53,7 +53,7 @@ const TEXTOS = {
         det_ambigua: 'flexão ambígua (deu mais de uma forma)', det_flexao: 'flexão errada (lógica certa)',
         det_armadilha: 'caíram na armadilha da recíproca', det_errado: 'errados', 'det_sem-resposta': 'sem resposta reconhecida (use "1: resposta")',
         det_falacia: 'concluíram o que as frases não garantem (falácia)',
-        diag_copiou: 'copiou a forma escrita na regra', diag_classe: 'leu o verbo como adjetivo', diag_conjugacao: 'conjugação errada (-am × -em)',
+        diag_copiou: 'copiou uma forma escrita no desafio', diag_classe: 'leu o verbo como adjetivo', diag_conjugacao: 'conjugação errada (-am × -em, -ando × -endo)',
         diag_atracao: 'concordou com o grupo, não com as pessoas', diag_genero: 'gênero errado', diag_numero: 'singular e plural trocados', diag_outra: 'forma que não existe',
         cole_primeiro: 'Cole a resposta da IA primeiro.',
         erro_palavra: 'Não consegui gerar uma palavra inédita. Tente menos desafios por lote.',
@@ -175,7 +175,7 @@ const TEXTOS = {
         det_ambigua: 'ambiguous form (gave more than one)', det_flexao: 'wrong form (right logic)',
         det_armadilha: 'fell for the converse trap', det_errado: 'wrong', 'det_sem-resposta': 'no answer recognized (use "1: answer")',
         det_falacia: "concluded what the sentences don't guarantee (fallacy)",
-        diag_copiou: 'copied the form written in the rule', diag_classe: 'read the verb as an adjective', diag_conjugacao: 'wrong conjugation (-am × -em)',
+        diag_copiou: 'copied a form written in the challenge', diag_classe: 'read the verb as an adjective', diag_conjugacao: 'wrong conjugation (-am × -em, -ando × -endo)',
         diag_atracao: 'agreed with the group noun, not the people', diag_genero: 'wrong gender', diag_numero: 'singular and plural mixed up', diag_outra: 'a form that does not exist',
         cole_primeiro: "Paste the AI's answer first.",
         erro_palavra: 'Could not generate a new word. Try fewer challenges per batch.',
@@ -288,7 +288,8 @@ const NIVEIS_EN = {
     2: { nome: 'Two-step chain', descricao: 'Two chained rules lead to the answer; an identical chain is the distractor. The middle link changes with the variant: a group, a verb or an adjective.' },
     3: { nome: 'Converse trap', descricao: 'A two-step chain with a rule that fools whoever reads it backwards: "every trovel is a jafleck" does not mean every jafleck is a trovel. The trap moves around depending on the variant.' },
     4: { nome: 'Negation and fallacies', descricao: 'Rules with "no" and negative facts ("Zorin is not a blick"). The question is yes or no, and sometimes the right answer is "can\'t tell": that is where the two classic fallacies live, affirming the consequent and denying the antecedent.' },
-    5: { nome: 'Proof by cases', descricao: 'Rules with "or": "Every blick is a florp or a snurk". To answer, you have to check both cases, or rule one out with a negative fact. When only one case leads to the conclusion, the answer is "can\'t tell".' }
+    5: { nome: 'Proof by cases', descricao: 'Rules with "or": "Every blick is a florp or a snurk". To answer, you have to check both cases, or rule one out with a negative fact. When only one case leads to the conclusion, the answer is "can\'t tell".' },
+    6: { nome: 'New words (wug)', descricao: 'The "wug test": applying a rule of the language to a word that never existed. A glossary gives the base form of every verb and adjective. In Portuguese the challenge asks for the gerund and plural of -er and -ir verbs, or the agreement of a group whose noun has a different gender from the people; in English verbs and adjectives have fewer forms, and the level is close to level 2.' }
 };
 // Em inglês o adjetivo não tem gênero: a variante "gênero" vira o adjetivo no singular
 const VARIANTES_EN = {
@@ -304,7 +305,12 @@ const VARIANTES_EN = {
     'casos · sim': 'cases · yes',
     'silogismo disjuntivo · sim': 'disjunctive syllogism · yes',
     'casos + nenhum · não': 'cases + "no" · no',
-    'ramo aberto · não dá': "open branch · can't tell"
+    'ramo aberto · não dá': "open branch · can't tell",
+    'gerúndio · -er': 'gerund · -er verb',
+    'gerúndio · -ir': 'gerund · -ir verb',
+    'plural · -e': 'plural · -e verb',
+    'grupo misto · substantivo feminino': 'mixed group · feminine noun',
+    'grupo feminino · substantivo masculino': 'female group · masculine noun'
 };
 const COMENTARIOS_EN = {
     'leva à resposta': 'leads to the answer',
@@ -333,7 +339,12 @@ const COMENTARIOS_EN = {
     'caso G3': 'case G3',
     'elimina um dos casos': 'rules out one of the cases',
     'quem é G4 não é G5': 'whoever is G4 is not G5',
-    'só o caso G2 leva a G4': 'only case G2 leads to G4'
+    'só o caso G2 leva a G4': 'only case G2 leads to G4',
+    'passo 2: o presente termina em -e, o plural em -em': 'step 2: in Portuguese the present ends in -e, the plural in -em',
+    'passo 2: a regra escreve A1 no masculino singular': 'step 2: the rule writes A1 in the masculine singular',
+    'passo 2: a regra escreve A1 no feminino singular': 'step 2: the rule writes A1 in the feminine singular',
+    'G1 é feminino; as pessoas pedem o masculino': 'G1 is feminine; the people call for the masculine',
+    'G1 é masculino; as pessoas pedem o feminino': 'G1 is masculine; the people call for the feminine'
 };
 
 const nomeDoNivel = (n) => IDIOMA === 'en' ? NIVEIS_EN[n]?.nome ?? NIVEIS[n].nome : NIVEIS[n].nome;
@@ -350,6 +361,8 @@ function esqueletoNoIdioma(texto) {
         .replace(/(resposta:|\?) sim$/, '$1 yes').replace(/(resposta:|\?) não$/, '$1 no')
         .replace(/^nenhum /, 'no ').replace(/ ou (?=G\d)/g, ' or ').replace(/ não é /g, ' is not ')
         .replace(/^pergunta:/, 'question:').replace(/^resposta:/, 'answer:')
+        // Palavras novas (nível 6)
+        .replace(/^gênero:/, 'gender:').replace(/^conjugação:/, 'conjugation:')
         .replace(/\btodo\b/g, 'every')
         .replace(/ está ___/g, ' is ___ing').replace(/ estão ___/g, ' are ___ing')
         .replace(/ é /g, ' is ').replace(/ são /g, ' are ')

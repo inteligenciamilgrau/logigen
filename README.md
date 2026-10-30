@@ -102,7 +102,7 @@ resposta: V1
 - `resposta:` é o que você espera. O solucionador confere: a resposta precisa ser o **único** adjetivo (ou verbo) dedutível para os personagens perguntados; senão, o esqueleto é recusado com a explicação do erro.
 - Cada nível declara quantos `passos` (regras encadeadas) a resposta exige, e o solucionador confere em todas as variantes — nenhum esqueleto pode ter atalho.
 - Cada nível declara também quantas `armadilhas` tem. Uma armadilha é uma regra que engana quem a lê ao contrário ("todo G3 é G1" não quer dizer "todo G1 é G3"). O solucionador testa cada regra lida também ao contrário: se outra palavra passar a caber na lacuna, é armadilha. O número achado tem que ser exatamente o declarado — inclusive zero nos níveis sem armadilha.
-- Nos desafios de gerúndio todos os verbos são em -ar: pelo presente "pavobe" não daria para saber se o gerúndio é "pavobendo" ou "pavobindo".
+- Nos desafios de gerúndio dos níveis 1 a 3 todos os verbos são em -ar: pelo presente "pavobe" não daria para saber se o gerúndio é "pavobendo" ou "pavobindo". O nível 6 resolve isso com um glossário (abaixo).
 - Na pergunta do gerúndio, nenhum adjetivo pode ser dedutível para o personagem: "está" também aceita adjetivo ("A Marina está zedantosa"), e a lacuna teria duas respostas certas. O solucionador recusa esse esqueleto. Por isso, nos níveis 2 e 3, o gerúndio usa um grupo como elo, e o adjetivo fica como elo do plural verbal.
 - As regras aparecem embaralhadas e os fatos vêm depois delas.
 
@@ -115,6 +115,7 @@ Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do 
 | 3 | Armadilha da recíproca | 2 | 1 | cadeia de 2 regras + uma regra que, lida ao contrário, leva a outra resposta. A armadilha muda de lugar conforme a variante |
 | 4 | Negação e falácias | — | — | "nenhum" e fatos negativos; resposta sim, não ou não dá para saber. Variantes: cadeia, negação, contraposição, afirmar o consequente, negar o antecedente |
 | 5 | Prova por casos | — | — | "todo G1 é G2 ou G3"; examinar os dois casos ou eliminar um. Variantes: casos, silogismo disjuntivo, casos + nenhum, ramo aberto |
+| 6 | Palavras novas (wug) | 2 | 0 | cadeia de 2 regras + glossário; gerúndio de verbos em -er e -ir, plural em -em, e grupos cujo substantivo tem outro gênero que o das pessoas |
 
 Os níveis 1 a 3 têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
 
@@ -130,6 +131,21 @@ resposta: não dá para saber
 
 - A resposta é conferida por um verificador (um resolvedor SAT) que testa todas as combinações de verdade dos grupos: se as frases mais "X1 é G3" e as frases mais "X1 não é G3" forem ambas possíveis, a resposta é "não dá para saber". O esqueleto é recusado se o verificador discordar da `resposta:`.
 - Concluir "sim" ou "não" quando as frases não garantem nada conta como **caiu na armadilha**: é a falácia (afirmar o consequente, negar o antecedente, ou escolher um dos casos do "ou").
+
+**Nível 6: palavras novas.** É o "teste do wug" (Berko, 1958): aplicar uma regra da língua a uma palavra que nunca existiu. As baterias do [benchmark](benchmark/RELATORIO-G2.md) mostraram que a lógica quase não erra, mas a forma das palavras novas erra: copiar a forma escrita na regra, trocar a conjugação, concordar com o substantivo do grupo em vez das pessoas. O nível isola esses erros. O esqueleto ganha duas diretivas, e cada desafio traz um glossário:
+
+```
+conjugação: V1 -ir, V2 -er        # "pavobe" pode ser pavober ou pavobir; aqui é pavobir
+gênero: X1 f, X2 m, G1 f, G2 m    # a Ana e o Pedro são plalhomas (feminino) → masculino plural
+```
+
+```
+Glossário: pavobir (verbo); zedanter (verbo).
+```
+
+- O glossário traz o infinitivo de cada verbo e a forma básica (masculino singular) de cada adjetivo do desafio, em ordem sorteada, para não entregar qual é a resposta.
+- A correção diz por que a forma saiu errada: **copiou** uma forma do desafio (do texto ou do glossário), **conjugação** errada (-ando × -endo, -am × -em) ou **atração** (concordou com o grupo, não com as pessoas).
+- Em inglês o verbo não tem conjugação e o adjetivo não tem gênero: as diretivas não mudam nada, e o nível fica perto do nível 2.
 
 Exemplo do nível 3:
 

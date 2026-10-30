@@ -217,6 +217,7 @@ function renderDesafios() {
                 ${d.linhas.map(l => linhaComEsqueleto(d, l.texto, l.esqueleto, '', l.armadilha)).join('')}
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-1">${linhaComEsqueleto(d, d.pergunta.texto, d.pergunta.esqueleto, 'font-bold text-white')}</div>
+            ${d.glossario ? `<div class="mt-3 text-xs text-slate-400 leading-relaxed">${colorirTexto(d.glossario, d.formas)}</div>` : ''}
             <div class="gabarito mt-4 p-3 rounded-xl bg-slate-950/60 border border-slate-800 space-y-1.5 font-mono text-[11px]">
                 <div><span class="text-[9px] font-black uppercase tracking-widest text-slate-500 mr-2">${t('prova')}</span>${provaHtml(d)}</div>
                 ${d.armadilhas.map(a => `<div><span class="text-[9px] font-black uppercase tracking-widest text-fuchsia-400 mr-2">${t('armadilha')}</span><span class="text-slate-400">${colorirLetras(a.regra)} <span class="text-slate-600">${t('lida_ao_contrario')}</span> <span class="text-white">⇒</span> ${colorirLetras(a.conclusao)}</span> <span class="text-fuchsia-300">(${a.palavras.map(escapeHtml).join(', ')})</span></div>`).join('')}

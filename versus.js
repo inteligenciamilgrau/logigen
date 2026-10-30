@@ -196,6 +196,7 @@ function versusDesafiosHumano() {
             <div class="space-y-1 bg-slate-950 p-4 border border-slate-800/50 rounded-xl text-slate-300 leading-relaxed">
                 ${d.linhas.map(l => `<div>${escapeHtml(l.texto)}</div>`).join('')}
                 <div class="font-bold text-white pt-1">${escapeHtml(d.pergunta.texto)}</div>
+                ${d.glossario ? `<div class="text-xs text-slate-400 pt-1">${escapeHtml(d.glossario)}</div>` : ''}
             </div>
             ${terminado
                 ? `<div class="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm">

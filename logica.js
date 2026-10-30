@@ -13,7 +13,7 @@ function tipoDaVariavel(v) {
 }
 
 function lerEsqueleto(texto, rotulo) {
-    const esq = { regras: [], fatos: [], pergunta: null, resposta: null, variaveis: [] };
+    const esq = { regras: [], fatos: [], pergunta: null, resposta: null, variaveis: [], generos: {}, conjugacoes: {} };
     const erro = (msg, linha) => new Error(`Esqueleto do nível ${rotulo}: ${msg}${linha ? ` (linha "${linha}")` : ''}`);
     const usar = (v, tipos, linha) => {
         if (/^[XGAV]$/.test(v)) throw erro(`"${v}" precisa de número (ex.: ${v}1)`, linha);
@@ -57,6 +57,21 @@ function lerEsqueleto(texto, rotulo) {
         } else if ((m = linha.match(/^pergunta: (\w+) é ([A-Z]\d+)\?$/))) {
             usar(m[2], ['substantivo'], linha);
             esq.pergunta = { tipo: 'sim-nao', sujeitos: lerSujeitos(m[1], 'é', linha), verbo: 'é', alvo: m[2], texto: linha };
+        // Palavras novas (nível 6): gênero e conjugação fixos
+        } else if ((m = linha.match(/^gênero: (.+)$/))) {
+            for (const par of m[1].split(',')) {
+                const [v, g] = par.trim().split(/\s+/);
+                if (!['m', 'f'].includes(g)) throw erro(`gênero "${g}" não existe (use m ou f)`, linha);
+                usar(v, ['nome', 'substantivo'], linha);
+                esq.generos[v] = g;
+            }
+        } else if ((m = linha.match(/^conjugação: (.+)$/))) {
+            for (const par of m[1].split(',')) {
+                const [v, c] = par.trim().split(/\s+/);
+                if (!['-ar', '-er', '-ir'].includes(c)) throw erro(`conjugação "${c}" não existe (use -ar, -er ou -ir)`, linha);
+                usar(v, ['verbo'], linha);
+                esq.conjugacoes[v] = c;
+            }
         } else if ((m = linha.match(/^resposta: (sim|não|não dá para saber)$/))) {
             esq.resposta = m[1];
             esq.respostaSimNao = true;
@@ -251,18 +266,27 @@ function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
     const { verbo } = esq.pergunta;
     const gerundio = verbo.startsWith('est');
     const palavra = {};
+    const CONJUGACAO = { '-ar': PRIMEIRA, '-er': SEGUNDA, '-ir': TERCEIRA };
     for (const v of esq.variaveis) {
         const tipo = tipoDaVariavel(v);
-        // Gerúndio: só verbos em -ar, para a forma pedida sair do texto (ver niveis.js).
+        // Gerúndio: só verbos em -ar, para a forma pedida sair do texto (ver niveis.js), a não
+        // ser que o esqueleto fixe a conjugação e o nível traga o glossário com o infinitivo.
         // Em inglês todo verbo já serve (o radical termina em duas consoantes: "+ing")
-        palavra[v] = tipo === 'verbo' && gerundio ? lexico.verbo(PRIMEIRA) : lexico[tipo]();
+        if (tipo === 'verbo') palavra[v] = lexico.verbo(esq.conjugacoes[v] ? CONJUGACAO[esq.conjugacoes[v]] : gerundio ? PRIMEIRA : undefined);
+        else if (tipo === 'nome' && esq.generos[v] && idioma === 'pt') palavra[v] = lexico.nome(esq.generos[v]);
+        else palavra[v] = lexico[tipo]();
+        // Substantivo de gênero fixo (só em português; em inglês o substantivo não tem gênero)
+        for (let t = 0; tipo === 'substantivo' && idioma === 'pt' && esq.generos[v] && palavra[v].genero !== esq.generos[v]; t++) {
+            if (t > 100) throw new Error(`Não consegui um substantivo ${esq.generos[v] === 'm' ? 'masculino' : 'feminino'} para ${v}.`);
+            palavra[v] = lexico.substantivo();
+        }
     }
 
     // Concordância com um personagem só ("X1 é ___?" com resposta adjetivo): o personagem
     // recebe o gênero oposto ao da forma que aparece na regra. Senão, copiar a regra já
     // acertaria e o teste não mediria a concordância. Em inglês o adjetivo não tem gênero.
     const [letraUnica, ...outros] = esq.pergunta.sujeitos;
-    if (idioma === 'pt' && verbo === 'é' && !outros.length && tipoDaVariavel(esq.resposta) === 'adjetivo') {
+    if (idioma === 'pt' && verbo === 'é' && !outros.length && tipoDaVariavel(esq.resposta) === 'adjetivo' && !esq.generos[letraUnica]) {
         const generosVisiveis = new Set(esq.regras.filter(r => r.entao === esq.resposta)
             .map(r => tipoDaVariavel(r.se) === 'substantivo' ? palavra[r.se].genero : 'm'));
         const atual = palavra[letraUnica].genero;
@@ -320,6 +344,7 @@ function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
         idioma,
         linhas: [...regras, ...fatos],
         pergunta: { texto: frasePergunta(sujeitos, verbo, resposta.classe, idioma), esqueleto: esq.pergunta.texto },
+        glossario: NIVEIS[nivel].glossario ? montarGlossario(esq, palavra, s, idioma) : undefined,
         resposta: forma,
         flexao,
         chave: resposta.chave,
@@ -343,6 +368,19 @@ function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
         // forma escrita -> classe, para a interface colorir o texto
         formas: Object.fromEntries(letras.flatMap(v => formasEscritas(palavra[v]).map(f => [f, palavra[v].classe])))
     };
+}
+
+// --- GLOSSÁRIO (nível 6) ---
+// O infinitivo de cada verbo e a forma básica de cada adjetivo do desafio, em ordem sorteada
+// (na ordem das letras, a resposta viria sempre primeiro)
+const GLOSSARIO = {
+    pt: { titulo: 'Glossário', verbo: (p) => `${p.infinitivo} (verbo)`, adjetivo: (p) => `${p.m} (adjetivo)` },
+    en: { titulo: 'Glossary', verbo: (p) => `to ${p.infinitivo} (verb)`, adjetivo: (p) => `${p.m} (adjective)` }
+};
+function montarGlossario(esq, palavra, s, idioma) {
+    const G = GLOSSARIO[idioma];
+    const entradas = esq.variaveis.filter(v => /^[AV]/.test(v)).map(v => G[palavra[v].classe](palavra[v]));
+    return `${G.titulo}: ${s.embaralhar(entradas).join('; ')}.`;
 }
 
 // --- OPERADORES (níveis 4 e 5) ---
@@ -464,7 +502,7 @@ function gerarLotePareado(nivel, quantidade, semente, idiomas) {
 // --- PROMPT ---
 // Sem dicas: a IA não é avisada de que as palavras são inventadas nem de que
 // precisa flexionar. O lote só pede o formato "1: resposta", para a correção ler.
-const corpoDoDesafio = (d) => `${d.linhas.map(l => l.texto).join('\n')}\n${d.pergunta.texto}`;
+const corpoDoDesafio = (d) => `${d.linhas.map(l => l.texto).join('\n')}\n${d.pergunta.texto}${d.glossario ? `\n${d.glossario}` : ''}`;
 
 const PEDIDOS = {
     pt: { lote: 'Responda esses desafios, uma resposta por linha no formato "1: resposta":', desafio: 'Desafio', unico: 'Responda esse desafio:' },
@@ -548,7 +586,7 @@ function lerSimNao(texto) {
 
 // Por que a forma saiu errada, quando a palavra está certa (a lógica acertou). Os nomes vêm
 // das baterias do benchmark/ (RELATORIO-G2.md):
-//   copiou     escreveu a forma que já está no texto ("glovunda" onde se pede "glovundando")
+//   copiou     escreveu a forma que já está no texto ou no glossário ("glovunda" onde se pede "glovundando")
 //   classe     leu o verbo como adjetivo ("são ladadra", "gronetres")
 //   conjugacao trocou a conjugação ("gronetram" onde se pede "gronetrem")
 //   atracao    concordou com o substantivo do grupo, não com as pessoas
@@ -558,7 +596,7 @@ function lerSimNao(texto) {
 function diagnosticarFlexao(d, palavras, dada) {
     const p = Object.values(d.palavras ?? {}).find(w => w.chave === d.chave);
     if (!p) return 'outra';
-    const textoDoDesafio = new Set([...d.linhas.map(l => l.texto), d.pergunta.texto].flatMap(t => normalizar(t).split(/[^a-z]+/)));
+    const textoDoDesafio = new Set([...d.linhas.map(l => l.texto), d.pergunta.texto, d.glossario ?? ''].flatMap(t => normalizar(t).split(/[^a-z]+/)));
     const pt = (d.idioma ?? 'pt') === 'pt';
     if (p.classe === 'verbo') {
         if (pt && d.flexao === 'presente, eles' && palavras.includes('sao')) return 'classe';

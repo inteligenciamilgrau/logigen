@@ -43,6 +43,13 @@
 //                            e recusa o esqueleto se as frases não garantirem a resposta dita
 //   instrucao                frase que vai no prompt dizendo como responder (pt e en)
 //
+// Palavras novas (nível 6):
+//   gênero: X1 f, X2 m, G1 f fixa o gênero de personagens e grupos (só em português)
+//   conjugação: V1 -ir       fixa a conjugação de um verbo (-ar, -er ou -ir)
+//   glossario: true          (no nível) cada desafio traz um glossário com o infinitivo de
+//                            cada verbo e a forma básica de cada adjetivo, em ordem sorteada:
+//                            "pavobe" não diz se o verbo é pavober ou pavobir; o glossário diz
+//
 // A resposta precisa sair do texto, na lógica e na gramática. Pelo presente
 // "pavobe" não dá para saber se o verbo é pavober ou pavobir, então nos desafios
 // de gerúndio todos os verbos são da 1ª conjugação ("glovunda" -> "glovundando").
@@ -287,6 +294,65 @@ const NIVEIS = {
                 X2 é G5
                 pergunta: X1 é G4?
                 resposta: não dá para saber
+            `
+        }
+    },
+    6: {
+        nome: 'Palavras novas (wug)',
+        descricao: 'O "teste do wug": aplicar a regra da língua a uma palavra que nunca existiu. Um glossário dá o infinitivo de cada verbo e a forma básica de cada adjetivo, e o desafio pede o gerúndio e o plural de verbos em -er e -ir, ou a concordância de um grupo cujo substantivo tem outro gênero que o das pessoas.',
+        passos: 2,
+        armadilhas: 0,
+        glossario: true,
+        variantes: {
+            'gerúndio · -er': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 é G1
+                conjugação: V1 -er, V2 -ir
+                pergunta: X1 está ___?
+                resposta: V1
+            `,
+            'gerúndio · -ir': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 é G1
+                conjugação: V1 -ir, V2 -er
+                pergunta: X1 está ___?
+                resposta: V1
+            `,
+            'plural · -e': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2: o presente termina em -e, o plural em -em
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 e X2 são G1
+                conjugação: V1 -er, V2 -ar
+                pergunta: X1 e X2 são ___?
+                resposta: V1
+            `,
+            'grupo misto · substantivo feminino': `
+                todo G1 é G2      # passo 1
+                todo G2 é A1      # passo 2: a regra escreve A1 no masculino singular
+                todo G3 é G4      # distração
+                todo G4 é A2      # distração
+                X1 e X2 são G1    # G1 é feminino; as pessoas pedem o masculino
+                gênero: X1 f, X2 m, G1 f, G2 m
+                pergunta: X1 e X2 são ___?
+                resposta: A1
+            `,
+            'grupo feminino · substantivo masculino': `
+                todo G1 é G2      # passo 1
+                todo G2 é A1      # passo 2: a regra escreve A1 no feminino singular
+                todo G3 é G4      # distração
+                todo G4 é A2      # distração
+                X1 e X2 são G1    # G1 é masculino; as pessoas pedem o feminino
+                gênero: X1 f, X2 f, G1 m, G2 f
+                pergunta: X1 e X2 são ___?
+                resposta: A1
             `
         }
     }

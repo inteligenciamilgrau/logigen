@@ -113,6 +113,7 @@ function versaoComPalavrasReais(d) {
         ...d,
         linhas: d.linhas.map(l => ({ ...l, texto: trocarPalavras(l.texto, paraReal) })),
         pergunta: { ...d.pergunta, texto: trocarPalavras(d.pergunta.texto, paraReal) },
+        glossario: d.glossario && trocarPalavras(d.glossario, paraReal),
         resposta: trocarPalavras(d.resposta, paraReal),
         armadilhas: d.armadilhas.map(a => ({ ...a, palavras: a.palavras.map(w => trocarPalavras(w, paraReal)) })),
         legenda: letras.map(v => ({ letra: v, palavra: formaDicionario(reais[v]), classe: reais[v].classe })),
