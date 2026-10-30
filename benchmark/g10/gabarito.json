@@ -1,0 +1,62 @@
+{
+ "itens": [
+  {
+   "numero": 1,
+   "tipo": "adjetivo, grupo misto",
+   "resposta": "dralelhudos",
+   "raiz": "dralelhud",
+   "formasEn": []
+  },
+  {
+   "numero": 2,
+   "tipo": "verbo no plural, -ar",
+   "resposta": "greplolam",
+   "raiz": "greplol",
+   "formasEn": [
+    "greplol",
+    "greplols",
+    "greploling"
+   ]
+  },
+  {
+   "numero": 3,
+   "tipo": "gerúndio, -er/-ir",
+   "resposta": "vrabrodindo",
+   "raiz": "vrabrod",
+   "formasEn": [
+    "vrabrod",
+    "vrabrods",
+    "vrabroding"
+   ]
+  },
+  {
+   "numero": 4,
+   "tipo": "adjetivo, grupo feminino",
+   "resposta": "pretrempudas",
+   "raiz": "pretrempud",
+   "formasEn": []
+  },
+  {
+   "numero": 5,
+   "tipo": "verbo no plural, -er/-ir",
+   "resposta": "petrevem",
+   "raiz": "petrev",
+   "formasEn": [
+    "petrev",
+    "petrevs",
+    "petreving"
+   ]
+  },
+  {
+   "numero": 6,
+   "tipo": "gerúndio, -ar",
+   "resposta": "vruplabando",
+   "raiz": "vruplab",
+   "formasEn": [
+    "vruplab",
+    "vruplabs",
+    "vruplabing"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta".
+
+Desafio 1
+Toda jedorda é um jeglavo.
+Todo jeglavo é clalerdino.
+Todo vrotrondo é dralelhudo.
+Toda glaparta é um vrotrondo.
+A Marina e o Caio são glapartas.
+O Lucas é uma jedorda.
+A Marina e o Caio são ___?
+Glossário: dralelhudo (adjetivo, masculino singular); clalerdino (adjetivo, masculino singular).
+
+Desafio 2
+Todo trafibro greplola.
+Todo preseno é um brudricho.
+Todo brudricho gritrerda.
+Toda glinapa é um trafibro.
+O Bruno e a Júlia são glinapas.
+O Lucas é um preseno.
+O Bruno e a Júlia ___?
+Glossário: greplolar (verbo); gritrerdar (verbo).
+
+Desafio 3
+Todo zunhusco é uma medotra.
+Todo xogarto vrabrode.
+Todo glelhebro é um xogarto.
+Toda medotra plefotra.
+O Lucas é um glelhebro.
+O Pedro é um zunhusco.
+O Lucas está ___?
+Glossário: vrabrodir (verbo); plefotrar (verbo).
+
+Desafio 4
+Toda plibumba é pretrempuda.
+Toda zagrinda é uma plibumba.
+Toda glatrolha é uma xapunda.
+Toda xapunda é jelambina.
+A Clara e a Júlia são zagrindas.
+O Pedro é uma glatrolha.
+A Clara e a Júlia são ___?
+Glossário: pretrempudo (adjetivo, masculino singular); jelambino (adjetivo, masculino singular).
+
+Desafio 5
+Todo frobrundo é um grumondo.
+Toda xobabra é um traflesto.
+Todo traflesto petreve.
+Todo grumondo ronhela.
+O Bruno e a Júlia são xobabras.
+O Pedro é um frobrundo.
+O Bruno e a Júlia ___?
+Glossário: petrevir (verbo); ronhelar (verbo).
+
+Desafio 6
+Todo xetodro é um fluderno.
+Toda ploberda vruplaba.
+Toda mufelha é uma ploberda.
+Todo fluderno plorete.
+A Marina é uma mufelha.
+O Bruno é um xetodro.
+A Marina está ___?
+Glossário: vruplabar (verbo); ploreter (verbo).
+
+Importante: não leia arquivos nem use ferramentas para resolver.

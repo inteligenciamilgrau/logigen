@@ -1,0 +1,64 @@
+Answer these challenges, one answer per line in the format "1: answer".
+Write every answer in Brazilian Portuguese, using the Portuguese equivalents in each glossary.
+
+Challenge 1
+Every jedorda is a jeglavo.
+Every jeglavo is clalerdino.
+Every vrotrondo is dralelhudo.
+Every glaparta is a vrotrondo.
+Marina and Caio are glapartas.
+Lucas is a jedorda.
+Marina and Caio are ___?
+Glossary: dralelhudo = dralelhudo (Portuguese adjective, masculine singular); clalerdino = clalerdino (Portuguese adjective, masculine singular).
+
+Challenge 2
+Every trafibro greplols.
+Every preseno is a brudricho.
+Every brudricho gritrerds.
+Every glinapa is a trafibro.
+Bruno and Júlia are glinapas.
+Lucas is a preseno.
+Bruno and Júlia ___?
+Glossary: to greplol = greplolar (Portuguese verb); to gritrerd = gritrerdar (Portuguese verb).
+
+Challenge 3
+Every zunhusco is a medotra.
+Every xogarto vrabrods.
+Every glelhebro is a xogarto.
+Every medotra plefotrs.
+Lucas is a glelhebro.
+Pedro is a zunhusco.
+What is Lucas doing? Lucas is ___?
+Glossary: to vrabrod = vrabrodir (Portuguese verb); to plefotr = plefotrar (Portuguese verb).
+
+Challenge 4
+Every plibumba is pretrempudo.
+Every zagrinda is a plibumba.
+Every glatrolha is a xapunda.
+Every xapunda is jelambino.
+Clara and Júlia are zagrindas.
+Pedro is a glatrolha.
+Clara and Júlia are ___?
+Glossary: pretrempudo = pretrempudo (Portuguese adjective, masculine singular); jelambino = jelambino (Portuguese adjective, masculine singular).
+
+Challenge 5
+Every frobrundo is a grumondo.
+Every xobabra is a traflesto.
+Every traflesto petrevs.
+Every grumondo ronhels.
+Bruno and Júlia are xobabras.
+Pedro is a frobrundo.
+Bruno and Júlia ___?
+Glossary: to petrev = petrevir (Portuguese verb); to ronhel = ronhelar (Portuguese verb).
+
+Challenge 6
+Every xetodro is a fluderno.
+Every ploberda vruplabs.
+Every mufelha is a ploberda.
+Every fluderno plorets.
+Marina is a mufelha.
+Bruno is a xetodro.
+What is Marina doing? Marina is ___?
+Glossary: to vruplab = vruplabar (Portuguese verb); to ploret = ploreter (Portuguese verb).
+
+Important: do not read files or use tools to solve.

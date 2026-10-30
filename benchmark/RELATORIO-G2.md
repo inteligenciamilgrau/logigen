@@ -433,7 +433,38 @@ com distração. Seis desafios por direção: adjetivo com grupo misto, adjetivo
 - Lição para o gerador: em português, a pergunta do gerúndio ("está ___?") não pode ter adjetivo
   de estado na cadeia, ou vira ambígua.
 
+### H16 — o teste do wug entre línguas (palavras inventadas)
+
+A G9 com palavras inventadas ([`gerar-g10.js`](gerar-g10.js), respostas em `g10/respostas/`). O
+desafio vem em inglês e a resposta é pedida em português. Cada desafio traz um glossário com a
+forma portuguesa de cada palavra inventada ("to greplol = greplolar"), então a resposta é
+determinada: o modelo precisa produzir a flexão portuguesa de uma palavra que nunca viu, a partir
+de uma lógica feita em inglês. Controle: os mesmos desafios e glossário, inteiros em português.
+Nomes reais dão o gênero do grupo.
+
+| | inglês → resposta em português | tudo em português |
+|---|---|---|
+| Haiku low | **6/6** (em frases inteiras) | 5/6 |
+| Sonnet low | 5/6 | **6/6** |
+| Opus low | **6/6** | **6/6** |
+
+- **A lógica sobreviveu à troca de língua também com palavras inventadas** (36/36). A forma
+  portuguesa de palavras que nunca existiram saiu certa a partir de um raciocínio feito em inglês,
+  inclusive o gerúndio em "-indo" de um verbo em "-ir" ("vrabrodindo").
+- **O glossário resolveu o que travava o Haiku na G8.** Lá, sem saber que "ladadra" era verbo, ele
+  respondeu "são ladadra". Aqui, com "(verbo)" e o infinitivo no glossário, conjugou as três
+  conjugações certo. O que faltava era a classe da palavra, não a regra de conjugação.
+- **Os dois erros que sobraram são de gênero, e vêm de pistas que puxam para lados diferentes:**
+  - Haiku, em português: "A Marina e o Caio são **glapartas**" levou a "dralelhud**as**". Ele
+    concordou com o substantivo mais próximo ("glaparta" é feminino), não com as pessoas: é a
+    **atração de concordância**, um erro conhecido também em falantes humanos. Na versão em
+    inglês, "glapartas" não tem gênero, sobrou só a pista dos nomes, e ele acertou.
+  - Sonnet, vindo do inglês: "pretrempud**os**" para Clara e Júlia. Sem gênero no texto de origem,
+    usou o masculino como padrão em vez de olhar os nomes.
+- **A apresentação em inglês ajudou o Haiku em português**: tirou a pista de gênero enganosa. A
+  língua do problema muda quais pistas existem, e por isso muda os erros de concordância.
+
 ## Custo desta rodada
 
-70 subagentes (40 até a H9, 18 nos testes de plural e de inglês, 6 na G8 e 6 na G9). A janela de
-5 horas foi de 26% para 42%, e a semanal, de 8% para 10%.
+76 subagentes (40 até a H9, 18 nos testes de plural e de inglês, 6 na G8, 6 na G9 e 6 na G10). A
+janela de 5 horas foi de 26% para 45%, e a semanal, de 8% para 10%.
