@@ -270,6 +270,67 @@ function secaoPertoDoPortugues() {
         `${t('p_perto_rodape')} ${linkDiario('testes/haiku-5.5-contaminacao.md')}`);
 }
 
+// --- BATERIAS G (benchmark/) ---
+const nomeCurto = (c) => CONFIGURACOES[c].nome.split(' ')[0];
+// Fundo da célula: do vermelho (0%) ao verde (100%)
+const corDaProporcao = (k, n) => `hsl(${Math.round(150 * k / n)} 65% 30%)`;
+
+// Matriz eixo × modelo: a lógica no teto em quase tudo, a morfologia de fora
+function secaoTetoG() {
+    const { modelos, teto } = BATERIAS_G;
+    const linhas = teto.map(e => `
+        <tr>
+            <td class="text-xs font-bold text-slate-300 pr-3 py-1">${t('p_g_eixo_' + e.eixo)} <span class="text-[9px] font-mono text-slate-600">${e.fonte}</span></td>
+            ${modelos.map(c => { const [k, n] = e.placar[c]; return `<td class="py-1 px-0.5"><div class="rounded text-center text-[11px] font-mono font-bold text-white py-1" style="background:${corDaProporcao(k, n)}" title="${escapeHtml(CONFIGURACOES[c].nome)}: ${k}/${n}">${k}/${n}</div></td>`; }).join('')}
+        </tr>`).join('');
+    return cartao('grid-3x3', t('p_g_teto'), t('p_g_teto_sub'),
+        `<div class="overflow-x-auto"><table class="w-full">
+            <thead><tr><th></th>${modelos.map(c => tituloColuna(nomeCurto(c))).join('')}</tr></thead>
+            <tbody>${linhas}</tbody>
+        </table></div>`,
+        `${t('p_g_teto_rodape')} ${linkDiario(BATERIAS_G.diario)}`);
+}
+
+// Sem ajuda × com ajuda, e o índice de intuição (acerto sem ÷ acerto com)
+function secaoDicaG() {
+    const blocos = BATERIAS_G.dica.map(d => {
+        const modelos = Object.keys(d.placar).map(c => {
+            const { sem, com } = d.placar[c];
+            const indice = (sem[0] / sem[1]) / (com[0] / com[1]);
+            return `<div class="space-y-1">
+                ${barra(`${nomeCurto(c)} · ${t('p_g_sem')}`, sem[0], sem[1], '#64748b')}
+                ${barra(`${nomeCurto(c)} · ${t('p_g_com')}`, com[0], com[1], CONFIGURACOES[c].cor)}
+                <div class="text-[10px] text-violet-300 text-right">${t('indice_intuicao')}: <b class="tabular-nums">${comDuasCasas(indice)}</b></div>
+            </div>`;
+        }).join('');
+        return `<div>
+            <div class="text-[9px] font-black uppercase tracking-widest text-slate-500 mb-2">${t('p_g_dica_' + d.item)} <span class="normal-case font-normal text-slate-600">· ${d.fonte}</span></div>
+            <div class="space-y-3">${modelos}</div>
+        </div>`;
+    }).join('');
+    return cartao('lightbulb', t('p_g_dica'), t('p_g_dica_sub'),
+        `<div class="space-y-6">${blocos}</div>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-slate-400 mt-4">${legendaIc()}</div>`,
+        `${t('p_g_dica_rodape')} ${linkDiario(BATERIAS_G.diario[1])}`);
+}
+
+// A mesma tarefa em duas línguas, e com a língua trocada no meio
+function secaoLinguaG() {
+    const blocos = BATERIAS_G.lingua.map(d => {
+        const barras = Object.keys(d.placar).flatMap(c => d.condicoes.filter(cond => d.placar[c][cond])
+            .map(cond => barra(`${nomeCurto(c)} · ${t('p_g_cond_' + cond)}`, ...d.placar[c][cond], CONFIGURACOES[c].cor))).join('');
+        return `<div>
+            <div class="text-[9px] font-black uppercase tracking-widest text-slate-500 mb-1">${t('p_g_lingua_' + d.item)} <span class="normal-case font-normal text-slate-600">· ${d.fonte}</span></div>
+            <p class="text-[10px] text-slate-500 mb-2">${d.condicoes.map(cond => `<b class="text-slate-400">${t('p_g_cond_' + cond)}</b> = ${t('p_g_cond_' + cond + '_longo')}`).join(' · ')}</p>
+            <div class="space-y-1.5">${barras}</div>
+        </div>`;
+    }).join('');
+    return cartao('languages', t('p_g_lingua'), t('p_g_lingua_sub'),
+        `<div class="space-y-6">${blocos}</div>
+        <div class="flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-slate-400 mt-4">${legendaIc()}</div>`,
+        `${t('p_g_lingua_rodape')} ${linkDiario(BATERIAS_G.diario[1])}`);
+}
+
 function renderPesquisa() {
     $('aba-pesquisa').innerHTML = `
         <div>
@@ -280,6 +341,11 @@ function renderPesquisa() {
         ${secaoResumo()}
         ${secaoAchados()}
         ${secaoHipotese()}
+        ${secaoTetoG()}
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+            ${secaoDicaG()}
+            ${secaoLinguaG()}
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             ${secaoEscada()}
             ${secaoFlexoes()}

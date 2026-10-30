@@ -64,6 +64,7 @@ Com idiomas diferentes, o gerador cria um **lote pareado**: em cada desafio, a m
 Você também pode **jogar com palavras reais** enquanto a IA continua com as inventadas. A sua resposta ("peludas") é traduzida de volta para a palavra inventada antes da correção. O sentido das palavras pode ajudar, ou atrapalhar quando a frase é absurda.
 
 A aba **Pesquisa** (`index.html#pesquisa`) mostra os gráficos comparativos das baterias de teste com IAs:
+- as baterias G do [benchmark](benchmark/): onde a lógica satura (eixo × modelo), hábito ou capacidade (sem ajuda × com ajuda, com o índice de intuição) e o que muda entre duas línguas;
 - a escada da morfologia;
 - os acertos por tipo de flexão;
 - cada desafio em cada modelo;

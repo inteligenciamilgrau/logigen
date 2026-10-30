@@ -97,6 +97,47 @@ const BATERIAS = {
     }
 };
 
+// Baterias G1 a G10 (pasta benchmark/, 30/10): placares agregados, [acertos, total], por
+// configuração. Método, prompts, respostas e gabaritos em benchmark/RELATORIO-G1.md e G2.md.
+// Aqui não há resultado desafio a desafio: cada número é copiado das tabelas dos relatórios.
+const BATERIAS_G = {
+    diario: ['benchmark/RELATORIO-G1.md', 'benchmark/RELATORIO-G2.md'],
+    modelos: ['haiku-low', 'sonnet-low', 'opus-low', 'fable-low'],
+    // Lógica certa (a palavra certa, em qualquer forma) em cada eixo; na morfologia, a forma exata
+    teto: [
+        { eixo: 'prof',  fonte: 'G1', placar: { 'haiku-low': [9, 9],   'sonnet-low': [9, 9],   'opus-low': [9, 9],   'fable-low': [9, 9] } },
+        { eixo: 'vol',   fonte: 'G1', placar: { 'haiku-low': [9, 9],   'sonnet-low': [9, 9],   'opus-low': [9, 9],   'fable-low': [9, 9] } },
+        { eixo: 'sos',   fonte: 'G1', placar: { 'haiku-low': [8, 9],   'sonnet-low': [9, 9],   'opus-low': [9, 9],   'fable-low': [9, 9] } },
+        { eixo: 'indet', fonte: 'G1', placar: { 'haiku-low': [9, 9],   'sonnet-low': [9, 9],   'opus-low': [9, 9],   'fable-low': [9, 9] } },
+        { eixo: 'duro',  fonte: 'G1', placar: { 'haiku-low': [6, 6],   'sonnet-low': [6, 6],   'opus-low': [6, 6],   'fable-low': [6, 6] } },
+        { eixo: 'op',    fonte: 'G2', placar: { 'haiku-low': [12, 12], 'sonnet-low': [12, 12], 'opus-low': [12, 12], 'fable-low': [12, 12] } },
+        { eixo: 'op3',   fonte: 'G3', placar: { 'haiku-low': [12, 12], 'sonnet-low': [11, 12], 'opus-low': [12, 12], 'fable-low': [12, 12] } },
+        { eixo: 'ind',   fonte: 'G1', placar: { 'haiku-low': [9, 9],   'sonnet-low': [7, 9],   'opus-low': [9, 9],   'fable-low': [9, 9] } },
+        // Um dos 9 itens tinha outra regra do mesmo tamanho que também explicava os exemplos
+        { eixo: 'ind2',  fonte: 'H4', placar: { 'haiku-low': [9, 9],   'sonnet-low': [8, 9],   'opus-low': [8, 9],   'fable-low': [8, 9] } },
+        { eixo: 'morf',  fonte: 'G1', placar: { 'haiku-low': [3, 9],   'sonnet-low': [4, 9],   'opus-low': [7, 9],   'fable-low': [9, 9] } }
+    ],
+    // O mesmo teste sem e com ajuda: a dica "escreva já flexionada" (H6, sem dica em 2 rodadas
+    // somadas) ou um exemplo resolvido (H9, H10)
+    dica: [
+        { item: 'morf', fonte: 'H6', placar: {
+            'haiku-low': { sem: [6, 18], com: [7, 9] }, 'sonnet-low': { sem: [7, 18], com: [5, 9] },
+            'opus-low': { sem: [16, 18], com: [9, 9] }, 'fable-low': { sem: [16, 18], com: [9, 9] } } },
+        { item: 'gerundio', fonte: 'H9', placar: { 'haiku-low': { sem: [0, 6], com: [6, 6] }, 'sonnet-low': { sem: [0, 6], com: [6, 6] } } },
+        { item: 'plural', fonte: 'H10', placar: { 'haiku-low': { sem: [2, 6], com: [6, 6] }, 'sonnet-low': { sem: [3, 6], com: [6, 6] } } }
+    ],
+    // Forma exata em duas línguas. Na troca de língua a lógica acertou todos (H15 e H16): os
+    // erros abaixo são de forma, ou leituras que o item permitia (H15, Opus)
+    lingua: [
+        { item: 'troca', fonte: 'H16', condicoes: ['en-pt', 'so-pt'], placar: {
+            'haiku-low': { 'en-pt': [6, 6], 'so-pt': [5, 6] }, 'sonnet-low': { 'en-pt': [5, 6], 'so-pt': [6, 6] }, 'opus-low': { 'en-pt': [6, 6], 'so-pt': [6, 6] } } },
+        { item: 'reais', fonte: 'H15', condicoes: ['en-pt', 'pt-en'], placar: {
+            'haiku-low': { 'en-pt': [6, 6], 'pt-en': [4, 6] }, 'sonnet-low': { 'en-pt': [6, 6], 'pt-en': [6, 6] }, 'opus-low': { 'en-pt': [6, 6], 'pt-en': [4, 6] } } },
+        { item: 'plural', fonte: 'H12 e H13', condicoes: ['en', 'pt'], placar: {
+            'haiku-low': { en: [4, 4], pt: [0, 6] }, 'sonnet-low': { en: [4, 4], pt: [5, 6] }, 'opus-low': { en: [4, 4] }, 'fable-low': { en: [4, 4] } } }
+    ]
+};
+
 // Antes do filtro de dicionário: % das palavras inventadas a 1 letra de uma palavra real
 // (1.000 palavras de cada classe)
 const PERTO_DO_PORTUGUES = [
