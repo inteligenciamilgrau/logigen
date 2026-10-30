@@ -10,7 +10,19 @@ A Ludela e o Chevrur são ___?             Bloskus and Trurkik are ___?
   → zedantosos                              → tegous
 ```
 
-> **English:** LogiGen generates logic puzzles in Brazilian Portuguese or English with invented words that look like real nouns, adjectives and verbs, then grades the AI's answer on two axes: logic (right word) and morphology (right form). Open `index.html` and pick the flag at the top; `index.html?lang=en` opens straight in English.
+> **English:** LogiGen generates logic puzzles in Brazilian Portuguese or English with invented words that look like real nouns, adjectives and verbs, then grades the AI's answer on two axes: logic (right word) and morphology (right form). Its goals: (1) show that an AI reasons over text it has never seen, instead of just repeating its training data; (2) map where each AI does well and badly, and look for a general ability shared by all tasks, like the human "g factor"; (3) if (1) holds, check whether an AI can create new concepts and discoveries; (4) measure and compare the performance of different models on a common scale; (5) above all, work less as a showcase of what models do well and more as a diagnosis of where an AI needs to improve to become more robust. Working hypothesis: since the AIs get the logic right even with invented words, they seem to have learned a logical framework from data, possible evidence of emergent behavior; what supports it and what is still missing is in `testes/HIPOTESE.md` (in Portuguese). Open `index.html` and pick the flag at the top; `index.html?lang=en` opens straight in English.
+
+## 🎯 Objetivos
+
+1. **Mostrar que a IA raciocina, e não só repete a base de dados.** Muita gente diz que uma IA só devolve o que já viu. O LogiGen usa textos que ninguém nunca escreveu, com palavras que nem existem, e um filtro garante que nenhuma delas lembre uma palavra real. Se a IA responde de forma coerente — escolhe a palavra certa e a flexiona como a gramática pede —, ela está exercendo lógica sobre dados novos, não recuperando memória.
+2. **Mapear onde a IA vai bem e onde vai mal, e procurar um "fator G".** Cada eixo do teste (profundidade, volume, sósias, morfologia, operadores…) tem uma escala de dificuldade. A ideia é ver os pontos fortes e fracos de cada modelo e verificar se existe uma capacidade geral comum a todos os eixos, como o fator G da inteligência humana: quem vai bem num eixo tende a ir bem nos outros?
+3. **Se o objetivo 1 se confirmar, verificar se a IA cria conceitos novos.** Raciocinar sobre palavras novas é o primeiro passo; o seguinte é criar: formar categorias e nomes novos, descobrir regras escondidas nos dados e derivar palavras que seguem a gramática. Ou seja, chegar a conclusões que não estavam escritas em lugar nenhum.
+4. **Medir e comparar o desempenho de modelos diferentes.** Com os mesmos testes, nas mesmas condições e numa régua comum, dá para dizer quanto um modelo é melhor que outro — e em quê —, com margem de erro declarada.
+5. **Apontar a direção para uma IA mais robusta.** O objetivo final é que testes como este sejam menos uma vitrine das qualidades dos modelos e mais um diagnóstico: cada erro classificado pela causa (perde o fio em textos longos, confunde palavras parecidas, copia a forma em vez de concordar, inventa resposta quando não dá para saber), para mostrar onde uma IA precisa melhorar.
+
+Como cada objetivo vira medida, quais eixos têm escala de dificuldade e como montar uma base de testes confiável: [testes/PLANO.md](testes/PLANO.md).
+
+**Hipótese em teste.** Como as IAs acertam a lógica mesmo com palavras inventadas, os resultados apontam para um arcabouço lógico aprendido a partir dos dados, que captura a essência do raciocínio linguístico: uma possível evidência de comportamento emergente. O que os testes já sustentam, onde é preciso cuidado e como confirmar: [testes/HIPOTESE.md](testes/HIPOTESE.md).
 
 ## 🚀 Como usar
 

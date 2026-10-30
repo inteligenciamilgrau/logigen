@@ -38,10 +38,11 @@ function cartao(icone, titulo, subtitulo, corpo, rodape = '') {
     </section>`;
 }
 
+const linkArquivo = (c) => `<a href="${c}" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">${c}</a>`;
+
 // Uma bateria pode ter mais de um diário (ex.: o mesmo teste em dois modelos)
 function linkDiario(caminhos) {
-    return `${t('p_diario')}: ` + [].concat(caminhos)
-        .map(c => `<a href="${c}" class="text-blue-400 hover:text-blue-300 underline underline-offset-2">${c}</a>`).join(' · ');
+    return `${t('p_diario')}: ` + [].concat(caminhos).map(linkArquivo).join(' · ');
 }
 
 // Barra horizontal com o intervalo de confiança desenhado por cima (traço branco)
@@ -119,6 +120,16 @@ function secaoResumo() {
     </div>`;
 }
 
+function secaoObjetivos() {
+    const objetivos = ['p_obj1', 'p_obj2', 'p_obj3', 'p_obj4', 'p_obj5'].map((chave, i) => `
+        <li class="flex gap-3">
+            <span class="shrink-0 w-6 h-6 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 text-white text-xs font-black flex items-center justify-center">${i + 1}</span>
+            <span>${t(chave)}</span>
+        </li>`).join('');
+    return cartao('target', t('p_objetivos'), t('p_objetivos_sub'),
+        `<ol class="space-y-3 text-sm text-slate-300 leading-relaxed">${objetivos}</ol>`);
+}
+
 function secaoAchados() {
     const m = BATERIAS.morfologia;
     const logica = Object.values(m.resultados).flat();
@@ -137,6 +148,23 @@ function secaoAchados() {
     const nota = t('p_nota_idioma') ? `<p class="text-[11px] text-amber-300/80 mt-4">${t('p_nota_idioma')}</p>` : '';
     return cartao('lightbulb', t('p_sabemos'), t('p_sabemos_sub'),
         `<ul class="space-y-2 text-sm text-slate-300 leading-relaxed list-disc pl-5">${achados.map(a => `<li>${a}</li>`).join('')}</ul>${nota}`);
+}
+
+function secaoHipotese() {
+    const lista = (chaves) => `<ul class="space-y-2 text-sm text-slate-300 leading-relaxed list-disc pl-5">${chaves.map(c => `<li>${t(c)}</li>`).join('')}</ul>`;
+    const titulo = (chave) => `<div class="text-[9px] font-black uppercase tracking-widest text-slate-500 mt-6 mb-2">${t(chave)}</div>`;
+    const testes = [1, 2, 3].map(i => `
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4">
+            <div class="text-sm font-bold text-white">${t(`p_hip_t${i}_pergunta`)}</div>
+            <div class="text-xs text-slate-400 leading-relaxed mt-2">${t(`p_hip_t${i}_teste`)}</div>
+            <div class="text-xs text-emerald-300/90 leading-relaxed mt-2">${t(`p_hip_t${i}_confirma`)}</div>
+        </div>`).join('');
+    return cartao('sparkles', t('p_hipotese'), t('p_hipotese_sub'),
+        `<blockquote class="border-l-2 border-purple-500 pl-4 text-sm text-slate-200 leading-relaxed italic">${t('p_hip_tese')}</blockquote>
+        ${titulo('p_hip_apoia')}${lista(['p_hip_a1', 'p_hip_a2', 'p_hip_a3', 'p_hip_a4'])}
+        ${titulo('p_hip_cuidado')}${lista(['p_hip_c1', 'p_hip_c2'])}
+        ${titulo('p_hip_testar')}<div class="grid grid-cols-1 md:grid-cols-3 gap-3">${testes}</div>`,
+        `${t('p_hip_rodape')} ${linkArquivo('testes/HIPOTESE.md')}`);
 }
 
 // Configurações da bateria de morfologia, da melhor para a pior
@@ -247,8 +275,10 @@ function renderPesquisa() {
             <h2 class="text-xl font-black text-white uppercase tracking-tight">${t('p_titulo')}</h2>
             <p class="text-sm text-slate-400 mt-1">${t('p_intro')}</p>
         </div>
+        ${secaoObjetivos()}
         ${secaoResumo()}
         ${secaoAchados()}
+        ${secaoHipotese()}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
             ${secaoEscada()}
             ${secaoFlexoes()}
