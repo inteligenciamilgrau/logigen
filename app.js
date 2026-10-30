@@ -178,13 +178,15 @@ function carregarEscolhas() {
     return salvas;
 }
 
-function gerar() {
+async function gerar() {
     const nivel = parseInt($('nivel').value, 10);
     const quantidade = Math.max(1, Math.min(50, parseInt($('quantidade').value, 10) || 10));
     if (!$('semente').value) novaSemente();
     const semente = parseInt($('semente').value, 10);
     $('quantidade').value = quantidade;
     salvarEscolhas();
+    // A troca de língua (nível 8) gera palavras nas duas línguas: precisa dos dois dicionários
+    if (NIVEIS[nivel].trocaDeLingua) await carregarDicionario(OUTRA_LINGUA[IDIOMA]);
 
     try {
         desafios = gerarLote(nivel, quantidade, semente, IDIOMA);

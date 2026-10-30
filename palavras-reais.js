@@ -115,8 +115,11 @@ function trocasDoDesafio(d) {
 
 const trocarPalavras = (texto, mapa) => texto.replace(/[A-Za-zÀ-ÿ]+/g, w => mapa.get(w) ?? w);
 
-// Uma cópia do desafio com as palavras reais em tudo o que aparece na tela
+// Uma cópia do desafio com as palavras reais em tudo o que aparece na tela.
+// Na troca de língua (nível 8), mostra o mesmo desafio sem a troca, na língua da resposta:
+// as palavras reais servem para conferir a lógica, e ela é a mesma
 function versaoComPalavrasReais(d) {
+    if (d.semTroca) return versaoComPalavrasReais(d.semTroca);
     const { reais, paraReal } = trocasDoDesafio(d);
     const letras = Object.keys(d.palavras);
     return {

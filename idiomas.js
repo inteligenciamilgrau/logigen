@@ -59,7 +59,7 @@ const TEXTOS = {
         det_ambigua: 'flexão ambígua (deu mais de uma forma)', det_flexao: 'flexão errada (lógica certa)',
         det_armadilha: 'caíram na armadilha da recíproca', det_errado: 'errados', 'det_sem-resposta': 'sem resposta reconhecida (use "1: resposta")',
         det_falacia: 'concluíram o que as frases não garantem (falácia)',
-        diag_copiou: 'copiou uma forma escrita no desafio', diag_classe: 'leu o verbo como adjetivo', diag_conjugacao: 'conjugação errada (-am × -em, -ando × -endo)',
+        diag_lingua: 'respondeu na língua do texto', diag_copiou: 'copiou uma forma escrita no desafio', diag_classe: 'leu o verbo como adjetivo', diag_conjugacao: 'conjugação errada (-am × -em, -ando × -endo)',
         diag_atracao: 'concordou com o grupo, não com as pessoas', diag_genero: 'gênero errado', diag_numero: 'singular e plural trocados', diag_outra: 'forma que não existe',
         cole_primeiro: 'Cole a resposta da IA primeiro.',
         erro_palavra: 'Não consegui gerar uma palavra inédita. Tente menos desafios por lote.',
@@ -187,7 +187,7 @@ const TEXTOS = {
         det_ambigua: 'ambiguous form (gave more than one)', det_flexao: 'wrong form (right logic)',
         det_armadilha: 'fell for the converse trap', det_errado: 'wrong', 'det_sem-resposta': 'no answer recognized (use "1: answer")',
         det_falacia: "concluded what the sentences don't guarantee (fallacy)",
-        diag_copiou: 'copied a form written in the challenge', diag_classe: 'read the verb as an adjective', diag_conjugacao: 'wrong conjugation (-am × -em, -ando × -endo)',
+        diag_lingua: 'answered in the language of the text', diag_copiou: 'copied a form written in the challenge', diag_classe: 'read the verb as an adjective', diag_conjugacao: 'wrong conjugation (-am × -em, -ando × -endo)',
         diag_atracao: 'agreed with the group noun, not the people', diag_genero: 'wrong gender', diag_numero: 'singular and plural mixed up', diag_outra: 'a form that does not exist',
         cole_primeiro: "Paste the AI's answer first.",
         erro_palavra: 'Could not generate a new word. Try fewer challenges per batch.',
@@ -302,7 +302,8 @@ const NIVEIS_EN = {
     4: { nome: 'Negation and fallacies', descricao: 'Rules with "no" and negative facts ("Zorin is not a blick"). The question is yes or no, and sometimes the right answer is "can\'t tell": that is where the two classic fallacies live, affirming the consequent and denying the antecedent.' },
     5: { nome: 'Proof by cases', descricao: 'Rules with "or": "Every blick is a florp or a snurk". To answer, you have to check both cases, or rule one out with a negative fact. When only one case leads to the conclusion, the answer is "can\'t tell".' },
     6: { nome: 'New words (wug)', descricao: 'The "wug test": applying a rule of the language to a word that never existed. A glossary gives the base form of every verb and adjective. In Portuguese the challenge asks for the gerund and plural of -er and -ir verbs, or the agreement of a group whose noun has a different gender from the people; in English verbs and adjectives have fewer forms, and the level is close to level 2.' },
-    7: { nome: 'Induction', descricao: 'Examples instead of rules: each character has a few traits and is or is not in a group. You have to find the hidden rule (one trait, two traits with "and" or "or", with negation) and apply it to someone new. The checker only accepts the challenge if every plausible rule that explains the examples gives the same answer.' }
+    7: { nome: 'Induction', descricao: 'Examples instead of rules: each character has a few traits and is or is not in a group. You have to find the hidden rule (one trait, two traits with "and" or "or", with negation) and apply it to someone new. The checker only accepts the challenge if every plausible rule that explains the examples gives the same answer.' },
+    8: { nome: 'Language switch', descricao: 'The challenge comes in the other language (Portuguese, if the site is in English) and the answer is asked in the language of the site, with a glossary. The logic is done in one language and the word has to come out inflected in the other: agreement and conjugation change rules halfway.' }
 };
 // Em inglês o adjetivo não tem gênero: a variante "gênero" vira o adjetivo no singular
 const VARIANTES_EN = {
@@ -329,7 +330,9 @@ const VARIANTES_EN = {
     'dois traços · e': 'two traits · and',
     'dois traços · ou': 'two traits · or',
     'e com negação': 'and with negation',
-    'três traços': 'three traits'
+    'três traços': 'three traits',
+    'adjetivo · grupo misto': 'adjective · mixed group',
+    'adjetivo · grupo feminino': 'adjective · female group'
 };
 const COMENTARIOS_EN = {
     'leva à resposta': 'leads to the answer',

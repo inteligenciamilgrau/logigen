@@ -123,6 +123,7 @@ Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do 
 | 5 | Prova por casos | — | — | "todo G1 é G2 ou G3"; examinar os dois casos ou eliminar um. Variantes: casos, silogismo disjuntivo, casos + nenhum, ramo aberto |
 | 6 | Palavras novas (wug) | 2 | 0 | cadeia de 2 regras + glossário; gerúndio de verbos em -er e -ir, plural em -em, e grupos cujo substantivo tem outro gênero que o das pessoas |
 | 7 | Indução | — | — | exemplos no lugar das regras; descobrir a regra escondida e aplicá-la a alguém novo (sim ou não). Variantes: um traço, um traço negado, dois traços com "e" ou "ou", "e" com negação, três traços |
+| 8 | Troca de língua | 2 | 0 | o texto vem na outra língua e a resposta é pedida na língua do site, com glossário. Variantes: adjetivo com grupo misto ou feminino, verbo no plural, gerúndio |
 
 Os níveis 1 a 3 têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
 
@@ -174,6 +175,25 @@ regra: G1 = A1 e não A2
 - A resposta é sorteada (sim ou não, meio a meio), e os exemplos também. O verificador só aceita o desafio se **todas** as regras plausíveis que explicam os exemplos derem a mesma resposta para o personagem novo: as regras com "e", "ou" e "não" do mesmo tamanho da escondida ou menores, mais "só um dos dois" e "pelo menos 2 de 3". E nenhuma regra menor que a escondida pode explicar os exemplos: a variante "dois traços" precisa mesmo de dois.
 - Isso vem da bateria H4 do [benchmark](benchmark/RELATORIO-G2.md): três modelos "erraram" o mesmo item porque acharam, cada um, outra regra do mesmo tamanho que também explicava os exemplos. O erro era do item.
 - Com mais liberdade, a resposta pode mudar: aceitando regras com um traço a mais que a escondida, só uma parte dos desafios continua com resposta única (cerca de 1 em cada 6 em "dois traços · e" e "dois traços · ou"). Por isso o prompt pede **a regra mais simples**. Exigir o traço a mais deixaria "dois traços · e" sempre com resposta "não", e daria para acertar sem pensar.
+
+**Nível 8: troca de língua.** O desafio vem na outra língua e a resposta é pedida na língua do site: com o site em português, o texto vem em inglês; com o site em inglês, vem em português. A lógica é feita numa língua e a palavra precisa sair flexionada na outra.
+
+```
+Every teegeng is sneebsome.
+Every grepift is a teegeng.
+...
+Teglane and Peflel are grepifts.
+Teglane and Peflel are ___?
+Glossário: sleendal → gravrorboso (adjetivo); sneebsome → dresontudo (adjetivo). Pessoas: a Teglane, o Peflel.
+→ dresontudos
+```
+
+- O mesmo esqueleto vira um desafio em cada língua (o lote pareado): o texto sai de um e o gabarito do outro.
+- O glossário liga cada adjetivo e verbo do texto à palavra da língua da resposta, em ordem sorteada. Em português ele também diz o gênero de cada pessoa ("a Teglane, o Peflel"), que o inglês não marca e a concordância precisa.
+- Vem das baterias G9 e G10 do [benchmark](benchmark/RELATORIO-G2.md) (H15 e H16): a lógica sobreviveu à troca de língua em todos os casos, e os erros que sobraram foram de forma.
+- A correção tem um diagnóstico a mais: **respondeu na língua do texto** (a palavra certa, mas na língua errada) conta como lógica certa e forma errada. A atração de concordância não é diagnosticada aqui, porque o gênero do substantivo não aparece no texto em inglês.
+- Com **Palavras reais**, o nível mostra o mesmo desafio sem a troca, na língua da resposta: as palavras reais servem para conferir a lógica, e ela é a mesma.
+- O nível não aparece na aba **Humano × IA**, em que cada lado já escolhe a sua língua.
 
 Exemplo do nível 3:
 

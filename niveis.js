@@ -63,6 +63,14 @@
 //                            regra menor que a escondida pode explicar os exemplos (a variante
 //                            "dois traços" usa mesmo dois)
 //
+// Troca de língua (nível 8):
+//   trocaDeLingua: true      (no nível) o texto vem na outra língua e a resposta é pedida na
+//                            língua do site. O mesmo esqueleto vira um desafio em cada língua (o
+//                            lote pareado); o texto sai de um e o gabarito do outro. Um glossário
+//                            liga cada adjetivo e verbo do texto à palavra da língua da resposta
+//                            ("to florp → pavobar"); em português, ele diz também o gênero de cada
+//                            pessoa ("a Flunice, o Crodel"), que o inglês não marca
+//
 // A resposta precisa sair do texto, na lógica e na gramática. Pelo presente
 // "pavobe" não dá para saber se o verbo é pavober ou pavobir, então nos desafios
 // de gerúndio todos os verbos são da 1ª conjugação ("glovunda" -> "glovundando").
@@ -406,6 +414,57 @@ const NIVEIS = {
                 traços: A1 A2 A3 A4
                 exemplos: 10
                 regra: G1 = A1 e (A2 ou A3)
+            `
+        }
+    },
+    8: {
+        nome: 'Troca de língua',
+        descricao: 'O desafio vem na outra língua (em inglês, se o site está em português) e a resposta é pedida na língua do site, com um glossário. A lógica é feita numa língua e a palavra precisa sair flexionada na outra: o concordar e o conjugar mudam de regra no meio do caminho.',
+        passos: 2,
+        armadilhas: 0,
+        trocaDeLingua: true,
+        instrucao: {
+            pt: 'Os desafios estão em inglês. Responda em português, usando as palavras portuguesas do glossário.',
+            en: 'The challenges are in Portuguese. Answer in English, using the English words in the glossary.'
+        },
+        variantes: {
+            'adjetivo · grupo misto': `
+                todo G1 é G2      # passo 1
+                todo G2 é A1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é A2      # distração
+                X1 e X2 são G1
+                gênero: X1 f, X2 m
+                pergunta: X1 e X2 são ___?
+                resposta: A1
+            `,
+            'adjetivo · grupo feminino': `
+                todo G1 é G2      # passo 1
+                todo G2 é A1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é A2      # distração
+                X1 e X2 são G1
+                gênero: X1 f, X2 f
+                pergunta: X1 e X2 são ___?
+                resposta: A1
+            `,
+            'verbo · plural': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: V1
+            `,
+            'verbo · gerúndio': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 é G1
+                pergunta: X1 está ___?
+                resposta: V1
             `
         }
     }

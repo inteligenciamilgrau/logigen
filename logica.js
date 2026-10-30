@@ -635,6 +635,7 @@ function montarDesafioInducao(nivel, variante, esq, s, lexico, numero, idioma, f
 }
 
 function gerarLote(nivel, quantidade, semente, idioma = 'pt') {
+    if (NIVEIS[nivel].trocaDeLingua) return gerarLoteTrocado(nivel, quantidade, semente, idioma);
     const s = criarSorteio(semente);
     const lexico = criarLexico(s, idioma);
     return Array.from({ length: quantidade }, (_, i) => montarDesafio(nivel, s, lexico, i + 1, idioma));
@@ -656,6 +657,61 @@ function gerarLotePareado(nivel, quantidade, semente, idiomas) {
         idiomas.forEach((idioma, k) => lotes[k].push(montarDesafio(nivel, s, lexicos[k], numero, idioma, { variante, ordem, inducao })));
     }
     return lotes;
+}
+
+// --- TROCA DE LÍNGUA (nível 8) ---
+// O texto vem na outra língua e a resposta é pedida na língua do site ("idioma"). O lote
+// pareado dá o mesmo desafio nas duas línguas (mesmas letras, mesma ordem das regras): o texto
+// sai da versão na outra língua e o gabarito sai da versão na língua da resposta. Na bateria
+// G10 do benchmark, a lógica sobreviveu à troca em 36 de 36 desafios; os erros foram de forma.
+const OUTRA_LINGUA = { pt: 'en', en: 'pt' };
+const GLOSSARIO_TROCA = {
+    pt: {
+        titulo: 'Glossário', pessoas: 'Pessoas',
+        verbo: (doTexto, p) => `to ${doTexto.infinitivo} → ${p.infinitivo} (verbo)`,
+        adjetivo: (doTexto, p) => `${doTexto.m} → ${p.m} (adjetivo)`
+    },
+    en: {
+        titulo: 'Glossary',
+        verbo: (doTexto, p) => `${doTexto.infinitivo} → to ${p.infinitivo} (verb)`,
+        adjetivo: (doTexto, p) => `${doTexto.m} → ${p.m} (adjective)`
+    }
+};
+
+function gerarLoteTrocado(nivel, quantidade, semente, idioma) {
+    const [naResposta, noTexto] = gerarLotePareado(nivel, quantidade, semente, [idioma, OUTRA_LINGUA[idioma]]);
+    const s = criarSorteio(semente * 7 + 3);
+    return naResposta.map((d, i) => trocarLingua(d, noTexto[i], s));
+}
+
+function trocarLingua(d, doTexto, s) {
+    // Os nomes vêm sempre da versão em português: lá cada pessoa tem gênero, e a concordância
+    // em português precisa dele. Em inglês o nome aparece sem artigo, então o glossário o diz
+    const pt = d.idioma === 'pt' ? d : doTexto;
+    const letras = ordenarLetras(Object.keys(d.palavras));
+    const nomeNoTexto = new Map(letras.filter(v => v[0] === 'X').map(v => [doTexto.palavras[v].palavra, pt.palavras[v].palavra]));
+    const trocarNomes = (texto) => texto.replace(/[A-Za-zÀ-ÿ]+/g, w => nomeNoTexto.get(w) ?? w);
+    const G = GLOSSARIO_TROCA[d.idioma];
+    const entradas = s.embaralhar(letras.filter(v => /^[AV]/.test(v)).map(v => G[d.palavras[v].classe](doTexto.palavras[v], d.palavras[v])));
+    const pessoas = d.idioma === 'pt' ? ` ${G.pessoas}: ${letras.filter(v => v[0] === 'X').map(v => nomes([pt.palavras[v]])).join(', ')}.` : '';
+    const doGabarito = (v) => v[0] === 'X' ? pt.palavras[v] : d.palavras[v];
+    return {
+        ...d,
+        trocaDeLingua: true,
+        idiomaDoTexto: doTexto.idioma,
+        linhas: doTexto.linhas.map(l => ({ ...l, texto: trocarNomes(l.texto) })),
+        pergunta: { ...doTexto.pergunta, texto: trocarNomes(doTexto.pergunta.texto) },
+        glossario: `${G.titulo}: ${entradas.join('; ')}.${pessoas}`,
+        // Uma palavra de distração na língua do texto também é erro; a palavra certa na língua
+        // do texto é lógica certa com a forma errada (diagnóstico "lingua")
+        distratores: [...d.distratores, ...doTexto.distratores],
+        chaveNoTexto: doTexto.chave,
+        legenda: letras.map(v => ({ letra: v, classe: d.palavras[v].classe,
+            palavra: v[0] === 'X' ? pt.palavras[v].palavra : `${formaDicionario(doTexto.palavras[v])} → ${formaDicionario(d.palavras[v])}` })),
+        formas: Object.fromEntries(letras.flatMap(v => [...formasEscritas(doTexto.palavras[v]), ...formasEscritas(doGabarito(v))].map(f => [f, d.palavras[v].classe]))),
+        // O mesmo desafio sem a troca, na língua da resposta (para o modo palavras reais)
+        semTroca: d
+    };
 }
 
 // --- PROMPT ---
@@ -796,13 +852,15 @@ function corrigir(desafios, texto) {
         const cita = (chaves) => palavras.some(w => chaves.some(c => w.startsWith(c)));
         const formasDaResposta = new Set(palavras.filter(w => w.startsWith(d.chave)));
         const exata = formasDaResposta.has(d.resposta);
+        // Troca de língua (nível 8): a palavra certa, mas na língua do texto
+        const naLinguaDoTexto = Boolean(d.chaveNoTexto) && palavras.some(w => w.startsWith(d.chaveNoTexto));
         let status;
         if (cita(d.chavesArmadilha)) status = 'armadilha';
         else if (cita(d.distratores)) status = 'errado';
         else if (exata) status = formasDaResposta.size > 1 ? 'ambigua' : 'certo';
-        else status = formasDaResposta.size ? 'flexao' : 'errado';
+        else status = formasDaResposta.size || naLinguaDoTexto ? 'flexao' : 'errado';
         const r = { numero: d.numero, dada, status };
-        if (status === 'flexao') r.diagnostico = diagnosticarFlexao(d, palavras, [...formasDaResposta][0]);
+        if (status === 'flexao') r.diagnostico = formasDaResposta.size ? diagnosticarFlexao(d, palavras, [...formasDaResposta][0]) : 'lingua';
         return r;
     });
 }
@@ -825,6 +883,7 @@ function lerSimNao(texto) {
 //              ("A Marina e o Caio são glapartas" → "dralelhudas")
 //   genero     outro gênero errado · numero: singular e plural trocados
 //   outra      uma forma que não existe ("gluskishes")
+//   lingua     (nível 8, em corrigir) a palavra certa na língua do texto, não na da resposta
 function diagnosticarFlexao(d, palavras, dada) {
     const p = Object.values(d.palavras ?? {}).find(w => w.chave === d.chave);
     if (!p) return 'outra';
@@ -853,7 +912,8 @@ function diagnosticarFlexao(d, palavras, dada) {
     // dele, a IA concordou com o grupo, não com as pessoas
     const sujeitos = (d.pergunta.esqueleto.match(/^pergunta: (\S+(?: e \S+)?) /) ?? [])[1];
     const fato = d.linhas.map(l => l.esqueleto.match(/^(\S+(?: e \S+)?) (?:é|são) (G\d+)$/)).find(m => m && m[1] === sujeitos);
-    const grupo = fato && d.palavras[fato[2]];
+    // Na troca de língua o texto vem em inglês, sem o gênero do substantivo: não há o que atrair
+    const grupo = fato && !d.trocaDeLingua && d.palavras[fato[2]];
     return grupo && grupo.genero === generoDado ? 'atracao' : 'genero';
 }
 

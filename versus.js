@@ -30,7 +30,8 @@ const versusTempo = (ms) => {
 // --- AÇÕES ---
 function versusLerOpcoes() {
     if (VERSUS.fase !== 'config') return;
-    if (Object.hasOwn(NIVEIS, $('versus-nivel').value)) VERSUS.nivel = $('versus-nivel').value;
+    // A troca de língua (nível 8) fica de fora: aqui cada lado já escolhe a sua língua
+    if (Object.hasOwn(NIVEIS, $('versus-nivel').value) && !NIVEIS[$('versus-nivel').value].trocaDeLingua) VERSUS.nivel = $('versus-nivel').value;
     VERSUS.quantidade = Math.max(1, Math.min(20, parseInt($('versus-quantidade').value, 10) || 5));
     VERSUS.semente = parseInt($('versus-semente').value, 10) || VERSUS.semente;
     VERSUS.reais = $('versus-reais').checked;
@@ -139,7 +140,7 @@ function versusOpcoes() {
             <div class="col-span-2">
                 <label for="versus-nivel" class="${rotulo}">${t('nivel')}</label>
                 <select id="versus-nivel" ${travado} class="${campo}">
-                    ${Object.keys(NIVEIS).map(n => `<option value="${n}" ${n === VERSUS.nivel ? 'selected' : ''}>${escapeHtml(t('nivel_opcao', { n, nome: nomeDoNivel(n) }))}</option>`).join('')}
+                    ${Object.keys(NIVEIS).filter(n => !NIVEIS[n].trocaDeLingua).map(n => `<option value="${n}" ${n === VERSUS.nivel ? 'selected' : ''}>${escapeHtml(t('nivel_opcao', { n, nome: nomeDoNivel(n) }))}</option>`).join('')}
                 </select>
             </div>
             <div>
