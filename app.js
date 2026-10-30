@@ -224,7 +224,7 @@ function renderDesafios() {
             </div>
             <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
                 <span class="gabarito"><span class="text-[10px] font-black uppercase tracking-widest text-emerald-500/80 mr-2">${t('gabarito')}</span><span class="font-mono font-black text-emerald-400">${escapeHtml(d.resposta)}</span> <span class="text-[10px] text-slate-500">· ${escapeHtml(d.flexao)}</span></span>
-                ${r ? `<span><span class="text-[10px] font-black uppercase tracking-widest text-slate-500 mr-2">${t('ia')}</span><span class="font-mono ${COR_DO_STATUS[r.status]}">${r.dada === null ? t('nao_respondeu') : escapeHtml(dada)}</span></span>` : ''}
+                ${r ? `<span><span class="text-[10px] font-black uppercase tracking-widest text-slate-500 mr-2">${t('ia')}</span><span class="font-mono ${COR_DO_STATUS[r.status]}">${r.dada === null ? t('nao_respondeu') : escapeHtml(dada)}</span>${r.diagnostico ? ` <span class="text-[10px] text-amber-300/80">· ${t('diag_' + r.diagnostico)}</span>` : ''}</span>` : ''}
             </div>
         </article>`;
     }).join('');
@@ -297,6 +297,10 @@ function corrigirRespostas() {
     const pct = Math.round((certos / total) * 100);
     const cor = pct >= 80 ? 'emerald' : pct >= 50 ? 'amber' : 'rose';
     const porcento = (n, de) => de ? `${Math.round((n / de) * 100)}%` : '—';
+    // Flexões erradas, pelo diagnóstico: "2 copiou a forma escrita na regra, 1 leu o verbo como adjetivo"
+    const diagnosticos = {};
+    resultado.filter(r => r.diagnostico).forEach(r => { diagnosticos[r.diagnostico] = (diagnosticos[r.diagnostico] ?? 0) + 1; });
+    const porDiagnostico = Object.entries(diagnosticos).map(([d, n]) => `${n} ${t('diag_' + d)}`).join(', ');
     const detalhes = [
         [conta('ambigua'), 'text-orange-300', 'det_ambigua'],
         [conta('flexao'), 'text-amber-300', 'det_flexao'],
@@ -321,7 +325,7 @@ function corrigirRespostas() {
                 <div class="text-[9px] text-slate-500">${morfologia}/${logica} ${t('forma_certa')}</div>
             </div>
         </div>
-        ${detalhes.map(([n, classe, chave]) => `<div class="text-[10px] ${classe} mt-1">${n} ${t(chave)}</div>`).join('')}`;
+        ${detalhes.map(([n, classe, chave]) => `<div class="text-[10px] ${classe} mt-1">${n} ${t(chave)}${chave === 'det_flexao' && porDiagnostico ? `: ${porDiagnostico}` : ''}</div>`).join('')}`;
     renderDesafios();
 }
 

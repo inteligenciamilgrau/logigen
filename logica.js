@@ -405,8 +405,51 @@ function corrigir(desafios, texto) {
         else if (cita(d.distratores)) status = 'errado';
         else if (exata) status = formasDaResposta.size > 1 ? 'ambigua' : 'certo';
         else status = formasDaResposta.size ? 'flexao' : 'errado';
-        return { numero: d.numero, dada, status };
+        const r = { numero: d.numero, dada, status };
+        if (status === 'flexao') r.diagnostico = diagnosticarFlexao(d, palavras, [...formasDaResposta][0]);
+        return r;
     });
+}
+
+// Por que a forma saiu errada, quando a palavra está certa (a lógica acertou). Os nomes vêm
+// das baterias do benchmark/ (RELATORIO-G2.md):
+//   copiou     escreveu a forma que já está no texto ("glovunda" onde se pede "glovundando")
+//   classe     leu o verbo como adjetivo ("são ladadra", "gronetres")
+//   conjugacao trocou a conjugação ("gronetram" onde se pede "gronetrem")
+//   atracao    concordou com o substantivo do grupo, não com as pessoas
+//              ("A Marina e o Caio são glapartas" → "dralelhudas")
+//   genero     outro gênero errado · numero: singular e plural trocados
+//   outra      uma forma que não existe ("gluskishes")
+function diagnosticarFlexao(d, palavras, dada) {
+    const p = Object.values(d.palavras ?? {}).find(w => w.chave === d.chave);
+    if (!p) return 'outra';
+    const textoDoDesafio = new Set([...d.linhas.map(l => l.texto), d.pergunta.texto].flatMap(t => normalizar(t).split(/[^a-z]+/)));
+    const pt = (d.idioma ?? 'pt') === 'pt';
+    if (p.classe === 'verbo') {
+        if (pt && d.flexao === 'presente, eles' && palavras.includes('sao')) return 'classe';
+        if (textoDoDesafio.has(dada)) return 'copiou';
+        if (!pt) return 'outra';
+        if (dada.endsWith('s')) return 'classe';
+        const raiz = normalizar(p.infinitivo.slice(0, -2));
+        const fim = (forma) => forma.startsWith(raiz) ? forma.slice(raiz.length) : null;
+        const mesmoLugar = [['am', 'em'], ['ando', 'endo', 'indo']].some(g => g.includes(fim(dada)) && g.includes(fim(normalizar(d.resposta))));
+        return mesmoLugar ? 'conjugacao' : 'outra';
+    }
+    if (p.classe !== 'adjetivo' || !pt) return 'outra';
+    if (textoDoDesafio.has(dada)) return 'copiou';
+    const formas = { m: ['m', false], f: ['f', false], mp: ['m', true], fp: ['f', true] };
+    const achada = Object.entries(formas).find(([campo]) => normalizar(p[campo]) === dada);
+    if (!achada) return 'outra';
+    const [generoDado, pluralDado] = achada[1];
+    const generoPedido = d.flexao.startsWith('feminino') ? 'f' : 'm';
+    if (pluralDado !== d.flexao.includes('plural')) return 'numero';
+    if (generoDado === generoPedido) return 'outra';
+    // O substantivo do fato sobre os personagens ("X1 e X2 são G1"): se a forma dada tem o gênero
+    // dele, a IA concordou com o grupo, não com as pessoas
+    const sujeitos = (d.pergunta.esqueleto.match(/^pergunta: (\S+(?: e \S+)?) /) ?? [])[1];
+    const fato = d.linhas.map(l => l.esqueleto.match(/^(\S+(?: e \S+)?) (?:é|são) (G\d+)$/)).find(m => m && m[1] === sujeitos);
+    const grupo = fato && d.palavras[fato[2]];
+    return grupo && grupo.genero === generoDado ? 'atracao' : 'genero';
 }
 
 // Placar nos dois eixos, a partir do resultado de corrigir()
