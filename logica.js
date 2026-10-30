@@ -263,6 +263,12 @@ function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
     const achadas = candidatos.filter(v => conclusoes.every(c => c.has(palavra[v].chave)));
     if (achadas.length !== 1) throw erro(`dá para deduzir ${achadas.length} respostas para a lacuna (${achadas.join(', ') || 'nenhuma'}), precisa ser exatamente 1.`);
     if (achadas[0] !== esq.resposta) throw erro(`o solucionador chegou em ${achadas[0]}, mas o esqueleto diz "resposta: ${esq.resposta}".`);
+    // "está ___" também aceita adjetivo ("A Marina está zedantosa"): na pergunta do gerúndio,
+    // nenhum adjetivo pode ser dedutível, senão a lacuna tem duas respostas certas
+    if (gerundio) {
+        const adjetivos = esq.variaveis.filter(v => v[0] === 'A' && conclusoes.every(c => c.has(palavra[v].chave)));
+        if (adjetivos.length) throw erro(`com "${verbo} ___?", o adjetivo ${adjetivos.join(', ')} também completa a lacuna ("está ..."); use um elo que não seja adjetivo.`);
+    }
     const resposta = palavra[esq.resposta];
     const passos = Math.max(...conclusoes.map(c => c.get(resposta.chave).passos));
     const passosDoNivel = NIVEIS[nivel].passos;

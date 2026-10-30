@@ -143,7 +143,8 @@ function secaoAchados() {
             confusao: `<span style="color:${COR_DO_RESULTADO.confusao}">${t('p_le_errado')}</span>`,
             eh: errosV('haiku-low'), nh: rodados(v['haiku-low']).length, es: errosV('sonnet-low')
         }),
-        t('p_achado4')
+        t('p_achado4'),
+        t('p_achado5')
     ];
     const nota = t('p_nota_idioma') ? `<p class="text-[11px] text-amber-300/80 mt-4">${t('p_nota_idioma')}</p>` : '';
     return cartao('lightbulb', t('p_sabemos'), t('p_sabemos_sub'),

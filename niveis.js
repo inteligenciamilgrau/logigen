@@ -24,6 +24,9 @@
 //   pergunta: X1 e X2 são ___?   "X1 e X2 são ___?"   A: no plural        · V: "X1 e X2 ___?", presente (eles)
 //   pergunta: X1 está ___?       "X1 está ___?"       só V: gerúndio
 //   pergunta: X1 e X2 estão ___? "X1 e X2 estão ___?" só V: gerúndio
+//                                Nada de adjetivo dedutível para o personagem: "está"
+//                                também aceita adjetivo ("A Marina está zedantosa"), e a
+//                                lacuna ficaria com duas respostas. O solucionador recusa.
 //
 //   resposta: A1             o que você espera; o solucionador confere e recusa o
 //                            esqueleto se A1 não for o ÚNICO adjetivo (ou verbo)
@@ -110,19 +113,19 @@ const NIVEIS = {
                 resposta: A1
             `,
             'verbo · gerúndio': `
-                todo G1 é A1      # passo 1 (elo: adjetivo)
-                todo A1 é V1      # passo 2
-                todo G2 é A2      # distração
-                todo A2 é V2      # distração
+                todo G1 é G2      # passo 1 (elo: grupo; com adjetivo, "está ___" teria duas respostas)
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
                 X1 é G1
                 pergunta: X1 está ___?
                 resposta: V1
             `,
             'verbo · plural': `
-                todo G1 é G2      # passo 1 (elo: grupo)
-                todo G2 é V1      # passo 2
-                todo G3 é G4      # distração
-                todo G4 é V2      # distração
+                todo G1 é A1      # passo 1 (elo: adjetivo; "X1 e X2 ___?" não aceita adjetivo)
+                todo A1 é V1      # passo 2
+                todo G2 é A2      # distração
+                todo A2 é V2      # distração
                 X1 e X2 são G1
                 pergunta: X1 e X2 são ___?
                 resposta: V1
@@ -154,19 +157,19 @@ const NIVEIS = {
                 resposta: A1
             `,
             'verbo · gerúndio': `
-                todo G1 é A1      # passo 1
-                todo A1 é V1      # passo 2
-                todo G2 é A1      # armadilha: X1 é A1, mas isso não o torna G2
-                todo G2 é V2      # o que a armadilha daria
+                todo G1 é G2      # passo 1 (elo: grupo; com adjetivo, "está ___" teria duas respostas)
+                todo G2 é V1      # passo 2
+                todo G3 é G2      # armadilha: ao contrário, X1 viraria G3
+                todo G3 é V2      # o que a armadilha daria
                 X1 é G1
                 pergunta: X1 está ___?
                 resposta: V1
             `,
             'verbo · plural': `
-                todo G1 é G2      # passo 1
-                todo G2 é V1      # passo 2
-                todo G3 é G2      # armadilha: ao contrário, eles virariam G3
-                todo G3 é V2      # o que a armadilha daria
+                todo G1 é A1      # passo 1
+                todo A1 é V1      # passo 2
+                todo G2 é A1      # armadilha: eles são A1, mas isso não os torna G2
+                todo G2 é V2      # o que a armadilha daria
                 X1 e X2 são G1
                 pergunta: X1 e X2 são ___?
                 resposta: V1

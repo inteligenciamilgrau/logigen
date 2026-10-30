@@ -102,6 +102,7 @@ resposta: V1
 - Cada nível declara quantos `passos` (regras encadeadas) a resposta exige, e o solucionador confere em todas as variantes — nenhum esqueleto pode ter atalho.
 - Cada nível declara também quantas `armadilhas` tem. Uma armadilha é uma regra que engana quem a lê ao contrário ("todo G3 é G1" não quer dizer "todo G1 é G3"). O solucionador testa cada regra lida também ao contrário: se outra palavra passar a caber na lacuna, é armadilha. O número achado tem que ser exatamente o declarado — inclusive zero nos níveis sem armadilha.
 - Nos desafios de gerúndio todos os verbos são em -ar: pelo presente "pavobe" não daria para saber se o gerúndio é "pavobendo" ou "pavobindo".
+- Na pergunta do gerúndio, nenhum adjetivo pode ser dedutível para o personagem: "está" também aceita adjetivo ("A Marina está zedantosa"), e a lacuna teria duas respostas certas. O solucionador recusa esse esqueleto. Por isso, nos níveis 2 e 3, o gerúndio usa um grupo como elo, e o adjetivo fica como elo do plural verbal.
 - As regras aparecem embaralhadas e os fatos vêm depois delas.
 
 Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do esqueleto ao lado de cada frase, a prova (`X1 é G1 → todo G1 é V1 ⇒ X1 é V1`), qual palavra é cada letra e a flexão pedida. As cores separam as classes: **nome**, **substantivo**, **adjetivo** e **verbo**.
