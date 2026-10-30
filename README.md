@@ -26,7 +26,7 @@ Como cada objetivo vira medida, quais eixos têm escala de dificuldade e como mo
 
 ## 🚀 Como usar
 
-Abra o `index.html` no navegador. Funciona sem internet; com internet aparecem também os ícones e a fonte Inter.
+Abra o `index.html` no navegador. Funciona sem internet; só os ícones vêm de fora.
 
 1. **Gerar** — escolha o nível, quantos desafios e uma semente.
 2. **Copiar prompt** — cole na IA que quiser testar. Para mandar um desafio só, use o botão **Copiar** do próprio desafio.
@@ -181,15 +181,19 @@ O esqueleto é o mesmo nos dois idiomas: a lógica dos níveis não muda, só a 
 | `versus.js` | Aba Humano × IA: a pessoa resolve na sua língua, a IA na dela, e o placar compara |
 | `favicon.svg` | Ícone da aba |
 | `vendor/tailwind-3.4.17.js` | Tailwind (CSS) guardado no repositório, sem depender de CDN |
+| `vendor/inter/` | Fonte Inter (subconjunto latino) e a licença dela (SIL Open Font License) |
 | `testes/` | Diários das baterias de teste com IAs (método, respostas e conclusões) |
+| `testes/scripts/` | Scripts que montaram os desafios das baterias 6 e 7, para reproduzir os prompts |
 
 ## 🔒 Segurança
 
 - Página estática: sem servidor, sem chamadas de rede próprias, sem `eval`.
-- Todo texto vindo de fora (a resposta colada da IA) é escapado antes de ir para a tela.
+- Política de segurança (CSP) no próprio `index.html`: scripts só do repositório e dos ícones, e a página não consegue enviar dados para outro site, rodar `eval` nem carregar plugins. Ela ainda precisa de `'unsafe-inline'` por causa dos `onclick` no HTML e dos estilos que o Tailwind gera na hora.
+- Todo texto vindo de fora (a resposta colada da IA, as respostas digitadas no Humano × IA) é escapado antes de ir para a tela.
 - Os ícones vêm da CDN com hash de integridade (SRI): se o arquivo for alterado lá, o navegador recusa e a página segue funcionando sem ícones.
-- O Tailwind fica no repositório porque a CDN dele não libera CORS, o que impede a verificação por hash.
+- O Tailwind e a fonte Inter ficam no repositório. O Tailwind porque a CDN dele não libera CORS, o que impede a verificação por hash; a fonte para que o Google não receba o endereço de quem abre a página.
 - No navegador ficam salvas só as configurações (nível, quantidade, semente); valores inválidos são ignorados.
+- Chaves de API nunca vão para o repositório: o `.gitignore` barra `.env`, `.env.*`, `*.pem` e `*.key`, e também o banco de testes reservado (`testes/bancos/reservado/`).
 
 ---
 *Desenvolvido no Laboratório Inteligência Mil Grau.*

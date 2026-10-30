@@ -53,7 +53,8 @@ novo. Resultados:
 
 A montagem é a mesma da bateria 6, eixo B (cadeia de 3 passos e 4 iscas sósias), com **20
 regras** para o volume não interferir. Com 20 regras, a bateria 6 não teve nenhum corte de
-cadeia.
+cadeia. Os desafios saem de [`scripts/gerar-b7.js`](scripts/gerar-b7.js): rodado com os
+arquivos do commit `31b19d8`, ele reproduz exatamente os 20 prompts e o gabarito.
 
 | | C, limpo | D, perto |
 |---|---|---|

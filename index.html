@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Política de segurança: scripts só daqui e dos ícones; nada de rede, formulários ou plugins.
+         O 'unsafe-inline' é por causa dos onclick no HTML e dos estilos que o Tailwind gera na hora -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline' https://unpkg.com/lucide@0.460.0/; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
     <title>LogiGen | Gerador de Lógica</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <!-- Tailwind fica no repositório: o servidor da CDN não libera CORS, então não daria para conferir o hash -->
@@ -11,8 +14,16 @@
     <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"
             integrity="sha384-ieG+IKD0d/ZPXyCBTMVAbqsQdns8QGJR/e26WMw7M4fkaI/rHcS/YIoi+ah9WGge"
             crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        /* Inter no repositório (licença em vendor/inter/OFL.txt): sem pedir nada ao Google.
+           Só o subconjunto latino, que cobre português e inglês; uma fonte variável, de 400 a 900 */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400 900;
+            font-display: swap;
+            src: url('vendor/inter/inter-latin.woff2') format('woff2');
+        }
         body { font-family: 'Inter', sans-serif; }
         .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track,

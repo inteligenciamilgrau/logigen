@@ -40,7 +40,7 @@ function versusLerOpcoes() {
 const versusDaPessoa = (d) => VERSUS.reais ? versaoComPalavrasReais(d) : d;
 
 function versusEscolherIdioma(lado, idioma) {
-    if (VERSUS.fase !== 'config' || !Object.hasOwn(IDIOMAS, idioma)) return;
+    if (VERSUS.fase !== 'config' || !['idiomaHumano', 'idiomaIA'].includes(lado) || !Object.hasOwn(IDIOMAS, idioma)) return;
     versusLerOpcoes();
     VERSUS[lado] = idioma;
     renderVersus();

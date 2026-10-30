@@ -1,5 +1,13 @@
-# Segurança
+# Segurança: chaves de API ficam só em variáveis de ambiente (testes/PLANO.md, seção 3)
 .env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Banco de testes reservado: nunca vai para o repositório, para não cair no treino de
+# modelos futuros (testes/PLANO.md, seção 3, item 9)
+testes/bancos/reservado/
 
 # Rascunhos
 scratch/

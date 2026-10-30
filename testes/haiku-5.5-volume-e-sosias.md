@@ -18,8 +18,10 @@ Previsões:
 
 ## O teste
 
-Os desafios foram montados por um protótipo fora do gerador
-(`scratchpad/b6/gerar-b6.js`), com o léxico, o solucionador e as frases do projeto.
+Os desafios foram montados por um protótipo fora do gerador,
+[`scripts/gerar-b6.js`](scripts/gerar-b6.js), com o léxico, o solucionador e as frases do
+projeto. Rodado com os arquivos do commit `1c911de`, ele reproduz exatamente os 18 prompts e o
+gabarito (o cabeçalho do script explica como).
 
 **A cadeia:** personagem → grupo → grupo → verbo → adjetivo, em 3 passos (`X1 é G1`,
 `todo G1 é G2`, `todo G2 é V1`, `todo V1 é A1`).
