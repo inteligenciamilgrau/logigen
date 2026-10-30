@@ -1,0 +1,45 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Todo pato ronca.
+Todo coelho pisca.
+A Lívia é um coelho.
+A Lívia está ___?
+
+Desafio 2
+Toda galinha ronca.
+Toda coruja mergulha.
+A Júlia é uma coruja.
+A Júlia está ___?
+
+Desafio 3
+Toda vaca corre.
+Toda abelha late.
+O Lucas é uma vaca.
+O Lucas está ___?
+
+Desafio 4
+Todo rato é pintado.
+Toda lontra é gorda.
+Quem é pintado ruge.
+Quem é gordo late.
+O Pedro é um rato.
+O Pedro está ___?
+
+Desafio 5
+Quem é vermelho pula.
+Toda lontra escala.
+Toda lontra é vermelha.
+Toda raposa é vermelha.
+A Clara é uma raposa.
+A Clara está ___?
+
+Desafio 6
+Toda arara é alta.
+Quem é alto pisca.
+Toda minhoca corre.
+Toda minhoca é alta.
+O Lucas é uma arara.
+O Lucas está ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

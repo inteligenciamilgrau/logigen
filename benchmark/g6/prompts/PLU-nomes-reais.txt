@@ -1,0 +1,45 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Toda tronufa é xarezenta.
+Toda vulonta é crebamina.
+A Marina e o Caio são tronufas.
+A Marina e o Caio são ___?
+
+Desafio 2
+Todo glosonho é fribreflento.
+Toda bratrola é gradasposa.
+A Marina e a Sofia são bratrolas.
+A Marina e a Sofia são ___?
+
+Desafio 3
+Todo bodrulvo gronetre.
+Toda glaplalha frivepa.
+O Lucas e a Carla são bodrulvos.
+O Lucas e a Carla ___?
+
+Desafio 4
+Quem frovelve é breflachento.
+Todo pranhozo pradranda.
+Quem pradranda é clazidudo.
+Todo frasesco frovelve.
+A Lívia e o Caio são pranhozos.
+A Lívia e o Caio são ___?
+
+Desafio 5
+Quem bonhelta é detalvino.
+Quem jutufle é zichobrino.
+Toda vreflabra jutufle.
+Toda gluropa bonhelta.
+A Beatriz e a Júlia são gluropas.
+A Beatriz e a Júlia são ___?
+
+Desafio 6
+Toda zuchidra gletofla.
+Toda crovrenta vrarilhe.
+Toda segesca é uma zuchidra.
+Toda flibrafa é uma crovrenta.
+A Marina e o Bruno são segescas.
+A Marina e o Bruno ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

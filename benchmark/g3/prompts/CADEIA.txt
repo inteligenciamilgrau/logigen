@@ -1,0 +1,866 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta".
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+Em "Todo A é um B ou um C", cada A é pelo menos um dos dois.
+
+Desafio 1
+Nenhum clupleflo é uma chitidra.
+Toda jovrina é uma jenirba.
+Toda xenhebra é um glegrirno.
+Toda xirerba é uma plevasca.
+Nenhum trasimpo é uma plevasca.
+Nenhuma vezema é uma brudata.
+Todo cladarno é um glegrirno.
+Toda brudata é uma jenirba.
+Toda chitidra é uma jovrina ou um croplodro.
+Nenhum cladarno é uma chitidra.
+Todo croplodro é uma jenirba.
+Toda jenirba é um glegrirno.
+Toda vrivemba é um glegrirno ou uma brudata.
+Nenhuma vrivemba é um trasimpo.
+Nenhuma xenhebra é uma brudata.
+Todo glegrirno é um trasimpo.
+A Bidrela é uma chitidra.
+A Vepela é uma vrivemba.
+A Dagrina é uma chitidra.
+A Dagrina é uma xirerba?
+
+Desafio 2
+Toda plodelha é uma vagrempa.
+Toda jepenha é uma dratafla.
+Todo vrozosto é uma clavespa.
+Todo traglaflo é um juplubro ou uma sugemba.
+Todo clugralto é uma dratafla ou uma probama.
+Todo juplubro é uma vagrempa ou um litrelvo.
+Toda plodelha é uma glotusta.
+Toda tidecha é uma xatifa.
+Toda zigrenha é um xenhopo.
+Toda jepenha é um brovrolvo.
+Nenhum glidibo é um jabrorbo.
+Nenhum vritrazo é um gravurto.
+Todo glazofo é um clefendo ou um plivrebo.
+Nenhuma bredrava é uma getana.
+Toda getana é uma xafusta ou uma lodrafa.
+Toda zeflapa é uma trimirna.
+Toda zeflapa é um xenhopo.
+Toda plodelha é uma dratafla.
+Todo glidibo é um glazofo.
+Todo vralatro é uma glotusta.
+Todo vralatro é um vradrospo.
+Toda plodelha é uma trimirna.
+Toda lasomba é um xenompo.
+Todo litrelvo é uma plabaspa.
+Todo vradrospo é uma bredrava.
+Toda trimirna é um bleglabo ou um briglenho.
+Toda plabaspa é uma xafusta.
+Todo vradrospo é um travrocho ou uma bredrava.
+Toda zeflapa é uma vagrempa.
+Todo plivrebo é uma clavespa.
+Todo draferbo é uma trimirna ou um closunho.
+Todo talompo é uma xafusta.
+Todo treplerbo é uma glotusta.
+Toda punhotra é um trisedo.
+Todo treplerbo é um todruflo.
+Todo trisedo é uma trimirna.
+Toda zucholva é uma xafusta.
+Todo travrocho é um jobodro.
+Todo glavrobro é uma vagrempa.
+Nenhum xenompo é uma getana.
+Nenhuma tralomba é uma jenhafla.
+Todo vrozosto é um draferbo.
+Todo vritrazo é uma vagrempa.
+Nenhuma mepolha é um xenompo.
+Todo jobodro é uma xafusta.
+Toda plabaspa é uma clavespa ou um closarto.
+Toda zucholva é uma glotusta.
+Toda plabaspa é uma treteda.
+Todo glavrobro é uma trimirna.
+Toda clevrulha é uma jepenha ou um vrucheflo.
+Todo juplubro é uma trimirna.
+Toda clavespa é uma vregicha ou uma natrata.
+Todo clugralto é uma junhampa.
+Nenhuma treteda é uma xafusta.
+Todo traglaflo é uma dratafla.
+Toda vregicha é um brovrolvo.
+Toda bredrava é uma trimirna.
+Todo vralatro é um xenhopo ou uma brinhiba.
+Todo juplubro é um grulordo.
+Toda sugemba é um brovrolvo.
+Toda natrata é um brovrolvo.
+Toda chanhula é uma glotusta.
+Toda zucholva é uma glotusta.
+Todo litrelvo é uma druvrusta.
+Todo gripofo é um xenhopo.
+Todo vralatro é um brovrolvo ou um vritrazo.
+Toda mepolha é uma bredrava ou um grulordo.
+Nenhuma plabaspa é uma drililha.
+Todo vrozosto é um glidibo ou uma tidecha.
+Toda zucholva é uma plabaspa.
+Toda plotrarba é uma glotusta.
+Toda plabaspa é uma xatifa.
+Toda mepolha é uma probama ou uma lasomba.
+Todo vritrazo é um glazofo ou um vretredo.
+Toda zucholva é um draferbo.
+Toda clevrulha é uma zigrenha.
+Todo jinatro é um jobodro.
+Nenhum vrucheflo é um talompo.
+Todo glofatro é um xenhopo.
+Toda plabaspa é uma jenhafla.
+Toda xafusta é um xenhopo.
+Todo glidibo é uma xafusta.
+Nenhuma xatifa é uma treteda.
+Todo briglenho é uma vagrempa.
+Todo travrocho é uma clavespa ou uma tralomba.
+Toda drililha é um vretredo.
+Todo clugralto é uma glotusta.
+Todo bleglabo é uma vagrempa.
+Todo frabirbo é um gafosto ou um grulordo.
+Todo gravurto é um plasepo.
+Nenhum brovrolvo é um ziflorbo.
+Todo brunhosto é um ziflorbo.
+Todo vradrospo é uma lasomba ou uma jenhafla.
+Toda tralomba é uma glotusta ou um trisedo.
+Toda glotusta é um glazofo.
+Toda brinhiba é um glazofo.
+Toda clevrulha é uma jepenha.
+Todo clefendo é uma clavespa.
+Toda dratafla é um draferbo ou uma disimba.
+Todo xenompo é uma dratafla ou um glidibo.
+Todo traglaflo é uma trimirna.
+Nenhum clugralto é um jobodro.
+Nenhum litrelvo é um xenhopo.
+Toda xatifa é uma xafusta.
+Todo traglaflo é um todruflo ou uma clevrulha.
+Todo glidibo é uma getana ou uma dabrirba.
+Nenhuma jenhafla é uma junhampa.
+Todo treplerbo é uma criglanta.
+Toda drililha é uma clavespa.
+Toda vagrempa é uma chanhula ou uma plotrarba.
+Toda zigrenha é um clugralto.
+Toda probama é um glazofo.
+Nenhum vretredo é uma glotusta.
+Todo xenhopo é uma dratafla.
+Toda zoglemba é uma dabrirba.
+Todo jobodro é um draferbo.
+Todo jabrorbo é um xenhopo.
+Nenhum vretredo é um travrocho.
+Nenhum trozono é uma xafusta.
+Toda drililha é uma glotusta.
+O Brelhel não é uma druvrusta.
+O Platrel é uma treteda.
+O Chevol não é uma disimba.
+A Cleteia é uma druvrusta.
+O Chevol não é um closunho.
+A Flegane é uma druvrusta.
+O Climel é um vrucheflo.
+O Chevol não é uma lodrafa.
+O Chevol é uma getana.
+O Chevol é um brunhosto?
+
+Desafio 3
+Todo crezono é uma grubremba.
+Toda fridrelha é uma notrinda.
+Todo peglelto é uma glebrafla.
+Todo vrilono é uma grubremba.
+Todo piglamo é uma notrinda.
+Todo vrilono é uma notrinda.
+Toda grubremba é um piglamo ou uma fridrelha.
+Toda fanonda é um gleserto ou um peglelto.
+Todo vrilono é uma glebrafla.
+Todo crigrurto é uma bloglusta.
+Todo gleserto é uma glebrafla.
+Todo crigrurto é uma notrinda.
+Todo crezono é uma notrinda ou uma silhola.
+Todo crezono é uma silhola.
+Toda notrinda é uma fanonda.
+Nenhuma bloglusta é uma notrinda.
+O Jotur é uma grubremba.
+O Greflar é um vronoto.
+O Fligleu é uma notrinda.
+O Jotur é uma glebrafla?
+
+Desafio 4
+Todo gezono é uma frasarna.
+Toda pledorna é um chobrispo ou uma plifuspa.
+Todo xaplovo é um vrerenho.
+Todo cruperbo é uma plifuspa ou um vrerenho.
+Toda clochosca é uma plifuspa ou um tradrerbo.
+Nenhuma clochosca é um vobrurdo.
+Toda plifuspa é uma mubafa ou um vobrurdo.
+Nenhum xaplovo é um vrerenho.
+Toda clochosca é um vrerenho.
+Todo tradrerbo é um xaplovo.
+Todo vrerenho é uma pledorna ou uma clochosca.
+Todo vrerenho é um tradrerbo.
+Todo cruperbo é um vobrurdo ou um vrerenho.
+Todo vobrurdo é uma frasarna ou um jomampo.
+Toda clochosca é uma pledorna ou um cruperbo.
+Nenhum tradrerbo é uma pledorna.
+A Drelheia é um tradrerbo.
+O Grepur não é um jomampo.
+O Grepur não é uma mubafa.
+O Grepur é uma pledorna.
+A Dregrela é uma xolhelta.
+O Grepur não é um chobrispo.
+O Grepur é um gezono?
+
+Desafio 5
+Nenhuma sidrocha é uma clogluspa.
+Todo vrenasto é uma sidrocha.
+Nenhum bagresto é um bizorno.
+Toda sidrocha é um bizorno.
+Nenhuma frachena é um crilato.
+Todo clebodo é uma clogluspa.
+Todo soplerno é um mivazo.
+Toda dreglala é uma chanoma ou uma cliveta.
+Todo gramanho é uma chanoma.
+Todo freglabro é um drevrono ou um soplerno.
+Toda chanoma é um glovobro ou um zimalo.
+Todo mivazo é um clebodo ou uma glamonha.
+Nenhum godospo é um mivazo.
+Todo crilato é um flenimpo ou um zachelto.
+Todo zesusco é uma vafasca.
+Todo blagirto é um bizorno ou um prigrezo.
+Toda dreglala é um bizorno.
+Todo clodobo é um crilato.
+Toda glamonha é uma clogluspa.
+Todo glovobro é um clodobo.
+Todo gramanho é uma clogluspa.
+Toda sidrocha é um crilato ou um bagresto.
+Toda sidrocha é um mivazo.
+Todo godospo é uma chanoma.
+Toda pladroda é um clodobo.
+Toda vafasca é uma sidrocha.
+Toda dreglala é uma chanoma.
+Todo vegerbo é um clodobo ou uma dreglala.
+Todo prigrezo é uma pladroda.
+Todo freglabro é uma pladroda.
+Nenhum blagirto é um soplerno.
+Nenhuma frachena é um xogletro.
+Nenhum clamerbo é uma clogluspa.
+Toda frachena é uma glulhirta.
+Toda nazulta é um mivazo.
+Todo flenimpo é um bizorno.
+Todo soplerno é um bagresto.
+Nenhum bizorno é um jurono.
+Todo zanhafo é um mivazo.
+Todo zesusco é uma clogluspa ou um motofo.
+Todo xogletro é um zanhafo ou uma nazulta.
+Todo tenopo é um chilabo.
+Nenhuma glulhirta é uma chanoma.
+Toda clogluspa é uma chanoma.
+Toda frachena é uma clogluspa.
+Todo zachelto é um bizorno.
+Toda braflolva é um clodobo.
+Todo gramanho é um xogletro.
+Todo soplerno é um vrenasto.
+Todo drevrono é um bagresto.
+Todo fludravo é um jurono.
+Todo zimalo é um clodobo.
+A Crolhice é um xogletro.
+O Dreplel é uma cliveta.
+O Jotur é uma sidrocha.
+A Glelice é um vegrelvo.
+A Crolhice é um fludravo?
+
+Desafio 6
+Toda gudroba é uma blochopa.
+Toda butatra é um plechilo ou uma lechebra.
+Todo neberto é um bogrerbo.
+Nenhum tregrelvo é uma glovesta.
+Toda glogula é um frazinto.
+Todo trogavo é um groglosto.
+Todo clurarno é um brorendo ou um trupunho.
+Todo neberto é um drotrento ou um frazinto.
+Toda butatra é uma frolhesta.
+Toda butatra é uma lechebra.
+Todo brorendo é uma glovesta.
+Todo rigrobo é um framombo.
+Toda clovrela é uma bozuma.
+Todo rigrobo é uma bozuma.
+Todo trupunho é uma glovesta.
+Toda cragreda é um bogrerbo.
+Toda cragreda é um framombo.
+Toda blochopa é um tagalvo.
+Toda lechebra é uma glovesta.
+Todo tregrelvo é um clurarno ou um flilhando.
+Toda bozuma é um clurarno ou uma froplarna.
+Todo drotrento é uma lechebra ou uma butatra.
+Todo vrecharto é uma frolhesta ou uma butatra.
+Todo flilhando é um zechabo.
+Nenhuma glogula é um jorivo.
+Toda drumofa é uma bozuma.
+Nenhuma butatra é uma gudroba.
+Toda glovesta é um tagalvo ou um frugusto.
+Toda frolhesta é um groglosto.
+Todo bogrerbo é um frazinto ou um neberto.
+Toda cragreda é um groglosto ou um rigrobo.
+Todo braflocho é um xagalho ou uma drumofa.
+Todo plechilo é uma butatra.
+Todo bogrerbo é um clurarno.
+Toda blochopa é um frazinto.
+Todo groglosto é um braflocho.
+Todo rigrobo é um framombo ou um neberto.
+Todo framombo é um groglosto.
+Toda blochopa é uma frogrova.
+Nenhuma lechebra é um plechilo.
+Nenhuma frolhesta é um tagalvo.
+Todo rigrobo é um clurarno.
+Todo rigrobo é um brogambo.
+Nenhum zechabo é um clurarno.
+Todo drotrento é uma frogrova.
+Nenhum zechabo é um trogavo.
+Nenhum plechilo é um tagalvo.
+Todo tagalvo é um draflalo ou uma medoza.
+Todo zarespo é um drotrento ou um flilhando.
+Todo rigrobo é uma frogrova.
+Todo xagalho é uma bozuma.
+Todo drotrento é uma bozuma.
+O Blaplur é um framombo.
+O Bovur não é um plechilo.
+O Blaplur não é uma froplarna.
+O Drepol é um groglosto.
+O Drigim é um zechabo.
+O Blaplur não é um frugusto.
+O Blaplur é uma medoza?
+
+Desafio 7
+Toda xopanta é um gaglispo ou um zununto.
+Toda levemba é um gaglispo.
+Nenhuma crasafla é um zeplulto.
+Todo frafendo é uma xodrola.
+Toda clobifa é um traflolvo.
+Toda bregrorna é uma levemba ou um clegravo.
+Toda vezecha é um zeplulto.
+Toda crasafla é um grofloto.
+Todo zeplulto é uma frogapa.
+Toda vrosirba é uma trugifa ou um clegravo.
+Nenhuma frogapa é um buglarto.
+Nenhum zorombo é uma xopanta.
+Toda xopanta é uma tregespa ou uma bregrorna.
+Toda crovoma é uma bregrorna.
+Toda cleboda é uma tregespa.
+Toda trugifa é um zununto.
+Nenhum xonodo é um zeplulto.
+Nenhuma vrosirba é uma frogapa.
+Todo clegravo é um gaglispo.
+Toda tregespa é um zeplulto.
+Nenhum frugrotro é um zenhalto.
+Nenhum clegravo é um mipoto.
+Toda plinhalta é um mipoto.
+Todo xonodo é um mipoto.
+Todo flochorno é um buglarto.
+Toda punheva é uma levemba.
+Todo xonodo é um zeplulto.
+Toda xodrola é uma tregespa ou uma clobifa.
+Nenhum clegravo é um gaglispo.
+Todo frafendo é um zeplulto.
+Todo gaglispo é um mipoto.
+Todo zununto é uma vrosirba.
+Toda xopanta é um clegravo.
+Todo frugrotro é um xonodo ou um frurasco.
+Toda vezecha é uma punheva.
+Todo frurasco é um grofloto.
+Toda trugifa é uma levemba ou uma vrosirba.
+Todo zenhalto é um frurasco.
+Todo glepesco é um mechurto.
+Toda cleboda é um xonodo.
+Todo glepesco é uma xodrola ou uma crovoma.
+Nenhum traflolvo é uma plinhalta.
+Todo mipoto é um grofloto.
+Todo traflolvo é uma frogapa ou um xonodo.
+Todo glepesco é uma punheva.
+Toda xopanta é um grofloto ou um glepesco.
+Todo grofloto é um vomonho ou uma tregespa.
+Todo traflolvo é uma xodrola.
+Toda bregrorna é um traflolvo ou uma crovoma.
+Toda xodrola é um gaglispo ou um frafendo.
+Toda clobifa é uma tregespa.
+Todo frurasco é um frugrotro.
+O Crovrim é uma levemba.
+O Crovrim não é um vomonho.
+O Vaflar é um frafendo.
+O Frolhur é uma vrosirba.
+O Glinel é um frugrotro.
+O Crovrim é um flochorno?
+
+Desafio 8
+Nenhum tasevo é um xuzocho.
+Todo gadrambo é uma salurna.
+Toda nafusca é uma vrutolha.
+Todo trulhurdo é um tragusto.
+Nenhuma trochefa é uma lufemba.
+Todo ploglirdo é uma lufemba.
+Toda frotracha é uma brovorda.
+Toda vrutolha é um chirarno.
+Todo trulhurdo é um fepinto.
+Todo mararno é um grilhunto.
+Toda brovorda é um tragoflo.
+Todo zadrarbo é uma dragompa.
+Nenhum blefolho é uma brovorda.
+Toda falenha é uma jipefa.
+Toda clumirta é um tragusto.
+Toda plogrenha é uma traglerda ou um mibrufo.
+Nenhuma podrefla é um fepinto.
+Toda xamerta é um tragoflo ou um belatro.
+Toda flunhita é um zadrarbo ou uma frotracha.
+Toda xezista é uma flubrulta.
+Todo grenhelo é um tragusto.
+Nenhum tasevo é um tragusto.
+Toda geglomba é um tragusto ou um cleploflo.
+Toda falenha é um chirarno.
+Todo tragoflo é um plomafo ou uma salurna.
+Todo brevono é uma podrefla ou um brevono.
+Todo trabombo é um fepinto ou um gadrambo.
+Nenhuma prudepa é uma jipefa.
+Todo floplito é uma jipefa.
+Todo plinotro é um tragoflo ou uma jovanta.
+Toda flezerna é uma geglomba.
+Toda flubrulta é um trulhurdo.
+Nenhuma dragompa é um plinotro.
+Todo xuzocho é uma geglomba.
+Toda drotrerba é uma vrutolha.
+Todo tragusto é um vaplampo ou uma golhaza.
+Todo tasevo é um chirarno ou um zodosto.
+Toda flunhita é um mizespo.
+Nenhuma voglenta é uma dragompa.
+Todo trabombo é uma brovorda ou uma xatronta.
+Toda xolotra é um tragusto.
+Toda traglerda é uma jipefa.
+Todo criglasto é um floplito ou um blefolho.
+Toda flunhita é um belatro.
+Todo gadrambo é uma gegrimpa.
+Todo grenhelo é um tragoflo ou uma dragompa.
+Todo plogalho é uma dragompa ou uma dragompa.
+Todo mizespo é uma salurna.
+Todo mararno é uma brovorda ou uma gegrimpa.
+Todo brevono é uma vrutolha.
+Nenhum nibromo é um tasevo.
+Todo grenhelo é uma plogrenha.
+Nenhum plogalho é uma geglomba.
+Todo mibrufo é uma jipefa.
+Todo chezovo é uma prudepa ou um vuflarno.
+Todo runebo é um tragusto.
+Todo mararno é uma jipefa.
+Nenhum zodosto é um tragusto.
+Nenhuma xamerta é uma brovorda.
+Todo clelhirto é uma lufemba ou uma traleza.
+Toda traleza é uma brovorda.
+Nenhum pleglolho é um chirarno.
+Nenhum gadrambo é um tragoflo.
+Todo runebo é um tragoflo.
+Toda fezesta é uma platrata.
+Nenhum trulhurdo é uma plogrenha.
+Todo fepinto é uma nafusca ou uma drotrerba.
+Todo gadrambo é uma jovanta ou uma frotracha.
+Nenhum flavonho é uma jipefa.
+Toda janhisca é uma geglomba ou uma flubrulta.
+Toda janhisca é uma lufemba.
+Nenhuma jutrepa é um fepinto.
+Todo tasevo é um tragoflo.
+Todo mararno é um mizespo.
+Toda voglenta é um fepinto.
+Todo clelhirto é uma salurna.
+Todo xuzocho é um grilhunto.
+Toda jebrafla é uma jipefa.
+Toda jipefa é um valosco ou uma flezerna.
+Todo clelhirto é uma lufemba ou um pleglolho.
+Toda platrata é uma plogrenha.
+Todo valosco é uma geglomba.
+Toda golhaza é uma brovorda.
+Toda podrefla é um pleglolho ou uma traleza.
+Toda jebrafla é um fepinto.
+Todo floplito é uma xamerta ou um trabombo.
+Toda jutrepa é um plinotro.
+Toda voglenta é uma salurna.
+Nenhuma trovrista é uma jipefa.
+Toda flubrulta é um tragusto.
+Toda clumirta é uma xezista.
+Todo vuflarno é uma vrutolha ou um tasevo.
+Nenhum zodosto é um tragusto.
+Toda xolotra é um chirarno.
+Toda trovrista é uma plogrenha.
+Toda lufemba é um plunhelo ou um podrono.
+Todo chirarno é uma plogrenha.
+Toda frabronha é uma lufemba.
+Todo tasevo é uma lufemba.
+Nenhum zadrarbo é uma jipefa.
+Nenhum mararno é uma brovorda.
+Todo clelhirto é um xafeflo.
+Toda trochefa é um tragusto ou um bropodo.
+Todo vaplampo é uma brovorda.
+Toda traleza é uma lufemba.
+Toda trovrista é uma salurna ou uma flubrulta.
+Todo trulhurdo é um tragusto.
+Todo droborbo é um fepinto.
+Toda gropenha é uma xolotra.
+Toda salurna é uma frabronha ou um ploglirdo.
+Todo trabombo é um mizespo.
+Todo chezovo é uma jutrepa.
+Todo belatro é uma xamerta ou um pleglolho.
+Todo xafeflo é um tragusto.
+Nenhum vuflarno é uma rofunha.
+Nenhuma flubrulta é um trulhurdo.
+Todo fredebo é uma platrata.
+Nenhuma traleza é uma voglenta.
+Toda trogorta é um grilhunto.
+Todo vuflarno é uma geglomba.
+O Vechol é um chirarno.
+O Jemim não é um cleploflo.
+O Zotur é uma voglenta.
+A Cronane não é uma frotracha.
+O Jemim não é um plomafo.
+A Jaflina é uma fezesta.
+O Gronheu não é uma trochefa.
+O Jemim é um fepinto.
+O Jemim é um podrono?
+
+Desafio 9
+Todo flabovo é um plachizo.
+Todo plachizo é um braflomo.
+Toda glodudra é um glagurbo.
+Toda praflama é uma bivratra ou um bredrafo.
+Nenhum plubolvo é um judrerto.
+Todo judrerto é um jedufo.
+Todo bralozo é uma gavulva.
+Toda geglonda é um glatafo ou um clipiflo.
+Toda bliflana é uma praflama ou uma ploglodra.
+Todo gralhorbo é uma glazisca.
+Todo xogleto é uma geglonda ou uma gavulva.
+Toda bivratra é um glibulto ou um trogeto.
+Todo zavranho é uma bivratra ou um gleplino.
+Todo glatafo é uma bliflana.
+Todo vanento é uma bliflana.
+Todo glagurbo é um flachabro.
+Todo glagurbo é uma praflama ou uma fruvrerda.
+Todo gralhorbo é um xogleto ou um glagurbo.
+Toda glodudra é um jepunto ou um glagurbo.
+Nenhum gralhorbo é um gleplino.
+Todo flabovo é um plubolvo ou uma frobrurna.
+Todo plubolvo é um nonhacho.
+Nenhum judrerto é uma bivratra.
+Toda gavulva é um plubolvo.
+Nenhum riplurdo é um bralozo.
+Nenhum jedufo é uma bivratra.
+Todo plubolvo é um flachabro.
+Todo riplurdo é um xogleto ou uma gavulva.
+Toda glazisca é uma geglonda.
+Nenhuma frobrurna é um jepunto.
+Todo xogleto é uma bivratra.
+Todo jedufo é uma geglonda.
+Nenhuma bivroda é uma bivratra.
+Todo glagurbo é uma bivratra ou um bralozo.
+Nenhum gleplino é um vanento.
+Todo plubolvo é uma bivratra.
+Todo braflomo é uma bivratra.
+Todo clipiflo é uma bliflana.
+Todo jedufo é uma praflama.
+Todo gleplino é uma geglonda ou um zavranho.
+Nenhum judrerto é um flachabro.
+Nenhum nonhacho é uma praflama.
+Nenhuma glodudra é uma geglonda.
+Todo plachizo é um xogleto ou uma glodudra.
+Todo trogeto é um jepunto.
+Todo jepunto é uma gresitra ou um flachabro.
+Todo xogleto é uma glazisca.
+Todo glibulto é um jepunto.
+Todo braflomo é uma praflama.
+Nenhum sotrilto é uma praflama.
+Nenhum nonhacho é uma bivroda.
+Todo gleplino é uma fruvrerda.
+A Vrigreia não é um bredrafo.
+O Britim não é um judrerto.
+A Vregrice é um gralhorbo.
+A Plochina é um vredurno.
+A Vrigreia não é uma ploglodra.
+A Vrigreia é uma glazisca.
+A Vrigreia não é uma gresitra.
+A Vrigreia é um flachabro?
+
+Desafio 10
+Toda vinaza é uma plosorba.
+Todo groparbo é um plochilto ou uma vinaza.
+Toda draflina é um brunutro.
+Todo solimbo é uma zapelha.
+Nenhuma vinaza é uma fletrerba.
+Todo groparbo é um fletilto.
+Toda vinaza é uma draflina ou uma fletrerba.
+Nenhuma plosorba é uma fletrerba.
+Toda tralata é um fletilto.
+Todo brunutro é um plochilto ou uma rodrolva.
+Toda tralata é uma plosorba.
+Todo plochilto é um fletilto ou um fitecho.
+Nenhum doplurbo é uma zapelha.
+Todo fletilto é um doplurbo.
+Todo groparbo é um plochilto.
+Toda tralata é um plochilto.
+A Vebrane não é uma rodrolva.
+O Tralur não é uma draflina.
+O Glevrim é uma vinaza.
+A Vebrane é um brunutro.
+A Vebrane não é um fitecho.
+A Vebrane é um solimbo?
+
+Desafio 11
+Toda choflinda é um tidorno.
+Nenhuma zanalva é uma braflirta.
+Todo xodrampo é uma pumimba ou uma jabrarba.
+Toda choflinda é uma xadranda.
+Todo gradrorto é um clotanho.
+Toda braflirta é um gloflampo ou um gradrorto.
+Todo zebafo é uma xevraba ou uma xibumba.
+Todo bruglizo é um blelecho.
+Todo xefampo é uma cramodra ou uma julhafla.
+Toda choflinda é um peranho.
+Todo grebrerto é um velombo.
+Nenhuma glegrila é um flobolo.
+Todo chebelvo é um vroglefo.
+Todo zetrocho é um xodrampo.
+Toda glegrila é uma supuspa ou uma fligrela.
+Todo velombo é uma xadranda.
+Toda tazerta é um velombo.
+Toda zonheba é uma jabrarba.
+Toda flovruza é um tidorno.
+Toda fligrela é um peranho ou uma clazirta.
+Toda cramodra é um blelecho.
+Todo zebafo é uma xadranda.
+Toda clochompa é um clotanho.
+Todo jetrerbo é um gloflampo.
+Toda vrototra é um zetrocho.
+Todo brenhirto é um velombo.
+Toda legurna é um tananto.
+Todo glarolo é uma frolhoba.
+Todo gradrorto é um bruglizo.
+Toda fligrela é um blelecho ou um chonhalvo.
+Nenhuma vralhasca é uma trogecha.
+Toda fligrela é um vroglefo.
+Todo dutarno é um velombo.
+Todo prifato é uma greflunta.
+Toda vralhasca é um bozuflo.
+Toda greflunta é uma clochompa ou um pripurno.
+Toda vralhasca é um vroglefo.
+Todo crofadro é uma xibumba.
+Todo broplinto é uma xadranda.
+Toda clazirta é um velombo ou um trogradro.
+Todo vrelano é um blelecho.
+Toda trogecha é um chonhalvo ou um plenhacho.
+Toda greflunta é um tidorno.
+Todo bruglizo é uma cledriva.
+Toda clochompa é um xodrampo.
+Toda julhafla é uma jabrarba.
+Toda plitelva é uma jabrarba ou um gradrorto.
+Nenhuma xevraba é um peranho.
+Todo fregradro é uma vrototra.
+Toda zanalva é uma braflirta.
+Todo flobolo é um tananto.
+Toda vugrotra é um zebafo.
+Nenhum xefampo é um blelecho.
+Todo crofadro é uma xibumba.
+Nenhuma flalhaba é uma clurista.
+Toda trogecha é um vroglefo ou uma supuspa.
+Toda zonheba é uma xevraba.
+Todo bruglizo é um vroglefo ou um grebrerto.
+Todo zebafo é uma zonheba ou um glarolo.
+Todo trogradro é um clotanho.
+Toda plitelva é um tananto.
+Todo jetrerbo é um tidorno.
+Toda legurna é um flegrolo.
+Todo vroglefo é um peranho.
+Toda plitelva é um blelecho ou um chonhalvo.
+Toda legurna é um blelecho ou um brenhirto.
+Todo chonhalvo é uma cledriva.
+Nenhuma xevraba é uma dranhonda.
+Toda xadranda é um loglilvo ou um vroglefo.
+Nenhum jetrerbo é uma xadranda.
+Todo pripurno é uma jabrarba ou um bruglizo.
+Toda tralhispa é um blelecho.
+Toda zonheba é uma plomorta.
+Toda xibumba é uma pemerta ou um crofadro.
+Nenhum gloflampo é uma clochompa.
+Toda greflunta é um clotanho.
+Todo clotanho é uma blegota ou um bozuflo.
+Toda jabrarba é um vrogrodro ou um vrelano.
+Toda vrototra é uma choflinda.
+Nenhum solaflo é uma clurista.
+Todo plenhacho é uma plitelva.
+Todo blelecho é um druzebo ou uma flovruza.
+Todo zetrocho é um tidorno.
+Nenhum dutarno é uma gretrecha.
+Todo druzebo é um tidorno.
+Todo prifato é um velombo.
+Todo zebafo é uma xadranda.
+Todo fregradro é uma jazarna.
+Toda fadruma é um velombo.
+Nenhum plenhacho é uma gretrecha.
+Nenhum dutarno é um vroglefo.
+Todo brenhirto é uma clurista.
+Toda braflirta é uma xadranda.
+Toda pemerta é uma plitelva ou uma vozomba.
+Toda legurna é um peranho ou uma cramodra.
+Todo pripurno é uma legurna.
+Nenhuma frolhoba é um bozuflo.
+Toda trogecha é uma flalhaba ou um pinisco.
+Toda clurista é um clotanho ou um gelhofo.
+Todo gradrorto é um clotanho.
+Nenhuma gretrecha é uma zonheba.
+Todo tidorno é uma tazerta ou uma fadruma.
+Toda vugrotra é uma jabrarba.
+Todo grebrerto é uma jabrarba ou um zetrocho.
+Todo trogradro é um crofadro.
+Toda dranhonda é um clotanho.
+Toda pemerta é uma legurna.
+Toda legurna é um velombo.
+Todo glarolo é uma zanalva.
+Toda legurna é um blelecho.
+Todo dutarno é um peranho.
+Toda greflunta é um broplinto.
+Toda flalhaba é um velombo ou uma fligrela.
+Todo crofadro é uma cledriva.
+Todo bruglizo é um bozuflo.
+Todo vrogrodro é um blelecho.
+Nenhum xefampo é uma xadranda.
+Toda zanalva é um chonhalvo.
+Todo peranho é uma trazunta ou uma clurista.
+Nenhuma dremorta é uma clurista.
+A Brimeia não é uma blegota.
+A Brimeia não é um gelhofo.
+O Tronhim é uma dranhonda.
+O Glolhel é uma vugrotra.
+A Blapice é uma xevraba.
+A Brimeia não é um loglilvo.
+O Jeflel é uma sozifla.
+A Brimeia não é uma pumimba.
+A Brimeia não é uma trazunta.
+O Sadrim não é uma vralhasca.
+A Brimeia é um xodrampo.
+A Brimeia é um bozuflo?
+
+Desafio 12
+Nenhuma criratra é uma flatapa.
+Nenhuma tresirta é um pletrodro.
+Todo traplubro é uma pligalta.
+Nenhuma joplapa é uma pligalta.
+Toda tresipa é uma prenaspa.
+Toda vegrufa é uma fipliza.
+Todo pletrodro é uma mobruda ou uma pleflecha.
+Toda zolhocha é uma pligalta.
+Todo xobreto é uma biterba.
+Toda gluvinda é um pluvesco ou um flatumo.
+Todo cletrimbo é uma drunholta.
+Todo ruvrorno é uma flatapa.
+Nenhuma zolhocha é uma drelaza.
+Toda michuva é uma glafarna.
+Todo vanalho é uma drelaza.
+Nenhuma lomafa é um raflacho.
+Nenhum tulhopo é um fratordo.
+Nenhuma frefladra é uma drunholta.
+Todo pluvesco é um glomirto.
+Todo dronhelto é uma glafarna.
+Toda tedonta é um flatumo.
+Nenhuma fibofla é um fratordo.
+Todo flanhocho é uma vegrufa ou um bobriflo.
+Toda tedonta é uma gletima.
+Nenhum vralhelo é uma flatapa.
+Todo xevono é uma prenaspa.
+Toda fezocha é um fratordo.
+Toda jovorda é um janatro.
+Toda michuva é um rochito.
+Toda pligalta é uma dragosta.
+Toda lomafa é um fratordo ou um pludrusco.
+Todo xobreto é uma drunholta.
+Nenhuma chatanda é uma drunholta.
+Toda vralhotra é um clasalho.
+Todo zanhofo é uma clenulva.
+Todo clasalho é uma zedorba ou um drugledo.
+Todo dronhelto é uma gluvinda.
+Toda prevoza é um pluvesco.
+Toda jagralta é um fratordo.
+Todo drugledo é um fratordo.
+Toda xoganta é uma drelaza.
+Toda tresirta é um clasalho.
+Nenhuma fibofla é um traplubro.
+Nenhuma plichedra é um glomirto.
+Todo xobreto é um janatro ou uma dragosta.
+Nenhuma gletima é um pludrusco.
+Toda zedorba é um fratordo.
+Todo flanhocho é um fratordo.
+Toda tresirta é uma drelaza.
+Nenhum tulhopo é uma drunholta.
+Todo traplubro é uma drunholta.
+Toda zebarta é uma drunholta.
+Toda mobruda é um pladeto.
+Toda chatanda é um pluvesco.
+Nenhuma michuva é uma drelaza.
+Toda biterba é uma xoganta.
+Toda vrenoza é um traflefo.
+Todo pludrusco é um fratordo.
+Todo pludrusco é uma glafarna.
+Todo vidrabro é um fratordo.
+Todo bitarno é um janatro.
+Toda flanharta é uma flatapa.
+Toda michuva é uma xoganta.
+Toda xuglompa é um pluvesco.
+Toda xoganta é uma drunholta.
+Toda flatapa é uma glafarna.
+Toda plichedra é uma drelaza.
+Nenhuma frefladra é um fratordo.
+Todo traplubro é uma finaba.
+Todo fratordo é um pletrodro.
+Toda frefladra é um pletrodro.
+Nenhum fruplundo é uma pozona.
+Toda vralhotra é uma jatruna.
+Todo pilhordo é uma drunholta.
+Nenhum janatro é uma tovalva.
+Todo gruflosto é um janatro.
+Todo vralhelo é uma drelaza.
+Toda frefladra é uma plichedra.
+Toda tresirta é um janatro ou uma fezocha.
+Toda drelaza é uma zebarta ou um pilhordo.
+Nenhum preplono é uma gluvinda.
+Todo plutetro é um pluvesco.
+Nenhuma plamospa é uma grelilha.
+Nenhum glezerbo é um pletrodro.
+Toda gletima é uma drelaza ou um traflefo.
+Todo xobreto é um flanhocho.
+Toda glafarna é um vanalho ou uma plenisca.
+Todo dregrarno é uma plichedra ou uma jatruna.
+Toda tresipa é uma vrenoza.
+Nenhum traplubro é uma joplapa.
+Todo pludrusco é um vidrabro.
+Toda drunholta é uma xuglompa ou uma prevoza.
+Todo xobreto é um pludrusco ou uma clitrosta.
+Todo glomirto é um gruflosto ou um bitarno.
+Toda pozona é uma glafarna.
+Nenhum bobriflo é um traflefo.
+Toda pligalta é uma drelaza.
+Toda jagralta é um clasalho.
+Toda michuva é um fratordo.
+Nenhum traflefo é uma biterba.
+Todo pladeto é uma flanharta ou um ruvrorno.
+Toda jatruna é uma drelaza ou um zanhofo.
+Toda gluvinda é um fratordo.
+Toda pleflecha é um pladeto.
+Nenhuma prenaspa é um janatro.
+Toda jatruna é um glomirto ou um pludrusco.
+Todo dregrarno é uma clitrosta ou um cletrimbo.
+Nenhuma joplapa é um fratordo.
+Nenhuma finaba é um clasalho.
+Toda pligalta é um glomirto.
+Nenhum tulhopo é um pluvesco.
+Todo plutetro é um pladeto.
+Todo clinofo é uma tovalva.
+Toda fibofla é uma vralhotra.
+Nenhuma frefladra é um clasalho.
+Todo glevrelo é uma drelaza.
+Nenhum cletrimbo é uma flatapa.
+Toda vegrufa é um clasalho ou um rochito.
+Toda plamospa é uma grelilha.
+Toda plenisca é uma drelaza.
+O Pivreu é uma pozona.
+O Fribim é uma dragosta.
+A Floplela é um clasalho.
+A Vroplina é um pletrodro.
+O Xuvim é um traplubro.
+A Vochice é uma lomafa.
+A Floplela é um clinofo?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

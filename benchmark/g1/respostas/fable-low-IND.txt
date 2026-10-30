@@ -1,0 +1,9 @@
+1: sim, não
+2: sim, não
+3: não, não
+4: não, sim
+5: sim, sim
+6: não, não
+7: não, sim
+8: sim, não
+9: sim, sim

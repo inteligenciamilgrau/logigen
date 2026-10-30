@@ -1,0 +1,230 @@
+{
+ "inventadas": [
+  {
+   "numero": 1,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "xarezentos",
+   "pergunta": "A Gloplela e o Cloleu são ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "feminino plural",
+   "resposta": "gradasposas",
+   "pergunta": "A Dolane e a Grirane são ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "verbo no plural",
+   "resposta": "gronetrem",
+   "pergunta": "O Glogur e a Jegira ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "clazidudos",
+   "pergunta": "A Zulhira e o Treglel são ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "feminino plural",
+   "resposta": "detalvinas",
+   "pergunta": "A Bretrela e a Venhane são ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "verbo no plural",
+   "resposta": "gletoflam",
+   "pergunta": "A Xigane e o Franar ___?"
+  }
+ ],
+ "reais": [
+  {
+   "numero": 1,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "famosos",
+   "pergunta": "A Marina e o Caio são ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "feminino plural",
+   "resposta": "listradas",
+   "pergunta": "A Marina e a Sofia são ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "verbo no plural",
+   "resposta": "assobiam",
+   "pergunta": "O Lucas e a Carla ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "sonolentos",
+   "pergunta": "A Lívia e o Caio são ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "feminino plural",
+   "resposta": "famintas",
+   "pergunta": "A Beatriz e a Júlia são ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "verbo no plural",
+   "resposta": "uivam",
+   "pergunta": "A Marina e o Bruno ___?"
+  }
+ ],
+ "exemplo": [
+  {
+   "numero": 1,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "xarezentos",
+   "pergunta": "A Gloplela e o Cloleu são ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "feminino plural",
+   "resposta": "gradasposas",
+   "pergunta": "A Dolane e a Grirane são ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "verbo no plural",
+   "resposta": "gronetrem",
+   "pergunta": "O Glogur e a Jegira ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "clazidudos",
+   "pergunta": "A Zulhira e o Treglel são ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "feminino plural",
+   "resposta": "detalvinas",
+   "pergunta": "A Bretrela e a Venhane são ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "verbo no plural",
+   "resposta": "gletoflam",
+   "pergunta": "A Xigane e o Franar ___?"
+  }
+ ],
+ "exemplo2": [
+  {
+   "numero": 1,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "xarezentos",
+   "pergunta": "A Gloplela e o Cloleu são ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "feminino plural",
+   "resposta": "gradasposas",
+   "pergunta": "A Dolane e a Grirane são ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "verbo no plural",
+   "resposta": "gronetrem",
+   "pergunta": "O Glogur e a Jegira ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "clazidudos",
+   "pergunta": "A Zulhira e o Treglel são ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "feminino plural",
+   "resposta": "detalvinas",
+   "pergunta": "A Bretrela e a Venhane são ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "verbo no plural",
+   "resposta": "gletoflam",
+   "pergunta": "A Xigane e o Franar ___?"
+  }
+ ],
+ "nomes-inventados": [
+  {
+   "numero": 1,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "famosos",
+   "pergunta": "A Gloplela e o Cloleu são ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "feminino plural",
+   "resposta": "listradas",
+   "pergunta": "A Dolane e a Grirane são ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "verbo no plural",
+   "resposta": "assobiam",
+   "pergunta": "O Glogur e a Jegira ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "sonolentos",
+   "pergunta": "A Zulhira e o Treglel são ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "feminino plural",
+   "resposta": "famintas",
+   "pergunta": "A Bretrela e a Venhane são ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "verbo no plural",
+   "resposta": "uivam",
+   "pergunta": "A Xigane e o Franar ___?"
+  }
+ ],
+ "nomes-reais": [
+  {
+   "numero": 1,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "xarezentos",
+   "pergunta": "A Marina e o Caio são ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "feminino plural",
+   "resposta": "gradasposas",
+   "pergunta": "A Marina e a Sofia são ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "verbo no plural",
+   "resposta": "gronetrem",
+   "pergunta": "O Lucas e a Carla ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "masculino plural (grupo misto)",
+   "resposta": "clazidudos",
+   "pergunta": "A Lívia e o Caio são ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "feminino plural",
+   "resposta": "detalvinas",
+   "pergunta": "A Beatriz e a Júlia são ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "verbo no plural",
+   "resposta": "gletoflam",
+   "pergunta": "A Marina e o Bruno ___?"
+  }
+ ]
+}

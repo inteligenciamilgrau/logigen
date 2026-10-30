@@ -1,0 +1,219 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Todo xetrompo é um nudretro.
+Todo nudretro é um gruchirto.
+Toda chinhesta é uma jigompa.
+Toda rutempa é trarendenta.
+Todo treflosco é um frarobo.
+Toda glogrefa é uma bresalha.
+Toda chogrenta é um flezulho.
+Toda jularda é um gapebro.
+Todo plenutro é um fevalo.
+Todo gapebro é um grobadro.
+Todo flezulho é um vranhando.
+Toda jigompa é um xetrompo.
+Todo flivrepo é um crafovo.
+Toda vomocha é glochebuda.
+Todo grobadro é um crogoflo.
+Todo liflamo é um crogoflo.
+Todo liflamo é um blepletro.
+Todo fevalo é uma vomocha.
+Todo veplempo é um vranhando.
+Todo crogoflo é uma rutempa.
+Todo gruchirto é um plenutro.
+Toda subeza é um frarobo.
+Todo crafovo é um plavristo.
+Todo plavristo é um gapebro.
+Toda bresalha é um flivrepo.
+Todo blepletro é um treflosco.
+Todo frarobo é uma chinhesta.
+Todo frobasco é um blepletro.
+Todo vranhando é uma glogrefa.
+A Grenane é um liflamo.
+A Flazeia é uma chogrenta.
+A Flazeia é ___?
+
+Desafio 2
+Todo vriranto é uma ditriza.
+Toda nudefa é um vriranto.
+Todo vrivilo é uma dratosca.
+Toda grefaza é glugrituda.
+Todo zivrilo é uma frorarba.
+Todo cleglambo é um nuglispo.
+Toda frorarba é uma zarela.
+Todo fladerbo é um vagrulvo.
+Toda grolhidra é um zidrombo.
+Todo cloglozo é um fladerbo.
+Todo flasulvo é um xeboflo.
+Todo vriranto é uma xobonta.
+Toda ditriza é uma plosona.
+Toda plofleda é uma nudefa.
+Toda plosona é um xeboflo.
+Toda trudadra é bremepenta.
+Todo zidrombo é uma grefaza.
+Toda zarela é uma blolhalta.
+Todo nuglispo é um zivrilo.
+Toda frotala é um cloglozo.
+Toda zesasta é um cleglambo.
+Toda blolhalta é uma trudadra.
+Toda dratosca é uma xobonta.
+Todo dechurdo é uma frotala.
+Todo fluvuto é uma zesasta.
+Toda xobonta é um fluvuto.
+Todo xeboflo é uma frotala.
+Toda brarenha é uma nudefa.
+Todo vagrulvo é um zidrombo.
+O Drechel é uma plofleda.
+O Vrolhur é um vrivilo.
+O Vrolhur é ___?
+
+Desafio 3
+Todo chonhaspo é briplontino.
+Toda prenhulva é um trudino.
+Toda bronhosta é um chonhaspo.
+Toda norita é um trudino.
+Todo trivesco é um trudino.
+Todo trivesco é um xilhebo.
+Todo plicheto é um trivesco.
+Toda generta é um trudino.
+Todo gloflorno é um trudino.
+Todo trudino é um chonhaspo.
+Todo xilhebo é benhestento.
+A Glofina é um plicheto.
+O Drotreu é uma norita.
+O Drotreu é ___?
+
+Desafio 4
+Todo glitreno é uma petamba.
+Toda jiroza é um rutrobo.
+Todo sadimpo é uma vudrabra.
+Toda petamba é um vrodrolto.
+Toda mozoba é um pubucho.
+Todo vrodrolto é uma crubebra.
+Todo ronhozo é um sadimpo.
+Todo planonto é uma jiroza.
+Toda vudrabra é uma petamba.
+Toda vudrabra é um rutrobo.
+Toda xilhatra é um planonto.
+Todo pubucho é plogemoso.
+Toda ragufa é uma mozoba.
+Toda glolhufla é uma jiroza.
+Toda crubebra é trigleltuda.
+Toda clugotra é uma petamba.
+Todo rutrobo é uma mozoba.
+A Brechira é um ronhozo.
+A Legrane é uma xilhatra.
+A Legrane é ___?
+
+Desafio 5
+Todo blevronto é uma josacha.
+Todo frebromo é uma frumorba.
+Toda draplelva é um blevronto.
+Todo suflolho é um bleglisco.
+Todo zechanto é um suflolho.
+Todo zubefo é um blevronto.
+Toda frumorba é um vropulho.
+Toda balhimpa é uma dreperba.
+Todo vropulho é vrulescoso.
+Toda grefasca é uma draplelva.
+Toda traglopa é uma frumorba.
+Toda tagrorta é uma draplelva.
+Toda dreperba é uma pleflonta.
+Todo bleglisco é flasolhento.
+Toda balhimpa é uma draplelva.
+Toda pleflonta é um frebromo.
+Toda josacha é um suflolho.
+A Voflice é uma tagrorta.
+A Jolhela é uma balhimpa.
+A Voflice é ___?
+
+Desafio 6
+Toda crobrorba é uma glaplurda.
+Toda vuchobra é uma tagramba.
+Todo grabosto é uma crobrorba.
+Toda clechirba é um rutrazo.
+Toda xonorta é uma progirta.
+Toda gloruda é uma cluvupa.
+Toda tagramba é uma gloruda.
+Toda jedranda é uma vuchobra.
+Toda cluvupa é um prubrelto.
+Toda glaplurda é uma xonorta.
+Todo bosolvo é uma crobrorba.
+Toda progirta é plichembenta.
+Toda grinupa é uma progirta.
+Todo rutrazo é um bosolvo.
+Toda glaplurda é uma tagramba.
+Todo prubrelto é gizelino.
+Todo vregreto é uma glaplurda.
+A Drifela é um rutrazo.
+A Dugice é uma jedranda.
+A Dugice é ___?
+
+Desafio 7
+Todo preplivo é um xelharto.
+Todo vrodrerto é uma flelicha.
+Todo flatralto é um preplivo.
+Todo jatarbo é um xelharto.
+Toda flelicha é uma cletotra.
+Toda flelicha é um preplivo.
+Todo nasebro é um glovendo.
+Toda cletotra é driteduda.
+Todo glovendo é um preplivo.
+Todo xelharto é fliseltino.
+Todo tigopo é uma flelicha.
+A Flibira é um glovendo.
+O Sigrim é um vrodrerto.
+A Flibira é ___?
+
+Desafio 8
+Todo drochulho é um lusobro.
+Toda drochomba é um gegladro.
+Todo jevecho é cletramudo.
+Toda flogrurna é um glotreto.
+Todo xolampo é uma drovrasta.
+Todo globrubo é um drochulho.
+Toda drusorba é uma grabicha.
+Toda briplerba é uma seborda.
+Todo blolebro é um draporto.
+Todo zomocho é um fosetro.
+Todo glotreto é uma drusorba.
+Toda cloploma é um zomocho.
+Todo gegladro é um jevecho.
+Toda grabicha é uma chogolva.
+Toda pledadra é um zomocho.
+Todo draporto é uma trebrucha.
+Toda seborda é um ploglolto.
+Toda glonhatra é uma drochomba.
+Toda trebrucha é uma glonhatra.
+Toda fremarta é uma zilenha.
+Toda zilenha é um draporto.
+Todo desolho é uma cloploma.
+Todo grilhupo é um glotreto.
+Toda drovrasta é um globrubo.
+Todo lusobro é um grilhupo.
+Todo fosetro é uma fremarta.
+Toda cloploma é um glotreto.
+Toda chogolva é uma briplerba.
+Todo ploglolto é xerutento.
+O Pliflim é um desolho.
+A Drilela é uma drovrasta.
+A Drilela é ___?
+
+Desafio 9
+Toda fliplonda é um flegolto.
+Toda flatranda é uma frunhoba.
+Toda plagafla é vrazemina.
+Todo tribecho é uma plagafla.
+Todo flegolto é prumordento.
+Toda zotridra é uma frunhoba.
+Todo tribecho é uma fliplonda.
+Toda frefarba é um lochuvo.
+Todo lochuvo é um tribecho.
+Toda plochitra é um tribecho.
+Toda frunhoba é uma fliplonda.
+A Braglice é uma frunhoba.
+A Clocheia é um lochuvo.
+A Braglice é ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

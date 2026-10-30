@@ -1,0 +1,840 @@
+{
+ "PROF": [
+  {
+   "numero": 1,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "trarendent",
+   "iscas": [
+    "glochebud"
+   ],
+   "resposta": "trarendenta"
+  },
+  {
+   "numero": 2,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "bremepent",
+   "iscas": [
+    "glugritud"
+   ],
+   "resposta": "bremepento"
+  },
+  {
+   "numero": 3,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "briplontin",
+   "iscas": [
+    "benhestent"
+   ],
+   "resposta": "briplontino"
+  },
+  {
+   "numero": 4,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "plogemos",
+   "iscas": [
+    "trigleltud"
+   ],
+   "resposta": "plogemosa"
+  },
+  {
+   "numero": 5,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "flasolhent",
+   "iscas": [
+    "vrulescos"
+   ],
+   "resposta": "flasolhenta"
+  },
+  {
+   "numero": 6,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "gizelin",
+   "iscas": [
+    "plichembent"
+   ],
+   "resposta": "gizelina"
+  },
+  {
+   "numero": 7,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "fliseltin",
+   "iscas": [
+    "dritedud"
+   ],
+   "resposta": "fliseltina"
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "xerutent",
+   "iscas": [
+    "cletramud"
+   ],
+   "resposta": "xerutenta"
+  },
+  {
+   "numero": 9,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "prumordent",
+   "iscas": [
+    "vrazemin"
+   ],
+   "resposta": "prumordenta"
+  }
+ ],
+ "VOL": [
+  {
+   "numero": 1,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "plobarnos",
+   "iscas": [
+    "vratraltud",
+    "flagilvin",
+    "xugrichent",
+    "crachopent",
+    "rivampos",
+    "fledrochent",
+    "drogrelvent",
+    "frizalhud",
+    "gravastos",
+    "xazavud",
+    "gelhembin",
+    "baplavos",
+    "frevimpud",
+    "pletrompent",
+    "pararnud",
+    "jusanin",
+    "vrururnos",
+    "frigembos",
+    "gretumpin",
+    "vamefent"
+   ],
+   "resposta": "plobarnosa"
+  },
+  {
+   "numero": 2,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "jabonhin",
+   "iscas": [
+    "clupedent",
+    "vagrostin",
+    "febulvent",
+    "clududros",
+    "frechubrent",
+    "clivochent",
+    "zolamud",
+    "soranin",
+    "punheltent"
+   ],
+   "resposta": "jabonhina"
+  },
+  {
+   "numero": 3,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "claglatos",
+   "iscas": [
+    "glemaflin",
+    "dretalhud",
+    "plozorbin",
+    "prarompud",
+    "jilheltud"
+   ],
+   "resposta": "claglatoso"
+  },
+  {
+   "numero": 4,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "merobros",
+   "iscas": [
+    "zalulhos",
+    "pogledrin",
+    "trolotos",
+    "grofuvin",
+    "prevrolvin",
+    "blalendos"
+   ],
+   "resposta": "merobroso"
+  },
+  {
+   "numero": 5,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "glamiflos",
+   "iscas": [
+    "glebospud",
+    "tropampent",
+    "ziflodent",
+    "nobinhin",
+    "joflardent",
+    "trenuchud",
+    "xelarnin",
+    "dregalhin",
+    "drevrenhin",
+    "drasetrin",
+    "jugrerdos",
+    "trilafos",
+    "rabrantin",
+    "tinestent",
+    "plapomos",
+    "flalavud",
+    "truplipent",
+    "jarintent",
+    "renhostos",
+    "biflistin",
+    "polhobos",
+    "jasebos",
+    "plodezent",
+    "fligofent",
+    "piglombin",
+    "diglechent",
+    "tobrilhin",
+    "sezenin",
+    "bralhenent",
+    "closarnud",
+    "tuflortent",
+    "grotascos",
+    "clevintent",
+    "frenhapin",
+    "buglatos",
+    "trebezin",
+    "teglantent",
+    "pibechent",
+    "pligirtud",
+    "closevos",
+    "drodifos",
+    "vatrurnos"
+   ],
+   "resposta": "glamifloso"
+  },
+  {
+   "numero": 6,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "flavroltud",
+   "iscas": [
+    "dovozin",
+    "grevintent",
+    "clebrospent",
+    "nuberdud",
+    "chozolvent",
+    "plozelvud",
+    "blogibrud",
+    "plavrevin",
+    "clidrefin",
+    "jezaltos",
+    "groglafud",
+    "graflernos",
+    "lafanud",
+    "frolhendin",
+    "plulambos",
+    "craribrin",
+    "noflidrin",
+    "zeplodud",
+    "frodernin",
+    "clamascos",
+    "brerurbent"
+   ],
+   "resposta": "flavroltudo"
+  },
+  {
+   "numero": 7,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "vevrulvud",
+   "iscas": [
+    "zeglortud",
+    "fledralvud",
+    "sevarbin",
+    "fraglelin",
+    "glunherbin",
+    "juplelvud",
+    "fregroflud",
+    "fevrivent",
+    "plegopos",
+    "glebriment",
+    "chelhurnent",
+    "tropodud",
+    "fragraflin",
+    "mapachos",
+    "cravrevent",
+    "masoflent",
+    "fluglaspin",
+    "trevrembos"
+   ],
+   "resposta": "vevrulvuda"
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "gemipud",
+   "iscas": [
+    "xibroscos",
+    "trizordud",
+    "grevrendent",
+    "clapedent",
+    "xuvrubos",
+    "dregetrin",
+    "pogodent",
+    "flutomud",
+    "crogrelvent",
+    "plevurtin",
+    "siplendent",
+    "ridachin",
+    "namendin",
+    "fraloltos",
+    "sobrurbin",
+    "vresabrent",
+    "brabustin",
+    "tenhebent",
+    "xivruspent",
+    "vrabirtent",
+    "frorustent",
+    "flubavud",
+    "pebrebin",
+    "chezembos",
+    "sovoltent",
+    "jaruspos",
+    "gratrilud",
+    "xaflabud",
+    "fralonud",
+    "plelhiltos",
+    "glafoflin",
+    "junurbos",
+    "josundin",
+    "clopluvud",
+    "pozebrud",
+    "paflaspent",
+    "porobud",
+    "bruzanhent"
+   ],
+   "resposta": "gemipudo"
+  },
+  {
+   "numero": 9,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "xepiltent",
+   "iscas": [
+    "globodos",
+    "trochapud",
+    "clenherbud",
+    "framiltos",
+    "plenompud",
+    "crogrambin",
+    "clagleflent",
+    "clagrechud",
+    "floglizin",
+    "prenhirbud",
+    "glamernin",
+    "drelindud",
+    "voplerdud",
+    "grevratrent",
+    "zoflovos",
+    "grizordos",
+    "vetralent",
+    "bupalud",
+    "rogastos",
+    "trolhortud",
+    "craplodrin",
+    "jichonos",
+    "chimandent",
+    "dratramin",
+    "zotembent",
+    "vofatent",
+    "drovefud",
+    "gratrepent",
+    "frevestent",
+    "clodidrin",
+    "tegirtent",
+    "planhebrent",
+    "ladonin",
+    "croditud",
+    "glotrenhent",
+    "zatreltent",
+    "leplompos",
+    "vrigurtin",
+    "zobrabent",
+    "loplodrud",
+    "drabembin"
+   ],
+   "resposta": "xepiltento"
+  }
+ ],
+ "SOS": [
+  {
+   "numero": 1,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "valerbin",
+   "iscas": [
+    "zeneltud",
+    "bapascin",
+    "glitachent",
+    "freglufud",
+    "valarbin",
+    "povachin",
+    "ropirdos",
+    "gronadrent",
+    "flemofent",
+    "xodempin",
+    "grovurtin",
+    "bleglespin"
+   ],
+   "resposta": "valerbino"
+  },
+  {
+   "numero": 2,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "zemimpin",
+   "iscas": [
+    "polenin",
+    "zafebrent",
+    "druzatrud",
+    "glazebos",
+    "zumimpin",
+    "flolhalvud",
+    "guvirdent",
+    "cradembent"
+   ],
+   "resposta": "zemimpino"
+  },
+  {
+   "numero": 3,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "vonertud",
+   "iscas": [
+    "flulanhent",
+    "gludandud",
+    "zinhorbin",
+    "glelhavud",
+    "vunertud",
+    "jefobos"
+   ],
+   "resposta": "vonertudo"
+  },
+  {
+   "numero": 4,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "vrabodent",
+   "iscas": [
+    "jubabrud",
+    "gruflonhin",
+    "vragrarnent",
+    "dalhobrent",
+    "vrubodent",
+    "zudrenin",
+    "trevoltud",
+    "sigrospent"
+   ],
+   "resposta": "vrabodenta"
+  },
+  {
+   "numero": 5,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "surentud",
+   "iscas": [
+    "jolhendin",
+    "godrarbent",
+    "surospos",
+    "vraroltos",
+    "surantud",
+    "vrofontud",
+    "zonentin",
+    "fruchanud",
+    "venhirdud",
+    "bregrenud",
+    "flalhamud",
+    "clerunent",
+    "trasornent",
+    "jafantos",
+    "drogretud",
+    "jonhardin",
+    "clechastos",
+    "plepanin",
+    "jitrunos"
+   ],
+   "resposta": "surentuda"
+  },
+  {
+   "numero": 6,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "clafledent",
+   "iscas": [
+    "chusendud",
+    "fogrubrent",
+    "xetartent",
+    "clutotrent",
+    "clefledent",
+    "riflonhos",
+    "britrudrent",
+    "clenumin",
+    "gresunin"
+   ],
+   "resposta": "clafledenta"
+  },
+  {
+   "numero": 7,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "brenepent",
+   "iscas": [
+    "pladustin",
+    "rugrambin",
+    "plevruspent",
+    "brigrement",
+    "bronepent",
+    "plosoflos",
+    "xaglafent",
+    "clutertos",
+    "midumbin",
+    "japlampos",
+    "drobrembud"
+   ],
+   "resposta": "brenepenta"
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "plazuntent",
+   "iscas": [
+    "xafostent",
+    "vratefin",
+    "tetrachin",
+    "flonhirdin",
+    "plazintent",
+    "droderdud",
+    "flelharnos",
+    "clolhadros",
+    "dagrafent",
+    "flavrendent",
+    "clotostud",
+    "docharnud",
+    "chanordos",
+    "plavrodrent",
+    "grabanhin",
+    "clisorbud"
+   ],
+   "resposta": "plazuntenta"
+  },
+  {
+   "numero": 9,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "xibrudent",
+   "iscas": [
+    "gruraltent",
+    "gloguzos",
+    "betreflent",
+    "chenhespos",
+    "xubrudent",
+    "jufaflin",
+    "zechostent",
+    "lefachos",
+    "novrubrin",
+    "labutros",
+    "lavompent",
+    "vochelhent",
+    "zatradent",
+    "grevopud",
+    "tolevin",
+    "jidrubent"
+   ],
+   "resposta": "xibrudenta"
+  }
+ ],
+ "MORF": [
+  {
+   "numero": 1,
+   "nivel": 3,
+   "tipo": "morf",
+   "flexao": "feminino singular",
+   "chave": "vregluzin",
+   "resposta": "vregluzina",
+   "distratores": [
+    "pralimos"
+   ],
+   "chavesArmadilha": []
+  },
+  {
+   "numero": 2,
+   "nivel": 3,
+   "tipo": "morf",
+   "flexao": "feminino plural",
+   "chave": "trobroscud",
+   "resposta": "trobroscudas",
+   "distratores": [
+    "mefet",
+    "nesondent"
+   ],
+   "chavesArmadilha": [
+    "nesondent"
+   ]
+  },
+  {
+   "numero": 3,
+   "nivel": 1,
+   "tipo": "morf",
+   "flexao": "masculino plural",
+   "chave": "fratrortent",
+   "resposta": "fratrortentos",
+   "distratores": [
+    "sobrom",
+    "frigonhud"
+   ],
+   "chavesArmadilha": [
+    "frigonhud"
+   ]
+  },
+  {
+   "numero": 4,
+   "nivel": 2,
+   "tipo": "morf",
+   "flexao": "gerúndio",
+   "chave": "bronhand",
+   "resposta": "bronhandando",
+   "distratores": [
+    "vapledros",
+    "bronhemb"
+   ],
+   "chavesArmadilha": [
+    "bronhemb"
+   ]
+  },
+  {
+   "numero": 5,
+   "nivel": 2,
+   "tipo": "morf",
+   "flexao": "gerúndio",
+   "chave": "pluramb",
+   "resposta": "plurambando",
+   "distratores": [
+    "plefach"
+   ],
+   "chavesArmadilha": []
+  },
+  {
+   "numero": 6,
+   "nivel": 2,
+   "tipo": "morf",
+   "flexao": "presente, eles",
+   "chave": "nufalv",
+   "resposta": "nufalvem",
+   "distratores": [
+    "trumirn"
+   ],
+   "chavesArmadilha": []
+  },
+  {
+   "numero": 7,
+   "nivel": 1,
+   "tipo": "morf",
+   "flexao": "masculino plural",
+   "chave": "menapos",
+   "resposta": "menaposos",
+   "distratores": [
+    "vranhach",
+    "jerof",
+    "trovrevent"
+   ],
+   "chavesArmadilha": []
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "morf",
+   "flexao": "feminino singular",
+   "chave": "glabifent",
+   "resposta": "glabifenta",
+   "distratores": [
+    "pabrastos"
+   ],
+   "chavesArmadilha": []
+  },
+  {
+   "numero": 9,
+   "nivel": 1,
+   "tipo": "morf",
+   "flexao": "masculino plural",
+   "chave": "vegrembos",
+   "resposta": "vegrembosos",
+   "distratores": [
+    "gledrombos"
+   ],
+   "chavesArmadilha": []
+  }
+ ],
+ "IND": [
+  {
+   "numero": 1,
+   "nivel": 2,
+   "tipo": "inducao",
+   "resposta": "sim, não"
+  },
+  {
+   "numero": 2,
+   "nivel": 1,
+   "tipo": "inducao",
+   "resposta": "sim, não"
+  },
+  {
+   "numero": 3,
+   "nivel": 1,
+   "tipo": "inducao",
+   "resposta": "não, não"
+  },
+  {
+   "numero": 4,
+   "nivel": 1,
+   "tipo": "inducao",
+   "resposta": "não, sim"
+  },
+  {
+   "numero": 5,
+   "nivel": 3,
+   "tipo": "inducao",
+   "resposta": "sim, sim"
+  },
+  {
+   "numero": 6,
+   "nivel": 2,
+   "tipo": "inducao",
+   "resposta": "não, não"
+  },
+  {
+   "numero": 7,
+   "nivel": 2,
+   "tipo": "inducao",
+   "resposta": "não, sim"
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "inducao",
+   "resposta": "sim, não"
+  },
+  {
+   "numero": 9,
+   "nivel": 3,
+   "tipo": "inducao",
+   "resposta": "sim, sim"
+  }
+ ],
+ "INDET": [
+  {
+   "numero": 1,
+   "nivel": 2,
+   "tipo": "indeterminado",
+   "chave": null,
+   "iscas": [
+    "clefoltent",
+    "druglados"
+   ],
+   "resposta": "não dá para saber"
+  },
+  {
+   "numero": 2,
+   "nivel": 3,
+   "tipo": "indeterminado",
+   "chave": null,
+   "iscas": [
+    "blesempent",
+    "breratrin"
+   ],
+   "resposta": "não dá para saber"
+  },
+  {
+   "numero": 3,
+   "nivel": 1,
+   "tipo": "cadeia",
+   "chave": "brobazos",
+   "iscas": [
+    "xalident"
+   ],
+   "resposta": "brobazoso"
+  },
+  {
+   "numero": 4,
+   "nivel": 2,
+   "tipo": "indeterminado",
+   "chave": null,
+   "iscas": [
+    "xolhenhin",
+    "planhepud"
+   ],
+   "resposta": "não dá para saber"
+  },
+  {
+   "numero": 5,
+   "nivel": 3,
+   "tipo": "cadeia",
+   "chave": "zofledrud",
+   "iscas": [
+    "ranozin"
+   ],
+   "resposta": "zofledruda"
+  },
+  {
+   "numero": 6,
+   "nivel": 1,
+   "tipo": "indeterminado",
+   "chave": null,
+   "iscas": [
+    "flubopos",
+    "murodin"
+   ],
+   "resposta": "não dá para saber"
+  },
+  {
+   "numero": 7,
+   "nivel": 2,
+   "tipo": "cadeia",
+   "chave": "tronhescud",
+   "iscas": [
+    "bleglerdud"
+   ],
+   "resposta": "tronhescudo"
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "indeterminado",
+   "chave": null,
+   "iscas": [
+    "drugultos",
+    "lanarnin"
+   ],
+   "resposta": "não dá para saber"
+  },
+  {
+   "numero": 9,
+   "nivel": 1,
+   "tipo": "indeterminado",
+   "chave": null,
+   "iscas": [
+    "javromin",
+    "foglolud"
+   ],
+   "resposta": "não dá para saber"
+  }
+ ]
+}

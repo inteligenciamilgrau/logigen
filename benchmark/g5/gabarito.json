@@ -1,0 +1,66 @@
+{
+ "inventadas": [
+  {
+   "numero": 1,
+   "resposta": "glenhernando",
+   "pergunta": "A Clutrane está ___?"
+  },
+  {
+   "numero": 2,
+   "resposta": "fredrescando",
+   "pergunta": "A Jinhane está ___?"
+  },
+  {
+   "numero": 3,
+   "resposta": "fonhumpando",
+   "pergunta": "O Xamim está ___?"
+  },
+  {
+   "numero": 4,
+   "resposta": "bratrestando",
+   "pergunta": "O Bratrel está ___?"
+  },
+  {
+   "numero": 5,
+   "resposta": "brachospando",
+   "pergunta": "A Flolhela está ___?"
+  },
+  {
+   "numero": 6,
+   "resposta": "dofepando",
+   "pergunta": "O Grurol está ___?"
+  }
+ ],
+ "reais": [
+  {
+   "numero": 1,
+   "resposta": "piscando",
+   "pergunta": "A Lívia está ___?"
+  },
+  {
+   "numero": 2,
+   "resposta": "mergulhando",
+   "pergunta": "A Júlia está ___?"
+  },
+  {
+   "numero": 3,
+   "resposta": "correndo",
+   "pergunta": "O Lucas está ___?"
+  },
+  {
+   "numero": 4,
+   "resposta": "rugindo",
+   "pergunta": "O Pedro está ___?"
+  },
+  {
+   "numero": 5,
+   "resposta": "pulando",
+   "pergunta": "A Clara está ___?"
+  },
+  {
+   "numero": 6,
+   "resposta": "piscando",
+   "pergunta": "O Lucas está ___?"
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+1: famosos
+2: pulam
+3: dormindo
+4: cansadas
+5: cantam
+6: dançando

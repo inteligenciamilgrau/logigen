@@ -1,0 +1,45 @@
+Answer these challenges, one answer per line in the format "1: answer":
+
+Challenge 1
+Every spumorp bonorps.
+Every flulm marurps.
+Gloondet and Clindus are spumorps.
+Gloondet and Clindus ___?
+
+Challenge 2
+Every gakind farnends.
+Every gufeest slutorts.
+Praltet is a gakind.
+What is Praltet doing? Praltet is ___?
+
+Challenge 3
+Every glevalm ternorfs.
+Every gondalk gumeerfs.
+Dreendus and Blemben are glevalms.
+Dreendus and Blemben ___?
+
+Challenge 4
+Every groosesk is a vumeeld.
+Every greeskorm spultusts.
+Every vumeeld spemarms.
+Every clilduld is a greeskorm.
+Ploornin and Swondet are groosesks.
+Ploornin and Swondet ___?
+
+Challenge 5
+Whoever is dradive larnolfs.
+Whoever is broodous kesonts.
+Every skotirp is broodous.
+Every veerkurf is dradive.
+Stekis is a skotirp.
+What is Stekis doing? Stekis is ___?
+
+Challenge 6
+Every flutalk is a slegorb.
+Every slegorb crandorns.
+Every flutalk glustonts.
+Every stenkeelt is a slegorb.
+Snenkan and Skomis are stenkeelts.
+Snenkan and Skomis ___?
+
+Important: do not read files or use tools to solve.

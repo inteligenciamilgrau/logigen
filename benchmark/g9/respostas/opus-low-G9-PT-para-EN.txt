@@ -1,0 +1,6 @@
+1: famous
+2: jump
+3: hungry
+4: tired
+5: sing
+6: famous

@@ -1,0 +1,6 @@
+1: famous
+2: jumping
+3: sleeping
+4: tired
+5: singing
+6: dancing

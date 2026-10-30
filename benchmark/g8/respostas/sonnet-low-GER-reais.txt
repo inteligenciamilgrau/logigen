@@ -1,0 +1,6 @@
+1: jumps
+2: swims
+3: sings
+4: howls
+5: dives
+6: sleeps

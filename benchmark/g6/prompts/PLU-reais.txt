@@ -1,0 +1,45 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Toda abelha é famosa.
+Toda girafa é faminta.
+A Marina e o Caio são abelhas.
+A Marina e o Caio são ___?
+
+Desafio 2
+Todo rato é ciumento.
+Toda lula é listrada.
+A Marina e a Sofia são lulas.
+A Marina e a Sofia são ___?
+
+Desafio 3
+Todo sapo assobia.
+Toda lontra brinca.
+O Lucas e a Carla são sapos.
+O Lucas e a Carla ___?
+
+Desafio 4
+Quem come é branco.
+Todo pombo mergulha.
+Quem mergulha é sonolento.
+Todo pinguim come.
+A Lívia e o Caio são pombos.
+A Lívia e o Caio são ___?
+
+Desafio 5
+Quem espirra é faminto.
+Quem ruge é magro.
+Toda borboleta ruge.
+Toda abelha espirra.
+A Beatriz e a Júlia são abelhas.
+A Beatriz e a Júlia são ___?
+
+Desafio 6
+Toda tartaruga uiva.
+Toda abelha tosse.
+Toda coruja é uma tartaruga.
+Toda formiga é uma abelha.
+A Marina e o Bruno são corujas.
+A Marina e o Bruno ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

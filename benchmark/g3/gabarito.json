@@ -1,0 +1,112 @@
+{
+ "CADEIA": [
+  {
+   "tipo": "tri",
+   "numero": 1,
+   "nivel": 1,
+   "ops": 3,
+   "ruido": 10,
+   "final": "nao",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 2,
+   "nivel": 3,
+   "ops": 10,
+   "ruido": 100,
+   "final": "nao",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 3,
+   "nivel": 1,
+   "ops": 3,
+   "ruido": 10,
+   "final": "sim",
+   "resposta": "sim"
+  },
+  {
+   "tipo": "tri",
+   "numero": 4,
+   "nivel": 1,
+   "ops": 3,
+   "ruido": 10,
+   "final": "nao-da",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 5,
+   "nivel": 2,
+   "ops": 6,
+   "ruido": 40,
+   "final": "nao",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 6,
+   "nivel": 2,
+   "ops": 6,
+   "ruido": 40,
+   "final": "nao-da",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 7,
+   "nivel": 2,
+   "ops": 6,
+   "ruido": 40,
+   "final": "nao",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 8,
+   "nivel": 3,
+   "ops": 10,
+   "ruido": 100,
+   "final": "nao-da",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 9,
+   "nivel": 2,
+   "ops": 6,
+   "ruido": 40,
+   "final": "sim",
+   "resposta": "sim"
+  },
+  {
+   "tipo": "tri",
+   "numero": 10,
+   "nivel": 1,
+   "ops": 3,
+   "ruido": 10,
+   "final": "nao",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 11,
+   "nivel": 3,
+   "ops": 10,
+   "ruido": 100,
+   "final": "sim",
+   "resposta": "sim"
+  },
+  {
+   "tipo": "tri",
+   "numero": 12,
+   "nivel": 3,
+   "ops": 10,
+   "ruido": 100,
+   "final": "nao",
+   "resposta": "não"
+  }
+ ]
+}

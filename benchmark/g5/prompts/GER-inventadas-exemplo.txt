@@ -1,0 +1,46 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Exemplo de como responder: no desafio "Todo plimbo zarfa. O Tilo é um plimbo. O Tilo está ___?", a resposta seria "zarfando".
+
+Desafio 1
+Todo dregleto begrospa.
+Todo vresonto glenherna.
+A Clutrane é um vresonto.
+A Clutrane está ___?
+
+Desafio 2
+Toda zaplebra plabrospa.
+Toda marunda fredresca.
+A Jinhane é uma marunda.
+A Jinhane está ___?
+
+Desafio 3
+Toda guzompa fonhumpa.
+Toda progampa jatesca.
+O Xamim é uma guzompa.
+O Xamim está ___?
+
+Desafio 4
+Todo fratrambo é gibrirbino.
+Toda vrechorda é trovrambuda.
+Quem é gibrirbino bratresta.
+Quem é trovrambudo clenhiva.
+O Bratrel é um fratrambo.
+O Bratrel está ___?
+
+Desafio 5
+Quem é pronhiltoso brachospa.
+Toda jizasta ropurba.
+Toda jizasta é pronhiltosa.
+Toda tralhelva é pronhiltosa.
+A Flolhela é uma tralhelva.
+A Flolhela está ___?
+
+Desafio 6
+Toda gligrarda é japerdosa.
+Quem é japerdoso dofepa.
+Toda trabresca robraba.
+Toda trabresca é japerdosa.
+O Grurol é uma gligrarda.
+O Grurol está ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

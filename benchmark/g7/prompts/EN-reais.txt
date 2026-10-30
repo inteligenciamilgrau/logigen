@@ -1,0 +1,45 @@
+Answer these challenges, one answer per line in the format "1: answer":
+
+Challenge 1
+Every monkey climbs.
+Every bear swims.
+Grace and Clara are monkeys.
+Grace and Clara ___?
+
+Challenge 2
+Every dolphin plays.
+Every bee swims.
+Lucas is a dolphin.
+What is Lucas doing? Lucas is ___?
+
+Challenge 3
+Every penguin howls.
+Every monkey plays.
+Grace and Julia are penguins.
+Grace and Julia ___?
+
+Challenge 4
+Every mouse is a bee.
+Every frog flies.
+Every bee sings.
+Every bear is a frog.
+Lily and Anna are mice.
+Lily and Anna ___?
+
+Challenge 5
+Whoever is shy digs.
+Whoever is curious hops.
+Every dolphin is curious.
+Every spider is shy.
+Julia is a dolphin.
+What is Julia doing? Julia is ___?
+
+Challenge 6
+Every fox is a bee.
+Every bee eats.
+Every fox sneezes.
+Every mouse is a bee.
+Lucas and Peter are mice.
+Lucas and Peter ___?
+
+Important: do not read files or use tools to solve.

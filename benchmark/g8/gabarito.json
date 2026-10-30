@@ -1,0 +1,116 @@
+{
+ "pt": [
+  {
+   "numero": 1,
+   "tipo": "conjugação em -a",
+   "resposta": "ladadram",
+   "pergunta": "O Brarur e o Jegleu ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "conjugação em -e",
+   "resposta": "gosachem",
+   "pergunta": "A Dubrina e a Feplira ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "conjugação em -a",
+   "resposta": "vrefanam",
+   "pergunta": "O Xibar e a Trozice ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "conjugação em -e",
+   "resposta": "zipleltem",
+   "pergunta": "O Glafeu e o Drelol ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "conjugação em -a",
+   "resposta": "trurembam",
+   "pergunta": "A Blenane e o Zisur ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "conjugação em -e",
+   "resposta": "sopuscem",
+   "pergunta": "A Cledreia e o Gruglur ___?"
+  }
+ ],
+ "inventadas": [
+  {
+   "numero": 1,
+   "tipo": "gerúndio",
+   "resposta": "snololfing",
+   "pergunta": "What is Noorel doing? Noorel is ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "gerúndio",
+   "resposta": "blugalping",
+   "pergunta": "What is Cloonkin doing? Cloonkin is ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "gerúndio",
+   "resposta": "gregeesking",
+   "pergunta": "What is Flirkis doing? Flirkis is ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "gerúndio",
+   "resposta": "prelerking",
+   "pergunta": "What is Blesket doing? Blesket is ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "gerúndio",
+   "resposta": "glikenking",
+   "pergunta": "What is Snenin doing? Snenin is ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "gerúndio",
+   "resposta": "moornorning",
+   "pergunta": "What is Fonkan doing? Fonkan is ___?"
+  }
+ ],
+ "reais": [
+  {
+   "numero": 1,
+   "tipo": "gerúndio",
+   "resposta": "jumping",
+   "pergunta": "What is Emma doing? Emma is ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "gerúndio",
+   "resposta": "swimming",
+   "pergunta": "What is Daniel doing? Daniel is ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "gerúndio",
+   "resposta": "singing",
+   "pergunta": "What is Emma doing? Emma is ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "gerúndio",
+   "resposta": "howling",
+   "pergunta": "What is Sophie doing? Sophie is ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "gerúndio",
+   "resposta": "diving",
+   "pergunta": "What is Bruno doing? Bruno is ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "gerúndio",
+   "resposta": "sleeping",
+   "pergunta": "What is Tom doing? Tom is ___?"
+  }
+ ]
+}

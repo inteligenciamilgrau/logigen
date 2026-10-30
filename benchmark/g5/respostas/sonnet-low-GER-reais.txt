@@ -1,0 +1,6 @@
+1: pisca
+2: mergulha
+3: corre
+4: ruge
+5: pula
+6: pisca

@@ -1,0 +1,69 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Todo tredreto é vregluzino.
+Todo cluvrompo é pralimoso.
+A Fibrira é um tredreto.
+A Fibrira é ___?
+
+Desafio 2
+Toda dralasta é nesondenta.
+Todo trivrambo mefeta.
+Toda dralasta mefeta.
+Quem mefeta é trobroscudo.
+A Fruplice e a Crodina são trivrambos.
+A Fruplice e a Crodina são ___?
+
+Desafio 3
+Toda gloneta sobroma.
+Todo cheleto sobroma.
+Quem sobroma é fratrortento.
+Toda gloneta é frigonhuda.
+A Zedrina e o Fradur são cheletos.
+A Zedrina e o Fradur são ___?
+
+Desafio 4
+Todo frabrumpo é vapledroso.
+Quem é vapledroso bronhanda.
+Toda vatrecha é vapledrosa.
+Todo frabrumpo bronhemba.
+A Flizina é uma vatrecha.
+A Flizina está ___?
+
+Desafio 5
+Toda xeplabra pluramba.
+Todo jadrompo plefacha.
+A Frobane é uma xeplabra.
+A Frobane está ___?
+
+Desafio 6
+Toda nefufla é uma rinelta.
+Todo fibumpo é um fraflopo.
+Toda rinelta trumirne.
+Todo fraflopo nufalve.
+O Vrasar e a Cripina são fibumpos.
+O Vrasar e a Cripina ___?
+
+Desafio 7
+Quem jerofe é trovrevento.
+Quem vranhacha é menaposo.
+Toda zogalta vranhacha.
+Todo boglorto jerofe.
+O Frofol e a Crusice são zogaltas.
+O Frofol e a Crusice são ___?
+
+Desafio 8
+Toda biplimpa é pabrastosa.
+Todo vramolvo é um velhordo.
+Todo velhordo é glabifento.
+Toda zelerba é uma biplimpa.
+A Juplira é um vramolvo.
+A Juplira é ___?
+
+Desafio 9
+Toda datrena é vegrembosa.
+Todo cretrufo é gledromboso.
+O Jogrol e a Clizina são datrenas.
+O Jogrol e a Clizina são ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

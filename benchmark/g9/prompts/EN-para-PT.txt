@@ -1,0 +1,66 @@
+Answer these challenges, one answer per line in the format "1: answer".
+Write every answer in Brazilian Portuguese.
+
+Challenge 1
+Every bee is striped.
+Every turtle is a duck.
+Every duck is famous.
+Every cat is a bee.
+Marina and Bruno are turtles.
+Lucas is a cat.
+Marina and Bruno are ___?
+
+Challenge 2
+Every cat is spotted.
+Whoever is spotted jumps.
+Every bee is a turtle.
+Whoever is famous runs.
+Every horse is a cat.
+Every turtle is famous.
+Pedro and Clara are horses.
+Bruno is a bee.
+Pedro and Clara ___?
+
+Challenge 3
+Every bee is a duck.
+Whoever is hungry sleeps.
+Every cat is spotted.
+Whoever is spotted swims.
+Every duck is hungry.
+Every owl is a cat.
+Marina is a bee.
+Pedro is an owl.
+What is Marina doing? Marina is ___?
+
+Challenge 4
+Every cat is tired.
+Every rabbit is sleepy.
+Every duck is a rabbit.
+Every turtle is a cat.
+Clara and Sofia are turtles.
+Lucas is a duck.
+Clara and Sofia are ___?
+
+Challenge 5
+Every duck is spotted.
+Whoever is spotted sings.
+Every horse is a duck.
+Whoever is hungry dances.
+Every rabbit is a turtle.
+Every turtle is hungry.
+Caio and Marina are horses.
+Bruno is a rabbit.
+Caio and Marina ___?
+
+Challenge 6
+Every horse is famous.
+Whoever is hungry jumps.
+Every turtle is a cat.
+Every cat is hungry.
+Whoever is famous dances.
+Every owl is a horse.
+Lucas is an owl.
+Caio is a turtle.
+What is Lucas doing? Lucas is ___?
+
+Important: do not read files or use tools to solve.

@@ -1,0 +1,6 @@
+1: climb
+2: play
+3: howl
+4: sing
+5: hop
+6: eat

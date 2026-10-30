@@ -1,0 +1,90 @@
+{
+ "EN-para-PT": [
+  {
+   "numero": 1,
+   "tipo": "adjetivo, grupo misto",
+   "resposta": "famosos",
+   "raizAlvo": "famos",
+   "raizOutra": "famous"
+  },
+  {
+   "numero": 2,
+   "tipo": "verbo no plural",
+   "resposta": "pulam",
+   "raizAlvo": "pul",
+   "raizOutra": "jump"
+  },
+  {
+   "numero": 3,
+   "tipo": "gerúndio",
+   "resposta": "dormindo",
+   "raizAlvo": "dorm",
+   "raizOutra": "sleep"
+  },
+  {
+   "numero": 4,
+   "tipo": "adjetivo, grupo feminino",
+   "resposta": "cansadas",
+   "raizAlvo": "cansad",
+   "raizOutra": "tired"
+  },
+  {
+   "numero": 5,
+   "tipo": "verbo no plural (2)",
+   "resposta": "cantam",
+   "raizAlvo": "cant",
+   "raizOutra": "sing"
+  },
+  {
+   "numero": 6,
+   "tipo": "gerúndio",
+   "resposta": "dançando",
+   "raizAlvo": "danc",
+   "raizOutra": "danc"
+  }
+ ],
+ "PT-para-EN": [
+  {
+   "numero": 1,
+   "tipo": "adjetivo, grupo misto",
+   "resposta": "famous",
+   "raizAlvo": "famous",
+   "raizOutra": "famos"
+  },
+  {
+   "numero": 2,
+   "tipo": "verbo no plural",
+   "resposta": "jump",
+   "raizAlvo": "jump",
+   "raizOutra": "pul"
+  },
+  {
+   "numero": 3,
+   "tipo": "gerúndio",
+   "resposta": "sleeping",
+   "raizAlvo": "sleep",
+   "raizOutra": "dorm"
+  },
+  {
+   "numero": 4,
+   "tipo": "adjetivo, grupo feminino",
+   "resposta": "tired",
+   "raizAlvo": "tired",
+   "raizOutra": "cansad"
+  },
+  {
+   "numero": 5,
+   "tipo": "verbo no plural (2)",
+   "resposta": "sing",
+   "raizAlvo": "sing",
+   "raizOutra": "cant"
+  },
+  {
+   "numero": 6,
+   "tipo": "gerúndio",
+   "resposta": "dancing",
+   "raizAlvo": "danc",
+   "raizOutra": "danc"
+  }
+ ]
+}

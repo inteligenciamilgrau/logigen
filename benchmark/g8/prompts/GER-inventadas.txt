@@ -1,0 +1,47 @@
+Answer these challenges, one answer per line in the format "1: answer":
+
+Challenge 1
+Every spildoong snololfs.
+Every foferd spendolfs.
+Noorel is a spildoong.
+What is Noorel doing? Noorel is ___?
+
+Challenge 2
+Every wepask blugalps.
+Every mebolk brostocks.
+Cloonkin is a wepask.
+What is Cloonkin doing? Cloonkin is ___?
+
+Challenge 3
+Every swestalm is clendless.
+Every tirkand is plorny.
+Whoever is clendless kuderms.
+Whoever is plorny gregeesks.
+Flirkis is a tirkand.
+What is Flirkis doing? Flirkis is ___?
+
+Challenge 4
+Every gostirf is freefless.
+Whoever is freefless froornerks.
+Every proltolm is kuskful.
+Whoever is kuskful prelerks.
+Blesket is a proltolm.
+What is Blesket doing? Blesket is ___?
+
+Challenge 5
+Every crookurn is sooltive.
+Every tronkalp is sooltive.
+Whoever is sooltive glikenks.
+Every tronkalp skegirps.
+Snenin is a crookurn.
+What is Snenin doing? Snenin is ___?
+
+Challenge 6
+Every dovold droomboonks.
+Whoever is reenkal moornorns.
+Every tirnenk is reenkal.
+Every dovold is reenkal.
+Fonkan is a tirnenk.
+What is Fonkan doing? Fonkan is ___?
+
+Important: do not read files or use tools to solve.

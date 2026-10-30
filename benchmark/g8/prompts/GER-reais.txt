@@ -1,0 +1,47 @@
+Answer these challenges, one answer per line in the format "1: answer":
+
+Challenge 1
+Every rabbit jumps.
+Every beaver sneezes.
+Emma is a rabbit.
+What is Emma doing? Emma is ___?
+
+Challenge 2
+Every cat swims.
+Every zebra howls.
+Daniel is a cat.
+What is Daniel doing? Daniel is ___?
+
+Challenge 3
+Every fox is sleepy.
+Every cat is striped.
+Whoever is sleepy runs.
+Whoever is striped sings.
+Emma is a cat.
+What is Emma doing? Emma is ___?
+
+Challenge 4
+Every whale is jealous.
+Whoever is jealous sneezes.
+Every duck is hungry.
+Whoever is hungry howls.
+Sophie is a duck.
+What is Sophie doing? Sophie is ___?
+
+Challenge 5
+Every penguin is fat.
+Every horse is fat.
+Whoever is fat dives.
+Every horse dances.
+Bruno is a penguin.
+What is Bruno doing? Bruno is ___?
+
+Challenge 6
+Every camel dives.
+Whoever is spotted sleeps.
+Every turtle is spotted.
+Every camel is spotted.
+Tom is a turtle.
+What is Tom doing? Tom is ___?
+
+Important: do not read files or use tools to solve.

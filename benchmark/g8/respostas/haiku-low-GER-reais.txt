@@ -1,0 +1,6 @@
+1: pulando
+2: nadando
+3: cantando
+4: uivando
+5: mergulhando
+6: dormindo

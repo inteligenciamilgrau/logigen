@@ -1,0 +1,78 @@
+{
+ "inventadas": [
+  {
+   "numero": 1,
+   "tipo": "plural (sem -s)",
+   "resposta": "bonorp",
+   "pergunta": "Gloondet and Clindus ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "gerúndio (-ing)",
+   "resposta": "farnending",
+   "pergunta": "What is Praltet doing? Praltet is ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "plural (sem -s)",
+   "resposta": "ternorf",
+   "pergunta": "Dreendus and Blemben ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "plural (sem -s)",
+   "resposta": "spemarm",
+   "pergunta": "Ploornin and Swondet ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "gerúndio (-ing)",
+   "resposta": "kesonting",
+   "pergunta": "What is Stekis doing? Stekis is ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "plural (sem -s)",
+   "resposta": "crandorn",
+   "pergunta": "Snenkan and Skomis ___?"
+  }
+ ],
+ "reais": [
+  {
+   "numero": 1,
+   "tipo": "plural (sem -s)",
+   "resposta": "climb",
+   "pergunta": "Grace and Clara ___?"
+  },
+  {
+   "numero": 2,
+   "tipo": "gerúndio (-ing)",
+   "resposta": "playing",
+   "pergunta": "What is Lucas doing? Lucas is ___?"
+  },
+  {
+   "numero": 3,
+   "tipo": "plural (sem -s)",
+   "resposta": "howl",
+   "pergunta": "Grace and Julia ___?"
+  },
+  {
+   "numero": 4,
+   "tipo": "plural (sem -s)",
+   "resposta": "sing",
+   "pergunta": "Lily and Anna ___?"
+  },
+  {
+   "numero": 5,
+   "tipo": "gerúndio (-ing)",
+   "resposta": "hopping",
+   "pergunta": "What is Julia doing? Julia is ___?"
+  },
+  {
+   "numero": 6,
+   "tipo": "plural (sem -s)",
+   "resposta": "eat",
+   "pergunta": "Lucas and Peter ___?"
+  }
+ ]
+}

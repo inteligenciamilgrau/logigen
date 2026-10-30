@@ -1,0 +1,103 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Para cada desafio, responda sim ou não a cada pergunta, na ordem (exemplo: "1: sim, não"). Use a regra mais simples (com menos condições) que explica todos os exemplos.
+
+Desafio 1
+Alguns seres são blobempas, outros não. Veja:
+O Migeu é broseludo, não é brodutrento e é fleputrino: não é uma blobempa.
+O Branur não é broseludo, é brodutrento e é fleputrino: não é uma blobempa.
+O Flobrar é broseludo, não é brodutrento e não é fleputrino: não é uma blobempa.
+O Praglim é broseludo, é brodutrento e é fleputrino: não é uma blobempa.
+O Vrolur é broseludo, é brodutrento e não é fleputrino: é uma blobempa.
+O Xofleu não é broseludo, não é brodutrento e é fleputrino: não é uma blobempa.
+Agora: O Govrim não é broseludo, é brodutrento e não é fleputrino. O Donur não é broseludo, não é brodutrento e não é fleputrino.
+O Govrim é uma blobempa? E o Donur?
+
+Desafio 2
+Alguns seres são fogorbas, outros não. Veja:
+O Drovrim não é jofentudo, é vibreltino e não é sutoscino: não é uma fogorba.
+O Clupeu não é jofentudo, é vibreltino e é sutoscino: não é uma fogorba.
+O Mabrim é jofentudo, não é vibreltino e não é sutoscino: é uma fogorba.
+O Frurim é jofentudo, não é vibreltino e é sutoscino: é uma fogorba.
+O Flanim não é jofentudo, não é vibreltino e é sutoscino: não é uma fogorba.
+O Flerel é jofentudo, é vibreltino e não é sutoscino: é uma fogorba.
+Agora: O Bretrur é jofentudo, é vibreltino e é sutoscino. O Vrofel não é jofentudo, não é vibreltino e não é sutoscino.
+O Bretrur é uma fogorba? E o Vrofel?
+
+Desafio 3
+Alguns seres são feplachas, outros não. Veja:
+O Troflol é plozalhento, não é bragefudo e é tromebino: é uma feplacha.
+O Clumim é plozalhento, não é bragefudo e não é tromebino: é uma feplacha.
+O Muplur não é plozalhento, não é bragefudo e não é tromebino: não é uma feplacha.
+O Bredim é plozalhento, é bragefudo e não é tromebino: é uma feplacha.
+O Didrur não é plozalhento, é bragefudo e é tromebino: não é uma feplacha.
+O Zavol é plozalhento, é bragefudo e é tromebino: é uma feplacha.
+Agora: O Trutim não é plozalhento, não é bragefudo e é tromebino. O Blovel não é plozalhento, é bragefudo e não é tromebino.
+O Trutim é uma feplacha? E o Blovel?
+
+Desafio 4
+Alguns seres são plabrurnos, outros não. Veja:
+O Padrim é cligubroso, não é zusenhento e não é flobefento: é um plabrurno.
+O Vrutim é cligubroso, é zusenhento e não é flobefento: não é um plabrurno.
+O Grurur não é cligubroso, não é zusenhento e não é flobefento: é um plabrurno.
+O Plopeu não é cligubroso, é zusenhento e não é flobefento: não é um plabrurno.
+O Clelhel não é cligubroso, não é zusenhento e é flobefento: é um plabrurno.
+O Vrenur é cligubroso, é zusenhento e é flobefento: não é um plabrurno.
+Agora: O Zebim não é cligubroso, é zusenhento e é flobefento. O Flobreu é cligubroso, não é zusenhento e é flobefento.
+O Zebim é um plabrurno? E o Flobreu?
+
+Desafio 5
+Alguns seres são prutenhas, outros não. Veja:
+O Zeglim é jotufoso, é grezotroso e não é prolhimpudo: é uma prutenha.
+O Glicheu não é jotufoso, é grezotroso e não é prolhimpudo: é uma prutenha.
+O Cletrel é jotufoso, é grezotroso e é prolhimpudo: é uma prutenha.
+O Brotrur não é jotufoso, é grezotroso e é prolhimpudo: não é uma prutenha.
+O Savreu é jotufoso, não é grezotroso e não é prolhimpudo: é uma prutenha.
+O Clusel não é jotufoso, não é grezotroso e é prolhimpudo: não é uma prutenha.
+Agora: O Chegrol não é jotufoso, não é grezotroso e não é prolhimpudo. O Cratrim é jotufoso, não é grezotroso e é prolhimpudo.
+O Chegrol é uma prutenha? E o Cratrim?
+
+Desafio 6
+Alguns seres são zibrechas, outros não. Veja:
+O Xefel não é jeglisposo, não é clenhuchudo e não é flutonhudo: não é uma zibrecha.
+O Gudur é jeglisposo, é clenhuchudo e é flutonhudo: não é uma zibrecha.
+O Lovrel não é jeglisposo, não é clenhuchudo e é flutonhudo: é uma zibrecha.
+O Breplol não é jeglisposo, é clenhuchudo e não é flutonhudo: não é uma zibrecha.
+O Goplar é jeglisposo, não é clenhuchudo e não é flutonhudo: não é uma zibrecha.
+O Clanhel é jeglisposo, não é clenhuchudo e é flutonhudo: é uma zibrecha.
+Agora: O Driglol é jeglisposo, é clenhuchudo e não é flutonhudo. O Chobrol não é jeglisposo, é clenhuchudo e é flutonhudo.
+O Driglol é uma zibrecha? E o Chobrol?
+
+Desafio 7
+Alguns seres são buvostos, outros não. Veja:
+O Notrel não é janholvino, não é xopestento e não é moglordino: não é um buvosto.
+O Grizel é janholvino, é xopestento e não é moglordino: não é um buvosto.
+O Bibrur é janholvino, é xopestento e é moglordino: é um buvosto.
+O Brelur não é janholvino, não é xopestento e é moglordino: não é um buvosto.
+O Flupeu não é janholvino, é xopestento e não é moglordino: não é um buvosto.
+O Glilol é janholvino, não é xopestento e é moglordino: não é um buvosto.
+Agora: O Rogreu é janholvino, não é xopestento e não é moglordino. O Fratim não é janholvino, é xopestento e é moglordino.
+O Rogreu é um buvosto? E o Fratim?
+
+Desafio 8
+Alguns seres são chefutras, outros não. Veja:
+O Xeplel é grolhompento, não é trapluvino e não é frubrolhudo: é uma chefutra.
+O Chedel é grolhompento, é trapluvino e é frubrolhudo: é uma chefutra.
+O Jitim é grolhompento, é trapluvino e não é frubrolhudo: é uma chefutra.
+O Breplel não é grolhompento, é trapluvino e é frubrolhudo: não é uma chefutra.
+O Jumur não é grolhompento, é trapluvino e não é frubrolhudo: é uma chefutra.
+O Flobar é grolhompento, não é trapluvino e é frubrolhudo: é uma chefutra.
+Agora: O Jadur não é grolhompento, não é trapluvino e não é frubrolhudo. O Crelur não é grolhompento, não é trapluvino e é frubrolhudo.
+O Jadur é uma chefutra? E o Crelur?
+
+Desafio 9
+Alguns seres são pronuntos, outros não. Veja:
+O Facheu é mudosposo, não é fleditrento e é fribofudo: é um pronunto.
+O Nurel não é mudosposo, não é fleditrento e é fribofudo: não é um pronunto.
+O Glelim é mudosposo, não é fleditrento e não é fribofudo: é um pronunto.
+O Brugur não é mudosposo, é fleditrento e não é fribofudo: é um pronunto.
+O Janur não é mudosposo, não é fleditrento e não é fribofudo: é um pronunto.
+O Chodrim não é mudosposo, é fleditrento e é fribofudo: não é um pronunto.
+Agora: O Truchel é mudosposo, é fleditrento e não é fribofudo. O Glolur é mudosposo, é fleditrento e é fribofudo.
+O Truchel é um pronunto? E o Glolur?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

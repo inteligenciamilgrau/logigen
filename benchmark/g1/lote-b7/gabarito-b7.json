@@ -1,0 +1,474 @@
+[
+ {
+  "id": "C-1",
+  "eixo": "C",
+  "i": 1,
+  "resposta": "drariscento",
+  "chave": "drariscent",
+  "papel": {
+   "drariscent": "A1",
+   "gurufos": "isca de X1",
+   "runizin": "isca de G1",
+   "fresalhud": "isca de G2",
+   "dradanhos": "isca de V1",
+   "draroscent": "A1*",
+   "vanhirbos": "ruído"
+  },
+  "sosias": [
+   "X1*: Dravim × Druvim",
+   "G1*: trepunta × trepinta",
+   "G2*: vedimbo × vadimbo",
+   "V1*: grumota × grumita",
+   "A1*: drariscento × draroscento"
+  ]
+ },
+ {
+  "id": "D-1",
+  "eixo": "D",
+  "i": 1,
+  "resposta": "drariscento",
+  "chave": "drariscent",
+  "papel": {
+   "drariscent": "A1",
+   "gurufos": "isca de X1",
+   "runizin": "isca de G1",
+   "fresalhud": "isca de G2",
+   "dradanhos": "isca de V1",
+   "draroscent": "A1*",
+   "vanhirbos": "ruído"
+  },
+  "sosias": [
+   "X1*: Dravim × Drovim (perto de \"provim\")",
+   "G1*: trepunta × treponta (perto de \"reponta\")",
+   "G2*: vedimbo × vedembo (perto de \"vedemo\")",
+   "V1*: grumota × gremota (perto de \"remota\")",
+   "A1*: drariscento × draroscento"
+  ]
+ },
+ {
+  "id": "C-2",
+  "eixo": "C",
+  "i": 2,
+  "resposta": "xalhuntosa",
+  "chave": "xalhuntos",
+  "papel": {
+   "xalhuntos": "A1",
+   "flalharnos": "isca de X1",
+   "traglerdud": "isca de G1",
+   "naponhos": "isca de G2",
+   "freplerbos": "isca de V1",
+   "xelhuntos": "A1*"
+  },
+  "sosias": [
+   "X1*: Nomira × Nimira",
+   "G1*: jovrudo × jovrodo",
+   "G2*: pizila × pozila",
+   "V1*: xisolha × xisilha",
+   "A1*: xalhuntoso × xelhuntoso"
+  ]
+ },
+ {
+  "id": "D-2",
+  "eixo": "D",
+  "i": 2,
+  "resposta": "xalhuntosa",
+  "chave": "xalhuntos",
+  "papel": {
+   "xalhuntos": "A1",
+   "flalharnos": "isca de X1",
+   "traglerdud": "isca de G1",
+   "naponhos": "isca de G2",
+   "freplerbos": "isca de V1",
+   "xelhuntos": "A1*"
+  },
+  "sosias": [
+   "X1*: Nomira × Nemira (perto de \"remira\")",
+   "G1*: jovrudo × jovrado (perto de \"jorrado\")",
+   "G2*: pizila × puzila (perto de \"fuzila\")",
+   "V1*: xisolha × xisalha (perto de \"cisalha\")",
+   "A1*: xalhuntoso × xelhuntoso"
+  ]
+ },
+ {
+  "id": "C-3",
+  "eixo": "C",
+  "i": 3,
+  "resposta": "flenobrudo",
+  "chave": "flenobrud",
+  "papel": {
+   "flenobrud": "A1",
+   "frafuspent": "isca de X1",
+   "trelhornent": "isca de G1",
+   "clinulos": "isca de G2",
+   "fapoltent": "isca de V1",
+   "flonobrud": "A1*",
+   "bredrembent": "ruído",
+   "glechortud": "ruído",
+   "zefandin": "ruído",
+   "plegonhud": "ruído"
+  },
+  "sosias": [
+   "X1*: Trapleu × Tropleu",
+   "G1*: bifota × bifata",
+   "G2*: zopela × zepela",
+   "V1*: benhilta × benhalta",
+   "A1*: flenobrudo × flonobrudo"
+  ]
+ },
+ {
+  "id": "D-3",
+  "eixo": "D",
+  "i": 3,
+  "resposta": "flenobrudo",
+  "chave": "flenobrud",
+  "papel": {
+   "flenobrud": "A1",
+   "frafuspent": "isca de X1",
+   "trelhornent": "isca de G1",
+   "clinulos": "isca de G2",
+   "fapoltent": "isca de V1",
+   "flonobrud": "A1*",
+   "bredrembent": "ruído",
+   "glechortud": "ruído",
+   "zefandin": "ruído",
+   "plegonhud": "ruído"
+  },
+  "sosias": [
+   "X1*: Trapleu × Trepleu (perto de \"tresleu\")",
+   "G1*: bifota × bifuta (perto de \"biruta\")",
+   "G2*: zopela × zopala (perto de \"opala\")",
+   "V1*: benhilta × banhilta (perto de \"banhista\")",
+   "A1*: flenobrudo × flonobrudo"
+  ]
+ },
+ {
+  "id": "C-4",
+  "eixo": "C",
+  "i": 4,
+  "resposta": "clelhochoso",
+  "chave": "clelhochos",
+  "papel": {
+   "clelhochos": "A1",
+   "trirandud": "isca de X1",
+   "dotimpos": "isca de G1",
+   "tenibent": "isca de G2",
+   "leplefud": "isca de V1",
+   "clalhochos": "A1*",
+   "trolhebrud": "ruído",
+   "gunhandos": "ruído",
+   "flobrorbent": "ruído"
+  },
+  "sosias": [
+   "X1*: Xomur × Xumur",
+   "G1*: tenhimbo × tanhimbo",
+   "G2*: nutrefa × nutrofa",
+   "V1*: flubele × flebele",
+   "A1*: clelhochoso × clalhochoso"
+  ]
+ },
+ {
+  "id": "D-4",
+  "eixo": "D",
+  "i": 4,
+  "resposta": "clelhochoso",
+  "chave": "clelhochos",
+  "papel": {
+   "clelhochos": "A1",
+   "trirandud": "isca de X1",
+   "dotimpos": "isca de G1",
+   "tenibent": "isca de G2",
+   "leplefud": "isca de V1",
+   "clalhochos": "A1*",
+   "trolhebrud": "ruído",
+   "gunhandos": "ruído",
+   "flobrorbent": "ruído"
+  },
+  "sosias": [
+   "X1*: Xomur × Xemur (perto de \"femur\")",
+   "G1*: tenhimbo × tenhambo (perto de \"tenhamo\")",
+   "G2*: nutrefa × nutrifa (perto de \"nutria\")",
+   "V1*: flubele × flabele (perto de \"flagele\")",
+   "A1*: clelhochoso × clalhochoso"
+  ]
+ },
+ {
+  "id": "C-5",
+  "eixo": "C",
+  "i": 5,
+  "resposta": "cloronhuda",
+  "chave": "cloronhud",
+  "papel": {
+   "cloronhud": "A1",
+   "fatenhos": "isca de X1",
+   "glosaflos": "isca de G1",
+   "vosuzin": "isca de G2",
+   "taloflos": "isca de V1",
+   "cleronhud": "A1*",
+   "vunumbos": "ruído"
+  },
+  "sosias": [
+   "X1*: Jilhice × Jalhice",
+   "G1*: xerasca × xerusca",
+   "G2*: brebeta × brubeta",
+   "V1*: tobulve × tubulve",
+   "A1*: cloronhudo × cleronhudo"
+  ]
+ },
+ {
+  "id": "D-5",
+  "eixo": "D",
+  "i": 5,
+  "resposta": "cloronhuda",
+  "chave": "cloronhud",
+  "papel": {
+   "cloronhud": "A1",
+   "fatenhos": "isca de X1",
+   "glosaflos": "isca de G1",
+   "vosuzin": "isca de G2",
+   "taloflos": "isca de V1",
+   "cleronhud": "A1*",
+   "vunumbos": "ruído"
+  },
+  "sosias": [
+   "X1*: Jilhice × Jelhice (perto de \"velhice\")",
+   "G1*: xerasca × xerosca (perto de \"xeroca\")",
+   "G2*: brebeta × brebata (perto de \"rebata\")",
+   "V1*: tobulve × tabulve (perto de \"tabule\")",
+   "A1*: cloronhudo × cleronhudo"
+  ]
+ },
+ {
+  "id": "C-6",
+  "eixo": "C",
+  "i": 6,
+  "resposta": "triplebrino",
+  "chave": "triplebrin",
+  "papel": {
+   "triplebrin": "A1",
+   "vriletud": "isca de X1",
+   "fritudrin": "isca de G1",
+   "namentin": "isca de G2",
+   "grozunhos": "isca de V1",
+   "truplebrin": "A1*",
+   "jivonud": "ruído",
+   "jogradrin": "ruído"
+  },
+  "sosias": [
+   "X1*: Trulhol × Trolhol",
+   "G1*: sunarta × senarta",
+   "G2*: sopacho × sopucho",
+   "V1*: frechetra × frechotra",
+   "A1*: triplebrino × truplebrino"
+  ]
+ },
+ {
+  "id": "D-6",
+  "eixo": "D",
+  "i": 6,
+  "resposta": "triplebrino",
+  "chave": "triplebrin",
+  "papel": {
+   "triplebrin": "A1",
+   "vriletud": "isca de X1",
+   "fritudrin": "isca de G1",
+   "namentin": "isca de G2",
+   "grozunhos": "isca de V1",
+   "truplebrin": "A1*",
+   "jivonud": "ruído",
+   "jogradrin": "ruído"
+  },
+  "sosias": [
+   "X1*: Trulhol × Trilhol (perto de \"trilho\")",
+   "G1*: sunarta × sunorta (perto de \"suporta\")",
+   "G2*: sopacho × sapacho (perto de \"capacho\")",
+   "V1*: frechetra × frechatra (perto de \"frechara\")",
+   "A1*: triplebrino × truplebrino"
+  ]
+ },
+ {
+  "id": "C-7",
+  "eixo": "C",
+  "i": 7,
+  "resposta": "dronolhina",
+  "chave": "dronolhin",
+  "papel": {
+   "dronolhin": "A1",
+   "flilefent": "isca de X1",
+   "grinulvent": "isca de G1",
+   "grafotent": "isca de G2",
+   "cremazin": "isca de V1",
+   "dronulhin": "A1*",
+   "fluchampent": "ruído",
+   "choplolud": "ruído"
+  },
+  "sosias": [
+   "X1*: Bomira × Bimira",
+   "G1*: flavreva × flovreva",
+   "G2*: melhena × malhena",
+   "V1*: lanope × lenope",
+   "A1*: dronolhino × dronulhino"
+  ]
+ },
+ {
+  "id": "D-7",
+  "eixo": "D",
+  "i": 7,
+  "resposta": "dronolhina",
+  "chave": "dronolhin",
+  "papel": {
+   "dronolhin": "A1",
+   "flilefent": "isca de X1",
+   "grinulvent": "isca de G1",
+   "grafotent": "isca de G2",
+   "cremazin": "isca de V1",
+   "dronulhin": "A1*",
+   "fluchampent": "ruído",
+   "choplolud": "ruído"
+  },
+  "sosias": [
+   "X1*: Bomira × Bamira (perto de \"bramira\")",
+   "G1*: flavreva × flavrava (perto de \"lavrava\")",
+   "G2*: melhena × melhona (perto de \"melhora\")",
+   "V1*: lanope × lanape (perto de \"canape\")",
+   "A1*: dronolhino × dronulhino"
+  ]
+ },
+ {
+  "id": "C-8",
+  "eixo": "C",
+  "i": 8,
+  "resposta": "brevreposa",
+  "chave": "brevrepos",
+  "papel": {
+   "brevrepos": "A1",
+   "flichardos": "isca de X1",
+   "pladaspin": "isca de G1",
+   "flagrimpent": "isca de G2",
+   "franilud": "isca de V1",
+   "brevrupos": "A1*",
+   "trarement": "ruído"
+  },
+  "sosias": [
+   "X1*: Xizira × Xezira",
+   "G1*: trefelho × trofelho",
+   "G2*: matrucha × mutrucha",
+   "V1*: dronande × dranande",
+   "A1*: brevreposo × brevruposo"
+  ]
+ },
+ {
+  "id": "D-8",
+  "eixo": "D",
+  "i": 8,
+  "resposta": "brevreposa",
+  "chave": "brevrepos",
+  "papel": {
+   "brevrepos": "A1",
+   "flichardos": "isca de X1",
+   "pladaspin": "isca de G1",
+   "flagrimpent": "isca de G2",
+   "franilud": "isca de V1",
+   "brevrupos": "A1*",
+   "trarement": "ruído"
+  },
+  "sosias": [
+   "X1*: Xizira × Xuzira (perto de \"luzira\")",
+   "G1*: trefelho × trefilho (perto de \"trefilo\")",
+   "G2*: matrucha × matracha (perto de \"matraca\")",
+   "V1*: dronande × drenande (perto de \"drenando\")",
+   "A1*: brevreposo × brevruposo"
+  ]
+ },
+ {
+  "id": "C-9",
+  "eixo": "C",
+  "i": 9,
+  "resposta": "petrefosa",
+  "chave": "petrefos",
+  "papel": {
+   "petrefos": "A1",
+   "jefumpin": "isca de X1",
+   "flegranent": "isca de G1",
+   "fifletos": "isca de G2",
+   "vrevispent": "isca de V1",
+   "pitrefos": "A1*",
+   "drabropent": "ruído"
+  },
+  "sosias": [
+   "X1*: Flidela × Fludela",
+   "G1*: flazado × fluzado",
+   "G2*: cruzutro × cruzitro",
+   "V1*: dregosta × drogosta",
+   "A1*: petrefoso × pitrefoso"
+  ]
+ },
+ {
+  "id": "D-9",
+  "eixo": "D",
+  "i": 9,
+  "resposta": "petrefosa",
+  "chave": "petrefos",
+  "papel": {
+   "petrefos": "A1",
+   "jefumpin": "isca de X1",
+   "flegranent": "isca de G1",
+   "fifletos": "isca de G2",
+   "vrevispent": "isca de V1",
+   "pitrefos": "A1*",
+   "drabropent": "ruído"
+  },
+  "sosias": [
+   "X1*: Flidela × Fladela (perto de \"flagela\")",
+   "G1*: flazado × flazido (perto de \"flacido\")",
+   "G2*: cruzutro × cruzetro (perto de \"cruzeiro\")",
+   "V1*: dregosta × dregusta (perto de \"degusta\")",
+   "A1*: petrefoso × pitrefoso"
+  ]
+ },
+ {
+  "id": "C-10",
+  "eixo": "C",
+  "i": 10,
+  "resposta": "mavrentuda",
+  "chave": "mavrentud",
+  "papel": {
+   "mavrentud": "A1",
+   "nusivin": "isca de X1",
+   "flatrafent": "isca de G1",
+   "gradrados": "isca de G2",
+   "drichepent": "isca de V1",
+   "movrentud": "A1*",
+   "brofanhent": "ruído"
+  },
+  "sosias": [
+   "X1*: Drotira × Drutira",
+   "G1*: grelhefa × grelhifa",
+   "G2*: poziva × pozeva",
+   "V1*: sebrarda × sibrarda",
+   "A1*: mavrentudo × movrentudo"
+  ]
+ },
+ {
+  "id": "D-10",
+  "eixo": "D",
+  "i": 10,
+  "resposta": "mavrentuda",
+  "chave": "mavrentud",
+  "papel": {
+   "mavrentud": "A1",
+   "nusivin": "isca de X1",
+   "flatrafent": "isca de G1",
+   "gradrados": "isca de G2",
+   "drichepent": "isca de V1",
+   "movrentud": "A1*",
+   "brofanhent": "ruído"
+  },
+  "sosias": [
+   "X1*: Drotira × Dretira (perto de \"retira\")",
+   "G1*: grelhefa × grelhafa (perto de \"grelhara\")",
+   "G2*: poziva × pozava (perto de \"gozava\")",
+   "V1*: sebrarda × sobrarda (perto de \"sobrara\")",
+   "A1*: mavrentudo × movrentudo"
+  ]
+ }
+]

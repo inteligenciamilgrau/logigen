@@ -1,0 +1,66 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta".
+Escreva todas as respostas em inglês.
+
+Desafio 1
+Toda abelha é listrada.
+Toda tartaruga é um pato.
+Todo pato é famoso.
+Todo gato é uma abelha.
+A Marina e o Bruno são tartarugas.
+O Lucas é um gato.
+A Marina e o Bruno são ___?
+
+Desafio 2
+Todo gato é pintado.
+Quem é pintado pula.
+Toda abelha é uma tartaruga.
+Quem é famoso corre.
+Todo cavalo é um gato.
+Toda tartaruga é famosa.
+O Pedro e a Clara são cavalos.
+O Bruno é uma abelha.
+O Pedro e a Clara ___?
+
+Desafio 3
+Toda abelha é um pato.
+Quem é faminto dorme.
+Todo gato é pintado.
+Quem é pintado nada.
+Todo pato é faminto.
+Toda coruja é um gato.
+A Marina é uma abelha.
+O Pedro é uma coruja.
+A Marina está ___?
+
+Desafio 4
+Todo gato é cansado.
+Todo coelho é sonolento.
+Todo pato é um coelho.
+Toda tartaruga é um gato.
+A Clara e a Sofia são tartarugas.
+O Lucas é um pato.
+A Clara e a Sofia são ___?
+
+Desafio 5
+Todo pato é pintado.
+Quem é pintado canta.
+Todo cavalo é um pato.
+Quem é faminto dança.
+Todo coelho é uma tartaruga.
+Toda tartaruga é faminta.
+O Caio e a Marina são cavalos.
+O Bruno é um coelho.
+O Caio e a Marina ___?
+
+Desafio 6
+Todo cavalo é famoso.
+Quem é faminto pula.
+Toda tartaruga é um gato.
+Todo gato é faminto.
+Quem é famoso dança.
+Toda coruja é um cavalo.
+O Lucas é uma coruja.
+O Caio é uma tartaruga.
+O Lucas está ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

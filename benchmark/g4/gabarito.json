@@ -1,0 +1,85 @@
+{
+ "INDUCAO": [
+  {
+   "numero": 1,
+   "nivel": 2,
+   "tipo": "inducao",
+   "regra": "A ou B, não os dois",
+   "compativeis": 1,
+   "alternativas": 0,
+   "resposta": "não, sim, não"
+  },
+  {
+   "numero": 2,
+   "nivel": 1,
+   "tipo": "inducao",
+   "regra": "A e B",
+   "compativeis": 1,
+   "alternativas": 0,
+   "resposta": "sim, não, não"
+  },
+  {
+   "numero": 3,
+   "nivel": 2,
+   "tipo": "inducao",
+   "regra": "A ou B, não os dois",
+   "compativeis": 1,
+   "alternativas": 0,
+   "resposta": "sim, não, não"
+  },
+  {
+   "numero": 4,
+   "nivel": 3,
+   "tipo": "inducao",
+   "regra": "pelo menos 2 de A, B, C",
+   "compativeis": 1,
+   "alternativas": 0,
+   "resposta": "sim, não, sim"
+  },
+  {
+   "numero": 5,
+   "nivel": 2,
+   "tipo": "inducao",
+   "regra": "A ou B, não os dois",
+   "compativeis": 1,
+   "alternativas": 0,
+   "resposta": "sim, sim, não"
+  },
+  {
+   "numero": 6,
+   "nivel": 1,
+   "tipo": "inducao",
+   "regra": "A e B",
+   "compativeis": 1,
+   "alternativas": 1,
+   "resposta": "não, não, sim"
+  },
+  {
+   "numero": 7,
+   "nivel": 1,
+   "tipo": "inducao",
+   "regra": "A e B",
+   "compativeis": 1,
+   "alternativas": 1,
+   "resposta": "não, não, não"
+  },
+  {
+   "numero": 8,
+   "nivel": 3,
+   "tipo": "inducao",
+   "regra": "pelo menos 2 de A, B, C",
+   "compativeis": 1,
+   "alternativas": 1,
+   "resposta": "sim, sim, não"
+  },
+  {
+   "numero": 9,
+   "nivel": 3,
+   "tipo": "inducao",
+   "regra": "pelo menos 2 de A, B, C",
+   "compativeis": 1,
+   "alternativas": 0,
+   "resposta": "não, não, sim"
+  }
+ ]
+}

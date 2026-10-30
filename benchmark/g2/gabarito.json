@@ -1,0 +1,88 @@
+{
+ "OPER": [
+  {
+   "tipo": "tri",
+   "numero": 1,
+   "nivel": 3,
+   "molde": "casos + nenhum",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 2,
+   "nivel": 1,
+   "molde": "negar o antecedente",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 3,
+   "nivel": 2,
+   "molde": "silogismo disjuntivo",
+   "resposta": "sim"
+  },
+  {
+   "tipo": "tri",
+   "numero": 4,
+   "nivel": 1,
+   "molde": "contraposição",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 5,
+   "nivel": 1,
+   "molde": "negação",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 6,
+   "nivel": 1,
+   "molde": "afirmar o consequente",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 7,
+   "nivel": 3,
+   "molde": "nenhum + contraposição",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 8,
+   "nivel": 2,
+   "molde": "prova por casos",
+   "resposta": "sim"
+  },
+  {
+   "tipo": "tri",
+   "numero": 9,
+   "nivel": 3,
+   "molde": "casos com ramos diferentes",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 10,
+   "nivel": 2,
+   "molde": "contraposição em cadeia",
+   "resposta": "não"
+  },
+  {
+   "tipo": "tri",
+   "numero": 11,
+   "nivel": 2,
+   "molde": "casos com um ramo aberto",
+   "resposta": "não dá para saber"
+  },
+  {
+   "tipo": "tri",
+   "numero": 12,
+   "nivel": 3,
+   "molde": "disjuntivo + contraposição",
+   "resposta": "sim"
+  }
+ ]
+}

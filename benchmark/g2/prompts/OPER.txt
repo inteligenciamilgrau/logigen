@@ -1,0 +1,155 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta".
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+Em "Todo A é um B ou um C", cada A é pelo menos um dos dois.
+
+Desafio 1
+Toda plotuda é um jodrerno.
+Todo grigospo é um glatrimo.
+Todo xobindo é um pladasto.
+Nenhuma glozonta é um droglorbo.
+Nenhum glatrimo é um pladasto.
+Todo vresato é um glatrimo.
+Todo jodrerno é um glatrimo.
+Toda plotuda é um vresato.
+Todo droglorbo é um grigospo ou um jodrerno.
+O Tesim é um droglorbo.
+A Chavrela é um xobindo.
+O Tesim é um pladasto?
+
+Desafio 2
+Todo nobevo é uma flogrelta.
+Toda plitonta é uma flogrelta.
+Todo baflirto é uma flogrelta.
+Toda freplofa é uma flogrelta.
+Toda plitonta é uma freplofa.
+Toda flogrelta é um degotro.
+A Frogrina é uma plitonta.
+A Gruvrice não é uma flogrelta.
+A Gruvrice é um degotro?
+
+Desafio 3
+Todo pletrirdo é uma xagudra ou um volitro.
+Toda magispa é uma xagudra.
+Todo plavreto é uma magispa.
+Nenhum plavreto é uma xagudra.
+Nenhum bravardo é uma xagudra.
+Nenhum tefadro é um pletrirdo.
+O Clefleu é um pletrirdo.
+O Clefleu não é uma xagudra.
+A Plulice é um tefadro.
+O Clefleu é um volitro?
+
+Desafio 4
+Nenhuma xeteva é um crachordo.
+Todo xogrerto é um brogesto.
+Toda friploza é uma xeteva.
+Toda friploza é um brogesto.
+Toda fuplova é um brogesto.
+Todo crachordo é um brogesto.
+A Glelira não é um brogesto.
+O Vritol é um xogrerto.
+A Glelira é um crachordo?
+
+Desafio 5
+Toda zoponta é um glipafo.
+Toda draplala é um chegrudro.
+Todo glipafo é uma breplupa.
+Todo bomarbo é uma breplupa.
+Nenhum chegrudro é uma breplupa.
+Toda zoponta é um chegrudro.
+Toda fraflerba é uma breplupa.
+O Glulhim é uma draplala.
+A Preplela é um bomarbo.
+O Glulhim é uma breplupa?
+
+Desafio 6
+Toda flachova é um jalhabro.
+Toda plobrespa é um vafupo.
+Nenhum jalhabro é uma plobrespa.
+Todo flelhetro é um vafupo.
+Nenhum bratrorno é uma plobrespa.
+Toda flachova é uma plobrespa.
+O Choglel é um vafupo.
+O Grolhur é um jalhabro.
+O Choglel é uma plobrespa?
+
+Desafio 7
+Todo grebrespo é um tropembo.
+Toda juchinda é um glavratro.
+Todo flamadro é um gradarbo.
+Todo glavratro é uma pevarba.
+Todo tropembo é um flamadro.
+Todo grebrespo é um glavratro.
+Nenhum xidarto é um flamadro.
+Nenhum gradarbo é uma pevarba.
+O Xegur é um grebrespo.
+A Trufice é um glavratro.
+A Trufice é um flamadro?
+
+Desafio 8
+Todo sedusto é um xerompo ou um gilezo.
+Toda chegoba é um gilezo.
+Nenhum glaveflo é uma crudrarda.
+Todo revripo é um xerompo.
+Todo grofludro é um revripo.
+Todo gilezo é uma crudrarda.
+Todo xerompo é uma crudrarda.
+Todo grofludro é uma crudrarda.
+O Pridrur é um sedusto.
+O Zideu é um revripo.
+O Pridrur é uma crudrarda?
+
+Desafio 9
+Todo xevrezo é um tudorbo.
+Todo cletasto é uma dregespa.
+Todo cletasto é um clelembo.
+Toda dregespa é uma pliglana.
+Todo clugrarno é uma pliglana ou um tudorbo.
+Todo clelembo é uma blabemba.
+Toda pliglana é um clelembo.
+Nenhum nudilto é uma grutrasca.
+Todo tudorbo é uma grutrasca.
+O Frotel é um cletasto.
+A Xuglice é um clugrarno.
+A Xuglice é uma blabemba?
+
+Desafio 10
+Toda greplena é um dronulto.
+Toda glufiba é uma fruzanta.
+Todo flopelho é uma fruzanta.
+Toda greplena é uma glufiba.
+Toda fligreba é um xobambo.
+Todo xobambo é uma fruzanta.
+Toda fruzanta é um dronulto.
+Todo pazanho é uma fruzanta.
+A Flabrice não é um dronulto.
+A Zichela é um pazanho.
+A Flabrice é uma fligreba?
+
+Desafio 11
+Todo plivunto é uma xumorda.
+Toda xumorda é uma zilhilta ou uma jepluva.
+Nenhuma trefempa é uma zilhilta.
+Nenhum nibarto é uma pobala.
+Toda zilhilta é uma pobala.
+Todo nibarto é uma trefempa.
+Nenhum zilalho é uma pobala.
+O Xepel é um plivunto.
+A Plizane é uma xumorda.
+A Plizane é uma pobala?
+
+Desafio 12
+Todo tregono é uma fatifla.
+Todo xidonho é um zaplado.
+Nenhum gudrulto é um zaplado.
+Toda zoflulha é um glazando.
+Todo glazando é uma fatifla ou um xezordo.
+Todo tregono é um gudrulto.
+Todo xezordo é um zaplado.
+Todo zaplado é um frodolo.
+A Crefane é um xidonho.
+A Xogane não é um frodolo.
+A Xogane é um glazando.
+A Xogane é uma fatifla?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

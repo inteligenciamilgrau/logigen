@@ -1,0 +1,140 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta".
+Para cada desafio, responda sim ou não a cada pergunta, na ordem (exemplo: "1: sim, não, sim").
+Use a regra mais simples (com menos condições) que explica todos os exemplos.
+
+Desafio 1
+Alguns seres são tebredos, outros não. Veja:
+O Trozel é gligruvudo, não é bratruntoso, é paplitrino e não é xalhatrudo: é um tebredo.
+O Vrigrel não é gligruvudo, é bratruntoso, não é paplitrino e é xalhatrudo: é um tebredo.
+O Trigrar é gligruvudo, não é bratruntoso, não é paplitrino e é xalhatrudo: não é um tebredo.
+O Grareu não é gligruvudo, não é bratruntoso, não é paplitrino e é xalhatrudo: não é um tebredo.
+O Zonol é gligruvudo, é bratruntoso, é paplitrino e não é xalhatrudo: não é um tebredo.
+O Brodrur é gligruvudo, não é bratruntoso, é paplitrino e é xalhatrudo: é um tebredo.
+O Breglur não é gligruvudo, é bratruntoso, é paplitrino e não é xalhatrudo: não é um tebredo.
+O Blechol é gligruvudo, é bratruntoso, não é paplitrino e é xalhatrudo: é um tebredo.
+O Vetrel é gligruvudo, é bratruntoso, não é paplitrino e não é xalhatrudo: é um tebredo.
+O Vribol não é gligruvudo, não é bratruntoso, é paplitrino e não é xalhatrudo: é um tebredo.
+Agora: O Blubim é gligruvudo, é bratruntoso, é paplitrino e é xalhatrudo. O Bliflim não é gligruvudo, não é bratruntoso, é paplitrino e é xalhatrudo. O Gletur não é gligruvudo, é bratruntoso, é paplitrino e é xalhatrudo.
+O Blubim é um tebredo? E o Bliflim? E o Gletur?
+
+Desafio 2
+Alguns seres são nadratas, outros não. Veja:
+O Jigrur é jivrantino, não é vadranhudo, é nitrubudo e não é fretrafento: não é uma nadrata.
+O Vrenur é jivrantino, é vadranhudo, não é nitrubudo e é fretrafento: é uma nadrata.
+O Drotrar não é jivrantino, não é vadranhudo, é nitrubudo e não é fretrafento: não é uma nadrata.
+O Dropel é jivrantino, não é vadranhudo, não é nitrubudo e não é fretrafento: não é uma nadrata.
+O Cloplol é jivrantino, é vadranhudo, não é nitrubudo e não é fretrafento: não é uma nadrata.
+O Fivrim é jivrantino, é vadranhudo, é nitrubudo e é fretrafento: é uma nadrata.
+O Xadel não é jivrantino, não é vadranhudo, é nitrubudo e é fretrafento: não é uma nadrata.
+O Fladur não é jivrantino, é vadranhudo, é nitrubudo e não é fretrafento: não é uma nadrata.
+O Mevrel não é jivrantino, é vadranhudo, não é nitrubudo e é fretrafento: não é uma nadrata.
+O Soglol é jivrantino, não é vadranhudo, não é nitrubudo e é fretrafento: é uma nadrata.
+Agora: O Flogleu é jivrantino, não é vadranhudo, é nitrubudo e é fretrafento. O Tredim não é jivrantino, é vadranhudo, não é nitrubudo e não é fretrafento. O Zeglur não é jivrantino, não é vadranhudo, não é nitrubudo e não é fretrafento.
+O Flogleu é uma nadrata? E o Tredim? E o Zeglur?
+
+Desafio 3
+Alguns seres são lazichos, outros não. Veja:
+O Trutur é mifenoso, não é feplartoso, é plufintino e é flovechento: é um lazicho.
+O Xuvreu é mifenoso, é feplartoso, é plufintino e é flovechento: não é um lazicho.
+O Fusel não é mifenoso, é feplartoso, é plufintino e não é flovechento: não é um lazicho.
+O Clemim é mifenoso, é feplartoso, não é plufintino e é flovechento: é um lazicho.
+O Sadreu é mifenoso, não é feplartoso, é plufintino e não é flovechento: é um lazicho.
+O Vripeu não é mifenoso, é feplartoso, não é plufintino e não é flovechento: é um lazicho.
+O Jabur é mifenoso, não é feplartoso, não é plufintino e é flovechento: não é um lazicho.
+O Crabrel não é mifenoso, não é feplartoso, não é plufintino e não é flovechento: não é um lazicho.
+O Grobar é mifenoso, não é feplartoso, não é plufintino e não é flovechento: não é um lazicho.
+O Tribreu não é mifenoso, não é feplartoso, não é plufintino e é flovechento: não é um lazicho.
+Agora: O Xivol é mifenoso, é feplartoso, não é plufintino e não é flovechento. O Pragim não é mifenoso, é feplartoso, é plufintino e é flovechento. O Clezar é mifenoso, é feplartoso, é plufintino e não é flovechento.
+O Xivol é um lazicho? E o Pragim? E o Clezar?
+
+Desafio 4
+Alguns seres são fretedros, outros não. Veja:
+O Gevur é noglerbino, é zimembento, não é drutraspudo e não é clabradino: é um fretedro.
+O Groteu é noglerbino, não é zimembento, é drutraspudo e é clabradino: é um fretedro.
+O Fridrel é noglerbino, é zimembento, é drutraspudo e não é clabradino: é um fretedro.
+O Pretel não é noglerbino, não é zimembento, não é drutraspudo e é clabradino: não é um fretedro.
+O Zodol é noglerbino, não é zimembento, é drutraspudo e não é clabradino: não é um fretedro.
+O Brelhol não é noglerbino, não é zimembento, é drutraspudo e é clabradino: não é um fretedro.
+O Pebrur não é noglerbino, é zimembento, é drutraspudo e é clabradino: é um fretedro.
+O Diglel é noglerbino, é zimembento, é drutraspudo e é clabradino: é um fretedro.
+O Bluchur não é noglerbino, é zimembento, é drutraspudo e não é clabradino: não é um fretedro.
+O Plezim não é noglerbino, é zimembento, não é drutraspudo e não é clabradino: não é um fretedro.
+Agora: O Joplol é noglerbino, não é zimembento, não é drutraspudo e é clabradino. O Juflel não é noglerbino, não é zimembento, é drutraspudo e não é clabradino. O Flofol não é noglerbino, é zimembento, não é drutraspudo e é clabradino.
+O Joplol é um fretedro? E o Juflel? E o Flofol?
+
+Desafio 5
+Alguns seres são bruplindas, outros não. Veja:
+O Feplel é zonundino, não é freflurtudo, não é plaflichudo e é flarombento: é uma bruplinda.
+O Brodrur não é zonundino, não é freflurtudo, não é plaflichudo e não é flarombento: não é uma bruplinda.
+O Vravol é zonundino, é freflurtudo, não é plaflichudo e é flarombento: não é uma bruplinda.
+O Bliflol é zonundino, não é freflurtudo, é plaflichudo e é flarombento: é uma bruplinda.
+O Vretreu é zonundino, não é freflurtudo, não é plaflichudo e não é flarombento: não é uma bruplinda.
+O Clovim não é zonundino, não é freflurtudo, é plaflichudo e não é flarombento: não é uma bruplinda.
+O Botreu é zonundino, é freflurtudo, é plaflichudo e não é flarombento: é uma bruplinda.
+O Jaflim não é zonundino, não é freflurtudo, é plaflichudo e é flarombento: é uma bruplinda.
+O Vrereu é zonundino, não é freflurtudo, é plaflichudo e não é flarombento: não é uma bruplinda.
+O Pripel é zonundino, é freflurtudo, é plaflichudo e é flarombento: não é uma bruplinda.
+Agora: O Tronhel não é zonundino, é freflurtudo, não é plaflichudo e não é flarombento. O Zoplel não é zonundino, não é freflurtudo, não é plaflichudo e é flarombento. O Plesel não é zonundino, é freflurtudo, não é plaflichudo e é flarombento.
+O Tronhel é uma bruplinda? E o Zoplel? E o Plesel?
+
+Desafio 6
+Alguns seres são frotrinhas, outros não. Veja:
+O Negrim é safaltudo, é flagirnoso, não é blidrezoso e é vilhedrento: não é uma frotrinha.
+O Depim não é safaltudo, é flagirnoso, não é blidrezoso e não é vilhedrento: não é uma frotrinha.
+O Frebeu é safaltudo, é flagirnoso, é blidrezoso e não é vilhedrento: é uma frotrinha.
+O Cladel é safaltudo, não é flagirnoso, é blidrezoso e é vilhedrento: é uma frotrinha.
+O Zofol é safaltudo, não é flagirnoso, é blidrezoso e não é vilhedrento: é uma frotrinha.
+O Granhol não é safaltudo, é flagirnoso, é blidrezoso e é vilhedrento: não é uma frotrinha.
+O Trerol é safaltudo, é flagirnoso, não é blidrezoso e não é vilhedrento: não é uma frotrinha.
+O Dedrel não é safaltudo, é flagirnoso, não é blidrezoso e é vilhedrento: não é uma frotrinha.
+O Tropur não é safaltudo, não é flagirnoso, é blidrezoso e é vilhedrento: não é uma frotrinha.
+O Flonol é safaltudo, não é flagirnoso, não é blidrezoso e não é vilhedrento: não é uma frotrinha.
+Agora: O Nochim não é safaltudo, é flagirnoso, é blidrezoso e não é vilhedrento. O Xicheu não é safaltudo, não é flagirnoso, não é blidrezoso e é vilhedrento. O Gronhol é safaltudo, é flagirnoso, é blidrezoso e é vilhedrento.
+O Nochim é uma frotrinha? E o Xicheu? E o Gronhol?
+
+Desafio 7
+Alguns seres são franintas, outros não. Veja:
+O Nivreu é vralhezino, é vrogrinhoso, é prubintento e é gloteboso: é uma franinta.
+O Dranur é vralhezino, não é vrogrinhoso, não é prubintento e é gloteboso: não é uma franinta.
+O Grofel é vralhezino, é vrogrinhoso, não é prubintento e é gloteboso: é uma franinta.
+O Panhur é vralhezino, não é vrogrinhoso, é prubintento e não é gloteboso: não é uma franinta.
+O Blelhur é vralhezino, é vrogrinhoso, é prubintento e não é gloteboso: é uma franinta.
+O Brechur não é vralhezino, é vrogrinhoso, não é prubintento e é gloteboso: não é uma franinta.
+O Pladol é vralhezino, não é vrogrinhoso, não é prubintento e não é gloteboso: não é uma franinta.
+O Choflim não é vralhezino, é vrogrinhoso, não é prubintento e não é gloteboso: não é uma franinta.
+O Blebur é vralhezino, não é vrogrinhoso, é prubintento e é gloteboso: não é uma franinta.
+O Drenheu não é vralhezino, não é vrogrinhoso, não é prubintento e não é gloteboso: não é uma franinta.
+Agora: O Blulhar não é vralhezino, é vrogrinhoso, é prubintento e não é gloteboso. O Clufar não é vralhezino, não é vrogrinhoso, é prubintento e é gloteboso. O Xeflel não é vralhezino, não é vrogrinhoso, não é prubintento e é gloteboso.
+O Blulhar é uma franinta? E o Clufar? E o Xeflel?
+
+Desafio 8
+Alguns seres são xetralhos, outros não. Veja:
+O Trodrel não é drogodino, é todruchoso, é zevrornoso e não é juplodrento: não é um xetralho.
+O Nufleu não é drogodino, não é todruchoso, não é zevrornoso e é juplodrento: não é um xetralho.
+O Xoglar não é drogodino, é todruchoso, não é zevrornoso e não é juplodrento: não é um xetralho.
+O Bronur é drogodino, não é todruchoso, não é zevrornoso e não é juplodrento: não é um xetralho.
+O Glafim é drogodino, não é todruchoso, não é zevrornoso e é juplodrento: é um xetralho.
+O Driplim é drogodino, é todruchoso, não é zevrornoso e não é juplodrento: não é um xetralho.
+O Retrel é drogodino, não é todruchoso, é zevrornoso e não é juplodrento: é um xetralho.
+O Fleglur não é drogodino, é todruchoso, não é zevrornoso e é juplodrento: não é um xetralho.
+O Pigrol é drogodino, é todruchoso, é zevrornoso e é juplodrento: é um xetralho.
+O Vrobrim é drogodino, é todruchoso, é zevrornoso e não é juplodrento: é um xetralho.
+Agora: O Broneu não é drogodino, é todruchoso, é zevrornoso e é juplodrento. O Fonheu é drogodino, é todruchoso, não é zevrornoso e é juplodrento. O Tredim não é drogodino, não é todruchoso, não é zevrornoso e não é juplodrento.
+O Broneu é um xetralho? E o Fonheu? E o Tredim?
+
+Desafio 9
+Alguns seres são jafodas, outros não. Veja:
+O Zacheu é tredrerbino, não é plebolento, é blechabudo e é globribento: é uma jafoda.
+O Clesim é tredrerbino, não é plebolento, é blechabudo e não é globribento: é uma jafoda.
+O Peglur é tredrerbino, é plebolento, é blechabudo e não é globribento: é uma jafoda.
+O Brevrar não é tredrerbino, é plebolento, não é blechabudo e é globribento: não é uma jafoda.
+O Treglol não é tredrerbino, é plebolento, é blechabudo e não é globribento: é uma jafoda.
+O Greflim não é tredrerbino, não é plebolento, é blechabudo e não é globribento: não é uma jafoda.
+O Degrol não é tredrerbino, não é plebolento, não é blechabudo e é globribento: não é uma jafoda.
+O Brorel não é tredrerbino, não é plebolento, não é blechabudo e não é globribento: não é uma jafoda.
+O Brudrol é tredrerbino, é plebolento, não é blechabudo e é globribento: é uma jafoda.
+O Jochim é tredrerbino, não é plebolento, não é blechabudo e não é globribento: não é uma jafoda.
+Agora: O Xepeu não é tredrerbino, é plebolento, não é blechabudo e não é globribento. O Cloglim não é tredrerbino, não é plebolento, é blechabudo e é globribento. O Xebar é tredrerbino, é plebolento, é blechabudo e é globribento.
+O Xepeu é uma jafoda? E o Cloglim? E o Xebar?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

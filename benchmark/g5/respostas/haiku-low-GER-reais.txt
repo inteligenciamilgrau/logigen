@@ -1,0 +1,6 @@
+1: piscando
+2: mergulhando
+3: correndo
+4: rugindo
+5: pulando
+6: piscando

@@ -1,0 +1,47 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Toda dravranta vunhiche.
+Toda frosina ladadra.
+O Brarur e o Jegleu são frosinas.
+O Brarur e o Jegleu ___?
+
+Desafio 2
+Todo crudeno vredunta.
+Toda ribrispa gosache.
+A Dubrina e a Feplira são ribrispas.
+A Dubrina e a Feplira ___?
+
+Desafio 3
+Toda xodresca é uma draglova.
+Toda clalhuta vrefana.
+Toda draglova glachaze.
+Todo glizedro é uma clalhuta.
+O Xibar e a Trozice são glizedros.
+O Xibar e a Trozice ___?
+
+Desafio 4
+Todo biglonho ziplelte.
+Toda trotirda é uma trodruda.
+Toda xaglafa é um biglonho.
+Toda trodruda grurampa.
+O Glafeu e o Drelol são xaglafas.
+O Glafeu e o Drelol ___?
+
+Desafio 5
+Todo vrutrulto é uma glolhasta.
+Todo jasafo é uma glolhasta.
+Todo vrutrulto tebaza.
+Toda glolhasta truremba.
+A Blenane e o Zisur são jasafos.
+A Blenane e o Zisur ___?
+
+Desafio 6
+Toda nibrucha chetefa.
+Toda vadenda sopusce.
+Toda botenha é uma vadenda.
+Toda nibrucha é uma vadenda.
+A Cledreia e o Gruglur são botenhas.
+A Cledreia e o Gruglur ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

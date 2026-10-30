@@ -1,0 +1,45 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Toda abelha é famosa.
+Toda girafa é faminta.
+A Gloplela e o Cloleu são abelhas.
+A Gloplela e o Cloleu são ___?
+
+Desafio 2
+Todo rato é ciumento.
+Toda lula é listrada.
+A Dolane e a Grirane são lulas.
+A Dolane e a Grirane são ___?
+
+Desafio 3
+Todo sapo assobia.
+Toda lontra brinca.
+O Glogur e a Jegira são sapos.
+O Glogur e a Jegira ___?
+
+Desafio 4
+Quem come é branco.
+Todo pombo mergulha.
+Quem mergulha é sonolento.
+Todo pinguim come.
+A Zulhira e o Treglel são pombos.
+A Zulhira e o Treglel são ___?
+
+Desafio 5
+Quem espirra é faminto.
+Quem ruge é magro.
+Toda borboleta ruge.
+Toda abelha espirra.
+A Bretrela e a Venhane são abelhas.
+A Bretrela e a Venhane são ___?
+
+Desafio 6
+Toda tartaruga uiva.
+Toda abelha tosse.
+Toda coruja é uma tartaruga.
+Toda formiga é uma abelha.
+A Xigane e o Franar são corujas.
+A Xigane e o Franar ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

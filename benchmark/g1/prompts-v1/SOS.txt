@@ -1,0 +1,489 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+
+Desafio 1
+Toda vaflorba é gronadrenta.
+Quem é grovurtino é um gonilo.
+Toda vaflorba é ropirdosa.
+Toda plivifla é grovurtina.
+Todo gladriflo é uma vaflorba.
+Quem ziperbe é valerbino.
+Quem drifarbe é um xonafo.
+Quem parobra é bleglespino.
+Todo gladriflo é uma brudrasca.
+Toda vaflorba drifarbe.
+Todo gladriflo é valarbino.
+Toda vaflorba é um rubepo.
+Todo rubepo parobra.
+Todo branhesco é xodempino.
+Toda vaflorba é povachina.
+Quem é gronadrento é uma javronha.
+Toda brudrasca é uma xofetra.
+Quem é ropirdoso é uma plivifla.
+Quem zuperbe é freglufudo.
+Todo branhesco é flemofento.
+Todo gonolo ziperbe.
+Todo xonafo é bleglespino.
+Quem floparte é uma plivifla.
+Quem é ropirdoso é gronadrento.
+Todo gladriflo é uma gralelta.
+Quem é ropirdoso é flemofento.
+Todo soferbo é bapascino.
+Toda plivifla zegilha.
+Todo rubepo é um branhesco.
+Toda javronha é uma prazorda.
+Toda xofetra drifarbe.
+Quem é ropirdoso é uma gralelta.
+Toda javronha é xodempina.
+Toda plegrerta é zeneltuda.
+Todo branhesco é uma xofetra.
+Todo sofarbo é um gonolo.
+Todo rubepo floparte.
+Todo gonilo é glitachento.
+Quem é flemofento é uma grugucha.
+Quem floparte zegilha.
+O Plideu é um sofarbo.
+O Promel é uma plivifla.
+O Pludeu é uma plegrerta.
+A Valane floparte.
+O Plideu é ___?
+
+Desafio 2
+Quem cleflempa é glazeboso.
+Todo jatrolo vronhuve.
+Todo plafizo é uma zugibra.
+Quem é guvirdento é uma gluzadra.
+Todo jatrolo é flolhalvudo.
+Toda zugobra é druzatruda.
+Quem é flolhalvudo é guvirdento.
+Quem vronhuve frovomba.
+Quem cleflompa é zemimpino.
+Quem vronhuve é uma cletreta.
+Todo jatrolo é zumimpino.
+Toda cletreta é cradembenta.
+Quem frovomba gratrumpe.
+Toda probrarda é polenina.
+Todo plafuzo é zafebrento.
+Quem é guvirdento é cradembento.
+Toda zugibra cleflompa.
+Toda cletreta é uma gluzadra.
+Quem é cradembento gratrumpe.
+Quem frovomba é uma cletreta.
+A Globela é cradembenta.
+A Zapleia é uma cletreta.
+O Brobol é um plafizo.
+O Brubol é uma probrarda.
+O Brobol é ___?
+
+Desafio 3
+Todo chovripo é flulanhento.
+Quem drofolha clizerne.
+Quem drorompa é vonertudo.
+Quem chalotra brigorte.
+Quem é jefoboso é um frovadro.
+Toda drugerta é uma natebra.
+Quem drofolha é jefoboso.
+Quem zetrasce chalotra.
+Quem é jefoboso é uma clagrecha.
+Quem drorempa é glelhavudo.
+Quem zetrasce é um vroderbo.
+Toda clagrecha clizerne.
+Quem brigorte drofolha.
+Todo vroderbo clizerne.
+Toda netebra é zinhorbina.
+Quem zetrasce é vunertudo.
+Toda dregerta é gludanduda.
+Toda natebra drorompa.
+Todo frovadro clizerne.
+Todo vroderbo é uma clagrecha.
+O Drigim é uma clagrecha.
+O Briveu é um chovripo.
+O Braveu é uma drugerta.
+O Siteu brigorte.
+O Braveu é ___?
+
+Desafio 4
+Quem é zudrenino zalhonde.
+Toda blaglarta frobrumpe.
+Toda blegluta é jubabruda.
+Quem zalhonde é uma vremuva.
+Quem é zudrenino é vrubodento.
+Quem é zudrenino é sigrospento.
+Toda zatrempa frunhoche.
+Toda vremuva é gruflonhina.
+Toda vredisca é uma trenhaspa.
+Quem é sigrospento gruzimpe.
+Quem é sigrospento zalhonde.
+Quem é zudrenino é uma vredisca.
+Quem é trevoltudo gruzimpe.
+Quem frobrumpe é vrabodento.
+Toda vremiva é uma blaglarta.
+Quem é zudrenino é trevoltudo.
+Quem é sigrospento é uma zatrempa.
+Quem frobrempe é dalhobrento.
+Toda zatrempa é uma trenhaspa.
+Toda blaglurta é vragrarnenta.
+A Surela é uma vremiva.
+O Fobrur zalhonde.
+A Serela é uma blegluta.
+O Bredol é uma zatrempa.
+A Surela é ___?
+
+Desafio 5
+Quem glegorba é vraroltoso.
+Quem brebuspa é um tobelvo.
+Quem é drogretudo é um jeglalho.
+Toda laplinta trevafle.
+Quem xodutra é um doflimpo.
+Quem dadrarba é um neforbo.
+Quem trevafle é trasornento.
+Toda tronabra betrobra.
+Quem glugorba é surentudo.
+Todo tradrofo dadrarba.
+Todo xatrerbo é um frolhufo.
+Quem é jitrunoso betrobra.
+Todo neforbo clorobe.
+Quem é bregrenudo é um jeglalho.
+Toda critodra é jonhardina.
+Quem sizolte xodutra.
+Todo broglano é bregrenudo.
+Todo vrenambo breflorba.
+Toda critodra é drogretuda.
+Quem drechompa betrobra.
+Toda laplinta é clechastosa.
+Quem é fruchanudo sizolte.
+Toda laplinta é uma critodra.
+Quem xodutra é uma zalhotra.
+Toda tridreba é surosposa.
+Todo tradrofo glugorba.
+Todo draglerno é clechastoso.
+Todo vrenambo é plepanino.
+Quem é vrofontudo fobufle.
+Quem brazuda é surantudo.
+Toda gevetra é fruchanuda.
+Quem é zonentino brebuspa.
+Quem é zonentino é um vrenambo.
+Todo draglerno betrobra.
+Todo xatrerbo é uma tronabra.
+Todo frolhufo é um doflimpo.
+Toda critodra é uma fretrena.
+Quem brazuda é jonhardino.
+Toda gligapa é um xatrerbo.
+Quem brazuda é zonentino.
+Quem brazuda é um broglano.
+Toda zalhotra fobufle.
+Quem xodutra é um flosebro.
+Quem brebuspa é um draglerno.
+Toda gligapa é vrofontuda.
+Todo vrenambo é um xapempo.
+Toda gevetra é um cliglirno.
+Quem é zonentino é venhirdudo.
+Quem é venhirdudo breflorba.
+Quem é fruchanudo é um blurano.
+Todo cliglirno é um trodranto.
+Toda tronabra clorobe.
+Todo fomapo é drogretudo.
+Todo broglano é uma fretrena.
+Quem é vrofontudo é uma gevetra.
+Quem sizolte é um plapovo.
+Toda critodra é uma reglolta.
+Toda reglolta breflorba.
+Quem brazuda é uma gligapa.
+Todo trodrinto é godrarbento.
+Toda vrodruza é jolhendina.
+Todo tradrofo drechompa.
+Todo trodranto é uma tredreba.
+Toda gevetra é jonhardina.
+Todo doflimpo é jafantoso.
+Quem é flalhamudo é uma novralha.
+Quem é bregrenudo é flalhamudo.
+Quem é flalhamudo pechurda.
+Quem brazuda é uma fretrena.
+Todo xapempo é um tobelvo.
+Toda novralha é um flosebro.
+Quem é venhirdudo é jitrunoso.
+Quem é venhirdudo é um tradrofo.
+Toda gevetra é uma laplinta.
+Toda tredreba glugorba.
+Quem trevafle é uma zalhotra.
+Toda laplinta é um cliglirno.
+Todo frolhufo é clerunento.
+Todo xatrerbo é um fomapo.
+Quem é fruchanudo é jafantoso.
+A Plinhela é uma vrodruza.
+A Plelhice é um jeglalho.
+O Vorol é plepanino.
+O Blochur é uma zalhotra.
+A Planhela é um trodranto.
+A Planhela é ___?
+
+Desafio 6
+Quem jurenda é clafledento.
+Quem é riflonhoso xetrona.
+Quem plarirde vunhabra.
+Quem é clenumino jurenda.
+Quem é clenumino é gresunino.
+Quem plavronda é riflonhoso.
+Quem plavronda é um glevendo.
+Quem plarirde fechibra.
+Quem plavronda é um tomilo.
+Todo cluperbo é fogrubrento.
+Quem é riflonhoso é um berevo.
+Quem xetrona é britrudrento.
+Quem xetrona é uma plizepa.
+Quem laflambe é um tomilo.
+Todo cleperbo é um plovidro.
+Todo plovadro é xetartento.
+Quem jabrosta é uma prilhafa.
+Todo plovidro jurenda.
+Quem jabrosta é clenumino.
+Quem é britrudrento xedresta.
+Todo frelatro é chusendudo.
+Quem jabrosta laflambe.
+Todo glevendo fechibra.
+Quem jurunda é clutotrento.
+Todo tomilo é gresunino.
+Toda plevrena é um grinasto.
+Quem é gresunino é um xalhospo.
+Toda prilhafa é uma plevrena.
+Quem vunhabra plavronda.
+Toda plizepa laflambe.
+Quem plarirde é um trilhuto.
+Quem plarirde é clefledento.
+Todo trilhuto é um plovidro.
+Toda plizepa é um jonhito.
+Quem xetrona fechibra.
+Quem é gresunino é um grinasto.
+Quem é britrudrento jabrosta.
+Quem fechibra xedresta.
+Quem xetrona é clenumino.
+Quem xetrona é um tugenho.
+A Tugane é um frelatro.
+A Togane é um cleperbo.
+O Gramim laflambe.
+O Blavol é um glevendo.
+A Togane é ___?
+
+Desafio 7
+Todo gralhimo é um cladesco.
+Todo gralhimo é uma bitrurna.
+Todo cladesco gronurta.
+Quem greglata é brenepento.
+Toda traplirna é clutertosa.
+Todo gralhimo é um zatoflo.
+Quem gronurta zotrala.
+Quem greglota é brigremento.
+Todo truvrumbo é bronepento.
+Todo bogolvo é plevruspento.
+Quem é xaglafento é um gralhimo.
+Todo grupatro é rugrambino.
+Toda bitrurna é uma diglasta.
+Todo grapatro é um bogilvo.
+Todo gleplutro é midumbino.
+Toda traplirna xonhama.
+Toda bitrurna é japlamposa.
+Quem balhelte é um flachisto.
+Toda grafleva é midumbina.
+Quem balhelte é clutertoso.
+Quem zabrota é um bogilvo.
+Todo cladesco é um gleplutro.
+Toda diglasta é midumbina.
+Quem é clutertoso é um gleplutro.
+Quem é japlamposo é um flachisto.
+Quem é midumbino é japlamposo.
+Toda grafleva é uma chebumpa.
+Toda grafleva é plosoflosa.
+Quem gronurta é midumbino.
+Quem é xaglafento zabrota.
+Toda grafleva é xaglafenta.
+Quem é xaglafento balhelte.
+Toda blobrotra é pladustina.
+Quem é midumbino é um zatoflo.
+Toda grafleva é uma grovocha.
+Toda diglasta é drobrembuda.
+Todo bogilvo greglata.
+Quem xonhama é uma bitrurna.
+Todo truvrumbo é uma traplirna.
+Todo truvrumbo é uma grafleva.
+A Trurira é midumbina.
+A Grozina é uma blobrotra.
+O Glavol é um gralhimo.
+A Grazina é um grapatro.
+A Grazina é ___?
+
+Desafio 8
+Quem é flelharnoso é um plebamo.
+Toda bisesca é uma fanholva.
+Toda dregrulva é uma vupusca.
+Todo glopento é xafostento.
+Quem cholheda é um jivondo.
+Quem flolebe é flonhirdino.
+Quem é plavrodrento é um glusovo.
+Quem cholheda é uma plichoma.
+Quem é clotostudo é docharnudo.
+Quem vriglalha é uma deglova.
+Quem é droderdudo cholheda.
+Quem é dagrafento é flavrendento.
+Todo flebasto vaglame.
+Toda bronusca é uma dregrulva.
+Todo plamerno é uma pladema.
+Todo gloflarno flalebe.
+Todo plamerno é um vuliflo.
+Quem é clotostudo é um sochospo.
+Quem é grabanhino vaglame.
+Quem cholheda é uma taplesta.
+Todo plamerno é um flebasto.
+Quem falheve é clotostudo.
+Quem flalebe é plazuntento.
+Toda vupusca é um baflaspo.
+Quem nopomba é uma rafonha.
+Toda bisesca é um vrapelto.
+Toda vupusca é uma plichoma.
+Toda fletripa é plavrodrenta.
+Toda dregrulva é um vrapelto.
+Quem falheve é uma pleditra.
+Quem é droderdudo cliplalve.
+Quem é droderdudo é clolhadroso.
+Todo brumunto é grabanhino.
+Quem é chanordoso é uma vupusca.
+Quem é droderdudo vaglame.
+Quem plabreche é uma fletripa.
+Quem é clolhadroso greflome.
+Todo fichoto é uma deglova.
+Todo flebasto é droderdudo.
+Quem vriglalha é um vrapelto.
+Quem sachoze é uma trelana.
+Quem é grabanhino greflome.
+Todo plamerno é um brumunto.
+Quem é flelharnoso é um sochospo.
+Quem sachoze é um gloflarno.
+Quem é flavrendento cholheda.
+Toda rafonha é uma grutroza.
+Todo fichoto vriglalha.
+Todo flebasto plabreche.
+Todo prararno é vratefino.
+Quem é flelharnoso é chanordoso.
+Todo plamerno é plazintento.
+Quem é clolhadroso é dagrafento.
+Quem falheve é plavrodrento.
+Quem nopomba cholheda.
+Toda trifomba é clisorbuda.
+Quem glegrena é flelharnoso.
+Todo brumunto é uma vrogruspa.
+Quem é chanordoso é uma plichoma.
+Quem é clotostudo é uma trifomba.
+Todo plolhordo é uma fanholva.
+Quem cholheda é um plolhordo.
+Quem cholheda é um prenhalho.
+Quem é clolhadroso é uma trelana.
+Todo gliflarno é tetrachino.
+Toda rafonha é plavrodrenta.
+Quem glegrena é um vrapelto.
+Todo plamerno glegrena.
+Quem falheve é plazintento.
+Quem é flavrendento é um glopento.
+Toda taplesta é uma bisesca.
+Todo prurarno é um gloflarno.
+Quem plabreche é um prenhalho.
+Todo plamerno falheve.
+Quem é droderdudo nopomba.
+Todo plamerno é uma bronusca.
+Quem cliplalve sachoze.
+Quem plabreche é um fichoto.
+Toda vrogruspa é uma grofada.
+Quem nopomba é plazuntento.
+O Drinol é uma dregrulva.
+O Fagrur é um plamerno.
+A Votrela é um prurarno.
+O Zubol é uma vupusca.
+A Vutrela é um glopento.
+A Votrela é ___?
+
+Desafio 9
+Todo flatarbo é um plarilto.
+Todo suchosto zubrerte.
+Quem é lavompento zeglarta.
+Quem trovespa é zatradento.
+Quem grozilha é uma clevarba.
+Quem droparta é jidrubento.
+Toda drimanda é uma vamemba.
+Quem é jufaflino fronhombe.
+Todo flatarbo traserna.
+Quem é jufaflino é um suchosto.
+Quem é jufaflino é zatradento.
+Toda ladrempa é xibrudenta.
+Quem traserna é um plitenho.
+Quem zubrerte é uma vamemba.
+Quem tratosce é uma vraromba.
+Todo flatarbo é uma drimanda.
+Toda nebema durirda.
+Quem é lefachoso clebisce.
+Quem é grevopudo é um tregobo.
+Toda cluvrofla é uma zodretra.
+Quem é zechostento é um flatarbo.
+Todo paberbo é betreflento.
+Quem zeglarta é uma cluvrofla.
+Toda vrupumpa é um plitenho.
+Quem é zechostento é uma cromulva.
+Todo jolondo é um rubrosco.
+Quem é novrubrino é um cresibo.
+Todo cresibo grofolte.
+Toda dragela é gloguzosa.
+Quem é zechostento é um dretusto.
+Quem é jufaflino é lefachoso.
+Quem é jufaflino é uma venespa.
+Todo jolondo grofolte.
+Quem é lavompento é um cholhaspo.
+Quem globroze é xibrudento.
+Todo rubrosco é uma nebema.
+Quem naglama é uma cluvrofla.
+Quem grofolte é uma vrupumpa.
+Quem glabroze é chenhesposo.
+Quem fronhombe é uma gelhempa.
+Quem é jufaflino é xubrudento.
+Toda cromulva grozilha.
+Toda xerasta é tolevina.
+Quem tratosce zeglarta.
+Quem é lavompento trovespa.
+Todo rubrosco é labutroso.
+Todo cresibo é zatradento.
+Todo jolondo é novrubrino.
+Quem é labutroso é lavompento.
+Toda venespa clebisce.
+Toda drigela é um paborbo.
+Todo jolondo é uma blagralva.
+Quem é zechostento naglama.
+Quem é jufaflino tratosce.
+Quem durirda é tolevino.
+Quem grofolte é uma xerasta.
+Todo plarilto é um gluzerdo.
+Quem é tolevino é jidrubento.
+Toda zodretra é uma venespa.
+Todo rubrosco é uma xerasta.
+Toda tagrala é gruraltenta.
+Quem zubrerte clebisce.
+Todo cresibo zeglarta.
+Quem é jufaflino é zechostento.
+Quem fronhombe xanarte.
+Todo suchosto é um jolondo.
+Quem é lefachoso é um flogacho.
+Quem é lefachoso é uma nofonta.
+Quem é novrubrino é uma ladrempa.
+Quem é tolevino droparta.
+Quem zubrerte é grevopudo.
+Toda ladrempa droparta.
+Quem zeglarta é vochelhento.
+Quem xanarte é uma ladrempa.
+Toda vrupumpa é um tregobo.
+Toda xerasta é uma ladrempa.
+Quem é lefachoso traserna.
+Toda nofonta é jidrubenta.
+Todo flatarbo clebisce.
+Todo paborbo globroze.
+A Xelhice é uma tagrala.
+A Vreglela é uma clevarba.
+O Freglim é uma vraromba.
+A Flovrice é um dretusto.
+A Xilhice é uma drigela.
+A Xilhice é ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

@@ -1,0 +1,49 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Exemplos de como responder:
+- no desafio "Toda plimba é zarfosa. O Tilo e a Lena são plimbas. O Tilo e a Lena são ___?", a resposta seria "zarfosos";
+- no desafio "Quem é plimbo é bolento. A Lena e a Rita são plimbos. A Lena e a Rita são ___?", a resposta seria "bolentas";
+- no desafio "Todo plimbo zarfe. O Tilo e a Lena são plimbos. O Tilo e a Lena ___?", a resposta seria "zarfem".
+
+Desafio 1
+Toda tronufa é xarezenta.
+Toda vulonta é crebamina.
+A Gloplela e o Cloleu são tronufas.
+A Gloplela e o Cloleu são ___?
+
+Desafio 2
+Todo glosonho é fribreflento.
+Toda bratrola é gradasposa.
+A Dolane e a Grirane são bratrolas.
+A Dolane e a Grirane são ___?
+
+Desafio 3
+Todo bodrulvo gronetre.
+Toda glaplalha frivepa.
+O Glogur e a Jegira são bodrulvos.
+O Glogur e a Jegira ___?
+
+Desafio 4
+Quem frovelve é breflachento.
+Todo pranhozo pradranda.
+Quem pradranda é clazidudo.
+Todo frasesco frovelve.
+A Zulhira e o Treglel são pranhozos.
+A Zulhira e o Treglel são ___?
+
+Desafio 5
+Quem bonhelta é detalvino.
+Quem jutufle é zichobrino.
+Toda vreflabra jutufle.
+Toda gluropa bonhelta.
+A Bretrela e a Venhane são gluropas.
+A Bretrela e a Venhane são ___?
+
+Desafio 6
+Toda zuchidra gletofla.
+Toda crovrenta vrarilhe.
+Toda segesca é uma zuchidra.
+Toda flibrafa é uma crovrenta.
+A Xigane e o Franar são segescas.
+A Xigane e o Franar ___?
+
+Importante: não leia arquivos nem use ferramentas para resolver.
