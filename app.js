@@ -256,7 +256,8 @@ function linhaComEsqueleto(d, texto, esqueleto, classes = '', armadilha = false)
 function provaHtml(d) {
     const premissas = d.prova.slice(0, -1).map(colorirLetras).join(' <span class="text-slate-600">→</span> ');
     return `<span class="text-slate-400">${premissas} <span class="text-white">⇒</span> ${colorirLetras(d.prova[d.prova.length - 1])}</span>` +
-        ` <span class="text-slate-600">(${d.passos} ${d.passos === 1 ? t('passo') : t('passos')})</span>`;
+        // A indução não conta passos: a prova é a regra escondida aplicada ao personagem novo
+        (d.passos === null ? '' : ` <span class="text-slate-600">(${d.passos} ${d.passos === 1 ? t('passo') : t('passos')})</span>`);
 }
 
 const COR_DO_STATUS = { certo: 'text-emerald-300', ambigua: 'text-orange-300', flexao: 'text-amber-300', armadilha: 'text-fuchsia-300', errado: 'text-rose-300', 'sem-resposta': 'text-slate-500' };

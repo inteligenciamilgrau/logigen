@@ -50,6 +50,19 @@
 //                            cada verbo e a forma básica de cada adjetivo, em ordem sorteada:
 //                            "pavobe" não diz se o verbo é pavober ou pavobir; o glossário diz
 //
+// Indução (nível 7): no lugar das regras, exemplos. A regra fica escondida.
+//   traços: A1 A2 A3         os adjetivos que descrevem cada personagem
+//   exemplos: 6              quantos personagens de exemplo, cada um com todos os traços:
+//                            "A X1 é A1, não é A2 e é A3. A X1 é uma G1." (ou "não é uma G1")
+//   regra: G1 = A1 e não A2  quem é G1, com "e", "ou", "não" e parênteses
+//                            Depois dos exemplos vem um personagem novo: "O X7 ... O X7 é um G1?"
+//                            A resposta é sorteada (sim ou não, meio a meio), os exemplos também,
+//                            e o verificador só aceita o desafio se TODAS as regras plausíveis que
+//                            explicam os exemplos derem a mesma resposta: as do mesmo tamanho da
+//                            escondida ou menores, "só um dos dois" e "pelo menos 2 de 3". Nenhuma
+//                            regra menor que a escondida pode explicar os exemplos (a variante
+//                            "dois traços" usa mesmo dois)
+//
 // A resposta precisa sair do texto, na lógica e na gramática. Pelo presente
 // "pavobe" não dá para saber se o verbo é pavober ou pavobir, então nos desafios
 // de gerúndio todos os verbos são da 1ª conjugação ("glovunda" -> "glovundando").
@@ -353,6 +366,46 @@ const NIVEIS = {
                 gênero: X1 f, X2 f, G1 m, G2 f
                 pergunta: X1 e X2 são ___?
                 resposta: A1
+            `
+        }
+    },
+    7: {
+        nome: 'Indução',
+        descricao: 'No lugar das regras, exemplos: cada personagem tem alguns traços e é ou não é de um grupo. É preciso descobrir a regra escondida (um traço, dois traços com "e" ou "ou", com negação) e aplicá-la a alguém novo. O verificador só aceita o desafio se todas as regras plausíveis que explicam os exemplos derem a mesma resposta.',
+        instrucao: {
+            pt: 'Cada desafio mostra quem é e quem não é de um grupo. Descubra a regra mais simples que separa os dois e responda só "sim" ou "não".',
+            en: 'Each challenge shows who is and who is not in a group. Find the simplest rule that separates them and answer only "yes" or "no".'
+        },
+        variantes: {
+            'um traço': `
+                traços: A1 A2 A3
+                exemplos: 5
+                regra: G1 = A1
+            `,
+            'um traço negado': `
+                traços: A1 A2 A3
+                exemplos: 5
+                regra: G1 = não A1
+            `,
+            'dois traços · e': `
+                traços: A1 A2 A3
+                exemplos: 6
+                regra: G1 = A1 e A2
+            `,
+            'dois traços · ou': `
+                traços: A1 A2 A3
+                exemplos: 6
+                regra: G1 = A1 ou A2
+            `,
+            'e com negação': `
+                traços: A1 A2 A3
+                exemplos: 6
+                regra: G1 = A1 e não A2
+            `,
+            'três traços': `
+                traços: A1 A2 A3 A4
+                exemplos: 10
+                regra: G1 = A1 e (A2 ou A3)
             `
         }
     }

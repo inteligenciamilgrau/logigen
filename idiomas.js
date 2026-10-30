@@ -301,7 +301,8 @@ const NIVEIS_EN = {
     3: { nome: 'Converse trap', descricao: 'A two-step chain with a rule that fools whoever reads it backwards: "every trovel is a jafleck" does not mean every jafleck is a trovel. The trap moves around depending on the variant.' },
     4: { nome: 'Negation and fallacies', descricao: 'Rules with "no" and negative facts ("Zorin is not a blick"). The question is yes or no, and sometimes the right answer is "can\'t tell": that is where the two classic fallacies live, affirming the consequent and denying the antecedent.' },
     5: { nome: 'Proof by cases', descricao: 'Rules with "or": "Every blick is a florp or a snurk". To answer, you have to check both cases, or rule one out with a negative fact. When only one case leads to the conclusion, the answer is "can\'t tell".' },
-    6: { nome: 'New words (wug)', descricao: 'The "wug test": applying a rule of the language to a word that never existed. A glossary gives the base form of every verb and adjective. In Portuguese the challenge asks for the gerund and plural of -er and -ir verbs, or the agreement of a group whose noun has a different gender from the people; in English verbs and adjectives have fewer forms, and the level is close to level 2.' }
+    6: { nome: 'New words (wug)', descricao: 'The "wug test": applying a rule of the language to a word that never existed. A glossary gives the base form of every verb and adjective. In Portuguese the challenge asks for the gerund and plural of -er and -ir verbs, or the agreement of a group whose noun has a different gender from the people; in English verbs and adjectives have fewer forms, and the level is close to level 2.' },
+    7: { nome: 'Induction', descricao: 'Examples instead of rules: each character has a few traits and is or is not in a group. You have to find the hidden rule (one trait, two traits with "and" or "or", with negation) and apply it to someone new. The checker only accepts the challenge if every plausible rule that explains the examples gives the same answer.' }
 };
 // Em inglês o adjetivo não tem gênero: a variante "gênero" vira o adjetivo no singular
 const VARIANTES_EN = {
@@ -322,7 +323,13 @@ const VARIANTES_EN = {
     'gerúndio · -ir': 'gerund · -ir verb',
     'plural · -e': 'plural · -e verb',
     'grupo misto · substantivo feminino': 'mixed group · feminine noun',
-    'grupo feminino · substantivo masculino': 'female group · masculine noun'
+    'grupo feminino · substantivo masculino': 'female group · masculine noun',
+    'um traço': 'one trait',
+    'um traço negado': 'one negated trait',
+    'dois traços · e': 'two traits · and',
+    'dois traços · ou': 'two traits · or',
+    'e com negação': 'and with negation',
+    'três traços': 'three traits'
 };
 const COMENTARIOS_EN = {
     'leva à resposta': 'leads to the answer',
@@ -371,10 +378,13 @@ function esqueletoNoIdioma(texto) {
         // Operadores (níveis 4 e 5)
         .replace(/não dá para saber/g, "can't tell")
         .replace(/(resposta:|\?) sim$/, '$1 yes').replace(/(resposta:|\?) não$/, '$1 no')
-        .replace(/^nenhum /, 'no ').replace(/ ou (?=G\d)/g, ' or ').replace(/ não é /g, ' is not ')
+        .replace(/^nenhum /, 'no ').replace(/ ou (?=[GA]\d|não |\()/g, ' or ').replace(/ não é /g, ' is not ')
         .replace(/^pergunta:/, 'question:').replace(/^resposta:/, 'answer:')
         // Palavras novas (nível 6)
         .replace(/^gênero:/, 'gender:').replace(/^conjugação:/, 'conjugation:')
+        // Indução (nível 7): "regra: G1 = A1 e não A2", "X1: A1, não A2 → não G1"
+        .replace(/^traços:/, 'traits:').replace(/^exemplos:/, 'examples:').replace(/^regra:/, 'rule:')
+        .replace(/ e (?=A\d|não |\()/g, ' and ').replace(/\bnão (?=[AG]\d|\()/g, 'not ')
         .replace(/\btodo\b/g, 'every')
         .replace(/ está ___/g, ' is ___ing').replace(/ estão ___/g, ' are ___ing')
         .replace(/ é /g, ' is ').replace(/ são /g, ' are ')

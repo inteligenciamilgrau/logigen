@@ -122,6 +122,7 @@ Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do 
 | 4 | Negação e falácias | — | — | "nenhum" e fatos negativos; resposta sim, não ou não dá para saber. Variantes: cadeia, negação, contraposição, afirmar o consequente, negar o antecedente |
 | 5 | Prova por casos | — | — | "todo G1 é G2 ou G3"; examinar os dois casos ou eliminar um. Variantes: casos, silogismo disjuntivo, casos + nenhum, ramo aberto |
 | 6 | Palavras novas (wug) | 2 | 0 | cadeia de 2 regras + glossário; gerúndio de verbos em -er e -ir, plural em -em, e grupos cujo substantivo tem outro gênero que o das pessoas |
+| 7 | Indução | — | — | exemplos no lugar das regras; descobrir a regra escondida e aplicá-la a alguém novo (sim ou não). Variantes: um traço, um traço negado, dois traços com "e" ou "ou", "e" com negação, três traços |
 
 Os níveis 1 a 3 têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
 
@@ -152,6 +153,27 @@ Glossário: pavobir (verbo); zedanter (verbo).
 - O glossário traz o infinitivo de cada verbo e a forma básica (masculino singular) de cada adjetivo do desafio, em ordem sorteada, para não entregar qual é a resposta.
 - A correção diz por que a forma saiu errada: **copiou** uma forma do desafio (do texto ou do glossário), **conjugação** errada (-ando × -endo, -am × -em) ou **atração** (concordou com o grupo, não com as pessoas).
 - Em inglês o verbo não tem conjugação e o adjetivo não tem gênero: as diretivas não mudam nada, e o nível fica perto do nível 2.
+
+**Nível 7: indução.** Os outros níveis dão as regras e pedem a conclusão (dedução). Este dá exemplos e esconde a regra:
+
+```
+A Clavira é dunhententa, não é fravrolosa e não é glufludenta. A Clavira é um brunapo.
+O Zofel é dunhentento, é fravroloso e é glufludento. O Zofel não é um brunapo.
+...
+O Grovol é dunhentento, não é fravroloso e é glufludento. O Grovol é um brunapo?   → sim
+```
+
+O esqueleto diz só os traços, quantos exemplos e a regra escondida:
+
+```
+traços: A1 A2 A3
+exemplos: 6
+regra: G1 = A1 e não A2
+```
+
+- A resposta é sorteada (sim ou não, meio a meio), e os exemplos também. O verificador só aceita o desafio se **todas** as regras plausíveis que explicam os exemplos derem a mesma resposta para o personagem novo: as regras com "e", "ou" e "não" do mesmo tamanho da escondida ou menores, mais "só um dos dois" e "pelo menos 2 de 3". E nenhuma regra menor que a escondida pode explicar os exemplos: a variante "dois traços" precisa mesmo de dois.
+- Isso vem da bateria H4 do [benchmark](benchmark/RELATORIO-G2.md): três modelos "erraram" o mesmo item porque acharam, cada um, outra regra do mesmo tamanho que também explicava os exemplos. O erro era do item.
+- Com mais liberdade, a resposta pode mudar: aceitando regras com um traço a mais que a escondida, só uma parte dos desafios continua com resposta única (cerca de 1 em cada 6 em "dois traços · e" e "dois traços · ou"). Por isso o prompt pede **a regra mais simples**. Exigir o traço a mais deixaria "dois traços · e" sempre com resposta "não", e daria para acertar sem pensar.
 
 Exemplo do nível 3:
 

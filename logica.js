@@ -13,7 +13,7 @@ function tipoDaVariavel(v) {
 }
 
 function lerEsqueleto(texto, rotulo) {
-    const esq = { regras: [], fatos: [], pergunta: null, resposta: null, variaveis: [], generos: {}, conjugacoes: {} };
+    const esq = { rotulo, regras: [], fatos: [], pergunta: null, resposta: null, variaveis: [], generos: {}, conjugacoes: {} };
     const erro = (msg, linha) => new Error(`Esqueleto do nível ${rotulo}: ${msg}${linha ? ` (linha "${linha}")` : ''}`);
     const usar = (v, tipos, linha) => {
         if (/^[XGAV]$/.test(v)) throw erro(`"${v}" precisa de número (ex.: ${v}1)`, linha);
@@ -72,6 +72,16 @@ function lerEsqueleto(texto, rotulo) {
                 usar(v, ['verbo'], linha);
                 esq.conjugacoes[v] = c;
             }
+        // Indução (nível 7): os traços, quantos exemplos e a regra escondida
+        } else if ((m = linha.match(/^traços: ((?:\w+ ?)+)$/))) {
+            esq.tracos = m[1].trim().split(' ');
+            esq.tracos.forEach(v => usar(v, ['adjetivo'], linha));
+        } else if ((m = linha.match(/^exemplos: (\d+)$/))) {
+            esq.exemplos = parseInt(m[1], 10);
+        } else if ((m = linha.match(/^regra: (\w+) = (.+)$/))) {
+            usar(m[1], ['substantivo'], linha);
+            const expressao = lerExpressao(m[2], (v) => usar(v, ['adjetivo'], linha), (msg) => erro(msg, linha));
+            esq.regraEscondida = { grupo: m[1], expressao, texto: linha };
         } else if ((m = linha.match(/^resposta: (sim|não|não dá para saber)$/))) {
             esq.resposta = m[1];
             esq.respostaSimNao = true;
@@ -87,6 +97,17 @@ function lerEsqueleto(texto, rotulo) {
         } else {
             throw erro('linha não entendida', linha);
         }
+    }
+    // Na indução, a pergunta e a resposta saem dos exemplos sorteados
+    if (esq.regraEscondida || esq.tracos || esq.exemplos) {
+        if (!esq.regraEscondida || !esq.tracos || !esq.exemplos) throw erro('a indução pede as três linhas: "traços:", "exemplos:" e "regra:"');
+        if (esq.pergunta || esq.resposta || esq.regras.length || esq.fatos.length) throw erro('na indução, os exemplos fazem o papel das regras e dos fatos; tire as outras linhas');
+        const fora = esq.variaveis.filter(v => v[0] === 'A' && !esq.tracos.includes(v));
+        if (fora.length) throw erro(`a regra usa ${fora.join(', ')}, que não está em "traços:"`);
+        if (esq.tracos.length > 4) throw erro('no máximo 4 traços');
+        if (esq.exemplos >= 2 ** esq.tracos.length) throw erro(`com ${esq.tracos.length} traços só existem ${2 ** esq.tracos.length} personagens diferentes; sobra nenhum para a pergunta`);
+        esq.inducao = true;
+        return esq;
     }
     if (!esq.pergunta) throw erro('falta a linha "pergunta: X1 é ___?"');
     if (!esq.resposta) throw erro('falta a linha "resposta: A1"');
@@ -262,6 +283,7 @@ function ordenarLetras(variaveis) {
 function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
     const variante = fixo.variante ?? s.item(Object.keys(NIVEIS[nivel].variantes));
     const esq = esqueletoDe(nivel, variante);
+    if (esq.inducao) return montarDesafioInducao(nivel, variante, esq, s, lexico, numero, idioma, fixo);
     if (esq.pergunta.tipo === 'sim-nao') return montarDesafioSimNao(nivel, variante, esq, s, lexico, numero, idioma, fixo);
     const { verbo } = esq.pergunta;
     const gerundio = verbo.startsWith('est');
@@ -478,6 +500,140 @@ function montarDesafioSimNao(nivel, variante, esq, s, lexico, numero, idioma, fi
     };
 }
 
+// --- INDUÇÃO (nível 7) ---
+// A regra escondida ("A1 e não A2") vira uma árvore; cada personagem é um número em que o
+// bit k diz se ele tem o k-ésimo traço, e cada regra vira uma tabela-verdade (um bit por
+// personagem possível: com 4 traços, 16 bits).
+function lerExpressao(texto, usarLetra, erro) {
+    const tokens = texto.match(/[()]|[^\s()]+/g) ?? [];
+    let i = 0;
+    const fator = () => {
+        const tk = tokens[i++];
+        if (tk === 'não') return { tipo: 'nao', a: fator() };
+        if (tk === '(') {
+            const e = expressao();
+            if (tokens[i++] !== ')') throw erro('falta fechar um parêntese');
+            return e;
+        }
+        if (/^A\d+$/.test(tk ?? '')) { usarLetra(tk); return { tipo: 'traco', v: tk }; }
+        throw erro(`"${tk ?? 'fim da linha'}" não cabe na regra (use A1, "e", "ou", "não" e parênteses)`);
+    };
+    const termo = () => { let a = fator(); while (tokens[i] === 'e') { i++; a = { tipo: 'e', a, b: fator() }; } return a; };
+    const expressao = () => { let a = termo(); while (tokens[i] === 'ou') { i++; a = { tipo: 'ou', a, b: termo() }; } return a; };
+    const arvore = expressao();
+    if (i < tokens.length) throw erro(`sobrou "${tokens.slice(i).join(' ')}" na regra`);
+    return arvore;
+}
+const avaliar = (e, tem) => e.tipo === 'traco' ? tem(e.v) : e.tipo === 'nao' ? !avaliar(e.a, tem)
+    : e.tipo === 'e' ? avaliar(e.a, tem) && avaliar(e.b, tem) : avaliar(e.a, tem) || avaliar(e.b, tem);
+// Tamanho de uma regra: quantos traços ela cita ("A1 e não A2" = 2)
+const tamanhoDaRegra = (e) => e.tipo === 'traco' ? 1 : e.tipo === 'nao' ? tamanhoDaRegra(e.a) : tamanhoDaRegra(e.a) + tamanhoDaRegra(e.b);
+
+// Todas as regras com "e", "ou" e "não" de até "maximo" traços, cada uma com o menor tamanho em
+// que aparece, mais as que uma pessoa (ou uma IA) poderia achar tão simples quanto: "só um dos
+// dois" e "pelo menos 2 de 3". Foi o que faltou na bateria H4 do benchmark: três modelos acharam,
+// cada um, uma regra do mesmo tamanho que o gerador não tinha conferido, e o "erro" era do item.
+// (Exigir também as regras com um traço a mais não serve: com 3 traços, "A1 e A2" teria sempre
+// "não" como resposta, porque os dois únicos casos de "sim" precisariam estar nos exemplos.)
+const regrasCalculadas = {};
+function regrasPlausiveis(nTracos, maximo) {
+    const chave = `${nTracos}/${maximo}`;
+    if (regrasCalculadas[chave]) return regrasCalculadas[chave];
+    const n = 1 << nTracos, cheia = 2 ** n - 1;
+    const doTraco = (k) => { let t = 0; for (let a = 0; a < n; a++) if ((a >> k) & 1) t |= 1 << a; return t; };
+    const tamanho = new Map();
+    const porTamanho = [[], []];
+    for (let k = 0; k < nTracos; k++) for (const t of [doTraco(k), cheia ^ doTraco(k)]) { tamanho.set(t, 1); porTamanho[1].push(t); }
+    for (let tam = 2; tam <= maximo; tam++) {
+        porTamanho[tam] = [];
+        for (let i = 1; i <= tam / 2; i++) for (const a of porTamanho[i]) for (const b of porTamanho[tam - i]) {
+            for (const t of [a & b, a | b]) if (!tamanho.has(t)) { tamanho.set(t, tam); porTamanho[tam].push(t); }
+        }
+    }
+    const lit = porTamanho[1];
+    const outras = [...lit.flatMap(a => lit.map(b => a ^ b)), ...lit.flatMap(a => lit.flatMap(b => lit.map(c => (a & b) | (a & c) | (b & c))))];
+    regrasCalculadas[chave] = { tamanho, todas: [...new Set([...tamanho.keys(), ...outras])] };
+    return regrasCalculadas[chave];
+}
+
+// Sorteia a resposta (sim ou não, meio a meio) e depois os exemplos e o personagem da pergunta,
+// até a resposta ficar única: nenhuma regra menor que a escondida explica os exemplos, e todas
+// as plausíveis do mesmo tamanho (ou menores) que explicam concordam no personagem novo
+function estruturaDaInducao(esq, s) {
+    const T = esq.tracos.length;
+    const valor = (a) => avaliar(esq.regraEscondida.expressao, (v) => Boolean((a >> esq.tracos.indexOf(v)) & 1));
+    const tam = tamanhoDaRegra(esq.regraEscondida.expressao);
+    const { tamanho, todas } = regrasPlausiveis(T, tam);
+    const menores = [...tamanho].filter(([, t]) => t < tam).map(([regra]) => regra);
+    const cabe = (regra, a) => Boolean((regra >> a) & 1);
+    const queria = s.chance(0.5);
+    for (let tentativa = 0; tentativa < 3000; tentativa++) {
+        const ordem = s.embaralhar([...Array(1 << T).keys()]);
+        const exemplos = ordem.slice(0, esq.exemplos), resto = ordem.slice(esq.exemplos);
+        // Pelo menos um exemplo de cada lado (com 3 traços, "A1 e A2" só tem dois casos de "sim")
+        const dentro = exemplos.filter(valor).length;
+        if (!dentro || dentro === exemplos.length) continue;
+        const explica = (regra) => exemplos.every(a => cabe(regra, a) === valor(a));
+        if (menores.some(explica)) continue;
+        const explicam = todas.filter(explica);
+        const pergunta = resto.find(a => valor(a) === queria && explicam.every(regra => cabe(regra, a) === queria));
+        if (pergunta === undefined) continue;
+        return { exemplos, pergunta, ordemDosTracos: s.embaralhar(esq.tracos.map((_, k) => k)) };
+    }
+    throw new Error(`Esqueleto do nível ${esq.rotulo}: não achei exemplos que deixem a resposta "${queria ? 'sim' : 'não'}" única; mude "exemplos:".`);
+}
+
+// "A Flunice é zedantosa, não é glumenta e é pavobenta." Os traços vêm sempre na mesma ordem
+// dentro do desafio, para os exemplos serem comparáveis
+const FRASES_INDUCAO = {
+    pt: (x, tracos) => {
+        const partes = tracos.map(([adj, tem]) => `${tem ? 'é' : 'não é'} ${adj[x.genero]}`);
+        return maiuscula(`${nomes([x])} ${partes.slice(0, -1).join(', ')} e ${partes.at(-1)}.`);
+    },
+    en: (x, tracos) => {
+        const partes = tracos.map(([adj, tem]) => `${tem ? 'is' : 'is not'} ${adj.m}`);
+        return `${x.palavra} ${partes.slice(0, -1).join(', ')} and ${partes.at(-1)}.`;
+    }
+};
+const FLEXAO_INDUCAO = { pt: 'sim ou não', en: 'yes or no' };
+
+function montarDesafioInducao(nivel, variante, esq, s, lexico, numero, idioma, fixo) {
+    const { exemplos, pergunta, ordemDosTracos } = fixo.inducao ?? estruturaDaInducao(esq, s);
+    const { grupo } = esq.regraEscondida;
+    const palavra = Object.fromEntries([grupo, ...esq.tracos].map(v => [v, lexico[tipoDaVariavel(v)]()]));
+    const personagens = [...exemplos, pergunta].map((a, i) => ({ letra: `X${i + 1}`, a, nome: lexico.nome() }));
+    personagens.forEach(p => { palavra[p.letra] = p.nome; });
+    const ordem = ordemDosTracos.map(k => esq.tracos[k]);
+    const tem = (a, v) => Boolean((a >> esq.tracos.indexOf(v)) & 1);
+    const valor = (a) => avaliar(esq.regraEscondida.expressao, (v) => tem(a, v));
+    const F = FRASES_SIM_NAO[idioma];
+    const descrever = (p) => FRASES_INDUCAO[idioma](p.nome, ordem.map(v => [palavra[v], tem(p.a, v)]));
+    const tracosNoEsqueleto = (p) => ordem.map(v => tem(p.a, v) ? v : `não ${v}`).join(', ');
+    const teste = personagens.at(-1);
+    const resposta = valor(pergunta) ? 'sim' : 'não';
+    const letras = ordenarLetras(Object.keys(palavra));
+    return {
+        numero, nivel, variante, idioma,
+        linhas: personagens.slice(0, -1).map(p => ({
+            texto: `${descrever(p)} ${F.fato(p.nome, palavra[grupo], !valor(p.a))}`,
+            esqueleto: `${p.letra}: ${tracosNoEsqueleto(p)} → ${valor(p.a) ? '' : 'não '}${grupo}`,
+            armadilha: false
+        })),
+        pergunta: { texto: `${descrever(teste)} ${F.pergunta(teste.nome, palavra[grupo])}`, esqueleto: `${teste.letra}: ${tracosNoEsqueleto(teste)} → ${grupo}?` },
+        resposta: RESPOSTAS_SIM_NAO[idioma][resposta],
+        flexao: FLEXAO_INDUCAO[idioma],
+        tipoResposta: 'sim-nao',
+        inducao: true,
+        respostaCanonica: CANONICA_SIM_NAO[resposta],
+        chave: null, distratores: [], chavesArmadilha: [], armadilhas: [],
+        passos: null,
+        prova: [esq.regraEscondida.texto.replace(/^regra: /, ''), `${teste.letra}: ${tracosNoEsqueleto(teste)}`, `${teste.letra} ${resposta === 'sim' ? 'é' : 'não é'} ${grupo}`],
+        legenda: letras.map(v => ({ letra: v, palavra: formaDicionario(palavra[v]), classe: palavra[v].classe })),
+        palavras: Object.fromEntries(letras.map(v => [v, palavra[v]])),
+        formas: Object.fromEntries(letras.flatMap(v => formasEscritas(palavra[v]).map(f => [f, palavra[v].classe])))
+    };
+}
+
 function gerarLote(nivel, quantidade, semente, idioma = 'pt') {
     const s = criarSorteio(semente);
     const lexico = criarLexico(s, idioma);
@@ -493,8 +649,11 @@ function gerarLotePareado(nivel, quantidade, semente, idiomas) {
     const lotes = idiomas.map(() => []);
     for (let numero = 1; numero <= quantidade; numero++) {
         const variante = s.item(Object.keys(NIVEIS[nivel].variantes));
-        const ordem = s.embaralhar([...esqueletoDe(nivel, variante).regras.keys()]);
-        idiomas.forEach((idioma, k) => lotes[k].push(montarDesafio(nivel, s, lexicos[k], numero, idioma, { variante, ordem })));
+        const esq = esqueletoDe(nivel, variante);
+        const ordem = s.embaralhar([...esq.regras.keys()]);
+        // Na indução, os mesmos exemplos e a mesma pergunta nas duas línguas
+        const inducao = esq.inducao ? estruturaDaInducao(esq, s) : undefined;
+        idiomas.forEach((idioma, k) => lotes[k].push(montarDesafio(nivel, s, lexicos[k], numero, idioma, { variante, ordem, inducao })));
     }
     return lotes;
 }
@@ -523,6 +682,7 @@ const DICAS = {
     pt: {
         lacuna: 'As palavras são inventadas. Responda com uma palavra só, já na forma que completa a frase (gênero, número, pessoa ou gerúndio), mesmo que a palavra não exista.',
         'sim-nao': 'As palavras são inventadas. "Não dá para saber" é a resposta certa quando as frases permitem os dois casos.',
+        inducao: 'As palavras são inventadas. Antes de responder, confira a regra em todos os exemplos, os de dentro e os de fora do grupo.',
         titulo: 'Exemplos resolvidos (com outras palavras):',
         // Um por flexão (o nome que flexionar() dá); "· glossário" vale para os desafios que têm um
         exemplos: {
@@ -538,12 +698,14 @@ const DICAS = {
                 'Todo plimbo é uma brona. O Tilo é um plimbo. O Tilo é uma brona? → sim',
                 'Nenhum plimbo é uma brona. O Tilo é um plimbo. O Tilo é uma brona? → não',
                 'Todo plimbo é uma brona. O Tilo é uma brona. O Tilo é um plimbo? → não dá para saber'
-            ]
+            ],
+            [FLEXAO_INDUCAO.pt]: 'O Tilo é grusento e não é zarfoso. O Tilo é um plimbo. A Nali não é grusenta e é zarfosa. A Nali não é um plimbo. O Gufo é grusento e é zarfoso. O Gufo é um plimbo. A Mirla não é grusenta e não é zarfosa. A Mirla é um plimbo? → não (a regra mais simples: é plimbo quem é grusento)'
         }
     },
     en: {
         lacuna: 'The words are made up. Answer with a single word, already in the form that completes the sentence (person, number or -ing), even if the word does not exist.',
         'sim-nao': 'The words are made up. "Can\'t tell" is the right answer when the sentences allow both cases.',
+        inducao: 'The words are made up. Before answering, check the rule against every example, those inside and those outside the group.',
         titulo: 'Solved examples (with other words):',
         exemplos: {
             'present, he/she': 'Every plimb zarfs. Tilo is a plimb. Tilo ___? → zarfs',
@@ -554,7 +716,8 @@ const DICAS = {
                 'Every plimb is a bron. Tilo is a plimb. Is Tilo a bron? → yes',
                 'No plimb is a bron. Tilo is a plimb. Is Tilo a bron? → no',
                 "Every plimb is a bron. Tilo is a bron. Is Tilo a plimb? → can't tell"
-            ]
+            ],
+            [FLEXAO_INDUCAO.en]: 'Tilo is grusky and is not zarfy. Tilo is a plimb. Nali is not grusky and is zarfy. Nali is not a plimb. Gufo is grusky and is zarfy. Gufo is a plimb. Mirla is not grusky and is not zarfy. Is Mirla a plimb? → no (the simplest rule: whoever is grusky is a plimb)'
         }
     }
 };
@@ -562,7 +725,7 @@ const DICAS = {
 // A dica (logo depois do pedido) e os exemplos resolvidos (antes dos desafios)
 function dicaDoModoMaximo(desafios) {
     const D = DICAS[desafios[0]?.idioma ?? 'pt'];
-    const tipos = new Set(desafios.map(d => d.tipoResposta === 'sim-nao' ? 'sim-nao' : 'lacuna'));
+    const tipos = new Set(desafios.map(d => d.inducao ? 'inducao' : d.tipoResposta === 'sim-nao' ? 'sim-nao' : 'lacuna'));
     const chaves = new Set(desafios.map(d => d.glossario && D.exemplos[`${d.flexao} · glossário`] ? `${d.flexao} · glossário` : d.flexao));
     const exemplos = Object.entries(D.exemplos).filter(([k]) => chaves.has(k)).flatMap(([, e]) => e);
     return { texto: [...tipos].map(t => D[t]).join('\n'), exemplos: exemplos.length ? [D.titulo, ...exemplos].join('\n') : null };

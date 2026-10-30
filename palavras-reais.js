@@ -33,6 +33,11 @@ const PALAVRAS_REAIS = {
         nome: {
             m: nomesReais(['Pedro', 'Lucas', 'Rafael', 'Bruno', 'Tiago', 'André', 'Mateus', 'Caio'], 'm'),
             f: nomesReais(['Ana', 'Júlia', 'Beatriz', 'Carla', 'Marina', 'Lívia', 'Sofia', 'Clara'], 'f')
+        },
+        // Só quando a lista acima acaba (a indução tem até 11 personagens num desafio)
+        reserva: {
+            m: nomesReais(['Gabriel', 'Felipe', 'Diego', 'Renato', 'Samuel', 'Vítor', 'Otávio', 'Murilo', 'Henrique', 'Igor', 'Leandro'], 'm'),
+            f: nomesReais(['Laura', 'Helena', 'Camila', 'Paula', 'Bianca', 'Lúcia', 'Renata', 'Olívia', 'Débora', 'Iara', 'Flávia'], 'f')
         }
     },
     en: {
@@ -54,6 +59,10 @@ const PALAVRAS_REAIS = {
         nome: {
             m: nomesReais(['Peter', 'Lucas', 'Mark', 'Bruno', 'Tom', 'Daniel', 'Henry', 'Oliver'], 'm'),
             f: nomesReais(['Anna', 'Julia', 'Grace', 'Clara', 'Mary', 'Lily', 'Sophie', 'Emma'], 'f')
+        },
+        reserva: {
+            m: nomesReais(['Jack', 'Sam', 'Leo', 'Max', 'Owen', 'Ben', 'Hugo', 'Felix', 'Victor', 'Simon', 'Adam'], 'm'),
+            f: nomesReais(['Rose', 'Kate', 'Alice', 'Ella', 'Ruby', 'Nora', 'Iris', 'Hazel', 'Ivy', 'Jane', 'Laura'], 'f')
         }
     }
 };
@@ -89,8 +98,9 @@ function trocasDoDesafio(d) {
     const usadas = new Set();
     const reais = {};
     const paraReal = new Map(), paraInventada = new Map();
+    const reserva = (p) => vocabulario.reserva?.[p.genero] ?? [];
     for (const [letra, p] of Object.entries(d.palavras)) {
-        const real = opcoes(p).find(r => !usadas.has(r)) ?? opcoes(p)[0];
+        const real = opcoes(p).find(r => !usadas.has(r)) ?? (p.classe === 'nome' ? reserva(p).find(r => !usadas.has(r)) : undefined) ?? opcoes(p)[0];
         usadas.add(real);
         reais[letra] = real;
         for (const campo of CAMPOS_DA_CLASSE[p.classe]) {
