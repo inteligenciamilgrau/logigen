@@ -511,8 +511,57 @@ Quatro limites do resultado:
 4. **O formato aberto é pequeno:** 3 desafios, só no nível 3 e sem controle com palavras
    inventadas, porque não houve efeito a comparar.
 
+### H18 — as premissas ocultas agem como se estivessem escritas? Não (04/11/2026)
+
+Ideia da conversa: a palavra real traz premissas que ninguém escreveu, e a inventada não traz
+nenhuma. "Todo mamífero é um animal. Todo gato é um animal. Todo gato é um mamífero?" é inválido:
+a lógica diz "não dá para saber", e o que se sabe de gato empurra para "sim". É o caso que faltou
+na H17, em que o mundo puxava contra a lógica; aqui ele puxa a favor da falácia.
+
+Três versões do mesmo argumento ([`gerar-g12.js`](gerar-g12.js), respostas em `g12/respostas/`),
+em lotes de 12 desafios: 6 do argumento e 6 de preenchimento, para "não dá para saber" não virar
+resposta automática. Os gabaritos saem de um verificador com o SAT do site. Se a versão real for
+respondida como a terceira, a premissa oculta age como se estivesse escrita.
+
+| Argumento (6 por lote) | real | inventada | inventada com a premissa escrita |
+|---|---|---|---|
+| resposta certa | não dá para saber | não dá para saber | sim |
+| Haiku low | 6/6 | 6/6 | **5/6** |
+| Sonnet low | 6/6 | 6/6 | 6/6 |
+| Opus low | 6/6 | 6/6 | 6/6 |
+| Fable low | 6/6 | 6/6 | 6/6 |
+
+Os 72 preenchimentos saíram certos. No total, 143 de 144. Repetimos a versão real no formato
+aberto, um desafio por janela, sem opções ("Todo gato é um mamífero?" e "Toda rosa é uma flor?"),
+nos quatro modelos: 8 de 8 recusaram a conclusão (`g12/respostas-aberto/`).
+
+- **A premissa oculta não entrou.** A versão real foi respondida como a inventada, não como a que
+  tem a premissa escrita. Sem queda, os prompts com aviso (`-aviso.txt`) não rodaram.
+- **Os modelos separam as duas camadas sem que ninguém peça.** Em 7 das 8 respostas abertas:
+  "Na vida real, todo gato é de fato um mamífero. Mas isso vem do conhecimento de biologia, não
+  dessas premissas" (Sonnet). "Verdadeiro no mundo, inválido como dedução" (Fable). O Opus disse o
+  mesmo no lote, sem que o formato pedisse. A premissa oculta está lá, e eles a declaram; só não a
+  usam na dedução. É a distinção entre validade e solidez.
+- **O único erro foi o inverso do previsto.** Na versão com a premissa escrita, o Haiku respondeu
+  "não dá para saber" a "Toda brazulha é uma brechotra?", com essa frase escrita na linha de cima.
+  Parece ter classificado o desafio pela forma (dois grupos sob o mesmo predicado) sem ler a
+  terceira linha. Em 1 caso não dá para generalizar, mas lembra a H5: o hábito de resposta falha
+  antes da lógica.
+
+Limites:
+1. **Pode ser reconhecimento de um exemplo de livro.** Em 7 das 8 respostas abertas aparece o nome
+   da falácia ("termo médio não distribuído"). A forma é clássica, e os exemplos com gato e animal
+   são os de manual. Isso é o limite 1 de [HIPOTESE.md](../testes/HIPOTESE.md): palavra nova não é
+   estrutura nova. Lote certo aqui não distingue quem raciocina de quem reconhece o padrão. Um
+   teste melhor usaria uma forma inválida menos famosa, ou operadores definidos no próprio prompt.
+2. **O enquadramento diz que é teste.** "Responda esse desafio" pede lógica. Numa conversa comum,
+   "sim, todo gato é um mamífero" seria a resposta certa, e usar o que se sabe não é erro. O teste
+   mede se o modelo consegue separar quando a tarefa pede, não o que ele faz sempre.
+3. **Teto e amostra:** de novo sem variação, com 6 argumentos, 2 no formato aberto e só modelos
+   Claude no esforço low.
+
 ## Custo desta rodada
 
 76 subagentes (40 até a H9, 18 nos testes de plural e de inglês, 6 na G8, 6 na G9 e 6 na G10). A
-janela de 5 horas foi de 26% para 45%, e a semanal, de 8% para 10%. A H17, em outro dia, usou mais
-32 subagentes.
+janela de 5 horas foi de 26% para 45%, e a semanal, de 8% para 10%. A H17 e a H18, em outro dia,
+usaram mais 32 e 20 subagentes.

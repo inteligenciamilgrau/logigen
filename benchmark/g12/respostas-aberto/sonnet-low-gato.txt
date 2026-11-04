@@ -1,0 +1,7 @@
+Não necessariamente. Não dá para concluir que todo gato é um mamífero só com essas duas premissas.
+
+As duas premissas dizem que gatos e mamíferos estão, cada um, dentro do conjunto dos animais. Isso não diz como os dois se relacionam entre si. É a falácia do termo médio não distribuído (silogismo com duas premissas afirmativas e o termo médio "animal" no predicado de ambas).
+
+Um exemplo com a mesma forma lógica e conclusão falsa: todo gato é animal, todo cachorro é animal, logo todo gato é cachorro.
+
+Na vida real, todo gato é de fato um mamífero. Mas isso vem do conhecimento de biologia, não dessas premissas. Pela lógica dada, a conclusão é inválida (não se segue).

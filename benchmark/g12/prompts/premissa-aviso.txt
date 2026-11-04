@@ -1,0 +1,73 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+
+Desafio 1
+Toda fredonta é um frelatro.
+Todo plufono é um frelatro.
+Toda fredonta é um plufono?
+
+Desafio 2
+Todo tigrodo é um plaflento.
+Toda jafeda é um tigrodo.
+Toda jafeda é um plaflento.
+Toda jafeda é um tigrodo?
+
+Desafio 3
+Toda brazulha é uma jozilha.
+Toda brechotra é uma jozilha.
+Toda brazulha é uma brechotra.
+Toda brazulha é uma brechotra?
+
+Desafio 4
+Nenhum brazolo é uma xalhemba.
+Todo gliflilvo é um brazolo.
+A Zodrice é um gliflilvo.
+A Zodrice é uma xalhemba?
+
+Desafio 5
+Toda xeglonta é um ronhopo.
+Toda xeglonta é um xonhavo.
+Todo xonhavo é um ronhopo.
+Toda xeglonta é um xonhavo?
+
+Desafio 6
+Toda floplabra é uma plederta.
+Toda brevrima é uma plederta.
+Toda brevrima é uma floplabra?
+
+Desafio 7
+Toda minhirna é um plotrabo.
+Toda minhirna é uma femerna.
+Todo plotrabo é uma femerna.
+Toda minhirna é um plotrabo?
+
+Desafio 8
+Todo branomo é uma vadurta.
+Todo branomo é um flefendo.
+Todo flefendo é uma vadurta.
+Todo branomo é um flefendo?
+
+Desafio 9
+Toda vrefufla é uma gifaba.
+Nenhuma gifaba é uma xofusta.
+A Clenhela é uma vrefufla.
+A Clenhela é uma xofusta?
+
+Desafio 10
+Toda jorapa é uma vovrama.
+Toda zudetra é uma vovrama.
+Toda zudetra é uma jorapa.
+Toda zudetra é uma jorapa?
+
+Desafio 11
+Toda frevelva é uma votonha.
+Todo brudrunho é uma votonha.
+Todo brudrunho é uma frevelva?
+
+Desafio 12
+Nenhuma plulona é uma xotreva.
+Toda boflanha é uma plulona.
+A Bradrira é uma boflanha.
+A Bradrira é uma xotreva?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

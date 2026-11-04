@@ -1,0 +1,7 @@
+Não, não dá para concluir isso. É uma falácia lógica (termo médio não distribuído).
+
+As premissas são "Toda rosa é planta" e "Toda flor é planta". As duas dizem que rosa e flor estão dentro do conjunto das plantas. Isso não diz nada sobre a relação entre rosa e flor.
+
+Resposta lógica: não se pode concluir. A conclusão não é válida a partir das premissas.
+
+Na vida real, toda rosa é uma flor. Mas isso vem do conhecimento de mundo, não das premissas dadas. Um contraexemplo com a mesma forma: "Todo gato é animal. Todo cachorro é animal. Todo gato é cachorro?" Aqui a resposta é claramente não.

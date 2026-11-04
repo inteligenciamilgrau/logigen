@@ -1,0 +1,13 @@
+Resposta: não, a conclusão "Toda rosa é uma flor" não se segue das premissas.
+
+Premissas: (1) toda rosa é uma planta; (2) toda flor é uma planta. Ambas falam de "planta", mas a conclusão exige que a rosa esteja dentro do conjunto "flor", e nenhuma premissa coloca rosas nesse conjunto. Ser planta não implica ser flor, e as premissas só dizem que flores e rosas são subconjuntos de plantas, sem relação direta entre rosas e flores. Isso é um erro de "termo médio não distribuído".
+
+Contraexemplo que mostra a invalidez: suponha que o conjunto "plantas" tenha rosas e flores como subconjuntos, e também uma árvore. Uma árvore é planta, mas não é flor nem rosa, e as premissas continuam verdadeiras sem que toda rosa seja flor, caso se imagine um mundo em que as rosas sejam plantas sem serem flores.
+
+Mais simples: se "Toda rosa é uma planta" e "Toda flor é uma planta" fossem suficientes, então "Todo gato é um animal" e "Todo cachorro é um animal" também implicariam "Todo gato é um cachorro", o que é claramente falso.
+
+Observação: na vida real, rosas são flores, mas isso é conhecimento externo, não uma consequência lógica das premissas dadas.
+
+Checagem: verifiquei a estrutura do argumento (termo médio "planta" não distribuído nas duas premissas afirmativas) e testei o padrão com o exemplo do gato e do cachorro. Nenhuma ferramenta foi usada, conforme solicitado.
+
+result: A conclusão "Toda rosa é uma flor" não se segue logicamente das premissas dadas (é um erro de termo médio não distribuído); só seria verdadeira por conhecimento externo.

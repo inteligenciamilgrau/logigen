@@ -1,0 +1,8 @@
+Resposta: não se pode concluir das premissas, embora a afirmação seja verdadeira no mundo real.
+
+- Pela lógica: as premissas dizem apenas que gatos e mamíferos estão ambos dentro do conjunto "animal". Isso não diz nada sobre a relação entre gato e mamífero. O termo médio "animal" não está distribuído em nenhuma premissa (falácia do termo médio não distribuído). Contraexemplo de mesma forma: todo gato é um animal, todo peixe é um animal, mas nem todo gato é um peixe.
+- Pelo conhecimento de mundo: sim, todo gato é um mamífero, mas isso vem da biologia, não deste argumento.
+
+Conferência: reli o enunciado e testei a forma do argumento com o contraexemplo. Não usei arquivos nem ferramentas para resolver, como pedido.
+
+result: "Todo gato é um mamífero" não decorre das premissas (termo médio não distribuído), embora seja verdade pela biologia.

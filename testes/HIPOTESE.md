@@ -30,10 +30,11 @@ lista os testes que confirmariam ou derrubariam a hipótese.
   trabalho e de leitura, o que indica um mecanismo com limites, não chute. Os detalhes estão em
   [haiku-5.5-volume-e-sosias.md](haiku-5.5-volume-e-sosias.md) e
   [haiku-5.5-contaminacao.md](haiku-5.5-contaminacao.md).
-- **O conteúdo não mudou a lógica, com o mundo contra.** Na bateria G11 (H17 em
-  [RELATORIO-G2.md](../benchmark/RELATORIO-G2.md)), os mesmos 12 desafios saíram certos com
-  palavras inventadas e com frases de plausíveis a impossíveis ("Toda lula é um rato"), nos quatro
-  modelos, sem aviso: 240 de 240. Falta testar o caso em que o mundo empurra para a falácia.
+- **O conteúdo não mudou a lógica.** Em [RELATORIO-G2.md](../benchmark/RELATORIO-G2.md): na G11
+  (H17), com o mundo contra a lógica ("Toda lula é um rato"), 240 de 240; na G12 (H18), com o mundo
+  a favor da falácia ("Todo gato é um mamífero?" sem premissa que o diga), a versão real foi
+  respondida como a inventada, e os modelos separaram sozinhos o que sabem do que foi dito. Cuidado:
+  essa falácia é clássica, e parte disso pode ser reconhecimento do padrão (limite 1, abaixo).
 
 ## Onde a afirmação precisa de cuidado
 
@@ -54,7 +55,7 @@ lista os testes que confirmariam ou derrubariam a hipótese.
 
 | Pergunta | Teste | O que confirmaria |
 |---|---|---|
-| A memória ajuda ou atrapalha? | palavras reais coerentes × reais absurdas × inventadas, com a mesma lógica (objetivo 1 do [plano](PLANO.md)). **Primeira rodada feita: G11, sem nenhuma queda.** Falta o argumento inválido com conclusão crível | inventadas ≈ reais coerentes: a lógica não depende do conteúdo. Absurdas piores: viés de crença, como em humanos (Lampinen et al., 2024, viram esse efeito em modelos de linguagem) |
+| A memória ajuda ou atrapalha? | palavras reais coerentes × reais absurdas × inventadas, com a mesma lógica (objetivo 1 do [plano](PLANO.md)). **Feito: G11 e G12, sem queda.** Falta repetir com formas inválidas menos famosas e perto do limite dos modelos | inventadas ≈ reais coerentes: a lógica não depende do conteúdo. Absurdas piores: viés de crença, como em humanos (Lampinen et al., 2024, viram esse efeito em modelos de linguagem) |
 | Abstrai a forma ou só troca palavras? | operadores e quantificadores inventados, definidos no próprio prompt ("A é *zorva* de B quer dizer…") | a estrutura lógica vale também para regras novas, não só para palavras novas |
 | Surge com a escala? | a mesma bateria em modelos abertos de vários tamanhos, de menos de 1B a 70B parâmetros | a curva mostra se a capacidade cresce aos poucos ou aos saltos |
 

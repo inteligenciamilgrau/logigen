@@ -1,0 +1,7 @@
+result: A conclusão "Todo gato é um mamífero" NÃO se segue das premissas; o argumento é inválido.
+
+Motivo: o termo médio "animal" aparece só como predicado nas duas premissas ("Todo gato é animal", "Todo mamífero é animal"). Ser animal é uma propriedade compartilhada por gatos e mamíferos, mas isso não implica que um seja subconjunto do outro. É o erro clássico de termo médio não distribuído (também chamado de afirmação do consequente, no formato "A→C, B→C, logo A→B").
+
+Contraexemplo: suponha que o conjunto de animais contenha gatos, mamíferos e também pássaros. Nesse cenário, as duas premissas são verdadeiras (todo gato é animal, todo mamífero é animal), mas a conclusão é falsa se houver um gato que, por hipótese, não seja mamífero. Como a premissa não exclui isso, a conclusão não é garantida.
+
+Verificação: não li arquivos nem usei ferramentas, conforme pedido. Resposta baseada apenas na análise lógica do silogismo.

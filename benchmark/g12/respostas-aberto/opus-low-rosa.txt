@@ -1,0 +1,9 @@
+Resposta: as premissas não permitem concluir isso. O raciocínio seria inválido, embora a frase seja verdadeira no mundo real.
+
+As duas premissas só dizem que rosas e flores estão ambas dentro do conjunto das plantas. Isso não estabelece nenhuma relação entre rosas e flores. Pela mesma forma: "todo gato é um animal; todo peixe é um animal; todo gato é um peixe?" Não, e por isso a forma do argumento não garante a conclusão.
+
+Pelo conhecimento comum, a rosa é mesmo uma flor (ou a planta que a dá), mas isso vem de fora das premissas.
+
+Nenhum arquivo foi lido e nenhuma ferramenta foi usada para resolver.
+
+result: A conclusão "toda rosa é uma flor" não se segue das premissas (ambas só dizem que são plantas), embora seja verdadeira pelo conhecimento comum.

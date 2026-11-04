@@ -1,0 +1,12 @@
+1: não dá para saber
+2: sim
+3: não dá para saber
+4: não
+5: sim
+6: não dá para saber
+7: sim
+8: sim
+9: não
+10: sim
+11: não dá para saber
+12: não

@@ -1,0 +1,67 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+
+Desafio 1
+Todo peixe é um vertebrado.
+Toda carpa é um peixe.
+Toda carpa é um vertebrado?
+
+Desafio 2
+Todo gato é um animal.
+Todo mamífero é um animal.
+Todo gato é um mamífero?
+
+Desafio 3
+Toda rosa é uma planta.
+Toda flor é uma planta.
+Toda rosa é uma flor?
+
+Desafio 4
+Todo goleiro é um jogador.
+Nenhum jogador é um juiz.
+O Caio é um goleiro.
+O Caio é um juiz?
+
+Desafio 5
+Todo cardiologista é um profissional.
+Todo médico é um profissional.
+Todo cardiologista é um médico?
+
+Desafio 6
+Toda árvore é um vegetal.
+Todo pinheiro é uma árvore.
+Todo pinheiro é um vegetal?
+
+Desafio 7
+Toda ave é um animal.
+Toda coruja é um animal.
+Toda coruja é uma ave?
+
+Desafio 8
+Toda banana é um alimento.
+Toda fruta é um alimento.
+Toda banana é uma fruta?
+
+Desafio 9
+Todo violinista é um músico.
+Nenhum músico é um advogado.
+O Bruno é um violinista.
+O Bruno é um advogado?
+
+Desafio 10
+Toda formiga é um animal.
+Todo inseto é um animal.
+Toda formiga é um inseto?
+
+Desafio 11
+Todo felino é um carnívoro.
+Todo tigre é um felino.
+Todo tigre é um carnívoro?
+
+Desafio 12
+Nenhum militar é um padeiro.
+Todo sargento é um militar.
+O Pedro é um sargento.
+O Pedro é um padeiro?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

@@ -1,0 +1,11 @@
+Resposta ao desafio (resolvido sem ferramentas):
+
+NÃO — a conclusão não segue logicamente.
+
+Premissas: Todo gato é animal (Gato ⊂ Animal); Todo mamífero é animal (Mamífero ⊂ Animal). Dois conjuntos contidos num mesmo superconjunto não precisam estar contidos um no outro. É a falácia do meio não distribuído: o termo "animal" é predicado em ambas as premissas e não está distribuído em nenhuma, então nada liga "gato" a "mamífero".
+
+Contraexemplo com a mesma forma: "Todo peixe é animal. Todo mamífero é animal. Logo todo peixe é mamífero" — falso.
+
+Observação: no mundo real gatos são mamíferos, mas isso é conhecimento externo; o desafio pergunta o que as premissas permitem concluir, e a resposta é "não é possível concluir".
+
+result: "Todo gato é um mamífero?" — não decorre das premissas (falácia do meio não distribuído); verdadeiro no mundo, mas não dedutível daqui.

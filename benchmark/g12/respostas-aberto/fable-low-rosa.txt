@@ -1,0 +1,11 @@
+Resposta ao desafio (resolvido sem ferramentas):
+
+**Não se pode concluir que toda rosa é uma flor.**
+
+As premissas "Toda rosa é uma planta" e "Toda flor é uma planta" apenas colocam rosas e flores dentro do conjunto das plantas. Dois conjuntos contidos num mesmo conjunto maior não precisam ter relação de inclusão entre si. É a falácia do termo médio não distribuído ("planta" é predicado nas duas premissas, então nada conecta "rosa" a "flor").
+
+Contraexemplo com a mesma forma: "Toda samambaia é uma planta. Toda flor é uma planta. Logo toda samambaia é uma flor?" — falso.
+
+Nota: no mundo real toda rosa é uma flor, mas isso é conhecimento externo. A conclusão é verdadeira de fato, porém NÃO decorre logicamente das premissas — o argumento é inválido.
+
+result: Não — "toda rosa é uma flor" não se segue das premissas (termo médio não distribuído); verdadeiro no mundo, inválido como dedução.

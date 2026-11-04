@@ -1,0 +1,188 @@
+{
+ "real": [
+  {
+   "numero": 1,
+   "tipo": "sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 2,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 3,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 4,
+   "tipo": "nao",
+   "resposta": "nao"
+  },
+  {
+   "numero": 5,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 6,
+   "tipo": "sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 7,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 8,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 9,
+   "tipo": "nao",
+   "resposta": "nao"
+  },
+  {
+   "numero": 10,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 11,
+   "tipo": "sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 12,
+   "tipo": "nao",
+   "resposta": "nao"
+  }
+ ],
+ "inventada": [
+  {
+   "numero": 1,
+   "tipo": "sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 2,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 3,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 4,
+   "tipo": "nao",
+   "resposta": "nao"
+  },
+  {
+   "numero": 5,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 6,
+   "tipo": "sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 7,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 8,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 9,
+   "tipo": "nao",
+   "resposta": "nao"
+  },
+  {
+   "numero": 10,
+   "tipo": "alvo",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 11,
+   "tipo": "sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 12,
+   "tipo": "nao",
+   "resposta": "nao"
+  }
+ ],
+ "premissa": [
+  {
+   "numero": 1,
+   "tipo": "sim",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 2,
+   "tipo": "alvo",
+   "resposta": "sim"
+  },
+  {
+   "numero": 3,
+   "tipo": "alvo",
+   "resposta": "sim"
+  },
+  {
+   "numero": 4,
+   "tipo": "nao",
+   "resposta": "nao"
+  },
+  {
+   "numero": 5,
+   "tipo": "alvo",
+   "resposta": "sim"
+  },
+  {
+   "numero": 6,
+   "tipo": "sim",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 7,
+   "tipo": "alvo",
+   "resposta": "sim"
+  },
+  {
+   "numero": 8,
+   "tipo": "alvo",
+   "resposta": "sim"
+  },
+  {
+   "numero": 9,
+   "tipo": "nao",
+   "resposta": "nao"
+  },
+  {
+   "numero": 10,
+   "tipo": "alvo",
+   "resposta": "sim"
+  },
+  {
+   "numero": 11,
+   "tipo": "sim",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 12,
+   "tipo": "nao",
+   "resposta": "nao"
+  }
+ ]
+}

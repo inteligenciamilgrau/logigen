@@ -1,0 +1,67 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+
+Desafio 1
+Todo frelatro é uma fredonta.
+Todo plufono é um frelatro.
+Todo plufono é uma fredonta?
+
+Desafio 2
+Toda jafeda é um plaflento.
+Todo tigrodo é um plaflento.
+Toda jafeda é um tigrodo?
+
+Desafio 3
+Toda brazulha é uma jozilha.
+Toda brechotra é uma jozilha.
+Toda brazulha é uma brechotra?
+
+Desafio 4
+Todo gliflilvo é um brazolo.
+Nenhum brazolo é uma xalhemba.
+A Zodrice é um gliflilvo.
+A Zodrice é uma xalhemba?
+
+Desafio 5
+Toda xeglonta é um ronhopo.
+Todo xonhavo é um ronhopo.
+Toda xeglonta é um xonhavo?
+
+Desafio 6
+Toda plederta é uma brevrima.
+Toda floplabra é uma plederta.
+Toda floplabra é uma brevrima?
+
+Desafio 7
+Todo plotrabo é uma femerna.
+Toda minhirna é uma femerna.
+Toda minhirna é um plotrabo?
+
+Desafio 8
+Todo branomo é uma vadurta.
+Todo flefendo é uma vadurta.
+Todo branomo é um flefendo?
+
+Desafio 9
+Toda vrefufla é uma gifaba.
+Nenhuma gifaba é uma xofusta.
+A Clenhela é uma vrefufla.
+A Clenhela é uma xofusta?
+
+Desafio 10
+Toda zudetra é uma vovrama.
+Toda jorapa é uma vovrama.
+Toda zudetra é uma jorapa?
+
+Desafio 11
+Toda votonha é um brudrunho.
+Toda frevelva é uma votonha.
+Toda frevelva é um brudrunho?
+
+Desafio 12
+Nenhuma plulona é uma xotreva.
+Toda boflanha é uma plulona.
+A Bradrira é uma boflanha.
+A Bradrira é uma xotreva?
+
+Importante: não leia arquivos nem use ferramentas para resolver.
