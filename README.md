@@ -105,7 +105,7 @@ resposta: V1
 ```
 
 - Letras, sempre com número: `X1` personagem · `G1` grupo (substantivo) · `A1` adjetivo · `V1` verbo
-- Cada linha vira sempre a mesma frase (a tabela completa está no topo de `niveis.js`)
+- Cada linha vira sempre a mesma frase (a tabela completa está no topo de `niveis.js`), menos no nível 9
 - A classe da lacuna vem da `resposta:` (`A1` = adjetivo, `V1` = verbo) e a forma da pergunta define a flexão pedida:
 
 | Pergunta no esqueleto | Frase (resposta A) | Frase (resposta V) | Flexão pedida |
@@ -133,6 +133,7 @@ Com **Gabarito e esqueleto** ligado, cada desafio mostra a variante, a linha do 
 | 6 | Palavras novas (wug) | 2 | 0 | cadeia de 2 regras + glossário; gerúndio de verbos em -er e -ir, plural em -em, e grupos cujo substantivo tem outro gênero que o das pessoas |
 | 7 | Indução | — | — | exemplos no lugar das regras; descobrir a regra escondida e aplicá-la a alguém novo (sim ou não). Variantes: um traço, um traço negado, dois traços com "e" ou "ou", "e" com negação, três traços |
 | 8 | Troca de língua | 2 | 0 | o texto vem na outra língua e a resposta é pedida na língua do site, com glossário. Variantes: adjetivo com grupo misto ou feminino, verbo no plural, gerúndio |
+| 9 | Texto natural | — | — | a mesma lógica num parágrafo de conversa, com a pergunta no fim. Variantes: flexões (adjetivo, plural, gerúndio), cadeia, negação, contraposição, as duas falácias e casos |
 
 Os níveis 1 a 3 têm as mesmas 4 variantes de flexão: adjetivo · gênero, adjetivo · plural, verbo · gerúndio, verbo · plural.
 
@@ -203,6 +204,21 @@ Glossário: sleendal → gravrorboso (adjetivo); sneebsome → dresontudo (adjet
 - A correção tem um diagnóstico a mais: **respondeu na língua do texto** (a palavra certa, mas na língua errada) conta como lógica certa e forma errada. A atração de concordância não é diagnosticada aqui, porque o gênero do substantivo não aparece no texto em inglês.
 - Com **Palavras reais**, o nível mostra o mesmo desafio sem a troca, na língua da resposta: as palavras reais servem para conferir a lógica, e ela é a mesma.
 - O nível não aparece na aba **Humano × IA**, em que cada lado já escolhe a sua língua.
+
+**Nível 9: texto natural.** Os outros níveis soam como aula de lógica, de propósito: cada linha vira sempre a mesma frase, para a forma não variar. Este escreve a mesma lógica num parágrafo de conversa, com a pergunta no fim:
+
+```
+Meu avô trabalhou muitos anos numa fazenda e ainda lembra de cada detalhe daquele lugar. Por lá,
+as bipalvas, sem exceção, são vrogefas. Além disso, toda treplufa é uma lonholta. Ali, não existe
+cletesta que não seja uma treplufa. Uma pessoa que sempre aparece nessas histórias é a Glegeia, que
+não é uma lonholta. A Jenhira é uma bipalva.
+Pelo que ele contou, a Glegeia é uma cletesta?   → não
+```
+
+- **O esqueleto e o solucionador são os mesmos.** Só muda a escrita: o nível tem `natural: true`, e os esqueletos são os de sempre.
+- **Cada molde diz exatamente o que a linha diz.** "Não existe A que não seja B" e "os As, sem exceção, são Bs" são "todo A é B"; "costuma ser" ou "quase todo" soariam bem, mas mudariam a lógica. O "ou" deixa claro que vale pelo menos um dos dois.
+- **A pergunta também é natural, sem lacuna:** "como são...?", "o que ... fazem?", "o que ... vive fazendo?". As regras ficam no singular, então a forma pedida nunca está escrita no texto. "Vive fazendo", e não "está fazendo agora": a regra diz o que o grupo faz sempre.
+- **O texto usa 4 histórias de abertura, 7 ligações e de 2 a 4 moldes por tipo de frase.** Quem vê muitos desafios vai reconhecer os moldes.
 
 Exemplo do nível 3:
 

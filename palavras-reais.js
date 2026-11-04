@@ -236,9 +236,8 @@ const trocarPalavras = (texto, mapa) => texto.replace(/[A-Za-zÀ-ÿ]+/g, w => ma
 // serve: o "um" e o "Todo" viriam da palavra inventada ("A Júlia é um professor"). A regra usa o
 // masculino genérico, e o substantivo concorda com a pessoa quando é dito dela. Com as próprias
 // palavras inventadas, o resultado é o texto original do desafio.
-const concordar = (p, genero) => p.classe === 'substantivo' && p.f && genero === 'f' ? { ...p, genero, palavra: p.f, plural: p.fp } : p;
-
 function remontarFrases(d, palavra) {
+    if (d.moldes) return textoNatural(d, palavra);
     const idioma = d.idioma ?? 'pt';
     const esq = esqueletoDe(d.nivel, d.variante);
     const F = FRASES_SIM_NAO[idioma];

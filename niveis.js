@@ -71,6 +71,14 @@
 //                            ("to florp → pavobar"); em português, ele diz também o gênero de cada
 //                            pessoa ("a Flunice, o Crodel"), que o inglês não marca
 //
+// Texto natural (nível 9):
+//   natural: true            (no nível) o desafio vira um parágrafo de conversa, com a pergunta
+//                            no fim. O esqueleto e o solucionador são os mesmos; só muda a frase:
+//                            "cada linha vira sempre a mesma frase" deixa de valer. Cada linha
+//                            tem vários moldes (logica.js), e todos dizem exatamente o que ela
+//                            diz: "costuma ser" ou "quase todo" mudariam a lógica. Só grupos
+//                            como sujeito das regras, e fatos sobre grupos
+//
 // A resposta precisa sair do texto, na lógica e na gramática. Pelo presente
 // "pavobe" não dá para saber se o verbo é pavober ou pavobir, então nos desafios
 // de gerúndio todos os verbos são da 1ª conjugação ("glovunda" -> "glovundando").
@@ -465,6 +473,107 @@ const NIVEIS = {
                 X1 é G1
                 pergunta: X1 está ___?
                 resposta: V1
+            `
+        }
+    },
+    9: {
+        nome: 'Texto natural',
+        descricao: 'A mesma lógica dos outros níveis, mas num parágrafo de conversa, com a pergunta no fim. Sem cara de aula de lógica: as regras aparecem no meio de uma história, e cada uma pode vir escrita de vários jeitos. A resposta continua conferida pelo solucionador.',
+        natural: true,
+        instrucao: {
+            pt: 'Responda cada pergunta com uma palavra só. Nas perguntas de sim ou não, responda "sim", "não" ou "não dá para saber".',
+            en: 'Answer each question with a single word. For yes or no questions, answer "yes", "no" or "can\'t tell".'
+        },
+        variantes: {
+            'adjetivo · plural': `
+                todo G1 é G2      # passo 1
+                todo G2 é A1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é A2      # distração
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: A1
+            `,
+            'verbo · plural': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 e X2 são G1
+                pergunta: X1 e X2 são ___?
+                resposta: V1
+            `,
+            'verbo · gerúndio': `
+                todo G1 é G2      # passo 1
+                todo G2 é V1      # passo 2
+                todo G3 é G4      # distração
+                todo G4 é V2      # distração
+                X1 é G1
+                pergunta: X1 está ___?
+                resposta: V1
+            `,
+            'cadeia · sim': `
+                todo G1 é G2      # passo 1
+                todo G2 é G3      # passo 2
+                todo G4 é G5      # distração
+                X1 é G1
+                X2 é G4
+                pergunta: X1 é G3?
+                resposta: sim
+            `,
+            'negação · não': `
+                todo G1 é G2      # passo 1
+                nenhum G2 é G3    # passo 2: quem é G2 não é G3
+                todo G4 é G5      # distração
+                X1 é G1
+                X2 é G4
+                pergunta: X1 é G3?
+                resposta: não
+            `,
+            'contraposição · não': `
+                todo G1 é G2      # passo 1
+                todo G2 é G3      # passo 2
+                todo G4 é G5      # distração
+                X1 não é G3       # se fosse G1, seria G3
+                X2 é G4
+                pergunta: X1 é G1?
+                resposta: não
+            `,
+            'afirmar o consequente · não dá': `
+                todo G1 é G2      # a regra vale num sentido só
+                todo G3 é G2      # outro caminho até G2
+                todo G4 é G5      # distração
+                X1 é G2           # ser G2 não diz de onde veio
+                X2 é G4
+                pergunta: X1 é G1?
+                resposta: não dá para saber
+            `,
+            'negar o antecedente · não dá': `
+                todo G1 é G2      # a regra não diz nada de quem não é G1
+                todo G4 é G5      # distração
+                X1 não é G1
+                X2 é G4
+                pergunta: X1 é G2?
+                resposta: não dá para saber
+            `,
+            'casos · sim': `
+                todo G1 é G2 ou G3   # passo 1: dois casos
+                todo G2 é G4         # caso G2
+                todo G3 é G4         # caso G3
+                todo G5 é G6         # distração
+                X1 é G1
+                X2 é G5
+                pergunta: X1 é G4?
+                resposta: sim
+            `,
+            'ramo aberto · não dá': `
+                todo G1 é G2 ou G3   # passo 1: dois casos
+                todo G2 é G4         # só o caso G2 leva a G4
+                todo G5 é G6         # distração
+                X1 é G1
+                X2 é G5
+                pergunta: X1 é G4?
+                resposta: não dá para saber
             `
         }
     }

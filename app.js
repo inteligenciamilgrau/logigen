@@ -226,7 +226,7 @@ function renderDesafios() {
                 </button>
             </div>
             <div class="space-y-1.5 bg-slate-950 p-4 border border-slate-800/50 rounded-xl mb-4 text-slate-300 leading-relaxed">
-                ${d.linhas.map(l => linhaComEsqueleto(d, l.texto, l.esqueleto, '', l.armadilha)).join('')}
+                ${d.abertura ? paragrafoHtml(d) : d.linhas.map(l => linhaComEsqueleto(d, l.texto, l.esqueleto, '', l.armadilha)).join('')}
             </div>
             <div class="border-l-4 border-purple-500 pl-4 py-1">${linhaComEsqueleto(d, d.pergunta.texto, d.pergunta.esqueleto, 'font-bold text-white')}</div>
             ${d.glossario ? `<div class="mt-3 text-xs text-slate-400 leading-relaxed">${colorirTexto(d.glossario, d.formas)}</div>` : ''}
@@ -252,6 +252,12 @@ function linhaComEsqueleto(d, texto, esqueleto, classes = '', armadilha = false)
         <span class="${classes}">${colorirTexto(texto, d.formas)}</span>
         <span class="gabarito font-mono text-[10px] text-slate-500">${marca}${colorirLetras(esqueleto)}</span>
     </div>`;
+}
+
+// Texto natural (nível 9): um parágrafo só, com o esqueleto embaixo (some junto com o gabarito)
+function paragrafoHtml(d) {
+    return `<p>${colorirTexto(paragrafoDe(d), d.formas)}</p>
+        <div class="gabarito font-mono text-[10px] text-slate-500 pt-2 space-y-0.5">${d.linhas.map(l => `<div>${colorirLetras(l.esqueleto)}</div>`).join('')}</div>`;
 }
 
 // "X1 é G1 → todo G1 é A1 ⇒ X1 é A1 (1 passo)"

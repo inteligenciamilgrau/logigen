@@ -281,6 +281,11 @@ function ordenarLetras(variaveis) {
 // "fixo" permite impor a variante e a ordem das regras (lote pareado, abaixo);
 // sem ele, as duas são sorteadas como sempre
 function montarDesafio(nivel, s, lexico, numero, idioma = 'pt', fixo = {}) {
+    const d = montarDesafioDoEsqueleto(nivel, s, lexico, numero, idioma, fixo);
+    return NIVEIS[nivel].natural ? naturalizar(d, s) : d;
+}
+
+function montarDesafioDoEsqueleto(nivel, s, lexico, numero, idioma, fixo) {
     const variante = fixo.variante ?? s.item(Object.keys(NIVEIS[nivel].variantes));
     const esq = esqueletoDe(nivel, variante);
     if (esq.inducao) return montarDesafioInducao(nivel, variante, esq, s, lexico, numero, idioma, fixo);
@@ -634,6 +639,173 @@ function montarDesafioInducao(nivel, variante, esq, s, lexico, numero, idioma, f
     };
 }
 
+// --- TEXTO NATURAL (nível 9) ---
+// Os outros níveis escrevem cada linha sempre com a mesma frase, de propósito, e por isso soam
+// como aula de lógica. Aqui as mesmas linhas viram um parágrafo de conversa. Cada molde abaixo
+// precisa dizer exatamente o que a linha do esqueleto diz: "costuma ser", "quase todo" ou "a
+// maioria" soariam bem, mas mudariam a lógica que o solucionador conferiu.
+// As regras ficam no singular, e a pergunta pede o plural ou o gerúndio: a forma pedida nunca
+// está escrita no texto. "Vive fazendo" e não "está fazendo agora": a regra diz o que o grupo
+// faz sempre, e não o que a pessoa faz neste momento.
+// O substantivo concorda com a pessoa, quando tem duas formas ("A Júlia é uma professora")
+const concordar = (p, genero) => p.classe === 'substantivo' && p.f && genero === 'f' ? { ...p, genero, palavra: p.f, plural: p.fp } : p;
+const comArtigoPlural = (p) => `${p.genero === 'm' ? 'os' : 'as'} ${p.plural}`;
+
+const NATURAL = {
+    pt: {
+        aberturas: [
+            ['Minha tia mora numa cidadezinha do interior e adora contar como as coisas funcionam naquele lugar.', 'ela'],
+            ['Um colega de trabalho passou o almoço inteiro explicando como é a vida no bairro dele.', 'ele'],
+            ['Na semana passada, a dona da pensão me explicou como são as coisas naquela região.', 'ela'],
+            ['Meu avô trabalhou muitos anos numa fazenda e ainda lembra de cada detalhe daquele lugar.', 'ele']
+        ],
+        ligacoes: ['Por lá, ', 'Além disso, ', 'Outra coisa: ', 'E tem mais: ', 'Também por lá, ', 'Vale lembrar que ', 'Ali, '],
+        todo: {
+            substantivo: [
+                (a, b) => `${todo(a).toLowerCase()} ${a.palavra} é ${artigo(b)} ${b.palavra}`,
+                (a, b) => `não existe ${a.palavra} que não seja ${artigo(b)} ${b.palavra}`,
+                (a, b) => `quem é ${a.palavra} também é ${b.palavra}`,
+                (a, b) => `${comArtigoPlural(a)}, sem exceção, são ${b.plural}`
+            ],
+            adjetivo: [
+                (a, b) => `${todo(a).toLowerCase()} ${a.palavra} é ${b[a.genero]}`,
+                (a, b) => `não existe ${a.palavra} que não seja ${b[a.genero]}`,
+                (a, b) => `quem é ${a.palavra} é ${b.m}`
+            ],
+            verbo: [
+                (a, b) => `${todo(a).toLowerCase()} ${a.palavra} ${b.presente}`,
+                (a, b) => `quem é ${a.palavra} ${b.presente}`,
+                (a, b) => `${todo(a).toLowerCase()} ${a.palavra}, sem exceção, ${b.presente}`
+            ]
+        },
+        nenhum: [
+            (a, b) => `${a.genero === 'm' ? 'nenhum' : 'nenhuma'} ${a.palavra} é ${artigo(b)} ${b.palavra}`,
+            (a, b) => `não existe ${a.palavra} que seja ${artigo(b)} ${b.palavra}`,
+            (a, b) => `quem é ${a.palavra} nunca é ${b.palavra}`
+        ],
+        ou: [
+            (a, b, c) => `${todo(a).toLowerCase()} ${a.palavra} é ${artigo(b)} ${b.palavra} ou ${artigo(c)} ${c.palavra}, pelo menos uma das duas coisas`,
+            (a, b, c) => `quem é ${a.palavra} é ${b.palavra}, ou ${c.palavra}, ou as duas coisas`
+        ],
+        // O que se diz de uma pessoa: "é uma plalhoma", "não é uma plalhoma", "são plalhomas"
+        dizer: (sujeitos, g, negativo) => `${negativo ? 'não ' : ''}${predicar(g, generoDe(sujeitos), sujeitos.length > 1)}`,
+        fato: {
+            um: [
+                (x, dito) => `${maiuscula(nomes(x))} ${dito}.`,
+                (x, dito) => `${maiuscula(nomes(x))}, por exemplo, ${dito}.`,
+                (x, dito) => `Uma pessoa que sempre aparece nessas histórias é ${nomes(x)}, que ${dito}.`
+            ],
+            dois: [
+                (x, dito) => `${maiuscula(nomes(x))} ${dito}.`,
+                (x, dito) => `${maiuscula(nomes(x))}, por exemplo, ${dito}.`,
+                (x, dito) => `Duas pessoas que sempre aparecem nessas histórias são ${nomes(x)}, que ${dito}.`
+            ]
+        },
+        perguntar: (pronome, oQue) => `Pelo que ${pronome} contou, ${oQue}`,
+        lacuna: (x, verbo, classe) => {
+            const dois = x.length > 1;
+            if (verbo.startsWith('est')) return `o que ${nomes(x)} ${dois ? 'vivem' : 'vive'} fazendo?`;
+            return classe === 'adjetivo' ? `como ${dois ? 'são' : 'é'} ${nomes(x)}?` : `o que ${nomes(x)} ${dois ? 'fazem' : 'faz'}?`;
+        },
+        simNao: (x, g) => `${nomes([x])} é ${artigo(g)} ${g.palavra}?`
+    },
+    en: {
+        aberturas: [
+            ['My aunt lives in a small town and loves telling how things work in that place.', 'she'],
+            ['A coworker spent the whole lunch explaining what life is like in his neighborhood.', 'he'],
+            ['Last week, the landlady explained to me how things are in that area.', 'she'],
+            ['My grandfather worked on a farm for many years and still remembers every detail of the place.', 'he']
+        ],
+        ligacoes: ['Over there, ', 'Besides, ', 'Another thing: ', 'And there is more: ', 'Also over there, ', 'Keep in mind that ', 'Around there, '],
+        todo: {
+            substantivo: [
+                (a, b) => `every ${a.palavra} is ${artigoEn(b.palavra)} ${b.palavra}`,
+                (a, b) => `there is no ${a.palavra} who is not ${artigoEn(b.palavra)} ${b.palavra}`,
+                (a, b) => `anyone who is ${artigoEn(a.palavra)} ${a.palavra} is also ${artigoEn(b.palavra)} ${b.palavra}`,
+                (a, b) => `${a.plural}, without exception, are ${b.plural}`
+            ],
+            adjetivo: [
+                (a, b) => `every ${a.palavra} is ${b.m}`,
+                (a, b) => `there is no ${a.palavra} who is not ${b.m}`,
+                (a, b) => `anyone who is ${artigoEn(a.palavra)} ${a.palavra} is ${b.m}`
+            ],
+            verbo: [
+                (a, b) => `every ${a.palavra} ${b.presente}`,
+                (a, b) => `anyone who is ${artigoEn(a.palavra)} ${a.palavra} ${b.presente}`,
+                (a, b) => `every ${a.palavra}, without exception, ${b.presente}`
+            ]
+        },
+        nenhum: [
+            (a, b) => `no ${a.palavra} is ${artigoEn(b.palavra)} ${b.palavra}`,
+            (a, b) => `there is no ${a.palavra} who is ${artigoEn(b.palavra)} ${b.palavra}`,
+            (a, b) => `anyone who is ${artigoEn(a.palavra)} ${a.palavra} is never ${artigoEn(b.palavra)} ${b.palavra}`
+        ],
+        ou: [
+            (a, b, c) => `every ${a.palavra} is ${artigoEn(b.palavra)} ${b.palavra} or ${artigoEn(c.palavra)} ${c.palavra}, at least one of the two`,
+            (a, b, c) => `anyone who is ${artigoEn(a.palavra)} ${a.palavra} is ${artigoEn(b.palavra)} ${b.palavra}, ${artigoEn(c.palavra)} ${c.palavra}, or both`
+        ],
+        dizer: (sujeitos, g, negativo) => predicarEn(g, sujeitos.length > 1).replace(/^(is|are) /, negativo ? '$1 not ' : '$1 '),
+        fato: {
+            um: [
+                (x, dito) => `${nomesEn(x)} ${dito}.`,
+                (x, dito) => `${nomesEn(x)}, for example, ${dito}.`,
+                (x, dito) => `Someone who always comes up in these stories is ${nomesEn(x)}, who ${dito}.`
+            ],
+            dois: [
+                (x, dito) => `${nomesEn(x)} ${dito}.`,
+                (x, dito) => `${nomesEn(x)}, for example, ${dito}.`,
+                (x, dito) => `Two people who always come up in these stories are ${nomesEn(x)}, who ${dito}.`
+            ]
+        },
+        perguntar: (pronome, oQue) => `From what ${pronome} said, ${oQue}`,
+        lacuna: (x, verbo, classe) => {
+            const dois = x.length > 1;
+            if (verbo.startsWith('est')) return `what ${dois ? 'are' : 'is'} ${nomesEn(x)} always doing?`;
+            return classe === 'adjetivo' ? `what ${dois ? 'are' : 'is'} ${nomesEn(x)} like?` : `what ${dois ? 'do' : 'does'} ${nomesEn(x)} do?`;
+        },
+        simNao: (x, g) => `is ${x.palavra} ${artigoEn(g.palavra)} ${g.palavra}?`
+    }
+};
+
+// O parágrafo sai só do esqueleto, das palavras e das escolhas guardadas em d.moldes: com as
+// mesmas escolhas e outras palavras (palavras-reais.js), sai o mesmo texto com as palavras trocadas
+function textoNatural(d, palavra) {
+    const N = NATURAL[d.idioma ?? 'pt'];
+    const { moldes } = d;
+    const esq = esqueletoDe(d.nivel, d.variante);
+    const [abertura, pronome] = N.aberturas[moldes.abertura];
+    let regras = 0, fatos = 0;
+    const frase = (esqueleto) => {
+        const r = esq.regras.find(x => x.texto === esqueleto);
+        if (r) {
+            const k = regras++;
+            const lista = r.tipo === 'todo' ? N.todo[palavra[r.entao].classe] : N[r.tipo];
+            return `${N.ligacoes[moldes.ligacoes[k]]}${lista[(moldes.regra + k) % lista.length](palavra[r.se], palavra[r.entao], r.ou && palavra[r.ou])}.`;
+        }
+        const f = esq.fatos.find(x => x.texto === esqueleto);
+        const sujeitos = f.sujeitos.map(x => palavra[x]);
+        const lista = N.fato[sujeitos.length > 1 ? 'dois' : 'um'];
+        return lista[(moldes.fato + fatos++) % lista.length](sujeitos, N.dizer(sujeitos, concordar(palavra[f.predicado], generoDe(sujeitos)), f.negativo));
+    };
+    const sujeitos = esq.pergunta.sujeitos.map(x => palavra[x]);
+    const oQue = esq.pergunta.tipo === 'sim-nao' ? N.simNao(sujeitos[0], concordar(palavra[esq.pergunta.alvo], sujeitos[0].genero))
+        : N.lacuna(sujeitos, esq.pergunta.verbo, palavra[esq.resposta].classe);
+    return { abertura, linhas: d.linhas.map(l => ({ ...l, texto: frase(l.esqueleto) })), pergunta: { ...d.pergunta, texto: N.perguntar(pronome, oQue) } };
+}
+
+// Sorteia a história, a ordem das ligações e por qual molde começar. "Por lá" abre sempre
+function naturalizar(d, s) {
+    const N = NATURAL[d.idioma];
+    const moldes = {
+        abertura: Math.floor(s.numero() * N.aberturas.length),
+        ligacoes: [0, ...s.embaralhar(N.ligacoes.map((_, i) => i).slice(1))],
+        regra: Math.floor(s.numero() * 12),
+        fato: Math.floor(s.numero() * 3)
+    };
+    const comMoldes = { ...d, moldes };
+    return { ...comMoldes, ...textoNatural(comMoldes, d.palavras) };
+}
+
 function gerarLote(nivel, quantidade, semente, idioma = 'pt') {
     if (NIVEIS[nivel].trocaDeLingua) return gerarLoteTrocado(nivel, quantidade, semente, idioma);
     const s = criarSorteio(semente);
@@ -718,7 +890,10 @@ function trocarLingua(d, doTexto, s) {
 // Sem dicas: a IA não é avisada de que as palavras são inventadas nem de que
 // precisa flexionar. O lote só pede o formato "1: resposta", para a correção ler.
 // (O modo máximo, abaixo, é a exceção de propósito.)
-const corpoDoDesafio = (d) => `${d.linhas.map(l => l.texto).join('\n')}\n${d.pergunta.texto}${d.glossario ? `\n${d.glossario}` : ''}`;
+// O texto natural (nível 9) é um parágrafo só, com a pergunta na linha de baixo
+const paragrafoDe = (d) => [d.abertura, ...d.linhas.map(l => l.texto)].join(' ');
+const corpoDoDesafio = (d) => d.abertura ? `${paragrafoDe(d)}\n${d.pergunta.texto}`
+    : `${d.linhas.map(l => l.texto).join('\n')}\n${d.pergunta.texto}${d.glossario ? `\n${d.glossario}` : ''}`;
 
 const PEDIDOS = {
     pt: { lote: 'Responda esses desafios, uma resposta por linha no formato "1: resposta":', desafio: 'Desafio', unico: 'Responda esse desafio:' },
