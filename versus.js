@@ -79,7 +79,7 @@ function versusTerminar() {
     if (VERSUS.fase !== 'jogando') return;
     clearInterval(versusRelogio);
     VERSUS.fim = Date.now();
-    // Com palavras reais, a resposta volta para as inventadas antes do corretor ("peludas" -> "zedantosas")
+    // Com palavras reais, a resposta volta para as inventadas antes do corretor ("curiosas" -> "zedantosas")
     const respostas = VERSUS.respostas.map((r, i) => VERSUS.reais ? respostaParaInventadas(r, VERSUS.loteHumano[i]) : r);
     VERSUS.resultadoHumano = corrigir(VERSUS.loteHumano, respostas.map((r, i) => `${i + 1}: ${r}`).join('\n'));
     VERSUS.fase = 'terminado';
