@@ -1,5 +1,9 @@
 # Bateria G2 — continuação da exploração (30/10/2026)
 
+> **Versões:** H1 a H16 rodaram entre a 1.0 e a 1.1 do site, com os prompts salvos em `g*/prompts/`.
+> H17 e H18 rodaram entre a 1.1 e a 1.2, e os scripts geram os mesmos prompts na 1.2. Ver
+> [CHANGELOG.md](../CHANGELOG.md).
+
 Relatório parcial, atualizado a cada rodada. Começa onde a [G1](RELATORIO-G1.md) parou: a
 lógica com "todo A é B" estava no teto para os quatro modelos low.
 

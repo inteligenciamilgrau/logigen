@@ -3,6 +3,10 @@
 // confere a resposta com o solucionador e só então escreve o texto em português.
 // O gabarito nunca é escrito à mão.
 
+// A versão aparece na tela e identifica os relatórios: a mesma semente só repete o lote na
+// mesma versão. Quando trocar, ver as regras em CHANGELOG.md e rodar benchmark/impressao.js
+const VERSAO = '1.2';
+
 // --- ESQUELETO ---
 // Cada letra vira uma classe de palavra do léxico (palavras.js)
 const LETRAS = { X: 'nome', G: 'substantivo', A: 'adjetivo', V: 'verbo' };

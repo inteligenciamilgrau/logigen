@@ -354,6 +354,6 @@ function renderPesquisa() {
         ${secaoVolumeSosias()}
         ${secaoContaminacao()}
         ${secaoPertoDoPortugues()}
-        <p class="text-[10px] text-slate-600 leading-relaxed">${t('p_metodo')}</p>`;
+        <p class="text-[10px] text-slate-600 leading-relaxed">${t('p_metodo', { versao: VERSAO })}</p>`;
     refreshIcons();
 }

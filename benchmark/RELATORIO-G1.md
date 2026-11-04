@@ -1,5 +1,8 @@
 # Bateria G1 — piloto do "fator G" (30/10/2026)
 
+> **Versão:** rodou entre a 1.0 e a 1.1 do site. Os prompts usados estão salvos em `g1/`; ver
+> [CHANGELOG.md](../CHANGELOG.md).
+
 > Continuação em [RELATORIO-G2.md](RELATORIO-G2.md): operadores, indução dura, formato da
 > resposta, dica de flexão e o teste do wug do gerúndio. Ela revê duas leituras daqui: a
 > "confusão com sósias" vem em boa parte do formato aberto da resposta, e a escada da morfologia

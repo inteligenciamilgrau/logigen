@@ -34,7 +34,7 @@ Abra o `index.html` no navegador. Funciona sem internet; só os ícones vêm de 
    - **Lógica** — escolheu a palavra certa (certo, ambígua ou flexão errada)
    - **Morfologia** — entre essas, escreveu só a forma pedida
 
-A **semente** garante que o mesmo lote se repita: use a mesma semente para comparar IAs diferentes na mesma prova.
+A **semente** garante que o mesmo lote se repita **dentro da mesma versão** do site: use a mesma semente para comparar IAs diferentes na mesma prova. A versão aparece no topo e ao lado do lote; anote as duas nos relatórios.
 
 O **modo** do prompt separa duas medidas, como na psicometria:
 - **Típico** (o padrão) — o prompt não avisa nada: nem que as palavras são inventadas, nem que a resposta precisa ser flexionada. Mede o que a IA faz por conta própria.
@@ -268,6 +268,16 @@ O esqueleto é o mesmo nos dois idiomas: a lógica dos níveis não muda, só a 
 - **Nomes sem artigo.** Em inglês não há gênero para marcar, então "o Glanol" vira só "Bloskus".
 - **Filtro de dicionário em inglês.** As palavras inventadas passam pelo mesmo filtro, com 362 mil palavras do inglês ([dwyl/english-words](https://github.com/dwyl/english-words), domínio público). O arquivo (`dicionario-en.js`, 3,7 MB) só é carregado quando o inglês é escolhido.
 - **As baterias de teste até agora foram todas em português.** A aba Pesquisa aparece traduzida, mas os resultados são dos testes em português.
+
+## 🏷️ Versões
+
+O site mostra a versão no topo, ao lado de cada lote e na aba Pesquisa. O [CHANGELOG.md](CHANGELOG.md) diz o que mudou em cada uma, em qual versão cada bateria rodou e quando trocar o número:
+
+- **X** (2.0): o prompt de um nível que já existia mudou para a mesma semente; os resultados não se comparam diretamente.
+- **Y** (1.3): entrou algo novo; os prompts antigos continuam iguais.
+- **Z** (1.2.1): só tela ou texto.
+
+`node benchmark/impressao.js` guarda um resumo dos lotes de cada nível por versão e acusa quando o gerador mudou sem o número mudar.
 
 ## 📂 Arquivos
 

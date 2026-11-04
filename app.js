@@ -68,6 +68,7 @@ async function copiar(texto) {
 // Troca os textos marcados no HTML (data-i18n, data-i18n-title, data-i18n-placeholder)
 function traduzirPagina() {
     document.title = t('titulo_pagina');
+    $('versao').textContent = `v${VERSAO}`;
     document.documentElement.lang = IDIOMA === 'pt' ? 'pt-br' : 'en';
     document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
     document.querySelectorAll('[data-i18n-title]').forEach(el => { el.title = t(el.dataset.i18nTitle); });
@@ -199,7 +200,7 @@ async function gerar() {
     respostasColadas = {};
     $('resposta-ia').value = '';
     $('placar').classList.add('hidden');
-    $('lote-info').textContent = t('lote_info', { nivel, qtd: quantidade, semente });
+    $('lote-info').textContent = t('lote_info', { versao: VERSAO, nivel, qtd: quantidade, semente });
     renderDesafios();
 }
 

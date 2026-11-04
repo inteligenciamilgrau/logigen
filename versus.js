@@ -214,7 +214,7 @@ function versusDesafiosHumano() {
     <div class="space-y-4">
         <div class="flex flex-wrap items-center gap-3">
             <h3 class="text-lg font-black text-white uppercase tracking-tight">${t('v_seus_desafios')}</h3>
-            <span class="text-[10px] font-mono text-slate-500">${IDIOMAS[VERSUS.idiomaHumano].nome} · ${t('nivel')} ${VERSUS.nivel} · ${t('semente')} ${VERSUS.semente}</span>
+            <span class="text-[10px] font-mono text-slate-500">v${VERSAO} · ${IDIOMAS[VERSUS.idiomaHumano].nome} · ${t('nivel')} ${VERSUS.nivel} · ${t('semente')} ${VERSUS.semente}</span>
             <span class="ml-auto flex items-center gap-1.5 text-sm font-black text-white tabular-nums"><i data-lucide="timer" class="w-4 h-4 text-purple-400"></i><span id="versus-relogio">${versusTempo(decorrido)}</span></span>
         </div>
         ${cartoes}
