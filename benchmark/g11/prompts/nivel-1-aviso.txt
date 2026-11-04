@@ -1,0 +1,97 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+
+Desafio 1
+Todo padeiro é um pintor.
+Todo leitor é um cozinheiro.
+A Marina não é uma padeira.
+A Clara é uma leitora.
+A Marina é uma pintora?
+
+Desafio 2
+Todo dançarino é um professor.
+Todo fazendeiro é um professor.
+Todo advogado é um marinheiro.
+O Tiago é um professor.
+A Ana é uma advogada.
+O Tiago é um fazendeiro?
+
+Desafio 3
+Todo estudante é um enfermeiro.
+Todo dentista é um escritor.
+A Carla não é uma estudante.
+A Beatriz é uma dentista.
+A Carla é uma enfermeira?
+
+Desafio 4
+Todo médico é um turista.
+Todo turista é um padeiro.
+Todo enfermeiro é um artista.
+O André é um médico.
+O Lucas é um enfermeiro.
+O André é um padeiro?
+
+Desafio 5
+Todo marinheiro é um cantor.
+Todo dentista é um pianista.
+Todo cantor é um leitor.
+A Sofia não é uma leitora.
+A Júlia é uma dentista.
+A Sofia é uma marinheira?
+
+Desafio 6
+Todo professor é um maratonista.
+Todo nadador é um turista.
+A Lívia não é uma nadadora.
+A Ana é uma professora.
+A Lívia é uma turista?
+
+Desafio 7
+Todo atleta é um dançarino.
+Todo dançarino é um escritor.
+Todo engenheiro é um fazendeiro.
+O Mateus é um atleta.
+A Beatriz é uma engenheira.
+O Mateus é um escritor?
+
+Desafio 8
+Todo vizinho é um nadador.
+Todo fazendeiro é um nadador.
+Todo marinheiro é um dançarino.
+A Marina é uma nadadora.
+O Caio é um marinheiro.
+A Marina é uma vizinha?
+
+Desafio 9
+Todo advogado é um maratonista.
+Todo maratonista é um jornalista.
+Todo padeiro é um médico.
+O Rafael é um advogado.
+A Sofia é uma padeira.
+O Rafael é um jornalista?
+
+Desafio 10
+Todo professor é um cantor.
+Todo cantor é um escritor.
+Todo atleta é um cozinheiro.
+O Pedro não é um escritor.
+A Carla é uma atleta.
+O Pedro é um professor?
+
+Desafio 11
+Todo artista é um atleta.
+Todo leitor é um atleta.
+Todo fazendeiro é um marinheiro.
+A Clara é uma atleta.
+A Júlia é uma fazendeira.
+A Clara é uma artista?
+
+Desafio 12
+Todo vizinho é um nadador.
+Todo dentista é um médico.
+Todo enfermeiro é um vizinho.
+O Bruno não é um nadador.
+A Lívia é uma dentista.
+O Bruno é um enfermeiro?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

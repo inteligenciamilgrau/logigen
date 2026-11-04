@@ -1,0 +1,3 @@
+Não é possível concluir que a Marina é uma vaca. As premissas dizem apenas que toda baleia é vaca e que a Marina não é baleia. Dessas duas informações não se segue nem que ela é vaca, nem que não é vaca: negar o antecedente (não é baleia) não permite concluir a consequente (vaca). A informação sobre a Clara e as zebras não ajuda, pois nada liga zebras a vacas. Resposta: indeterminado com base nas premissas dadas.
+
+result: Não é possível concluir que a Marina é uma vaca; as premissas não determinam isso (falácia de negação do antecedente).

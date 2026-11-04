@@ -1,0 +1,97 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber".
+
+Desafio 1
+Toda baleia é uma vaca.
+Toda zebra é um gato.
+A Marina não é uma baleia.
+A Clara é uma zebra.
+A Marina é uma vaca?
+
+Desafio 2
+Toda lula é um lobo.
+Todo cavalo é um lobo.
+Todo tigre é uma formiga.
+O Tiago é um lobo.
+A Ana é um tigre.
+O Tiago é um cavalo?
+
+Desafio 3
+Todo macaco é um rato.
+Toda vaca é um gato.
+A Carla não é um macaco.
+A Beatriz é uma vaca.
+A Carla é um rato?
+
+Desafio 4
+Todo cavalo é um tigre.
+Todo tigre é uma lula.
+Todo macaco é uma formiga.
+O André é um cavalo.
+O Lucas é um macaco.
+O André é uma lula?
+
+Desafio 5
+Todo lobo é uma baleia.
+Toda vaca é uma lula.
+Toda baleia é um cavalo.
+A Sofia não é um cavalo.
+A Júlia é uma vaca.
+A Sofia é um lobo?
+
+Desafio 6
+Toda zebra é um lobo.
+Toda coruja é um gato.
+A Lívia não é uma coruja.
+A Ana é uma zebra.
+A Lívia é um gato?
+
+Desafio 7
+Todo tigre é um macaco.
+Todo macaco é uma formiga.
+Toda lula é um rato.
+O Mateus é um tigre.
+A Beatriz é uma lula.
+O Mateus é uma formiga?
+
+Desafio 8
+Toda formiga é uma zebra.
+Todo cavalo é uma zebra.
+Toda coruja é uma baleia.
+A Marina é uma zebra.
+O Caio é uma coruja.
+A Marina é uma formiga?
+
+Desafio 9
+Todo gato é um macaco.
+Todo macaco é um lobo.
+Todo tigre é uma vaca.
+O Rafael é um gato.
+A Sofia é um tigre.
+O Rafael é um lobo?
+
+Desafio 10
+Toda lula é um cavalo.
+Todo cavalo é uma baleia.
+Todo macaco é um rato.
+O Pedro não é uma baleia.
+A Carla é um macaco.
+O Pedro é uma lula?
+
+Desafio 11
+Toda formiga é uma zebra.
+Todo lobo é uma zebra.
+Toda vaca é um rato.
+A Clara é uma zebra.
+A Júlia é uma vaca.
+A Clara é uma formiga?
+
+Desafio 12
+Toda zebra é uma lula.
+Todo gato é um lobo.
+Todo tigre é uma zebra.
+O Bruno não é uma lula.
+A Lívia é um gato.
+O Bruno é um tigre?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

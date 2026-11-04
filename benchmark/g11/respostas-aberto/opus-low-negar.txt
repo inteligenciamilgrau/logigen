@@ -1,0 +1,5 @@
+Resposta: não é possível determinar; as premissas não permitem concluir nem que sim, nem que não.
+
+Justificativa: "Toda baleia é uma vaca" diz que ser baleia basta para ser vaca, mas não que só baleias são vacas. Saber que a Marina não é baleia, portanto, nada diz sobre ela ser vaca: ela pode ser uma vaca que não é baleia, ou não ser vaca. Concluir "não" seria a falácia da negação do antecedente. As frases sobre zebra, gato e Clara são irrelevantes para a pergunta.
+
+Nenhum arquivo foi lido e nenhuma ferramenta foi usada para resolver.

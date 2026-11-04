@@ -1,0 +1,5 @@
+Resposta: Não dá para saber.
+
+Raciocínio: "Toda baleia é uma vaca" dá baleia → vaca. "A Marina não é uma baleia" nega o antecedente, e negar o antecedente não conclui nada sobre o consequente (a regra não diz que só baleias são vacas). A Marina pode ser vaca ou não. As premissas sobre zebra/gato e sobre a Clara são distratores irrelevantes para a Marina.
+
+result: Indeterminado — as premissas não permitem concluir se a Marina é uma vaca.

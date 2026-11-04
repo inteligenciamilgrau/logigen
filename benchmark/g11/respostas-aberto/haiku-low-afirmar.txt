@@ -1,0 +1,3 @@
+Resposta: não é possível concluir que o Tiago é um cavalo. A premissa "todo cavalo é um lobo" vai só de cavalo para lobo. Saber que o Tiago é lobo não confirma nem nega que ele seja cavalo, porque muitos lobos não são cavalos. As demais premissas (lulas, tigres, formigas, Ana) não afetam a resposta. Só se for assumido que tudo que não foi dito é falso a resposta seria "não".
+
+result: Não dá para concluir que o Tiago é um cavalo: "todo cavalo é um lobo" vai só de cavalo para lobo, e o fato de o Tiago ser lobo não confirma nada sobre ele ser cavalo.

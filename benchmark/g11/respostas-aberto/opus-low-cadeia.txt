@@ -1,0 +1,12 @@
+Resposta: Sim, o André é uma lula.
+
+Raciocínio:
+1. O André é um cavalo.
+2. Todo cavalo é um tigre, logo o André é um tigre.
+3. Todo tigre é uma lula, logo o André é uma lula.
+
+As premissas sobre o macaco, a formiga e o Lucas não influenciam a conclusão.
+
+Nenhum arquivo foi lido e nenhuma ferramenta foi usada para resolver; esta chamada serve apenas para entregar a resposta.
+
+result: Sim, o André é uma lula (André → cavalo → tigre → lula).

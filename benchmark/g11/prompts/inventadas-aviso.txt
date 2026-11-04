@@ -1,0 +1,97 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber", considerando apenas o que as frases garantem.
+
+Desafio 1
+Todo clovrosco é uma xovrelha.
+Toda segricha é um fralhazo.
+A Druvrira não é um clovrosco.
+A Plebice é uma segricha.
+A Druvrira é uma xovrelha?
+
+Desafio 2
+Todo zosento é uma fanabra.
+Todo plavrolvo é uma fanabra.
+Toda zanhiva é um vrobrolo.
+O Pladel é uma fanabra.
+A Vretrira é uma zanhiva.
+O Pladel é um plavrolvo?
+
+Desafio 3
+Todo vedrubo é uma jadropa.
+Toda cholema é uma jironda.
+A Crerice não é um vedrubo.
+A Mudina é uma cholema.
+A Crerice é uma jadropa?
+
+Desafio 4
+Toda flanhiba é uma clebrorba.
+Toda clebrorba é um tritilo.
+Toda rinharta é uma frenhispa.
+O Vosel é uma flanhiba.
+O Vrozar é uma rinharta.
+O Vosel é um tritilo?
+
+Desafio 5
+Toda degrocha é um bozulo.
+Todo brezifo é um vezabo.
+Todo bozulo é uma charilva.
+A Vidice não é uma charilva.
+A Clavrina é um brezifo.
+A Vidice é uma degrocha?
+
+Desafio 6
+Toda lerinda é uma riglita.
+Toda vobrefa é um xaseno.
+A Fuvrira não é uma vobrefa.
+A Flanheia é uma lerinda.
+A Fuvrira é um xaseno?
+
+Desafio 7
+Toda biflifa é uma vratroba.
+Toda vratroba é um gatrispo.
+Todo xoglendo é um jasavo.
+O Plugrur é uma biflifa.
+A Trabrira é um xoglendo.
+O Plugrur é um gatrispo?
+
+Desafio 8
+Todo brolhelto é uma jopuna.
+Todo gadofo é uma jopuna.
+Todo vrudronho é uma flepalha.
+A Plapira é uma jopuna.
+O Buflim é um vrudronho.
+A Plapira é um brolhelto?
+
+Desafio 9
+Toda fricharda é um vriplisto.
+Todo vriplisto é um maplirno.
+Toda vinomba é um plunhomo.
+O Zefleu é uma fricharda.
+A Plifleia é uma vinomba.
+O Zefleu é um maplirno?
+
+Desafio 10
+Todo cluglespo é uma floroba.
+Toda floroba é uma xudrirda.
+Todo prubalvo é um xofesto.
+O Napeu não é uma xudrirda.
+A Brunhane é um prubalvo.
+O Napeu é um cluglespo?
+
+Desafio 11
+Todo vomarno é um xachalho.
+Todo zubolo é um xachalho.
+Todo flotrulho é um glepleno.
+A Grupina é um xachalho.
+A Drugrira é um flotrulho.
+A Grupina é um vomarno?
+
+Desafio 12
+Todo xevuno é um gluvolvo.
+Toda vetrasta é uma clechinda.
+Todo frochordo é um xevuno.
+O Govreu não é um gluvolvo.
+A Crufeia é uma vetrasta.
+O Govreu é um frochordo?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

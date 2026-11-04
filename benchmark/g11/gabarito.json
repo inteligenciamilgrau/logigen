@@ -1,0 +1,64 @@
+{
+ "itens": [
+  {
+   "numero": 1,
+   "variante": "negar o antecedente · não dá",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 2,
+   "variante": "afirmar o consequente · não dá",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 3,
+   "variante": "negar o antecedente · não dá",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 4,
+   "variante": "cadeia · sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 5,
+   "variante": "contraposição · não",
+   "resposta": "nao"
+  },
+  {
+   "numero": 6,
+   "variante": "negar o antecedente · não dá",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 7,
+   "variante": "cadeia · sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 8,
+   "variante": "afirmar o consequente · não dá",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 9,
+   "variante": "cadeia · sim",
+   "resposta": "sim"
+  },
+  {
+   "numero": 10,
+   "variante": "contraposição · não",
+   "resposta": "nao"
+  },
+  {
+   "numero": 11,
+   "variante": "afirmar o consequente · não dá",
+   "resposta": "nao-da"
+  },
+  {
+   "numero": 12,
+   "variante": "contraposição · não",
+   "resposta": "nao"
+  }
+ ]
+}

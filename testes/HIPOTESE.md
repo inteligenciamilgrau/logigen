@@ -30,6 +30,10 @@ lista os testes que confirmariam ou derrubariam a hipótese.
   trabalho e de leitura, o que indica um mecanismo com limites, não chute. Os detalhes estão em
   [haiku-5.5-volume-e-sosias.md](haiku-5.5-volume-e-sosias.md) e
   [haiku-5.5-contaminacao.md](haiku-5.5-contaminacao.md).
+- **O conteúdo não mudou a lógica, com o mundo contra.** Na bateria G11 (H17 em
+  [RELATORIO-G2.md](../benchmark/RELATORIO-G2.md)), os mesmos 12 desafios saíram certos com
+  palavras inventadas e com frases de plausíveis a impossíveis ("Toda lula é um rato"), nos quatro
+  modelos, sem aviso: 240 de 240. Falta testar o caso em que o mundo empurra para a falácia.
 
 ## Onde a afirmação precisa de cuidado
 
@@ -50,7 +54,7 @@ lista os testes que confirmariam ou derrubariam a hipótese.
 
 | Pergunta | Teste | O que confirmaria |
 |---|---|---|
-| A memória ajuda ou atrapalha? | palavras reais coerentes × reais absurdas × inventadas, com a mesma lógica (objetivo 1 do [plano](PLANO.md)) | inventadas ≈ reais coerentes: a lógica não depende do conteúdo. Absurdas piores: viés de crença, como em humanos (Dasgupta et al., 2022, já viram sinais disso em modelos de linguagem) |
+| A memória ajuda ou atrapalha? | palavras reais coerentes × reais absurdas × inventadas, com a mesma lógica (objetivo 1 do [plano](PLANO.md)). **Primeira rodada feita: G11, sem nenhuma queda.** Falta o argumento inválido com conclusão crível | inventadas ≈ reais coerentes: a lógica não depende do conteúdo. Absurdas piores: viés de crença, como em humanos (Lampinen et al., 2024, viram esse efeito em modelos de linguagem) |
 | Abstrai a forma ou só troca palavras? | operadores e quantificadores inventados, definidos no próprio prompt ("A é *zorva* de B quer dizer…") | a estrutura lógica vale também para regras novas, não só para palavras novas |
 | Surge com a escala? | a mesma bateria em modelos abertos de vários tamanhos, de menos de 1B a 70B parâmetros | a curva mostra se a capacidade cresce aos poucos ou aos saltos |
 
@@ -61,8 +65,8 @@ objetivo 4 (comparar modelos). Os três entram no plano como eixos ou etapas: ve
 ## Referências
 
 - Berko, J. (1958). The child's learning of English morphology. *Word*, 14, 150–177.
-- Dasgupta, I. et al. (2022). Language models show human-like content effects on reasoning.
-  arXiv:2207.07051.
+- Lampinen, A. K., Dasgupta, I. et al. (2024). Language models, like humans, show content effects
+  on reasoning tasks. *PNAS Nexus*, doi:10.1093/pnasnexus/pgae233. Preprint: arXiv:2207.07051.
 - Schaeffer, R., Miranda, B. e Koyejo, S. (2023). Are emergent abilities of large language
   models a mirage? *NeurIPS 2023*. arXiv:2304.15004.
 - Wei, J. et al. (2022). Emergent abilities of large language models. *Transactions on Machine

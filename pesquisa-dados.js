@@ -115,6 +115,8 @@ const BATERIAS_G = {
         { eixo: 'ind',   fonte: 'G1', placar: { 'haiku-low': [9, 9],   'sonnet-low': [7, 9],   'opus-low': [9, 9],   'fable-low': [9, 9] } },
         // Um dos 9 itens tinha outra regra do mesmo tamanho que também explicava os exemplos
         { eixo: 'ind2',  fonte: 'H4', placar: { 'haiku-low': [9, 9],   'sonnet-low': [8, 9],   'opus-low': [8, 9],   'fable-low': [8, 9] } },
+        // Os mesmos 12 desafios em 5 versões, das inventadas às impossíveis, sem aviso
+        { eixo: 'absurdo', fonte: 'G11', placar: { 'haiku-low': [60, 60], 'sonnet-low': [60, 60], 'opus-low': [60, 60], 'fable-low': [60, 60] } },
         { eixo: 'morf',  fonte: 'G1', placar: { 'haiku-low': [3, 9],   'sonnet-low': [4, 9],   'opus-low': [7, 9],   'fable-low': [9, 9] } }
     ],
     // O mesmo teste sem e com ajuda: a dica "escreva já flexionada" (H6, sem dica em 2 rodadas

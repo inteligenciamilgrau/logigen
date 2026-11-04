@@ -1,0 +1,7 @@
+Resposta: não é possível determinar (indeterminado).
+
+As premissas dizem que todo cavalo é um lobo, mas não que todo lobo é um cavalo. O Tiago ser lobo é compatível com ele ser cavalo, e também com ele ser lula ou apenas um lobo que não é nem uma coisa nem outra. Concluir que ele é cavalo seria afirmar o consequente. Nada nas premissas nega isso, então também não dá para responder "não". As premissas sobre tigre, formiga e Ana são irrelevantes para a pergunta.
+
+Nenhum arquivo foi lido e nenhuma ferramenta foi usada para resolver. Conferi a resposta relendo as premissas.
+
+result: Não é possível determinar se o Tiago é um cavalo: ele é um lobo, mas nem todo lobo precisa ser cavalo.

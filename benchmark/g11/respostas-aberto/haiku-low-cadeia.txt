@@ -1,0 +1,3 @@
+Sim, o André é uma lula. Cadeia: André é cavalo; todo cavalo é tigre; todo tigre é lula; logo André é lula. Conferido: cada premissa se aplica ao André em sequência, a conclusão é válida. As premissas sobre macacos e Lucas não entram no raciocínio. Nenhuma ferramenta ou arquivo foi usado.
+
+result: Sim, o André é uma lula, pela cadeia cavalo → tigre → lula.

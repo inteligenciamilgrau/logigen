@@ -1,0 +1,5 @@
+Resposta: Não dá para saber.
+
+Justificativa: "Todo cavalo é um lobo" vai só na direção cavalo → lobo; o inverso (todo lobo é cavalo) não é dado. Tiago é um lobo, mas pode ser lobo por ser lula, por ser cavalo, ou por ser simplesmente lobo. As premissas sobre tigre, formiga e Ana não afetam a pergunta. Logo, as premissas não determinam se Tiago é um cavalo.
+
+result: Indeterminado — ser lobo não implica ser cavalo; a conclusão "Tiago é um cavalo" não se segue nem é negada pelas premissas.

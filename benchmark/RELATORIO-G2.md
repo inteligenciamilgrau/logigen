@@ -464,7 +464,55 @@ Nomes reais dão o gênero do grupo.
 - **A apresentação em inglês ajudou o Haiku em português**: tirou a pista de gênero enganosa. A
   língua do problema muda quais pistas existem, e por isso muda os erros de concordância.
 
+### H17 — a lógica depende do sentido das palavras? Nesta tarefa, não (04/11/2026)
+
+A pergunta veio de uma frase do modo palavras reais: "Toda lula é um rato. Todo rato é um
+cavalo." É uma frase bem formada, mas que nenhum falante aceita. O site ganhou um medidor de
+absurdo ([`palavras-reais.js`](../palavras-reais.js)), de 0 (o mundo confirma) a 3 (impossível),
+e ele virou a variável deste teste ([`gerar-g11.js`](gerar-g11.js), respostas em `g11/respostas/`).
+
+Doze desafios do nível 4 (3 de cadeia, 3 de contraposição e 3 de cada falácia), em cinco versões
+com a mesma lógica e a mesma ordem das frases. Cada versão e cada modelo numa janela própria, com
+arquivos de nome neutro. O gerador confere com o medidor o nível de cada regra. Sem o aviso
+"considerando apenas o que as frases garantem", que todas as baterias anteriores tinham.
+
+| | inventadas | nível 0 (plausível) | nível 1 (possível) | nível 2 (absurda) | nível 3 (impossível) |
+|---|---|---|---|---|---|
+| Haiku low | 12/12 | 12/12 | 12/12 | 12/12 | 12/12 |
+| Sonnet low | 12/12 | 12/12 | 12/12 | 12/12 | 12/12 |
+| Opus low | 12/12 | 12/12 | 12/12 | 12/12 | 12/12 |
+| Fable low | 12/12 | 12/12 | 12/12 | 12/12 | 12/12 |
+
+Como o lote com três opções pode disciplinar o modelo (H5), repetimos o nível 3 no formato
+aberto: um desafio por janela, sem opções ("O André é uma lula?"), nos casos em que a lógica e o
+mundo discordam (a cadeia e as duas falácias). As respostas estão em `g11/respostas-aberto/`.
+Foram 12 de 12 certas, lidas à mão.
+
+- **Nenhuma queda: 240 de 240 no lote e 12 de 12 no formato aberto.** O modelo menor, sem aviso,
+  respondeu que o André é uma lula, porque as frases dizem isso, e não disse que a Marina não é
+  uma vaca, porque as frases não garantem.
+- **Ninguém comentou o absurdo.** Nenhuma das 12 respostas abertas fala do mundo real, do absurdo
+  ou de bichos e pessoas. Os modelos tratam "todo A é B" como regra do jogo. O Haiku foi o mais
+  explícito: "só se for assumido que tudo que não foi dito é falso a resposta seria 'não'".
+- **O aviso não foi necessário.** Os prompts com aviso ficaram prontos (`-aviso.txt`), mas não
+  rodaram: sem queda, não havia o que recuperar.
+
+Quatro limites do resultado:
+1. **Teto.** Sem nenhum erro, o teste mostra que não há queda nesta dificuldade, não que o efeito
+   não exista. Os desafios têm um ou dois passos. O efeito pode aparecer quando a tarefa está
+   perto do limite do modelo, por exemplo em cadeias longas com ruído (G3).
+2. **Só testamos o mundo contra a lógica.** O efeito clássico é o inverso: um argumento inválido
+   com conclusão crível, que se aceita por engano (Lampinen, Dasgupta e colegas, 2024). Aqui as
+   perguntas são sobre personagens, de quem o mundo não sabe nada, então esse caso não apareceu.
+   Um exemplo do que faltou: "Todo mamífero é um animal. Todo gato é um animal. Todo gato é um
+   mamífero?" A resposta lógica é "não dá para saber", e o mundo empurra para "sim".
+3. **Uma família só.** Quatro modelos Claude, esforço low e 12 itens. Os resultados daquele
+   estudo vieram de outros modelos, e a diferença pode ser de tarefa, não de geração.
+4. **O formato aberto é pequeno:** 3 desafios, só no nível 3 e sem controle com palavras
+   inventadas, porque não houve efeito a comparar.
+
 ## Custo desta rodada
 
 76 subagentes (40 até a H9, 18 nos testes de plural e de inglês, 6 na G8, 6 na G9 e 6 na G10). A
-janela de 5 horas foi de 26% para 45%, e a semanal, de 8% para 10%.
+janela de 5 horas foi de 26% para 45%, e a semanal, de 8% para 10%. A H17, em outro dia, usou mais
+32 subagentes.

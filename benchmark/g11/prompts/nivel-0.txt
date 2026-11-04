@@ -1,0 +1,97 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber".
+
+Desafio 1
+Todo dermatologista é um médico.
+Todo sargento é um militar.
+A Marina não é uma dermatologista.
+A Clara é uma sargento.
+A Marina é uma médica?
+
+Desafio 2
+Todo pediatra é um médico.
+Todo cardiologista é um médico.
+Todo romancista é um escritor.
+O Tiago é um médico.
+A Ana é uma romancista.
+O Tiago é um cardiologista?
+
+Desafio 3
+Todo baterista é um músico.
+Todo tenente é um militar.
+A Carla não é uma baterista.
+A Beatriz é uma tenente.
+A Carla é uma musicista?
+
+Desafio 4
+Todo cardiologista é um médico.
+Todo médico é um profissional.
+Todo poeta é um escritor.
+O André é um cardiologista.
+O Lucas é um poeta.
+O André é um profissional?
+
+Desafio 5
+Todo violinista é um músico.
+Todo sargento é um militar.
+Todo músico é um artista.
+A Sofia não é uma artista.
+A Júlia é uma sargento.
+A Sofia é uma violinista?
+
+Desafio 6
+Todo romancista é um escritor.
+Todo zagueiro é um jogador.
+A Lívia não é uma zagueira.
+A Ana é uma romancista.
+A Lívia é uma jogadora?
+
+Desafio 7
+Todo goleiro é um jogador.
+Todo jogador é um atleta.
+Todo tenente é um militar.
+O Mateus é um goleiro.
+A Beatriz é uma tenente.
+O Mateus é um atleta?
+
+Desafio 8
+Todo violinista é um músico.
+Todo baterista é um músico.
+Todo poeta é um escritor.
+A Marina é uma musicista.
+O Caio é um poeta.
+A Marina é uma violinista?
+
+Desafio 9
+Todo dermatologista é um médico.
+Todo médico é um profissional.
+Todo sargento é um militar.
+O Rafael é um dermatologista.
+A Sofia é uma sargento.
+O Rafael é um profissional?
+
+Desafio 10
+Todo baterista é um músico.
+Todo músico é um artista.
+Todo romancista é um escritor.
+O Pedro não é um artista.
+A Carla é uma romancista.
+O Pedro é um baterista?
+
+Desafio 11
+Todo goleiro é um jogador.
+Todo zagueiro é um jogador.
+Todo tenente é um militar.
+A Clara é uma jogadora.
+A Júlia é uma tenente.
+A Clara é uma goleira?
+
+Desafio 12
+Todo jogador é um atleta.
+Todo poeta é um escritor.
+Todo zagueiro é um jogador.
+O Bruno não é um atleta.
+A Lívia é uma poetisa.
+O Bruno é um zagueiro?
+
+Importante: não leia arquivos nem use ferramentas para resolver.

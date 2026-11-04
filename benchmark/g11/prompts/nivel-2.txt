@@ -1,0 +1,97 @@
+Responda esses desafios, uma resposta por linha no formato "1: resposta":
+Responda só "sim", "não" ou "não dá para saber".
+
+Desafio 1
+Todo maratonista é uma ideia.
+Todo pianista é uma verdade.
+A Marina não é uma maratonista.
+A Clara é uma pianista.
+A Marina é uma ideia?
+
+Desafio 2
+Toda coruja é uma lembrança.
+Todo cantor é uma lembrança.
+Todo vizinho é um sucesso.
+O Tiago é uma lembrança.
+A Ana é uma vizinha.
+O Tiago é um cantor?
+
+Desafio 3
+Todo nadador é uma mentira.
+Todo motorista é um orgulho.
+A Carla não é uma nadadora.
+A Beatriz é uma motorista.
+A Carla é uma mentira?
+
+Desafio 4
+Todo motorista é um talento.
+Todo talento é uma baleia.
+Todo estudante é um orgulho.
+O André é um motorista.
+O Lucas é um estudante.
+O André é uma baleia?
+
+Desafio 5
+Todo pintor é uma verdade.
+Todo jornalista é uma promessa.
+Toda verdade é uma zebra.
+A Sofia não é uma zebra.
+A Júlia é uma jornalista.
+A Sofia é uma pintora?
+
+Desafio 6
+Todo advogado é um sucesso.
+Todo vizinho é uma mentira.
+A Lívia não é uma vizinha.
+A Ana é uma advogada.
+A Lívia é uma mentira?
+
+Desafio 7
+Todo dentista é um talento.
+Todo talento é um rato.
+Todo motorista é uma lembrança.
+O Mateus é um dentista.
+A Beatriz é uma motorista.
+O Mateus é um rato?
+
+Desafio 8
+Todo turista é uma ideia.
+Toda vaca é uma ideia.
+Todo engenheiro é um sucesso.
+A Marina é uma ideia.
+O Caio é um engenheiro.
+A Marina é uma turista?
+
+Desafio 9
+Todo enfermeiro é um orgulho.
+Todo orgulho é um tigre.
+Todo leitor é uma mentira.
+O Rafael é um enfermeiro.
+A Sofia é uma leitora.
+O Rafael é um tigre?
+
+Desafio 10
+Todo estudante é uma verdade.
+Toda verdade é um gato.
+Todo pianista é uma lembrança.
+O Pedro não é um gato.
+A Carla é uma pianista.
+O Pedro é um estudante?
+
+Desafio 11
+Todo cozinheiro é uma promessa.
+Toda coruja é uma promessa.
+Todo jornalista é um talento.
+A Clara é uma promessa.
+A Júlia é uma jornalista.
+A Clara é uma cozinheira?
+
+Desafio 12
+Toda ideia é um macaco.
+Todo engenheiro é uma promessa.
+Todo motorista é uma ideia.
+O Bruno não é um macaco.
+A Lívia é uma engenheira.
+O Bruno é um motorista?
+
+Importante: não leia arquivos nem use ferramentas para resolver.
