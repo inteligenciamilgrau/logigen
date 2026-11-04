@@ -47,10 +47,18 @@ As escolhas (nível, quantidade, semente, modo, "Gabarito e esqueleto" e idioma)
 As **bandeirinhas** no topo trocam o idioma do site **e dos desafios**: a mesma semente gera um lote em português ou em inglês. `index.html?lang=en` abre direto em inglês. Na primeira visita, o site usa o idioma do navegador.
 
 A chave **Palavras reais**, acima dos desafios, mostra o mesmo desafio com palavras de verdade, para conferir se a lógica faz sentido para uma pessoa:
-- **Troca palavra por palavra, mantendo a classe e a forma:** "Toda plalhoma é zedantosa" vira "Toda lenda é sonolenta".
-- **Em português o gênero é mantido**, então os artigos continuam certos e a concordância continua sendo testada: "O Bruno é ___?" pede *sonolento*.
-- **Palavras que não se excluem:** gênio, lenda, curioso, nada, Pedro, Ana… (em inglês: teacher, curious, swims, Peter…). As regras dizem "todo G1 é G2", então os grupos precisam ser coisas que uma mesma pessoa pode ser ao mesmo tempo. Com bichos, "Toda lula é um rato" contradiz o que qualquer falante sabe; o mesmo vale para "alto" e "baixo" na mesma pessoa.
-- **As frases podem ficar absurdas** ("Todo gênio mergulha."), mas nunca impossíveis, e a lógica vale do mesmo jeito.
+- **Cada palavra inventada vira uma real da mesma classe, e as frases são remontadas a partir do esqueleto:** "Toda plalhoma é zedantosa" vira "Todo professor é curioso", e "A Júlia é uma plalhoma" vira "A Júlia é uma professora". A regra fica no masculino genérico; o substantivo concorda com a pessoa quando é dito dela, e a lacuna continua pedindo a concordância.
+- **As palavras têm sentido, e a gramática não enxerga isso.** "Toda lula é um rato" e "O Caio é um sucesso" são frases bem formadas, com substantivo dos dois lados do "é", mas uma é impossível e a outra junta tipos que não se encaixam. Cada palavra real traz traços de sentido (`tipo`, `serve`, `exclui`, `e`, `faz`), e um medidor dá o absurdo de cada frase:
+
+| Nível | Tipo | Exemplo |
+|---|---|---|
+| 0 | plausível: o mundo confirma | "Todo escritor é um leitor" |
+| 1 | possível: nada impede | "Todo professor é um cantor" |
+| 2 | absurda: tipos que não se encaixam | "O Caio é um sucesso", "Todo professor late" |
+| 3 | impossível: as partes se excluem | "Toda lula é um rato" |
+
+- **O site só usa o nível 1.** Acima dele a frase briga com o que o leitor sabe. Abaixo, o mundo responde no lugar das regras: com "Todo pintor é um escritor" e "O Caio não é um leitor", "O Caio é um pintor?" deixaria de ser "não dá para saber". Por isso duas palavras com relação entre si nunca entram no mesmo desafio.
+- **As palavras inventadas ficam de fora de tudo isso.** Elas não têm sentido nenhum, e é por isso que medem a lógica pura.
 - **O prompt copiado continua com as palavras inventadas**, porque são elas que medem o raciocínio da IA.
 
 A aba **Humano × IA** (`index.html#versus`) põe uma pessoa e uma IA no mesmo desafio, cada uma na sua língua:
@@ -61,7 +69,7 @@ A aba **Humano × IA** (`index.html#versus`) põe uma pessoa e uma IA no mesmo d
 
 Com idiomas diferentes, o gerador cria um **lote pareado**: em cada desafio, a mesma variante e a mesma ordem das regras nas duas línguas, só com as palavras inventadas de cada uma. "A Nepeia está ___?" (*xudrandando*) e "What is Fesis doing? Fesis is ___?" (*zendelking*) são o mesmo desafio. Com o mesmo idioma, os dois recebem o texto idêntico. Os gabaritos e o resultado da IA só aparecem depois que você termina.
 
-Você também pode **jogar com palavras reais** enquanto a IA continua com as inventadas. A sua resposta ("curiosas") é traduzida de volta para a palavra inventada antes da correção. O sentido das palavras pode ajudar, ou atrapalhar quando a frase é absurda.
+Você também pode **jogar com palavras reais** enquanto a IA continua com as inventadas. A sua resposta ("curiosas") é traduzida de volta para a palavra inventada antes da correção. O sentido das palavras pode ajudar, ou atrapalhar quando a frase soa estranha.
 
 A aba **Pesquisa** (`index.html#pesquisa`) mostra os gráficos comparativos das baterias de teste com IAs:
 - as baterias G do [benchmark](benchmark/): onde a lógica satura (eixo × modelo), hábito ou capacidade (sem ajuda × com ajuda, com o índice de intuição) e o que muda entre duas línguas;
@@ -254,7 +262,7 @@ O esqueleto é o mesmo nos dois idiomas: a lógica dos níveis não muda, só a 
 | `niveis.js` | Esqueletos lógicos de cada nível (é aqui que se cria nível novo) |
 | `logica.js` | Lê o esqueleto, solucionador, texto dos desafios, flexões e correção |
 | `palavras.js` | Gerador de palavras inventadas e sorteio com semente |
-| `palavras-reais.js` | Vocabulário real (grupos, traços e ações que não se excluem) para ver o mesmo desafio com palavras de verdade |
+| `palavras-reais.js` | Vocabulário real com traços de sentido, medidor de absurdo e remontagem das frases, para ver o mesmo desafio com palavras de verdade |
 | `dicionario.js` | Palavras do português, para nenhuma inventada ficar a uma letra de uma real |
 | `dicionario-en.js` | O mesmo, em inglês (carregado só quando o inglês é escolhido) |
 | `idiomas.js` | Textos do site em português e inglês, bandeiras e a notação do esqueleto na tela |

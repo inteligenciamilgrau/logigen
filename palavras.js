@@ -71,7 +71,7 @@ function genero(s) { return s.chance(0.5) ? 'm' : 'f'; }
 
 // Todas as formas de uma palavra que podem aparecer escritas no desafio
 function formasEscritas(p) {
-    if (p.classe === 'substantivo') return [p.palavra, p.plural];
+    if (p.classe === 'substantivo') return p.f ? [p.palavra, p.plural, p.f, p.fp] : [p.palavra, p.plural];
     if (p.classe === 'adjetivo') return [p.m, p.f, p.mp, p.fp];
     if (p.classe === 'verbo') return [p.infinitivo, p.presente, p.plural, p.gerundio];
     return [p.palavra];

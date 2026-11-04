@@ -159,9 +159,9 @@ const TEXTOS = {
 
         reais_toggle: 'Palavras reais',
         reais_title: 'Mostra o mesmo desafio com palavras de verdade, só para conferir se faz sentido. O prompt copiado continua com as palavras inventadas.',
-        reais_aviso: '<b>Palavras reais</b>, só para conferir: cada palavra inventada virou uma de verdade, da mesma classe e na mesma forma. As frases podem ficar absurdas ("Todo gênio mergulha."), mas a lógica vale do mesmo jeito. O prompt copiado continua com as palavras inventadas.',
+        reais_aviso: '<b>Palavras reais</b>, só para conferir: cada palavra inventada virou uma de verdade, da mesma classe. As frases podem soar estranhas ("Todo padeiro é um marinheiro."), mas são sempre possíveis, e a lógica vale do mesmo jeito. O prompt copiado continua com as palavras inventadas.',
         v_reais: 'Jogar com palavras reais',
-        v_reais_dica: 'Você vê palavras de verdade; a IA continua com as inventadas. O sentido pode ajudar, ou atrapalhar quando a frase é absurda.',
+        v_reais_dica: 'Você vê palavras de verdade; a IA continua com as inventadas. O sentido pode ajudar, ou atrapalhar quando a frase soa estranha.',
         v_reais_nota: 'Você jogou com palavras reais; a IA, com as inventadas.',
 
         aba_versus: 'Humano × IA',
@@ -311,9 +311,9 @@ const TEXTOS = {
 
         reais_toggle: 'Real words',
         reais_title: 'Shows the same challenge with real words, just to check that it makes sense. The copied prompt still uses the invented words.',
-        reais_aviso: '<b>Real words</b>, just for checking: each invented word became a real one, of the same class and in the same form. Sentences may sound absurd ("Every judge dives."), but the logic holds all the same. The copied prompt still uses the invented words.',
+        reais_aviso: '<b>Real words</b>, just for checking: each invented word became a real one, of the same class. Sentences may sound odd ("Every baker is a sailor."), but they are always possible, and the logic holds all the same. The copied prompt still uses the invented words.',
         v_reais: 'Play with real words',
-        v_reais_dica: 'You see real words; the AI still gets the invented ones. Meaning may help, or get in the way when a sentence is absurd.',
+        v_reais_dica: 'You see real words; the AI still gets the invented ones. Meaning may help, or get in the way when a sentence sounds odd.',
         v_reais_nota: 'You played with real words; the AI, with invented ones.',
 
         aba_versus: 'Human × AI',
